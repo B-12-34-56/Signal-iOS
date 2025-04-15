@@ -14895,6 +14895,8 @@
 		F9C5C898289451B900548EEE /* SignalServiceKit */ = {
 			isa = PBXGroup;
 			children = (
+				D6D8F0102DACA96000CFDC7C /* Models */,
+				D6D8F0022DAC905400CFDC7C /* Hooks */,
 				F9C5C9BA289453B100548EEE /* Account */,
 				D6633BC12DB052B6006E883E /* Config */,
 				D6D8F0102DACA96000CFDC7C /* Models */,
