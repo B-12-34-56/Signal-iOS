@@ -162,8 +162,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainAppContext = MainAppContext()
         SetCurrentAppContext(mainAppContext)
 
-        // Configure AWS services early in the launch process
-        AWSServiceBoot.configure()
+        AttachmentDownloadHook.shared.install()
 
         let debugLogger = DebugLogger.shared
         debugLogger.enableTTYLoggingIfNeeded()
