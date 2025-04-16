@@ -1784,6 +1784,10 @@
 		D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221A0E7169DFFC500537ABF /* AVFoundation.framework */; };
 		D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24B5BD4169F568C00681372 /* AudioToolbox.framework */; };
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
+		D6633BBD2DB05243006E883E /* DuplicateSignatureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6633BBC2DB05243006E883E /* DuplicateSignatureStore.swift */; };
+		D6633BBF2DB0524B006E883E /* ReflectionAttachmentFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6633BBE2DB0524B006E883E /* ReflectionAttachmentFetcher.swift */; };
+		D6633BC22DB052B6006E883E /* DuplicateDetectionConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6633BC02DB052B6006E883E /* DuplicateDetectionConfig.swift */; };
+		D6CF17532DAF5159007E44D7 /* DuplicateImageRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CF17522DAF5159007E44D7 /* DuplicateImageRecord.swift */; };
 		D6D8F0032DAC905400CFDC7C /* AttachmentDownloadHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D8F0012DAC905400CFDC7C /* AttachmentDownloadHook.swift */; };
 		D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */ = {isa = PBXBuildFile; productRef = D6D8F0082DACA6D900CFDC7C /* AWSDynamoDB */; };
 		D90AA3322CC9616B00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2222CC9616A00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto */; };
@@ -5685,6 +5689,10 @@
 		D221A0E7169DFFC500537ABF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = ../../../../../../System/Library/Frameworks/AVFoundation.framework; sourceTree = "<group>"; };
 		D24B5BD4169F568C00681372 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = ../../../../../../System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<group>"; };
 		D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D6633BBC2DB05243006E883E /* DuplicateSignatureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateSignatureStore.swift; sourceTree = "<group>"; };
+		D6633BBE2DB0524B006E883E /* ReflectionAttachmentFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionAttachmentFetcher.swift; sourceTree = "<group>"; };
+		D6633BC02DB052B6006E883E /* DuplicateDetectionConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateDetectionConfig.swift; sourceTree = "<group>"; };
+		D6CF17522DAF5159007E44D7 /* DuplicateImageRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateImageRecord.swift; sourceTree = "<group>"; };
 		D6D8F0012DAC905400CFDC7C /* AttachmentDownloadHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentDownloadHook.swift; sourceTree = "<group>"; };
 		D90AA0712CC9616A00021CB0 /* account_data_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = account_data_00.binproto; sourceTree = "<group>"; };
 		D90AA0722CC9616A00021CB0 /* account_data_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = account_data_00.txtproto; sourceTree = "<group>"; };
@@ -11281,10 +11289,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D6633BC12DB052B6006E883E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				D6633BC02DB052B6006E883E /* DuplicateDetectionConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		D6D8F0022DAC905400CFDC7C /* Hooks */ = {
 			isa = PBXGroup;
 			children = (
+				D6633BBE2DB0524B006E883E /* ReflectionAttachmentFetcher.swift */,
+				D6633BBC2DB05243006E883E /* DuplicateSignatureStore.swift */,
 				D6D8F0012DAC905400CFDC7C /* AttachmentDownloadHook.swift */,
+				D6CF17522DAF5159007E44D7 /* DuplicateImageRecord.swift */,
 			);
 			path = Hooks;
 			sourceTree = "<group>";
@@ -13299,9 +13318,10 @@
 		F9C5C898289451B900548EEE /* SignalServiceKit */ = {
 			isa = PBXGroup;
 			children = (
+				F9C5C9BA289453B100548EEE /* Account */,
+				D6633BC12DB052B6006E883E /* Config */,
 				D6D8F0102DACA96000CFDC7C /* Models */,
 				D6D8F0022DAC905400CFDC7C /* Hooks */,
-				F9C5C9BA289453B100548EEE /* Account */,
 				7255A4C32B98D5A800E95368 /* Attachments */,
 				D979DA142B8D1FCF000EEAB8 /* Badge */,
 				F945FE482984795A00C835C7 /* Calls */,
@@ -17504,6 +17524,7 @@
 				C1EB623C2BADEE56006D99CB /* ChunkedInputStreamTransform.swift in Sources */,
 				C1CF83D02B96C85E00CDC9C4 /* ChunkedOutputStreamTransform.swift in Sources */,
 				728BFE522C5C59E5008F20F1 /* CipherContext.swift in Sources */,
+				D6CF17532DAF5159007E44D7 /* DuplicateImageRecord.swift in Sources */,
 				F9C5CDFC289453B400548EEE /* Collection+OWS.swift in Sources */,
 				0512145B2C5BCECF0021EEC9 /* CollectionDifference+SSK.swift in Sources */,
 				66F6D6A52C7D0E0000EFAF75 /* ColorOrGradient.swift in Sources */,
@@ -17671,6 +17692,7 @@
 				725465522BA0282D00EABFD2 /* GroupsV2Impl+RestoreGroups.swift in Sources */,
 				725465542BA0282D00EABFD2 /* GroupsV2Impl.swift in Sources */,
 				725465572BA0282D00EABFD2 /* GroupsV2IncomingChanges.swift in Sources */,
+				D6633BBD2DB05243006E883E /* DuplicateSignatureStore.swift in Sources */,
 				F9C5CDA1289453B400548EEE /* GroupsV2MessageJobFinder.swift in Sources */,
 				F9C5CDA2289453B400548EEE /* GroupsV2MessageProcessor.swift in Sources */,
 				725465562BA0282D00EABFD2 /* GroupsV2OutgoingChangesImpl.swift in Sources */,
@@ -18191,6 +18213,7 @@
 				7255A4D22B98E2B700E95368 /* ScrubbingLogFormatter.swift in Sources */,
 				F9C5CDEE289453B400548EEE /* SDS+SSK.swift in Sources */,
 				D9F6553229D6531D002A330A /* SDSCodableModel+ColumnName.swift in Sources */,
+				D6633BBF2DB0524B006E883E /* ReflectionAttachmentFetcher.swift in Sources */,
 				D9F6554229D67708002A330A /* SDSCodableModel+SDSSerialization.swift in Sources */,
 				F9C5CD2D289453B300548EEE /* SDSCodableModel.swift in Sources */,
 				D9F6554029D65F11002A330A /* SDSCodableModelDatabaseInterface+Enumerate.swift in Sources */,
@@ -18507,6 +18530,7 @@
 				725465602BA033E200EABFD2 /* UserNotificationsPresenter.swift in Sources */,
 				F9C5CE26289453B400548EEE /* UserProfileFinder.swift in Sources */,
 				5037F1942A43A6A300C372AD /* UserProfileMerger.swift in Sources */,
+				D6633BC22DB052B6006E883E /* DuplicateDetectionConfig.swift in Sources */,
 				506ABE6B2A43AECA008844D1 /* UserProfileStore.swift in Sources */,
 				72901D2B2C9B11A3000406DC /* UserProfileWriter.swift in Sources */,
 				D94441312D55956B005B2A54 /* UUIDv7.swift in Sources */,
