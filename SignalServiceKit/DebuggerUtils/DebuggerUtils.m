@@ -41,7 +41,7 @@ void TrapDebugger(void)
     if (!enabled) {
         return;
     }
-
+    
     __builtin_debugtrap();
 }
 

@@ -162,8 +162,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainAppContext = MainAppContext()
         SetCurrentAppContext(mainAppContext)
 
-        AttachmentDownloadHook.shared.install()
-
         let debugLogger = DebugLogger.shared
         debugLogger.enableTTYLoggingIfNeeded()
         DebugLogger.registerLibsignal()
