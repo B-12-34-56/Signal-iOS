@@ -1233,21 +1233,22 @@ public class MessageSender {
     ) async throws -> [SentDeviceMessage] {
         let message = messageSend.message
         let serviceId = messageSend.serviceId
-        // ── Duplicate‐block gate: if this image hash is locally blocked, abort send ──
-        // Make sure you’ve added aHashString (or whatever) to your attachment model
         // ── Duplicate-block gate: local & global ─────────────────────────────
+        // Before sending, check if the attachment hash is locally blocked or
+        // globally blocked (in DynamoDB). If it is, abort the send operation
+        // immediately and throw the appropriate error.
         let firstAttachment = SSKEnvironment.shared.databaseStorageRef.read { db in
             message.allAttachments(transaction: db).first
         }
         if let aHash = firstAttachment?.aHashString {
-            // ❶ already-blocked locally
+            // ❶ already-blocked locally (e.g., user blocked it manually)
             if await DuplicateSignatureStore.shared.isBlocked(aHash) {
-                Logger.warn("Not sending – blocked hash \(aHash.prefix(8))")
+                Logger.warn("[Duplicate Content Detection] Not sending message \(message.uniqueId) – locally blocked hash \(aHash.prefix(8))")
                 throw MessageSenderError.duplicateBlocked(aHash: aHash)
             }
             // ❷ duplicate seen by any device (DynamoDB)
             if await GlobalSignatureService.shared.contains(aHash) {
-                Logger.warn("Not sending – global dup \(aHash.prefix(8))")
+                Logger.warn("[Duplicate Content Detection] Not sending message \(message.uniqueId) – global duplicate hash \(aHash.prefix(8))")
                 throw MessageSenderError.duplicateBlocked(aHash: aHash)
             }
         }
@@ -1573,6 +1574,22 @@ public class MessageSender {
             )
         }
 
+        // ── Duplicate Content Detection: Store Hash on Success ───────────────────
+        // After a message with an attachment is successfully sent, store its hash
+        // in the global DynamoDB database. This contributes to the detection
+        // of duplicate/blocked content for future downloads by *other* users.
+        if let firstAttachment = SSKEnvironment.shared.databaseStorageRef.read({ db in message.allAttachments(transaction: db).first }),
+           let aHash = firstAttachment.aHashString {
+            Task {
+                Logger.info("[Duplicate Content Detection] Storing hash \(aHash.prefix(8))... after successful send for message \(message.uniqueId).")
+                // The store operation includes retry logic and error handling internally.
+                // We log the attempt here; GlobalSignatureService logs success/failure.
+                _ = await GlobalSignatureService.shared.store(aHash)
+            }
+        }
+        // ────────────────────────────────────────────────────────────────────────
+
+
         await SSKEnvironment.shared.databaseStorageRef.awaitableWrite { transaction in
             if deviceMessages.isEmpty, messageSend.localIdentifiers.contains(serviceId: messageSend.serviceId) {
                 // Since we know we have no linked devices, we can record that
@@ -1696,6 +1713,7 @@ public class MessageSender {
         default:
             throw responseError
         }
+        return []
     }
 
     private func failSendForUnregisteredRecipient(_ messageSend: OWSMessageSend) async throws -> Never {
