@@ -7,6 +7,8 @@ import Foundation
 public import LibSignalClient
 
 public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescriptionProvider {
+    case duplicateBlocked(aHash: String)
+    
     case prekeyRateLimit
     case missingDevice
     case blockedContactRecipient
@@ -24,6 +26,8 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
                 "MESSAGE_STATUS_SEND_FAILED",
                 comment: "Label indicating that a message failed to send."
             )
+        case .duplicateBlocked(aHash: let aHash):
+            <#code#>
         }
     }
 
@@ -41,6 +45,8 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
             return false
         case .threadMissing:
             return false
+        case .duplicateBlocked(aHash: let aHash):
+            <#code#>
         }
     }
 }

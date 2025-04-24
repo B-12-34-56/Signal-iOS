@@ -4,8 +4,8 @@ import AWSDynamoDB
 import os.log
 
 /// Manages global image signature checks and storage in DynamoDB
-final class GlobalSignatureService {
-    static let shared = GlobalSignatureService()
+public final class GlobalSignatureService {
+    public static let shared = GlobalSignatureService()
     private let client: AWSDynamoDB
     private let tableName = "SignalContentHashes"
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "GlobalSignatureService")

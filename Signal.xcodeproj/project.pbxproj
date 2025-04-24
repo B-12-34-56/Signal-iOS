@@ -1781,6 +1781,7 @@
 		D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221A0E7169DFFC500537ABF /* AVFoundation.framework */; };
 		D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24B5BD4169F568C00681372 /* AudioToolbox.framework */; };
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
+		D652259F2DBA66EC00830042 /* Attachment+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D652259E2DBA66E700830042 /* Attachment+Hash.swift */; };
 		D65CE2C02DB29BCF00221D4F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; platformFilter = ios; };
 		D65CE2C12DB29BCF00221D4F /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D65CE2C42DB29BF600221D4F /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */; platformFilter = ios; };
@@ -5719,6 +5720,7 @@
 		D60537872DB168670008375C /* SignalDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignalDebug.entitlements; sourceTree = "<group>"; };
 		D60537882DB168980008375C /* SignalNSEDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignalNSEDebug.entitlements; sourceTree = "<group>"; };
 		D60537892DB168B70008375C /* SignalShareExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignalShareExtensionDebug.entitlements; sourceTree = "<group>"; };
+		D652259E2DBA66E700830042 /* Attachment+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attachment+Hash.swift"; sourceTree = "<group>"; };
 		D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = ../Desktop/AWSCore.framework; sourceTree = "<group>"; };
 		D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = ../Desktop/AWSDynamoDB.framework; sourceTree = "<group>"; };
 		D65FD7952DB15CB1000A62E1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
@@ -8145,8 +8147,18 @@
 		FD2EDF5809C33D5D1607463B /* Pods-SignalServiceKit.app store release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalServiceKit.app store release.xcconfig"; path = "Target Support Files/Pods-SignalServiceKit/Pods-SignalServiceKit.app store release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D6F618642DB9F1DE00299C2D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DuplicateDetection/DuplicateDetectionStore.swift,
+			);
+			target = F9C5C896289451B900548EEE /* SignalServiceKit */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D63E4CEB2DB452700035CABC /* Features */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Features; sourceTree = "<group>"; };
+		D63E4CEB2DB452700035CABC /* Features */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D6F618642DB9F1DE00299C2D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Features; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -10875,6 +10887,7 @@
 		7255A4C32B98D5A800E95368 /* Attachments */ = {
 			isa = PBXGroup;
 			children = (
+				D652259E2DBA66E700830042 /* Attachment+Hash.swift */,
 				664428952C12305D0092D0E2 /* SignalAttachment+Sending.swift */,
 				66AF4D7228D1377E008A156E /* SignalAttachment+VideoSegmenting.swift */,
 				34D913491F62D4A500722898 /* SignalAttachment.swift */,
@@ -19217,6 +19230,7 @@
 				F9C5CDB2289453B400548EEE /* GiphyAsset.swift in Sources */,
 				F9C5CDB0289453B400548EEE /* GiphyDownloader.swift in Sources */,
 				F9C5CDB3289453B400548EEE /* GiphyImageInfo.swift in Sources */,
+				D652259F2DBA66EC00830042 /* Attachment+Hash.swift in Sources */,
 				F9C5CD1F289453B300548EEE /* GRDBDatabaseStorageAdapter.swift in Sources */,
 				F9C5CD26289453B300548EEE /* GRDBSchemaMigrator.swift in Sources */,
 				F9C5CE73289453B400548EEE /* GroupAccess.swift in Sources */,

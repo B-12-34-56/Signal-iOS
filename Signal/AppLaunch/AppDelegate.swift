@@ -671,7 +671,16 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         appReadiness.runNowOrWhenAppDidBecomeReadyAsync {
             DependenciesBridge.shared.orphanedAttachmentCleaner.beginObserving()
         }
-
+        appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
+            guard let storage = DependenciesBridge.shared.db as? SDSDatabaseStorage else {
+                Logger.error("❌ Could not obtain SDSDatabaseStorage – duplicate-check hook NOT installed.")
+                return
+            }
+            let pool = storage.grdbStorage.pool
+            AttachmentDownloadHook.shared.install(with: pool)
+        }
+        // (DependenciesBridge.shared.db as! SDSDatabaseStorage)
+        // .grdbStorage.pool
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
             AttachmentDownloadRetryRunner.shared.beginObserving()
         }

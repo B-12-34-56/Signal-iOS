@@ -74,7 +74,7 @@ public class CVMediaCache: NSObject {
     }
     
     // Access frequency tracking for tiered eviction
-    private let accessFrequency = AtomicDictionary<CacheKey, UInt>(lock: .recursive)
+    private var accessFrequency = AtomicDictionary<CacheKey, UInt>(lock: UnfairLock())
     
     // MARK: - Cache Statistics
     
@@ -85,7 +85,7 @@ public class CVMediaCache: NSObject {
     // MARK: - Prefetch Queue
     
     private let prefetchQueue = DispatchQueue(label: "org.signal.media-cache-prefetch", qos: .utility)
-    private let prefetchOperations = AtomicDictionary<CacheKey, Bool>(lock: .recursive)
+    private var prefetchOperations = AtomicDictionary<CacheKey, Bool>(lock: UnfairLock())
 
     // MARK: - Initialization
 
@@ -93,7 +93,8 @@ public class CVMediaCache: NSObject {
         AssertIsOnMainThread()
         
         // Configure cache sizes based on device memory
-        let isHighMem = isHighMemoryDevice
+        let highMemoryThreshold: UInt64 = 3 * 1024 * 1024 * 1024
+        let isHighMem = ProcessInfo.processInfo.physicalMemory > highMemoryThreshold
         
         // Initialize caches with appropriate sizes
         stillMediaCache = LRUCache<CacheKey, AnyObject>(
@@ -343,8 +344,8 @@ public class CVMediaCache: NSObject {
         lottieAnimationCache.removeAllObjects()
         
         // Clear tracking data
-        accessFrequency.removeAllObjects()
-        prefetchOperations.removeAllObjects()
+        accessFrequency = AtomicDictionary(lock: UnfairLock())
+        prefetchOperations = AtomicDictionary(lock: UnfairLock())
         
         // Reset statistics
         cacheHits.set(0)

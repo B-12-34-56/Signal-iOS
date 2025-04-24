@@ -5,6 +5,8 @@
 
 import Foundation
 import LibSignalClient
+import UIKit
+
 
 // MARK: - Message "isXYZ" properties
 
@@ -1231,7 +1233,24 @@ public class MessageSender {
     ) async throws -> [SentDeviceMessage] {
         let message = messageSend.message
         let serviceId = messageSend.serviceId
-
+        // ── Duplicate‐block gate: if this image hash is locally blocked, abort send ──
+        // Make sure you’ve added aHashString (or whatever) to your attachment model
+        // ── Duplicate-block gate: local & global ─────────────────────────────
+        let firstAttachment = SSKEnvironment.shared.databaseStorageRef.read { db in
+            message.allAttachments(transaction: db).first
+        }
+        if let aHash = firstAttachment?.aHashString {
+            // ❶ already-blocked locally
+            if await DuplicateSignatureStore.shared.isBlocked(aHash) {
+                Logger.warn("Not sending – blocked hash \(aHash.prefix(8))")
+                throw MessageSenderError.duplicateBlocked(aHash: aHash)
+            }
+            // ❷ duplicate seen by any device (DynamoDB)
+            if await GlobalSignatureService.shared.contains(aHash) {
+                Logger.warn("Not sending – global dup \(aHash.prefix(8))")
+                throw MessageSenderError.duplicateBlocked(aHash: aHash)
+            }
+        }
         Logger.info("Sending message: \(type(of: message)); timestamp: \(message.timestamp); serviceId: \(serviceId)")
 
         let retryRecoveryState: InnerRecoveryState

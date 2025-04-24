@@ -42,6 +42,8 @@ final class AttachmentDownloadHook {
 
     // ── startObservation ─────────────────────────────────────────────────────────────
     private func startObservation(dbPool: DatabasePool) {
+        logger.info("AttachmentDownloadHook observation started ✅")
+
         let obs = ValueObservation.tracking { db in
             try SignalAttachmentRecord
                 .filter(Column("contentType").like("image/%"))
@@ -57,11 +59,10 @@ final class AttachmentDownloadHook {
     }
 
     private func handle(_ attachments: [SignalAttachmentRecord]) {
+        print("👀 Hook got \(attachments.count) attachment(s)")
         guard let container = fileManager.containerURL(forSecurityApplicationGroupIdentifier: appGroupID)
         else { return }
-
         for rec in attachments {
-            Task { await markProcessed(id: rec.id) }
             guard let path = rec.localRelativeFilePath, let sender = rec.senderId else { continue }
             let url = container.appendingPathComponent(path)
 
@@ -89,8 +90,10 @@ final class AttachmentDownloadHook {
                             senderId: sender
                         )
                     }
+                    await markProcessed(id: rec.id)
                 } catch {
-                    logger.error("Dup check failed: \(error)")
+                    logger.error("Duplicate blocked for attachment \(rec.id): \(error.localizedDescription)")
+                    // ❸ Re-throw so upstream layers may cancel the send throw error
                 }
             }
         }

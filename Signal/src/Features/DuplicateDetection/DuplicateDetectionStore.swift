@@ -5,6 +5,12 @@ import Foundation
 import GRDB
 import os.log
 
+// MARK: – Notification name
+
+extension Notification.Name {
+    static let duplicateBlocked = Notification.Name("DuplicateBlocked")
+}
+
 // MARK: - Delegate Protocol
 protocol DuplicateSignatureStoreDelegate: AnyObject {
     /// Called on main thread when a duplicate is detected locally.
@@ -19,7 +25,7 @@ struct LocalImageSignature: Codable, FetchableRecord, PersistableRecord, Identif
     var senderId: String
     var isBlocked: Bool
 
-    static let databaseTableName = "localImageSignatures"
+    static let databaseTableName = "ImageSignatures"
 }
 
 
@@ -99,6 +105,8 @@ class DuplicateSignatureStore {
                     }
                 }
                 logger.info("Blocked local signature: \(signature.prefix(8))...")
+                // ❶ Notify listeners (MessageSender / UI) that a block happened
+                NotificationCenter.default.post(name: .duplicateBlocked, object: signature)
             } catch {
                 logger.error("Failed blocking signature: \(error.localizedDescription)")
             }
