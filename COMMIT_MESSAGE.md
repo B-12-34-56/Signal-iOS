@@ -1,100 +1,161 @@
-# Signal iOS: Development Environment Setup and Duplicate Content Detection
+# Duplicate Content Detection System: AWS Communication Architecture
 
-## Overview
+## System Architecture Overview
 
-This commit implements two key features in the Signal iOS application:
+The duplicate content detection system implements a comprehensive solution for preventing harmful or duplicate content from being sent or downloaded by Signal users. The system operates with two primary workflows:
 
-1. **Development Environment Setup** - Configures the Ruby environment, project run commands, and database connections
-2. **Duplicate Content Detection System** - Implements a comprehensive system to detect and prevent blocked or duplicate content using AWS DynamoDB
+1. **Pre-Send Validation**: Before sending messages with attachments, the system checks if the content hash exists in global or local blocklists.
+2. **Pre-Download Validation**: Before downloading attachments, verifies the content hash against the global database.
 
-## Development Environment Setup
+These workflows are connected by a global hash database hosted in AWS DynamoDB, providing a secure, scalable, and highly available service for content validation across all Signal clients.
 
-* **Ruby Environment**:
-  * Set Ruby version to 3.2.2 using rbenv
-  * Installed bundler and project gems
+## Core Components and Their Interactions
 
-* **Project Configuration**:
-  * Added `.1024` file with:
-    * Run command: `open Signal.xcworkspace`
-    * Dependency command: `make dependencies`
+### 1. AWSConfig: Secure Credentials and Configuration Management
 
-* **Database Configuration**:
-  * Created `User.xcconfig` with connection parameters:
-    * PostgreSQL configuration (host, port, user, password)
-    * Redis configuration (host, port, authentication)
+The `AWSConfig` component serves as the foundation for all AWS interactions by providing:
 
-## Duplicate Content Detection System
+- **Secure Authentication**: Uses AWS Cognito Identity Pool for temporary, role-based credentials instead of long-lived API keys.
+- **Service Configuration**: Establishes proper timeouts, retry policies, and endpoint configurations.
+- **Resource Management**: Provides constants for table names, field names, and TTL settings.
 
-### New Components
+Key features:
+- Identity-based access control through AWS Cognito
+- Configurable request timeouts to prevent UI blocking
+- Robust client initialization with fallbacks
+- Credential validation capabilities
+- Exponential backoff calculation for optimal retry behavior
 
-1. **AWSConfig.swift**:
-   * Implemented secure AWS authentication using Cognito Identity Pool
-   * Configured DynamoDB connections with proper timeout handling
-   * Added exponential backoff for retries
+AWSConfig initializes early in the app lifecycle and provides AWS clients to other components, establishing the secure channel through which all AWS communications flow.
 
-2. **GlobalSignatureService.swift**:
-   * Created centralized service for DynamoDB interactions
-   * Implemented hash checking with enhanced retry logic
-   * Added idempotent hash storage with proper TTL management
+### 2. GlobalSignatureService: Centralized DynamoDB Operations
 
-3. **AttachmentDownloadHook.swift**:
-   * Created hook to validate attachments before download
-   * Implemented secure hash computation using SHA-256
-   * Added reporting mechanism for blocked attachments
+The `GlobalSignatureService` acts as the interface between the app and DynamoDB, providing:
 
-4. **AttachmentDownloadRetryRunner.swift**:
-   * Implemented background monitoring of previously blocked attachments
-   * Added exponential backoff for retry attempts
-   * Created efficient database observers for state changes
+- **Hash Verification**: Checks if content hashes exist in the database
+- **Hash Storage**: Stores new hashes with proper TTL and timestamp
+- **Deletion Operations**: Removes hashes when needed
+- **Resiliency**: Implements robust error handling and retry mechanisms
 
-### Modified Components
+Key features:
+- Enhanced retry logic with dynamic backoff scheduling
+- Error categorization (retryable vs. non-retryable)
+- Idempotent write operations with conditional expressions
+- Efficient attribute value management
+- Comprehensive logging with context preservation
 
-1. **MessageSender+Errors.swift**:
-   * Added proper error handling for blocked duplicate content
-   * Implemented user-friendly error messages
+The service translates between application-level operations and AWS API calls, handling all DynamoDB complexities and ensuring reliable communication despite network instabilities.
 
-2. **MessageSender.swift**:
-   * Added pre-send validation against local and global hash databases
-   * Implemented post-send hash contribution to global database
-   * Added asynchronous hash storage after successful sends
+### 3. AttachmentDownloadHook: Pre-Download Validation
 
-3. **AppDelegate.swift**:
-   * Added AWS credential initialization during app launch
-   * Implemented AttachmentDownloadHook installation
-   * Added error handling for AWS connectivity issues
+The `AttachmentDownloadHook` integrates into the attachment pipeline to:
 
-### Testing Components
+- **Compute Hashes**: Uses SHA-256 to generate secure content hashes
+- **Validate Attachments**: Checks hashes against GlobalSignatureService
+- **Report Blocks**: Logs and reports blocked download attempts
+- **Default-Allow Policy**: Ensures failures don't block legitimate content
 
-1. **AWSMockClient.swift**:
-   * Created mock implementation of AWSDynamoDB for unit testing
-   * Added simulated database with in-memory storage
-   * Implemented request delay and error simulation
+Key features:
+- Secure hash computation
+- Database-backed validation
+- Graceful degradation on errors
+- Analytics-ready reporting structure
+- Testing facilities for validation
 
-2. **Unit Tests**:
-   * GlobalSignatureServiceTests.swift
-   * AttachmentDownloadHookTests.swift
-   * AttachmentDownloadRetryRunnerTests.swift
-   * DuplicateContentDetectionTests.swift (integration tests)
+This component acts as a gatekeeper for all incoming attachment downloads, preventing harmful content from being downloaded while ensuring system resiliency.
+
+### 4. MessageSender Integration: Pre-Send Validation & Hash Contribution
+
+The `MessageSender` class has been enhanced to:
+
+- **Pre-Send Check**: Validate attachment hashes before sending messages
+- **Hash Contribution**: Store hashes from successful sends to DynamoDB
+- **Error Handling**: Provide clear user feedback on blocked content
+
+Key features:
+- Two-phase validation (local and global)
+- Asynchronous hash contributions after successful sends
+- User-friendly error messages without exposing technical details
+- Non-blocking hash storage to maintain performance
+
+This integration ensures that users cannot send known harmful content and contributes to the global detection system with each successful send.
+
+### 5. AppDelegate Integration: System Initialization
+
+The `AppDelegate` initializes the duplicate content detection system by:
+
+- **Initializing AWS Credentials**: Sets up Cognito authentication early in app launch
+- **Validating Credentials**: Verifies connectivity to AWS services
+- **Installing Components**: Configures the AttachmentDownloadHook with the database pool
+- **Managing Retries**: Initializes the AttachmentDownloadRetryRunner for background operations
+
+Key features:
+- Proper timing of initialization relative to other app components
+- Error handling for credential setup failures
+- Background task scheduling
+- Task cancellation management
+
+The AppDelegate ensures that all components are properly initialized and connected, establishing the foundation for the entire system.
+
+## Data Flow Through the System
+
+1. **Message Send Flow**:
+   - User attempts to send a message with attachment
+   - `MessageSender` computes content hash
+   - Hash is checked against local blocklist
+   - Hash is checked against global DynamoDB via `GlobalSignatureService`
+   - If blocked, user receives error message
+   - If allowed, message sends normally
+   - After successful send, hash is asynchronously stored in DynamoDB
+
+2. **Attachment Download Flow**:
+   - App receives message with attachment
+   - Before download begins, `AttachmentDownloadHook` intercepts
+   - Hook computes or receives the content hash
+   - Hash is verified against DynamoDB via `GlobalSignatureService`
+   - If blocked, download is prevented and the block is logged
+   - If allowed, download proceeds normally
+
+3. **Retry Flow**:
+   - `AttachmentDownloadRetryRunner` monitors previously blocked downloads
+   - Periodically checks if blocked hashes are now allowed
+   - If hash status changes, previously blocked downloads are reactivated
+   - Uses exponential backoff to prevent overloading servers
 
 ## Security Considerations
 
-* Using AWS Cognito Identity Pool for secure, temporary credentials
-* Only storing content hashes, not actual content
-* Implementing default-allow policy for error cases
-* Adding exponential backoff for service retries
-* Including comprehensive error reporting without exposing sensitive data
+The duplicate content detection system implements several security best practices:
 
-## Documentation
+- **Limited Privileges**: AWS IAM roles provide minimum required permissions
+- **Data Minimization**: Only hashes are stored, never actual content
+- **Temporary Credentials**: Cognito provides short-lived credentials
+- **Default Security**: Downloads allowed on errors to prevent DoS
+- **Privacy Preservation**: Error messages don't expose hash values
+- **Network Security**: All AWS communications use HTTPS/TLS
+- **Idempotent Operations**: Prevents duplicate entries in database
+- **TTL Implementation**: Ensures data is not stored indefinitely
 
-* Created implementation_summary.txt with component overview
-* Added duplicate_detection_results.md with detailed validation
-* Updated project_validation_report.md with system status
+## Error Handling and Resilience
 
-## Performance Optimization
+The system is designed for resilience with comprehensive error handling:
 
-* Implemented asynchronous operations to prevent blocking the main thread
-* Added optimized DynamoDB requests with proper indexing
-* Included proper memory management with weak references
-* Added task cancellation to prevent resource leaks
+- **Operation Categorization**: Errors are classified as retryable or terminal
+- **Exponential Backoff**: Prevents overwhelming services during failures
+- **Graceful Degradation**: Core app functions continue even if validation fails
+- **Circuit Breaking**: Stops retries after reasonable attempts
+- **Comprehensive Logging**: Enables troubleshooting without exposing sensitive data
+- **Connection Recovery**: Automatically handles network transitions
 
-This commit provides a complete, production-ready duplicate content detection system with comprehensive test coverage and proper development environment configuration.
+## Future Improvements
+
+The duplicate content detection system is designed to evolve with several planned improvements:
+
+1. **Perceptual Hashing**: Add capability to detect visually similar but not identical content
+2. **Enhanced Analytics**: Implement more sophisticated reporting of blocked content patterns
+3. **Rate Limiting**: Add client-side rate limiting for hash checks
+4. **Distributed Validation**: Implement peer-to-peer hash verification for faster lookup
+5. **Content Classification**: Add capability to categorize blocked content types
+
+## Conclusion
+
+The AWS communication components form the backbone of the duplicate content detection system, providing secure, scalable, and resilient detection capabilities. By leveraging AWS DynamoDB and Cognito, the system delivers a global database of content hashes that improves with each message sent across the Signal network, continually enhancing protection against harmful content.
