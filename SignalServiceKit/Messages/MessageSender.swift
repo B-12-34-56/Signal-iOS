@@ -6,7 +6,7 @@
 import Foundation
 import LibSignalClient
 import UIKit
-
+import Logging
 
 // MARK: - Message "isXYZ" properties
 
@@ -1578,8 +1578,9 @@ public class MessageSender {
         // After a message with an attachment is successfully sent, store its hash
         // in the global DynamoDB database. This contributes to the detection
         // of duplicate/blocked content for future downloads by *other* users.
-        if let firstAttachment = SSKEnvironment.shared.databaseStorageRef.read({ db in message.allAttachments(transaction: db).first }),
-           let aHash = firstAttachment.aHashString {
+        let firstAttachment = SSKEnvironment.shared.databaseStorageRef.read { db in message.allAttachments(transaction: db).first
+        }
+        if let aHash = firstAttachment?.aHashString {
             Task {
                 Logger.info("[Duplicate Content Detection] Storing hash \(aHash.prefix(8))... after successful send for message \(message.uniqueId).")
                 // The store operation includes retry logic and error handling internally.

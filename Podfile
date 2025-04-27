@@ -65,6 +65,7 @@ target 'Signal' do
   ui_pods
     pod 'AWSCore'
     pod 'AWSDynamoDB'
+    pod 'AWSCognitoIdentityProvider'
 
   target 'SignalTests' do
     inherit! :search_paths
@@ -77,6 +78,7 @@ target 'SignalShareExtension' do
   ui_pods
   pod 'AWSCore'
   pod 'AWSDynamoDB'
+  pod 'AWSCognitoIdentityProvider'
 end
 
 target 'SignalUI' do
@@ -84,6 +86,7 @@ target 'SignalUI' do
 
   pod 'AWSCore'
   pod 'AWSDynamoDB'
+  pod 'AWSCognitoIdentityProvider'
   target 'SignalUITests' do
     inherit! :search_paths
   end

@@ -3,11 +3,12 @@
 
 import Foundation
 import GRDB
-import os.log
+import Logging
 
 // MARK: – Notification name
 
 extension Notification.Name {
+
     static let duplicateBlocked = Notification.Name("DuplicateBlocked")
 }
 
@@ -34,7 +35,10 @@ class DuplicateSignatureStore {
     static let shared = DuplicateSignatureStore()
     weak var delegate: DuplicateSignatureStoreDelegate?
 
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "DuplicateSignatureStore")
+    // Fully-qualified to force the Swift-Log type if needed
+        private let logger = Logging.Logger(
+            label: Bundle.main.bundleIdentifier ?? "DuplicateSignatureStore"
+            )
     private var dbPool: DatabasePool!
 
     private init() {}
