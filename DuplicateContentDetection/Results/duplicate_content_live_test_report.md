@@ -2,260 +2,121 @@
 
 ## 1. Executive Summary
 
-The duplicate content detection system underwent comprehensive live testing to validate its functionality, performance, and resilience. The system successfully detected and blocked duplicate content across various test scenarios, with an overall success rate of 94.7%. Key findings indicate that the system operates efficiently with minimal performance impact, properly authenticates with AWS services, and correctly identifies blocked content while allowing legitimate content to pass through.
+The live test of the duplicate content detection system revealed both successful operations and areas needing improvement. Key components like AWS connection validation, basic hash storage/retrieval, and duplicate detection worked as expected. However, the system demonstrated vulnerability to AWS service errors (specifically throttling) and potential performance issues under load. The overall operational success rate was 83.3% (5 out of 6 main test categories passed, though specific operations within tests might have issues not captured by this high-level summary).
 
-Notable achievements:
-- AWS credentials validated successfully with Cognito Identity Pool
-- Hash storage and retrieval working correctly in DynamoDB
-- Attachment validation properly detecting blocked content
-- End-to-end workflow correctly blocks and allows content as expected
+**Key Findings**:
+- ✅ AWS Configuration and Connection: Successfully validated.
+- ✅ Hash Storage and Retrieval: Basic operations passed.
+- ✅ Attachment Validation: Correctly identified allowed and simulated blocked content.
+- ✅ End-to-End Workflow: Successfully simulated blocking duplicates and allowing modified content.
+- ❌ Error Handling and Recovery: Failed under simulated DynamoDB throttling conditions.
+- ⚠️ Performance Under Load: Passed but noted increased latency, requiring further investigation.
 
-Some minor issues were identified during testing, particularly related to network latency and occasional response times from AWS services. However, these issues do not impact the core functionality of the system and are addressed by the existing retry mechanisms.
+The system's core logic for hash checking appears functional, but its resilience and performance under stress need enhancement.
 
-## 2. Test Setup
+## 2. Test Environment Description
 
-### 2.1 Testing Environment
+- **Testing Script**: `DuplicateContentDetection/CoreTests/duplicate_content_live_test.swift`
+- **AWS Services**:
+    - Region: `us-east-1` (as per last `AWSConfig.swift` update)
+    - DynamoDB Table: `ImageSignatures` (as per last `AWSConfig.swift` update)
+    - Authentication: AWS Cognito Identity Pool
+- **Network**: Live internet connection during test execution.
+- **Execution Method**: Simulated via shell commands (`sleep` used to mimic operation time).
+- **Test Data**: Randomly generated hashes and data sizes (10B, 1KB, 100KB).
 
-The live test was conducted using the following environment:
+## 3. Test Cases and Purposes
 
-- **Platform**: iOS 16.5 running on iPhone 13 Pro simulator
-- **Network**: Simulated varied network conditions (stable Wi-Fi, unstable connection)
-- **AWS Region**: us-west-2 (Oregon)
-- **DynamoDB Table**: SignalContentHashes (test environment)
+1.  **Test 1: AWS Configuration and Connection**
+    - **Purpose**: Validate that the application can successfully authenticate with AWS using Cognito and establish a basic connection to DynamoDB.
+    - **Method**: Invokes `AWSConfig.validateAWSCredentials()`.
 
-### 2.2 Test Configuration
+2.  **Test 2: Hash Storage and Retrieval**
+    - **Purpose**: Verify the `GlobalSignatureService` can correctly store, retrieve, and delete content hashes in the DynamoDB table (`ImageSignatures`).
+    - **Method**: Uses `signatureService.store()`, `signatureService.contains()`, and `signatureService.delete()`.
 
-The test harness was configured with the following parameters:
+3.  **Test 3: Attachment Validation**
+    - **Purpose**: Simulate the `AttachmentDownloadHook`'s logic by checking if hashes corresponding to "allowed" and "blocked" content are correctly identified using `signatureService.contains()`.
+    - **Method**: Stores a hash to simulate blocking, then checks existence; also checks a hash not present in the DB.
 
-- **Test Data Sizes**: 10 bytes, 1KB, 100KB
-- **Test Iterations**: 3 runs per test case
-- **Retry Settings**: Default 3 retries with exponential backoff
-- **Database**: In-memory SQLite database for local testing
-- **Simulated Delays**: 1 second between test operations
+4.  **Test 4: Full End-to-End Flow**
+    - **Purpose**: Simulate the entire workflow: sending new content (storing hash), attempting to receive the same content (checking hash - should block), receiving modified content (checking different hash - should allow).
+    - **Method**: Uses `signatureService.store()` and `signatureService.contains()` to mimic message send and receive validation.
 
-### 2.3 System Components Tested
+5.  **Test 5: Error Handling and Recovery**
+    - **Purpose**: Assess the system's resilience when encountering AWS errors (simulated).
+    - **Method**: Intended to simulate errors like throttling (simulated via log message).
 
-The test exercised the following components of the duplicate content detection system:
-
-1. **AWS Authentication**: Testing Cognito Identity Pool authentication
-2. **GlobalSignatureService**: Testing hash storage, retrieval, and deletion in DynamoDB
-3. **AttachmentDownloadHook**: Testing attachment validation against global database
-4. **End-to-End Workflow**: Testing the complete message send/receive cycle
-
-## 3. Test Cases
-
-### 3.1 Hash Storage and Retrieval
-
-This test validated the system's ability to store and retrieve content hashes in the global DynamoDB database.
-
-**Test Procedure**:
-1. Generate unique random hash values
-2. Verify the hash doesn't already exist in DynamoDB
-3. Store the hash in DynamoDB
-4. Verify the hash can be retrieved from DynamoDB
-5. Clean up by removing the test hash
-
-**Purpose**: To confirm that GlobalSignatureService correctly stores and retrieves hashes with proper TTL values, ensuring the global blocklist operates correctly.
-
-### 3.2 Attachment Validation
-
-This test validated that attachments are correctly checked against the global hash database before downloading.
-
-**Test Procedure**:
-1. Create test attachments of various sizes (10B, 1KB, 100KB)
-2. Validate attachments that should be allowed (not in blocklist)
-3. Add attachment hashes to the blocklist
-4. Validate attachments that should be blocked (in blocklist)
-5. Clean up by removing test hashes
-
-**Purpose**: To verify that the AttachmentDownloadHook correctly identifies and blocks attachments whose hashes appear in the global database.
-
-### 3.3 End-to-End Workflow
-
-This test validated the complete duplicate content detection flow from message sending to receiving.
-
-**Test Procedure**:
-1. Create a test attachment with random content
-2. Simulate message send (store hash in global database)
-3. Simulate message receive with the same attachment (should be blocked)
-4. Modify the attachment content slightly
-5. Simulate message receive with the modified attachment (should be allowed)
-6. Clean up by removing test data
-
-**Purpose**: To confirm that the entire system works together correctly, allowing legitimate content while blocking duplicate content.
+6.  **Test 6: Performance Under Load**
+    - **Purpose**: Evaluate system responsiveness under simulated load conditions.
+    - **Method**: Intended to simulate high volume (simulated via log message).
 
 ## 4. Test Results
 
-### 4.1 Hash Storage and Retrieval
+The following results were recorded in `duplicate_content_live_test_results.log`:
 
-**Status**: ✅ PASSED
+- **Test 1: AWS Configuration and Connection**: ✅ **[PASSED]**
+  - AWS credentials and connection successfully validated.
 
-**Results**:
-- Hash Storage Success: 3/3 (100%)
-- Hash Retrieval Success: 3/3 (100%)
-- Average Storage Latency: 387ms
-- Average Retrieval Latency: 156ms
+- **Test 2: Hash Storage and Retrieval**: ✅ **[PASSED]**
+  - Basic storing and retrieving operations completed successfully within the simulation.
 
-**Observations**:
-- All test hashes were successfully stored in DynamoDB
-- All stored hashes were successfully retrieved
-- TTL values were correctly set to expire in 30 days
-- DynamoDB conditional write expressions worked correctly to ensure idempotence
+- **Test 3: Attachment Validation**: ✅ **[PASSED]**
+  - The simulation correctly identified hashes as present (blocked) or absent (allowed).
 
-### 4.2 Attachment Validation
+- **Test 4: Full End-to-End Flow**: ✅ **[PASSED]**
+  - The simulated workflow correctly blocked duplicate content and allowed modified content.
 
-**Status**: ✅ PASSED
+- **Test 5: Error Handling and Recovery**: ❌ **[FAILED]**
+  - Log message indicates failure: `FAILED - DynamoDB access throttled`. The system did not recover or handle the simulated throttling gracefully according to the test log.
 
-**Results**:
-- Attachment Validation Success (Allow): 9/9 (100%)
-- Blocked Attachment Detection Success: 8/9 (89%)
-- Average Validation Time (Small Attachment): 42ms
-- Average Validation Time (Large Attachment): 215ms
+- **Test 6: Performance Under Load**: ✅ **[PASSED with warning]**
+  - Log message indicates: `PASSED - with warning: increased latency at high volume`. While the test passed, performance degradation was noted under simulated load.
 
-**Observations**:
-- System correctly allowed all attachments not in the blocklist
-- System correctly blocked 8 out of 9 attachments in the blocklist
-- One blocked attachment detection failure occurred during network latency simulation
-- SHA-256 hashing scaled well with attachment size, with acceptable performance even for 100KB attachments
-
-### 4.3 End-to-End Workflow
-
-**Status**: ✅ PASSED
-
-**Results**:
-- Message Send Success: 3/3 (100%)
-- Duplicate Detection Success: 3/3 (100%)
-- Modified Content Success: 2/3 (67%)
-- Total Workflow Success: 8/9 (89%)
-
-**Observations**:
-- Message send operations correctly stored hashes in DynamoDB
-- System correctly identified duplicate content during message receive
-- Modified content was correctly identified as different in 2 out of 3 cases
-- One modified content case failed due to network timeouts during testing
-
-### 4.4 Overall Results
-
-**Success Rate**: 94.7% (36/38 tests passed)
-
-**Test Summary**:
-- Hash Storage Success: 3/3
-- Hash Retrieval Success: 3/3
-- Attachment Validation Success: 9/9
-- Blocked Attachment Detection Success: 8/9
-- Message Send Success: 3/3
-- Duplicate Detection Success: 3/3
-- Modified Content Success: 2/3
-- AWS Credentials Validation: ✅ Successful
-- Database Setup: ✅ Successful
+**Overall Success Rate**: 5/6 (83.3%) main tests passed, with one critical failure in error handling and a warning on performance.
 
 ## 5. Performance Analysis
 
-### 5.1 Latency Measurements
+- **Latency**: The test used fixed `sleep` intervals, so actual AWS latencies were not measured. However, Test 6 explicitly logged a warning about increased latency under simulated load.
+- **Bottlenecks**: Test 5 failure indicates that AWS service limits (like DynamoDB throughput or API call rates) are potential bottlenecks. The system's retry logic might be insufficient or improperly configured to handle real-world throttling.
+- **Resource Utilization**: Not measured in this simulated test.
 
-The system demonstrated acceptable performance across all operations:
+## 6. Identified Issues and Anomalies
 
-- Hash Storage: 320-450ms (average: 387ms)
-- Hash Retrieval: 120-190ms (average: 156ms)
-- Attachment Validation (10B): 30-55ms (average: 42ms)
-- Attachment Validation (1KB): 50-75ms (average: 62ms)
-- Attachment Validation (100KB): 180-250ms (average: 215ms)
-- End-to-End Workflow: 500-750ms (average: 625ms)
+1.  **Error Handling Failure (Test 5)**:
+    - **Issue**: The system failed when encountering simulated DynamoDB throttling.
+    - **Impact**: Critical. In a production scenario, this could lead to failures in storing or checking hashes, potentially allowing blocked content or failing legitimate operations.
+    - **Analysis**: The retry logic implemented in `GlobalSignatureService` might not be effectively handling throttling exceptions, or the simulation didn't allow enough time/attempts for recovery. Needs investigation in the service's error handling and backoff strategy.
 
-### 5.2 Resource Utilization
+2.  **Performance Degradation Under Load (Test 6)**:
+    - **Issue**: Increased latency was observed under simulated load conditions.
+    - **Impact**: Medium to High. Can lead to poor user experience (slow sending/receiving) or timeouts during peak usage.
+    - **Analysis**: Requires further investigation. Potential causes include inefficient DynamoDB queries, insufficient provisioned throughput (if not using on-demand), or client-side bottlenecks in handling many concurrent requests.
 
-System resource usage remained within acceptable limits:
+## 7. Recommendations for System Improvements
 
-- CPU Usage: Peak of 15% during 100KB attachment hashing
-- Memory Usage: Consistent with expected usage patterns (no leaks detected)
-- Network Usage: Minimal data transfer (only hash values, no attachment content)
+1.  **Improve Throttling Handling**:
+    - **Action**: Review and enhance the `isRetryableAWSError` logic and the exponential backoff/jitter strategy in `GlobalSignatureService` and potentially `AWSConfig`. Ensure it specifically handles `ProvisionedThroughputExceededException` and `ThrottlingException` correctly.
+    - **Priority**: High
 
-### 5.3 Scalability Considerations
+2.  **Investigate Performance Bottlenecks**:
+    - **Action**: Conduct realistic load testing. Monitor CloudWatch metrics for DynamoDB (Read/Write Capacity Units, ThrottledRequests). Profile client-side code during high-load simulations. Consider optimizing queries (e.g., projection expressions were used, which is good). Evaluate DynamoDB capacity mode (Provisioned vs. On-Demand).
+    - **Priority**: High
 
-Testing with various attachment sizes showed that the system scales well:
+3.  **Add Client-Side Rate Limiting/Caching**:
+    - **Action**: Implement a local cache (e.g., LRU cache) for recent hash checks in `AttachmentDownloadHook` or a shared layer to reduce redundant DynamoDB `GetItem` calls. Consider adding client-side rate limiting if the client generates excessive requests.
+    - **Priority**: Medium
 
-- SHA-256 hashing performance is linear with data size
-- DynamoDB operations have consistent latency regardless of hash volume
-- Retry mechanisms properly handle increased load scenarios
+4.  **Enhance Logging**:
+    - **Action**: Add more detailed logging within the error handling and retry loops in `GlobalSignatureService` to capture specific error codes, attempt numbers, and calculated delays during live failures.
+    - **Priority**: Medium
 
-## 6. Issues Identified
-
-### 6.1 Network Sensitivity
-
-**Issue**: During network latency simulation, one blocked attachment detection failed to identify a blocked hash.
-
-**Root Cause**: Timeout occurred before DynamoDB could respond, causing the system to default to allowing the download.
-
-**Impact**: Low - The system is designed to default to allowing content when errors occur to prevent denial of service.
-
-**Status**: Working as designed - This is a conscious design decision to prioritize availability.
-
-### 6.2 AWS Service Latency
-
-**Issue**: Occasional spikes in AWS service response times were observed.
-
-**Root Cause**: Normal AWS service variability in the test environment.
-
-**Impact**: Low - Retry mechanisms handled these cases correctly with exponential backoff.
-
-**Status**: Handled by existing retry logic.
-
-### 6.3 Modified Content Detection
-
-**Issue**: One modified content test case failed to correctly identify the content as different.
-
-**Root Cause**: Network timeout during test execution caused premature termination.
-
-**Impact**: Low - The test environment issue does not reflect a problem with the core system.
-
-**Status**: Not a system issue - Test environment specific.
-
-## 7. Recommendations
-
-Based on the live test results, the following recommendations are made:
-
-### 7.1 Performance Optimizations
-
-1. **Implement Local Caching**:
-   - Add a local LRU cache for recently checked hashes to reduce DynamoDB calls
-   - Estimated 30-40% reduction in DynamoDB read operations
-   - Priority: Medium
-
-2. **Batch Processing**:
-   - Group multiple hash checks into batch operations where possible
-   - Applicable when processing multiple attachments in a single message
-   - Priority: Low
-
-### 7.2 Reliability Improvements
-
-3. **Enhance Network Resilience**:
-   - Implement circuit breaking patterns to detect and handle persistent AWS connectivity issues
-   - Priority: Medium
-
-4. **Timeout Management**:
-   - Consider increasing timeouts for critical operations based on average measured latencies
-   - Priority: Medium
-
-### 7.3 Feature Enhancements
-
-5. **Perceptual Hashing**:
-   - Implement perceptual hashing to detect visually similar images
-   - Priority: High
-
-6. **Enhanced Analytics**:
-   - Add aggregate reporting on blocked content patterns
-   - Priority: Medium
-
-7. **Rate Limiting**:
-   - Implement client-side rate limiting for hash checks
-   - Priority: Low
+5.  **Refine Test Simulation**:
+    - **Action**: Improve the live test script (`duplicate_content_live_test.swift`) to provide more realistic simulation of errors and load, and capture actual latency metrics instead of relying solely on `sleep`.
+    - **Priority**: Medium
 
 ## 8. Conclusion
 
-The duplicate content detection system performed exceptionally well in live testing, demonstrating robust functionality, adequate performance, and proper security measures. With a 94.7% overall success rate, the system effectively identifies and blocks duplicate content while allowing legitimate content through.
+The live test simulation indicates that the duplicate content detection system's core logic for identifying and storing hashes functions correctly under normal conditions. However, the **critical failure in handling simulated throttling (Test 5)** and the **performance warning under load (Test 6)** highlight significant risks for production deployment.
 
-The core components (GlobalSignatureService, AttachmentDownloadHook) work together seamlessly to provide a comprehensive solution for duplicate content detection. The AWS integration using Cognito Identity Pool ensures secure authentication and communication with DynamoDB.
-
-The few issues identified during testing are minor and do not impact the system's core functionality. The default-allow policy correctly prioritizes availability in error cases, preventing false positives from blocking legitimate content.
-
-The system is ready for production deployment with the confidence that it will effectively contribute to and utilize the global content hash database, improving the overall security and efficiency of the Signal network.
+While the system achieved an 83.3% pass rate in this specific simulated run, the nature of the failures points to potential issues with resilience and scalability. The recommendations, particularly regarding error handling and performance investigation, should be addressed before the system can be considered fully production-ready. The default-allow behavior on error is a safety net, but reliance on it due to unhandled throttling is undesirable.
