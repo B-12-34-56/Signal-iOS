@@ -9,6 +9,8 @@ import Intents
 import SignalServiceKit
 import SignalUI
 import WebRTC
+import AWSCore
+
 
 enum LaunchPreflightError {
     case unknownDatabaseVersion
@@ -373,7 +375,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private func launchApp(
         in window: UIWindow,
         launchContext: LaunchContext,
-        loadingViewController: LoadingViewController
+        loadingViewController: LoadingViewController?
     ) {
         assert(window.rootViewController == loadingViewController)
         configureGlobalUI(in: window)
@@ -500,6 +502,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
             appReadiness.runNowOrWhenAppDidBecomeReadySync {
                 _ = SSKEnvironment.shared.messageFetcherJobRef.run()
+                // If the main app gets woken to process messages in the background, check
+                // for any pending NSE requests to fulfill.
+                _ = SSKEnvironment.shared.syncManagerRef.syncAllContactsIfFullSyncRequested()
             }
         }
     }
@@ -669,15 +674,34 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             DependenciesBridge.shared.orphanedAttachmentCleaner.beginObserving()
         }
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
-            guard let storage = DependenciesBridge.shared.db as? SDSDatabaseStorage else {
-                Logger.error("❌ Could not obtain SDSDatabaseStorage – duplicate-check hook NOT installed.")
-                return
+            Task {
+                Logger.info("Initializing AWS credentials and attachment validation hook...")
+                guard let storage = DependenciesBridge.shared.db as? SDSDatabaseStorage else {
+                    Logger.error("❌ Could not obtain SDSDatabaseStorage – duplicate-check hook NOT installed.")
+                    return
+                }
+                
+                // Setup AWS credentials for content validation
+                // setupAWSCredentials handles its own errors internally and logs them.
+                AWSConfig.setupAWSCredentials()
+                
+                // Validate credentials after setup
+                let credentialsValid = await AWSConfig.validateAWSCredentials()
+                if !credentialsValid {
+                    Logger.error("❌ AWS credentials validation failed. Attachment validation might not work.")
+                    // Depending on policy, we might still proceed or halt here.
+                    // For now, proceed but log the error.
+                } else {
+                     Logger.info("✅ AWS credentials validated successfully.")
+                }
+        
+                // Install the attachment download hook with the database pool
+                let pool = storage.grdbStorage.pool
+                AttachmentDownloadHook.shared.install(with: pool)
+                
+                Logger.info("✅ Successfully initialized AWS credentials and installed attachment validation hook.")
             }
-            let pool = storage.grdbStorage.pool
-            AttachmentDownloadHook.shared.install(with: pool)
         }
-        // (DependenciesBridge.shared.db as! SDSDatabaseStorage)
-        // .grdbStorage.pool
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
             AttachmentDownloadRetryRunner.shared.beginObserving()
         }

@@ -1781,7 +1781,10 @@
 		D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221A0E7169DFFC500537ABF /* AVFoundation.framework */; };
 		D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24B5BD4169F568C00681372 /* AudioToolbox.framework */; };
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
+		D6421F822DBE8DF500BB149C /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6421F812DBE8DF500BB149C /* Logging */; };
 		D652259F2DBA66EC00830042 /* Attachment+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D652259E2DBA66E700830042 /* Attachment+Hash.swift */; };
+		D653EF5D2DBC3FD5008617D1 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D653EF5C2DBC3FD5008617D1 /* Logging */; };
+		D653EF5F2DBC410C008617D1 /* AWSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D653EF5E2DBC4106008617D1 /* AWSConfig.swift */; };
 		D65CE2C02DB29BCF00221D4F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; platformFilter = ios; };
 		D65CE2C12DB29BCF00221D4F /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D65CE2C42DB29BF600221D4F /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */; platformFilter = ios; };
@@ -1791,6 +1794,9 @@
 		D65CE2C92DB29C0D00221D4F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; };
 		D65CE2CA2DB29C0D00221D4F /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */ = {isa = PBXBuildFile; productRef = D6D8F0082DACA6D900CFDC7C /* AWSDynamoDB */; };
+		D6F5AA092DBB38C2003F6F52 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6F5AA082DBB38C2003F6F52 /* Logging */; };
+		D6F5AA0B2DBB3A83003F6F52 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6F5AA0A2DBB3A83003F6F52 /* Logging */; };
+		D6F5AA142DBB4075003F6F52 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6F5AA132DBB4075003F6F52 /* Logging */; };
 		D900B3CBEBBCB9E0800E2092 /* Pods_Signal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F121AE4B4AC0D0F2E74697 /* Pods_Signal.framework */; };
 		D90AA3322CC9616B00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2222CC9616A00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto */; };
 		D90AA3332CC9616B00021CB0 /* account_data_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA0772CC9616A00021CB0 /* account_data_03.binproto */; };
@@ -5721,9 +5727,10 @@
 		D60537882DB168980008375C /* SignalNSEDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignalNSEDebug.entitlements; sourceTree = "<group>"; };
 		D60537892DB168B70008375C /* SignalShareExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignalShareExtensionDebug.entitlements; sourceTree = "<group>"; };
 		D652259E2DBA66E700830042 /* Attachment+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attachment+Hash.swift"; sourceTree = "<group>"; };
+		D653EF5E2DBC4106008617D1 /* AWSConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConfig.swift; sourceTree = "<group>"; };
 		D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = ../Desktop/AWSCore.framework; sourceTree = "<group>"; };
 		D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = ../Desktop/AWSDynamoDB.framework; sourceTree = "<group>"; };
-		D65FD7952DB15CB1000A62E1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		D65FD7952DB15CB1000A62E1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D69B7E4C2DB292DB00F276BA /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = "../Library/Developer/Xcode/DerivedData/Signal-fzxkekuxrjvuqtfextnayijhethd/Build/Products/Debug-iphonesimulator/AWSCore.framework"; sourceTree = "<group>"; };
 		D69B7E4F2DB292DF00F276BA /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = "../Library/Developer/Xcode/DerivedData/Signal-fzxkekuxrjvuqtfextnayijhethd/Build/Products/Debug-iphonesimulator/AWSDynamoDB.framework"; sourceTree = "<group>"; };
 		D6AE579A2DB153A9001DF649 /* AWSCredentialsProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSCredentialsProvider.h; sourceTree = "<group>"; };
@@ -8152,6 +8159,8 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				DuplicateDetection/DuplicateDetectionStore.swift,
+				DuplicateDetection/GlobalSignatureService.swift,
+				DuplicateDetection/HashUtils.swift,
 			);
 			target = F9C5C896289451B900548EEE /* SignalServiceKit */;
 		};
@@ -8177,6 +8186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D653EF5D2DBC3FD5008617D1 /* Logging in Frameworks */,
 				45B1C3C6727579478C0550DF /* Pods_SignalUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -8224,6 +8234,7 @@
 				F9C5C8AA289451B900548EEE /* SignalServiceKit.framework in Frameworks */,
 				34A954BD271A471300B05242 /* SignalUI.framework in Frameworks */,
 				4CC1ECF9211A47CE00CC13BE /* StoreKit.framework in Frameworks */,
+				D6421F822DBE8DF500BB149C /* Logging in Frameworks */,
 				D2179CFE16BB0B480006F3AB /* SystemConfiguration.framework in Frameworks */,
 				D221A08E169C9E5E00537ABF /* UIKit.framework in Frameworks */,
 				D900B3CBEBBCB9E0800E2092 /* Pods_Signal.framework in Frameworks */,
@@ -8255,10 +8266,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F5AA0B2DBB3A83003F6F52 /* Logging in Frameworks */,
 				D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */,
+				D6F5AA142DBB4075003F6F52 /* Logging in Frameworks */,
 				D65CE2C42DB29BF600221D4F /* AWSDynamoDB.framework in Frameworks */,
 				D65CE2C02DB29BCF00221D4F /* AWSCore.framework in Frameworks */,
 				F942DC9AE888310090ADB968 /* Pods_SignalServiceKit.framework in Frameworks */,
+				D6F5AA092DBB38C2003F6F52 /* Logging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -9455,6 +9469,7 @@
 		5045F44129E0DAA400058E5F /* AppLaunch */ = {
 			isa = PBXGroup;
 			children = (
+				D653EF5E2DBC4106008617D1 /* AWSConfig.swift */,
 				F92074752888648A00B7F087 /* AppDelegate.swift */,
 				34D99CE3217509C1000AFB39 /* AppEnvironment.swift */,
 				349C3636233D198300D52012 /* LaunchJobs.swift */,
@@ -16405,6 +16420,7 @@
 			mainGroup = D221A07E169C9E5E00537ABF;
 			packageReferences = (
 				D6D8F0072DAC950300CFDC7C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
+				D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = D221A08A169C9E5E00537ABF /* Products */;
 			projectDirPath = "";
@@ -17663,6 +17679,8 @@
 				"${BUILT_PRODUCTS_DIR}/blurhash/blurhash.framework",
 				"${BUILT_PRODUCTS_DIR}/libPhoneNumber-iOS/libPhoneNumber_iOS.framework",
 				"${BUILT_PRODUCTS_DIR}/libwebp/libwebp.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
 				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
@@ -17687,6 +17705,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/blurhash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libPhoneNumber_iOS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libwebp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BonMot.framework",
@@ -18836,6 +18856,7 @@
 				76057C4B29D268A800C9EDBD /* VideoPlaybackControls.swift in Sources */,
 				66AE5779298440A100E40CFA /* ViewControllerContext.swift in Sources */,
 				3434AE1C22AEDE7D002EE04E /* ViewOnceMessageViewController.swift in Sources */,
+				D653EF5F2DBC410C008617D1 /* AWSConfig.swift in Sources */,
 				88928A7726419D6B009C9B30 /* VoiceMessageDraftView.swift in Sources */,
 				503AECC529B2A4D300642F66 /* VoiceMessageInProgressDraft.swift in Sources */,
 				503AECC629B2AD6700642F66 /* VoiceMessageInterruptedDraft.swift in Sources */,
@@ -22808,13 +22829,46 @@
 				minimumVersion = 2.40.1;
 			};
 		};
+		D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D6421F812DBE8DF500BB149C /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+		D653EF5C2DBC3FD5008617D1 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
 		D6D8F0082DACA6D900CFDC7C /* AWSDynamoDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D6D8F0072DAC950300CFDC7C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
 			productName = AWSDynamoDB;
+		};
+		D6F5AA082DBB38C2003F6F52 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+		D6F5AA0A2DBB3A83003F6F52 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+		D6F5AA132DBB4075003F6F52 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

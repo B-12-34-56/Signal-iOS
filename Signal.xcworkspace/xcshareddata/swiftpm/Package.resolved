@@ -1,5 +1,5 @@
 {
-  "originHash" : "1766aeaa4acc33f51d4721e47b2c6baa3fd79fb263a4ecce86c0c021e05d81cc",
+  "originHash" : "09a245054147666357fb350a0f5466ff4c3a822127e88dfd39b6b607b49afcc6",
   "pins" : [
     {
       "identity" : "aws-sdk-ios-spm",
@@ -8,6 +8,24 @@
       "state" : {
         "revision" : "512a43ed2770957d40618ad415a9826e6dd99ea9",
         "version" : "2.40.1"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "41982a3656a71c768319979febd796c6fd111d5c",
+        "version" : "1.5.0"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "3d8596ed08bd13520157f0355e35caed215ffbfa",
+        "version" : "1.6.3"
       }
     }
   ],
