@@ -20,8 +20,14 @@ public enum AWSConfig {
     /// The AWS region where the DynamoDB table is located
     public static let dynamoDbRegion = "us-east-1"
 
-    /// The endpoint URL for DynamoDB service
-    public static let dynamoDbEndpoint = "https://dynamodb.us-east-1.amazonaws.com"
+    /// The endpoint URL for operations, now pointing to API Gateway which might proxy DynamoDB actions.
+    public static let dynamoDbEndpoint = "https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1" // Updated Endpoint
+
+    /// The endpoint URL for the API Gateway (same as above for now)
+    public static let apiGatewayEndpoint = "https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1"
+
+    /// The endpoint URL for the GetTag-specific API Gateway
+    public static let getTagApiGatewayEndpoint = "https://epzoie02m0.execute-api.us-east-1.amazonaws.com/GetTag1"
 
     // MARK: - Cognito Authentication
 
@@ -30,6 +36,9 @@ public enum AWSConfig {
 
     /// The AWS region for the Cognito service
     public static let cognitoRegion = AWSRegionType.USEast1
+
+    /// API Key for the API Gateway (Replace with secure retrieval method)
+    public static let apiKey = "YOUR_API_GATEWAY_API_KEY_PLACEHOLDER"
 
     // MARK: - TTL Configuration
 
@@ -65,6 +74,12 @@ public enum AWSConfig {
     public static let maxRetryDelay: TimeInterval = 30.0
 
     // MARK: - Private Properties
+
+    public enum APIOperationType {
+        case checkHash // GetTag endpoint
+        case storeHash // General endpoint
+        case deleteHash // General endpoint
+    }
 
     private static let logger = Logger(label: "org.signal.AWSConfig")
     private static var isCredentialsSetup = false
@@ -122,7 +137,10 @@ public enum AWSConfig {
             AWSDynamoDB.register(with: configuration, forKey: "DefaultDynamoDB")
 
             isCredentialsSetup = true
-            logger.info("AWS credentials successfully configured")
+            logger.info("AWS credentials successfully configured (Cognito & DynamoDB clients registered).")
+            logger.info("API Gateway Endpoint configured: \(apiGatewayEndpoint)")
+            logger.info("GetTag API Gateway Endpoint configured: \(getTagApiGatewayEndpoint)")
+            // Note: API Key usage assumes API Key auth for Gateway. IAM auth uses Cognito credentials.
 
         } catch let error as NSError {
             // Log specific error details if available
@@ -159,6 +177,34 @@ public enum AWSConfig {
         return AWSDynamoDB()
     }
 
+    /// Returns the appropriate API Gateway endpoint based on the operation type.
+    /// - Parameter operation: The type of API operation being performed.
+    /// - Returns: The endpoint URL string.
+    public static func getEndpoint(for operation: APIOperationType) -> String {
+        switch operation {
+        case .checkHash:
+            return getTagApiGatewayEndpoint
+        case .storeHash, .deleteHash:
+            return apiGatewayEndpoint
+        }
+    }
+
+    /// Generates necessary headers for authenticating with the API Gateway.
+    /// - Parameter endpointUrl: The specific endpoint URL being called (optional, for future customization).
+    /// - Returns: A dictionary of HTTP headers, including the API key.
+    public static func getAPIGatewayHeaders(for endpointUrl: String? = nil) -> [String: String] {
+        // In a real application, the API key should be retrieved securely,
+        // e.g., from Keychain or a configuration service.
+        // NOTE: This assumes API Key authentication. If using IAM, different headers
+        // (signed requests using Cognito credentials) would be needed.
+        logger.debug("Generating API Gateway headers.")
+        // No specific customization based on endpointUrl needed yet, but included in signature
+        return [
+            "Content-Type": "application/json",
+            "x-api-key": apiKey
+        ]
+    }
+
     // Note on Connection Pooling:
     // The AWS SDK for iOS manages HTTP connection pooling internally using URLSession.
     // Configuration like max concurrent connections is typically handled by the SDK
@@ -166,9 +212,10 @@ public enum AWSConfig {
     // influence how long connections are held or requests wait. Explicit pool size
     // configuration is not directly exposed as in some server-side SDKs.
 
-    /// Validates that AWS credentials are properly configured and can connect to DynamoDB
-    /// - Returns: Boolean indicating if credentials are valid
-    public static func validateAWSCredentials() async -> Bool {
+    /// Validates that AWS credentials are properly configured and can connect to DynamoDB and optionally the API Gateway.
+    /// - Parameter checkAPIGateway: If true, also validates API Gateway connectivity.
+    /// - Returns: Boolean indicating if credentials are valid and services are reachable.
+    public static func validateAWSCredentials(checkAPIGateway: Bool = true) async -> Bool {
         logger.info("Validating AWS credentials by attempting to list DynamoDB tables...")
 
         guard isCredentialsSetup else {
@@ -176,6 +223,7 @@ public enum AWSConfig {
             return false
         }
 
+        var dynamoDBValid = false
         do {
             let client = getDynamoDBClient()
 
@@ -186,7 +234,7 @@ public enum AWSConfig {
             // Limit the number of tables returned to minimize response size
             listTablesInput.limit = 1
 
-            let result = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Bool, Error>) in
+            dynamoDBValid = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Bool, Error>) in
                 client.listTables(listTablesInput).continueWith { task -> Void in
                     if let error = task.error as NSError? {
                         // Log specific AWS error details
@@ -212,14 +260,84 @@ public enum AWSConfig {
                 }
             }
 
-            return result
-
         } catch {
             // Catch errors from withCheckedThrowingContinuation or other async operations
             logger.error("An unexpected error occurred during AWS credentials validation: \(error)")
+            dynamoDBValid = false // Ensure it's false on error
+        }
+
+        // If requested, also validate API Gateway connectivity
+        var apiGatewayValid = true // Assume true if not checked
+        if checkAPIGateway {
+            apiGatewayValid = await validateAPIGatewayConnectivity()
+        }
+
+        return dynamoDBValid && apiGatewayValid
+    }
+
+    /// Validates connectivity to both API Gateway endpoints.
+    /// - Returns: Boolean indicating if connectivity to BOTH endpoints is successful.
+    public static func validateAPIGatewayConnectivity() async -> Bool {
+        logger.info("Validating connectivity to both API Gateway endpoints...")
+
+        async let isGeneralEndpointValid = validateSingleEndpoint(apiGatewayEndpoint, description: "General Operations")
+        async let isGetTagEndpointValid = validateSingleEndpoint(getTagApiGatewayEndpoint, description: "GetTag")
+
+        let results = await [isGeneralEndpointValid, isGetTagEndpointValid]
+        let allValid = results.allSatisfy { $0 }
+
+        if allValid {
+            logger.info("✅ Both API Gateway endpoints validated successfully.")
+        } else {
+            logger.error("❌ API Gateway validation failed for one or more endpoints.")
+        }
+        return allValid
+    }
+
+    /// Validates connectivity to a single API Gateway endpoint URL.
+    private static func validateSingleEndpoint(_ endpointUrl: String, description: String) async -> Bool {
+        logger.info("Validating API Gateway connectivity for \(description)...")
+        guard let url = URL(string: endpointUrl) else { // Use the specific endpoint URL
+            logger.error("Invalid API Gateway endpoint URL for \(description): \(endpointUrl)")
             return false
         }
-    }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET" // Or OPTIONS, depending on the endpoint
+        // Pass the endpoint URL to potentially customize headers in the future
+        let headers = getAPIGatewayHeaders(for: endpointUrl)
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        request.timeoutInterval = requestTimeoutInterval
+
+        do {
+            let (_, response) = try await URLSession.shared.data(for: request)
+            guard let httpResponse = response as? HTTPURLResponse else { // Added '?' for safety
+                logger.error("API Gateway validation failed for \(description): Invalid response type.")
+                return false
+            }
+
+            // Check for successful status codes (e.g., 2xx or specific codes like 403 if expecting auth errors without a specific path)
+            // The base URLs might return 403 (Missing Auth) or specific errors (like GetTag's 500) which still indicates the endpoint is reachable.
+            // A more specific health check path would be better if available.
+            let isReachable = (200...299).contains(httpResponse.statusCode) || httpResponse.statusCode == 403 || httpResponse.statusCode == 500
+            if isReachable {
+                logger.info("API Gateway connectivity for \(description) validated (HTTP Status: \(httpResponse.statusCode)). Endpoint is reachable.")
+                return true
+            } else {
+                logger.error("API Gateway validation for \(description) failed: Unexpected HTTP status code \(httpResponse.statusCode).")
+                return false
+            }
+        } catch let error as NSError {
+            logger.error("API Gateway validation for \(description) failed with error: \(error.localizedDescription) (Code: \(error.code), Domain: \(error.domain))")
+            return false
+        } catch {
+             logger.error("An unexpected error occurred during API Gateway validation for \(description): \(error)")
+             return false
+         }
+     }
+
 
     /// Calculates exponential backoff delay with jitter for retry attempts
     /// - Parameters:
@@ -257,10 +375,12 @@ public enum AWSConfig {
     public static func ensureDynamoDbTableExists(createIfNotExists: Bool) async -> Bool {
         logger.info("Checking if DynamoDB table '\(dynamoDbTableName)' exists...")
 
-        guard isCredentialsSetup else {
-            logger.warning("Cannot check table existence, AWS credentials not set up.")
-            return false
-        }
+        // Validate only DynamoDB part of credentials before proceeding
+        guard await validateAWSCredentials(checkAPIGateway: false) else {
+             logger.warning("Cannot check table existence, AWS credentials (DynamoDB part) are invalid or setup failed.")
+             return false
+         }
+
 
         do {
             let client = getDynamoDBClient()
@@ -276,139 +396,141 @@ public enum AWSConfig {
                  client.describeTable(describeTableInput).continueWith { task in
                      if let error = task.error as NSError? {
                           if error.domain == AWSDynamoDBErrorDomain, error.code == AWSDynamoDBErrorType.resourceNotFoundException.rawValue {
-                              // Table doesn't exist
-                              continuation.resume(throwing: error) // Indicate absence as an error for this check
-                          } else {
-                               // Other error
-                               logger.error("Failed to describe table '\(dynamoDbTableName)': \(error.localizedDescription)")
-                              continuation.resume(throwing: error)
-                          }
-                      } else if task.result != nil {
-                          // Table exists
-                          logger.info("DynamoDB table '\(dynamoDbTableName)' exists.")
-                          continuation.resume()
-                      } else {
-                           logger.error("Describe table returned unexpected state.")
-                           continuation.resume(throwing: NSError(domain: "AWSConfigError", code: 1002, userInfo: [NSLocalizedDescriptionKey: "Describe table returned unexpected state."]))
-                      }
-                      return nil
+                               // Table doesn't exist
+                               continuation.resume(throwing: error) // Indicate absence as an error for this check
+                           } else {
+                                // Other error
+                                logger.error("Failed to describe table '\(dynamoDbTableName)': \(error.localizedDescription)")
+                               continuation.resume(throwing: error)
+                           }
+                       } else if task.result != nil {
+                           // Table exists
+                           logger.info("DynamoDB table '\(dynamoDbTableName)' exists.")
+                           continuation.resume()
+                       } else {
+                            logger.error("Describe table returned unexpected state.")
+                            continuation.resume(throwing: NSError(domain: "AWSConfigError", code: 1002, userInfo: [NSLocalizedDescriptionKey: "Describe table returned unexpected state."]))
+                       }
+                       return nil
+                   }
+               }
+
+             return true // DescribeTable succeeded
+
+         } catch let error as NSError {
+              if error.domain == AWSDynamoDBErrorDomain, error.code == AWSDynamoDBErrorType.resourceNotFoundException.rawValue {
+                  // Table does not exist
+                  logger.info("DynamoDB table '\(dynamoDbTableName)' does not exist.")
+
+                  if createIfNotExists {
+                      return await createDynamoDbTable()
+                  } else {
+                      return false // Table doesn't exist and we shouldn't create it
                   }
+              } else {
+                  // Other errors during describeTable
+                  logger.error("Error checking if table '\(dynamoDbTableName)' exists: \(error.localizedDescription)")
+                  return false
               }
+          } catch {
+              logger.error("An unexpected error occurred checking table existence: \(error)")
+              return false
+          }
+     }
 
-            return true // DescribeTable succeeded
+     /// Initializes the DynamoDB table with the appropriate schema and TTL settings.
+     /// NOTE: This is a placeholder for client-side table creation logic.
+     /// It's generally recommended to create tables via infrastructure-as-code or deployment scripts.
+     /// - Returns: Boolean indicating if the table was created successfully.
+     private static func createDynamoDbTable() async -> Bool {
+          logger.info("Attempting to create DynamoDB table '\(dynamoDbTableName)'...")
 
-        } catch let error as NSError {
-             if error.domain == AWSDynamoDBErrorDomain, error.code == AWSDynamoDBErrorType.resourceNotFoundException.rawValue {
-                 // Table does not exist
-                 logger.info("DynamoDB table '\(dynamoDbTableName)' does not exist.")
+          guard isCredentialsSetup else {
+               logger.warning("Cannot create table, AWS credentials not set up.")
+               return false
+           }
 
-                 if createIfNotExists {
-                     return await createDynamoDbTable()
-                 } else {
-                     return false // Table doesn't exist and we shouldn't create it
-                 }
-             } else {
-                 // Other errors during describeTable
-                 logger.error("Error checking if table '\(dynamoDbTableName)' exists: \(error.localizedDescription)")
-                 return false
-             }
-        } catch {
-            logger.error("An unexpected error occurred checking table existence: \(error)")
-            return false
-        }
-    }
+          do {
+               let client = getDynamoDBClient()
 
-    /// Initializes the DynamoDB table with the appropriate schema and TTL settings.
-    /// NOTE: This is a placeholder for client-side table creation logic.
-    /// It's generally recommended to create tables via infrastructure-as-code or deployment scripts.
-    /// - Returns: Boolean indicating if the table was created successfully.
-    private static func createDynamoDbTable() async -> Bool {
-        logger.info("Attempting to create DynamoDB table '\(dynamoDbTableName)'...")
+               // Define the schema: HashFieldName as primary key (String)
+               guard let attributeDefinition = AWSDynamoDBAttributeDefinition(),
+                     let keySchemaElement = AWSDynamoDBKeySchemaElement() else {
+                          logger.error("Failed to create attribute definition or key schema element.")
+                          return false
+                      }
 
-        guard isCredentialsSetup else {
-            logger.warning("Cannot create table, AWS credentials not set up.")
-            return false
-        }
+               attributeDefinition.attributeName = hashFieldName
+               attributeDefinition.attributeType = .s // String type
 
-        do {
-            let client = getDynamoDBClient()
+               keySchemaElement.attributeName = hashFieldName
+               keySchemaElement.keyType = .hash // Partition key
 
-            // Define the schema: HashFieldName as primary key (String)
-            guard let attributeDefinition = AWSDynamoDBAttributeDefinition(),
-                  let keySchemaElement = AWSDynamoDBKeySchemaElement() else {
-                      logger.error("Failed to create attribute definition or key schema element.")
-                      return false
-                  }
+               // Define throughput settings (using provisioned for creation request)
+               guard let provisionedThroughput = AWSDynamoDBProvisionedThroughput() else {
+                    logger.error("Failed to create provisioned throughput.")
+                    return false
+                }
+                // These values are just examples for table creation; auto-scaling is recommended later
+                provisionedThroughput.readCapacityUnits = 5
+                provisionedThroughput.writeCapacityUnits = 5
 
-            attributeDefinition.attributeName = hashFieldName
-            attributeDefinition.attributeType = .s // String type
+               // Create the CreateTableInput request
+               guard let createTableInput = AWSDynamoDBCreateTableInput() else {
+                    logger.error("Failed to create CreateTableInput.")
+                    return false
+                }
 
-            keySchemaElement.attributeName = hashFieldName
-            keySchemaElement.keyType = .hash // Partition key
+               createTableInput.tableName = dynamoDbTableName
+               createTableInput.attributeDefinitions = [attributeDefinition]
+               createTableInput.keySchema = [keySchemaElement]
+               createTableInput.provisionedThroughput = provisionedThroughput
 
-            // Define throughput settings (using provisioned for creation request)
-            guard let provisionedThroughput = AWSDynamoDBProvisionedThroughput() else {
-                logger.error("Failed to create provisioned throughput.")
-                return false
-            }
-            // These values are just examples for table creation; auto-scaling is recommended later
-            provisionedThroughput.readCapacityUnits = 5
-            provisionedThroughput.writeCapacityUnits = 5
+               // Add TTL specification
+               guard let timeToLiveSpecification = AWSDynamoDBTimeToLiveSpecification() else {
+                    logger.error("Failed to create TimeToLiveSpecification.")
+                    return false
+                }
+                timeToLiveSpecification.enabled = NSNumber(value: true)
+                timeToLiveSpecification.attributeName = ttlFieldName
+                createTableInput.timeToLiveSpecification = timeToLiveSpecification
 
-            // Create the CreateTableInput request
-            guard let createTableInput = AWSDynamoDBCreateTableInput() else {
-                logger.error("Failed to create CreateTableInput.")
-                return false
-            }
+               // Set billing mode to PAY_PER_REQUEST (On-demand)
+               guard let billingModeSummary = AWSDynamoDBBillingModeSummary() else {
+                    logger.error("Failed to create BillingModeSummary.")
+                    return false
+                }
+                 billingModeSummary.billingMode = .payPerRequest
+                 createTableInput.billingModeSummary = billingModeSummary
+                 // provisionedThroughput is not needed if using PAY_PER_REQUEST, but often included for schema definition
+                 createTableInput.provisionedThroughput = nil // Explicitly set to nil for On-demand
 
-            createTableInput.tableName = dynamoDbTableName
-            createTableInput.attributeDefinitions = [attributeDefinition]
-            createTableInput.keySchema = [keySchemaElement]
-            createTableInput.provisionedThroughput = provisionedThroughput
 
-            // Add TTL specification
-            guard let timeToLiveSpecification = AWSDynamoDBTimeToLiveSpecification() else {
-                 logger.error("Failed to create TimeToLiveSpecification.")
-                 return false
-            }
-            timeToLiveSpecification.enabled = NSNumber(value: true)
-            timeToLiveSpecification.attributeName = ttlFieldName
-            createTableInput.timeToLiveSpecification = timeToLiveSpecification
+                logger.info("Sending CreateTable request for '\(dynamoDbTableName)'...")
 
-            // Set billing mode to PAY_PER_REQUEST (On-demand)
-            guard let billingModeSummary = AWSDynamoDBBillingModeSummary() else {
-                 logger.error("Failed to create BillingModeSummary.")
-                 return false
-            }
-             billingModeSummary.billingMode = .payPerRequest
-             createTableInput.billingModeSummary = billingModeSummary
-             // provisionedThroughput is not needed if using PAY_PER_REQUEST, but often included for schema definition
-             createTableInput.provisionedThroughput = nil // Explicitly set to nil for On-demand
-
-            logger.info("Sending CreateTable request for '\(dynamoDbTableName)'...")
-
-            // Execute the request
-            _ = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-                 client.createTable(createTableInput).continueWith { task in
-                     if let error = task.error {
-                         logger.error("Failed to create table '\(dynamoDbTableName)': \(error.localizedDescription)")
-                         continuation.resume(throwing: error)
-                     } else {
-                         logger.info("CreateTable request for '\(dynamoDbTableName)' sent successfully. Waiting for table to become active...")
-                         // Table is not immediately active, should ideally wait for it to become active
-                         continuation.resume()
+                // Execute the request
+                _ = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+                     client.createTable(createTableInput).continueWith { task in
+                         if let error = task.error {
+                             logger.error("Failed to create table '\(dynamoDbTableName)': \(error.localizedDescription)")
+                             continuation.resume(throwing: error)
+                         } else {
+                             logger.info("CreateTable request for '\(dynamoDbTableName)' sent successfully. Waiting for table to become active...")
+                             // Table is not immediately active, should ideally wait for it to become active
+                             continuation.resume()
+                         }
+                         return nil
                      }
-                     return nil
                  }
-             }
 
-            // Table might not be active yet, but request was successful
-            logger.info("Table creation request successful for '\(dynamoDbTableName)'.")
-            return true
+                // Table might not be active yet, but request was successful
+                logger.info("Table creation request successful for '\(dynamoDbTableName)'.")
+                return true
 
-        } catch {
-            logger.error("An error occurred during table creation: \(error.localizedDescription)")
-            return false
+            } catch {
+                logger.error("An error occurred during table creation: \(error.localizedDescription)")
+                return false
+            }
         }
     }
 }
