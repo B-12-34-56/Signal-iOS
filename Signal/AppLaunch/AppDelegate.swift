@@ -241,7 +241,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Do this even if `appVersion` isn't used -- there's side effects.
         let appVersion = AppVersionImpl.shared
-
+        
         // Set up and register incremental migration for TSAttachment -> v2 Attachment.
         // TODO: remove this (and the incremental migrator itself) once we make this
         // migration a launch-blocking GRDB migration.
@@ -657,7 +657,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 YDBStorage.deleteYDBStorage()
                 SSKPreferences.clearLegacyDatabaseFlags(from: appContext.appUserDefaults())
                 try? launchContext.keychainStorage.removeValue(service: "TSKeyChainService", key: "TSDatabasePass")
-                try? launchContext.keychainStorage.removeValue(service: "TSKeyChainService", key: "OWSDatabaseCipherKeySpec")
+                try? launchContext.keychainStorage.removeValue(service: "OWSDatabaseCipherKeySpec")
             }
         }
 
@@ -675,31 +675,50 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
             Task {
-                Logger.info("Initializing AWS credentials and attachment validation hook...")
+                Logger.info("[AWS Init] Starting AWS initialization and validation...")
+                
                 guard let storage = DependenciesBridge.shared.db as? SDSDatabaseStorage else {
-                    Logger.error("❌ Could not obtain SDSDatabaseStorage – duplicate-check hook NOT installed.")
+                    Logger.error("[AWS Init] ❌ Could not obtain SDSDatabaseStorage – duplicate-check hook installation skipped.")
                     return
                 }
                 
-                // Setup AWS credentials for content validation
-                // setupAWSCredentials handles its own errors internally and logs them.
-                AWSConfig.setupAWSCredentials()
+                // 1. Setup AWS Credentials
+                AWSConfig.setupAWSCredentials() // Handles its own internal logging for setup errors
                 
-                // Validate credentials after setup
+                // 2. Validate Credentials
                 let credentialsValid = await AWSConfig.validateAWSCredentials()
                 if !credentialsValid {
-                    Logger.error("❌ AWS credentials validation failed. Attachment validation might not work.")
-                    // Depending on policy, we might still proceed or halt here.
-                    // For now, proceed but log the error.
+                    Logger.error("[AWS Init] ❌ AWS credentials validation failed. Attachment validation system might operate in degraded mode.")
+                    // Recovery Mechanism: Proceed but log the failure. Features relying on AWS
+                    // (like hash checking) will gracefully fail or default to safe behavior (e.g., allowing downloads).
                 } else {
-                     Logger.info("✅ AWS credentials validated successfully.")
+                    Logger.info("[AWS Init] ✅ AWS credentials validated successfully.")
+                }
+                
+                // 3. Ensure DynamoDB Table Exists (only if credentials are valid)
+                var tableReady = false
+                if credentialsValid {
+                    // Attempt to check/create the table. Set createIfNotExists to true for development/testing.
+                    // In production, table creation should ideally be handled by deployment scripts.
+                    tableReady = await AWSConfig.ensureDynamoDbTableExists(createIfNotExists: true)
+                    if tableReady {
+                        Logger.info("[AWS Init] ✅ DynamoDB table '\(AWSConfig.dynamoDbTableName)' confirmed or created.")
+                    } else {
+                        Logger.error("[AWS Init] ❌ Failed to confirm or create DynamoDB table '\(AWSConfig.dynamoDbTableName)'. Attachment validation may fail.")
+                        // Recovery Mechanism: Proceed, but log failure. GlobalSignatureService calls will likely fail.
+                    }
                 }
         
-                // Install the attachment download hook with the database pool
+                // 4. Install Attachment Download Hook
+                // Install the hook regardless of AWS status, but log a warning if dependencies aren't ready.
                 let pool = storage.grdbStorage.pool
                 AttachmentDownloadHook.shared.install(with: pool)
                 
-                Logger.info("✅ Successfully initialized AWS credentials and installed attachment validation hook.")
+                if credentialsValid && tableReady {
+                    Logger.info("[AWS Init] ✅ Successfully initialized AWS and installed attachment validation hook.")
+                } else {
+                    Logger.warning("[AWS Init] ⚠️ Completed AWS initialization block, but some steps failed. Attachment validation hook installed, but may operate in degraded mode.")
+                }
             }
         }
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {

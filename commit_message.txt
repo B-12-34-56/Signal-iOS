@@ -1,0 +1,49 @@
+Organize Duplicate Content Detection Testing Files
+
+This commit organizes the testing files and documentation for the Duplicate Content Detection System. The test suite includes component-specific tests, end-to-end live tests, and comprehensive result documentation to validate the functionality, security, and performance of our duplicate content detection implementation.
+
+## Core Testing (DuplicateContentDetection/CoreTests)
+
+- **duplicate_content_live_test.swift**: Comprehensive end-to-end test suite that validates the entire duplicate content detection system with actual AWS services. Tests include:
+  - AWS credential validation and DynamoDB connectivity
+  - Hash storage and retrieval operations
+  - Attachment validation against blocked hashes
+  - Complete message send/receive workflow simulation
+  - Performance testing with different attachment sizes (10B to 100KB)
+
+## Component-Specific Tests (DuplicateContentDetection/ComponentTests)
+
+- **test_attachment_download_hook.swift**: Tests the AttachmentDownloadHook component that intercepts and validates attachments before download. Covers hash computation, attachment validation, and proper error handling.
+
+- **test_global_signature_service.swift**: Tests the GlobalSignatureService component responsible for DynamoDB interactions, including hash checking, storage with TTL values, and error handling with retry logic.
+
+- **test_message_sender_integration.swift**: Tests integration between MessageSender and duplicate content detection system, including pre-send validation and post-send hash contribution.
+
+## Results and Documentation (DuplicateContentDetection/Results)
+
+- **duplicate_content_live_test_report.md**: Comprehensive report of live test results including success rates, performance metrics, identified issues, and recommendations for future improvements.
+
+- **duplicate_content_live_test_results.log**: Detailed log output from test runs containing raw data for further analysis.
+
+- **validation_results.txt**: Summary of validation checks performed on the duplicate content detection implementation.
+
+## Testing Methodology
+
+The test suite employs a multi-layered approach:
+1. Component-level unit tests with mock implementations for isolated verification
+2. Integration tests that validate component interactions
+3. End-to-end live tests against actual AWS services
+4. Performance testing with various data sizes and network conditions
+
+Tests validate both happy paths and error cases, with particular attention to security, error handling, and resilience to network failures.
+
+## Components Tested
+
+The tests validate all major components of the duplicate content detection system:
+- AWS credential management and security (AWSConfig)
+- DynamoDB interactions (GlobalSignatureService)
+- Attachment validation (AttachmentDownloadHook)
+- Retry mechanisms (AttachmentDownloadRetryRunner)
+- Message sending integration (MessageSender)
+
+This organization of testing files provides comprehensive coverage of the duplicate content detection system, ensuring its reliability and correctness.
