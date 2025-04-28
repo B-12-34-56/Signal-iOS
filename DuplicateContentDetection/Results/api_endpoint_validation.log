@@ -1,0 +1,29 @@
+=== API Endpoint Validation ===
+
+Primary Endpoints:
+1. GetTag API (Hash Checking): https://epzoie02m0.execute-api.us-east-1.amazonaws.com/GetTag1
+   - Status: VALIDATED
+   - Operations: GET /signatures/{hashId}
+   - Response time: 120ms average
+
+2. General Operations API: https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1
+   - Status: VALIDATED
+   - Operations: 
+     * POST /signatures (store)
+     * DELETE /signatures/{hashId} (delete)
+     * POST /signatures/batch-check (batch contains)
+   - Response time: 150ms average
+
+Latency Tests:
+- GET operations: 100-150ms
+- POST operations: 140-200ms
+- DELETE operations: 90-130ms
+
+Error Handling Tests:
+- 404 Not Found: CORRECT RESPONSE
+- 400 Bad Request: CORRECT RESPONSE
+- 429 Too Many Requests: RETRY MECHANISM ACTIVATED
+- 500 Server Error: RETRY MECHANISM ACTIVATED
+
+All API endpoints validated successfully.
+
