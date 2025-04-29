@@ -657,7 +657,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 YDBStorage.deleteYDBStorage()
                 SSKPreferences.clearLegacyDatabaseFlags(from: appContext.appUserDefaults())
                 try? launchContext.keychainStorage.removeValue(service: "TSKeyChainService", key: "TSDatabasePass")
-                try? launchContext.keychainStorage.removeValue(service: "OWSDatabaseCipherKeySpec")
+                try? launchContext.keychainStorage.removeValue(service: "OWSDatabaseCipherKeySpec", key: "OWSDatabaseCipherKeySpec")
             }
         }
 
@@ -717,7 +717,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 if credentialsValid && tableReady {
                     Logger.info("[AWS Init] ✅ Successfully initialized AWS and installed attachment validation hook.")
                 } else {
-                    Logger.warning("[AWS Init] ⚠️ Completed AWS initialization block, but some steps failed. Attachment validation hook installed, but may operate in degraded mode.")
+                    Logger.warn("[AWS Init] ⚠️ Completed AWS initialization block, but some steps failed. Attachment validation hook installed, but may operate in degraded mode.")
                 }
             }
         }
