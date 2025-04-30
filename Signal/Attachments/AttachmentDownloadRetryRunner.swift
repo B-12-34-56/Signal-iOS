@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 import SignalServiceKit
-import Logging
+import os.log
 
 /// Periodically checks *AttachmentDownloadQueue* for rows that were blocked because the
 /// attachment’s hash lives in `GlobalSignatureService`. Once the hash disappears the
@@ -18,7 +18,8 @@ public final class AttachmentDownloadRetryRunner {
     private let db: SDSDatabaseStorage
     private let runner: Runner
     private let dbObserver: DownloadTableObserver
-    private let logger = Logger(label: "org.signal.AttachmentDownloadRetryRunner")
+    private let logger = os.Logger(subsystem: Bundle.main.bundleIdentifier!, category: "AttachmentDownloadRetryRunner")
+
 
     init(
         attachmentDownloadManager: AttachmentDownloadManager,
@@ -70,7 +71,8 @@ public final class AttachmentDownloadRetryRunner {
         nonisolated let attachmentDownloadStore: AttachmentDownloadStore
         nonisolated let db: SDSDatabaseStorage
         nonisolated let signatureService = GlobalSignatureService.shared
-        nonisolated let logger = Logger(label: "org.signal.AttachmentDownloadRetryRunner.Runner")
+        nonisolated let logger = os.Logger(subsystem: Bundle.main.bundleIdentifier!, category: "AttachmentDownloadRetryRunner.Runner")
+
 
         // Back‑off config
         private let initialRetryDelay: TimeInterval = 60 * 5      // 5 min
@@ -197,8 +199,7 @@ public final class AttachmentDownloadRetryRunner {
         private class DownloadTableObserver: TransactionObserver {
         private weak var runner: Runner?
         private var shouldKick = false
-        private let logger = Logger(label: "org.signal.AttachmentDownloadRetryRunner.Observer")
-
+        private let logger = os.Logger(subsystem: Bundle.main.bundleIdentifier!, category: "AttachmentDownloadRetryRunner.Observer")
         init(runner: Runner) { self.runner = runner }
 
         // GRDB 6.x – the required signature uses stand‑alone `DatabaseEventKind`
@@ -253,22 +254,5 @@ private extension SDSDatabaseStorage {
                 cont.resume(throwing: error)
             }
         }
-    }
-}
-
-// MARK: ––– Protocol stubs (implement in your store)
-
-extension AttachmentDownloadStore {
-    func fetchRetryableDownloads(beforeOrAt ts: Int64, db: Database) throws -> [QueuedAttachmentDownloadRecord] {
-        fatalError("Implement in concrete store")
-    }
-    func updateRetryAttempt(id: Int64, newTimestamp: Int64, newAttemptCount: Int, db: Database) throws {
-        fatalError("Implement in concrete store")
-    }
-    func markReadyForDownload(id: Int64, db: Database) throws {
-        fatalError("Implement in concrete store")
-    }
-    func nextRetryTimestamp(db: Database) throws -> UInt64? {
-        fatalError("Implement in concrete store")
     }
 }

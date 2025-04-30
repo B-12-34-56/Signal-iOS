@@ -48,7 +48,7 @@ final class AttachmentDownloadHook {
             try SignalAttachmentRecord
                 .filter(Column("contentType").like("image/%"))
                 .filter(Column("localRelativeFilePath") != nil)
-                .filter(Column("isProcessedForDuplicateCheck") == false)
+                .filter(Column("isProcessedForDuplicateCheck") == false || Column("isProcessedForDuplicateCheck") == nil)
                 .fetchAll(db)
         }
         attachmentObservation = obs.start(
@@ -73,7 +73,7 @@ final class AttachmentDownloadHook {
                     let visionHash = try await DuplicateDetectionManager.shared.digitalSignature(for: image)
                     let aHash      = HashUtils.averageHash8x8(image)
 
-                    if rec.isOutgoing == true {
+                    if rec.isOutgoing != false {
                         // Outgoing: run full local/global check
                         try await processOutgoing(
                             signature: visionHash,
@@ -93,6 +93,7 @@ final class AttachmentDownloadHook {
                     await markProcessed(id: rec.id)
                 } catch {
                     logger.error("Duplicate blocked for attachment \(rec.id): \(error.localizedDescription)")
+                    throw error
                     // ❸ Re-throw so upstream layers may cancel the send throw error
                 }
             }
@@ -108,7 +109,11 @@ final class AttachmentDownloadHook {
             )
         }
     }
+    // Inside the AttachmentDownloadHook class
+    private let attachmentDownloadStore = DependenciesBridge.shared.attachmentDownloadStore
 
+    // Inside processOutgoing method, modify the code that detects duplicates:
+    // Similarly, add the markAttachmentBlocked call in the other duplicate detection blocks
     /// Handles outgoing images with both Vision and aHash checks
     private func processOutgoing(
         signature visionHash: String,
