@@ -3,7 +3,7 @@
 
 import Foundation
 import GRDB
-import Logging
+import os.log
 
 // MARK: – Notification name
 
@@ -36,9 +36,10 @@ class DuplicateSignatureStore {
     weak var delegate: DuplicateSignatureStoreDelegate?
 
     // Fully-qualified to force the Swift-Log type if needed
-        private let logger = Logging.Logger(
-            label: Bundle.main.bundleIdentifier ?? "DuplicateSignatureStore"
-            )
+    private let logger = os.Logger(
+            subsystem: Bundle.main.bundleIdentifier ?? "com.joelminaya.signaldev",
+            category: "DuplicateSignatureStore"
+        )
     private var dbPool: DatabasePool!
 
     private init() {}

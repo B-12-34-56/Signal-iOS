@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1785,18 +1785,17 @@
 		D652259F2DBA66EC00830042 /* Attachment+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D652259E2DBA66E700830042 /* Attachment+Hash.swift */; };
 		D653EF5D2DBC3FD5008617D1 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D653EF5C2DBC3FD5008617D1 /* Logging */; };
 		D653EF5F2DBC410C008617D1 /* AWSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D653EF5E2DBC4106008617D1 /* AWSConfig.swift */; };
+		D65A33D02DC199B400D2B840 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65A33CF2DC199B400D2B840 /* AWSCore.framework */; };
+		D65A33D22DC199B900D2B840 /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65A33D12DC199B900D2B840 /* AWSCognitoIdentityProvider.framework */; };
+		D65A33D42DC199BC00D2B840 /* AWSCognitoIdentityProviderASF.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65A33D32DC199BC00D2B840 /* AWSCognitoIdentityProviderASF.framework */; };
+		D65A33D62DC199C100D2B840 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65A33D52DC199C100D2B840 /* AWSDynamoDB.framework */; };
 		D65CE2C02DB29BCF00221D4F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; platformFilter = ios; };
-		D65CE2C12DB29BCF00221D4F /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D65CE2C42DB29BF600221D4F /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */; platformFilter = ios; };
-		D65CE2C52DB29BF600221D4F /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D65CE2C62DB29C0B00221D4F /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */; };
 		D65CE2C72DB29C0B00221D4F /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D65CE2C92DB29C0D00221D4F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; };
 		D65CE2CA2DB29C0D00221D4F /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */ = {isa = PBXBuildFile; productRef = D6D8F0082DACA6D900CFDC7C /* AWSDynamoDB */; };
-		D6F5AA092DBB38C2003F6F52 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6F5AA082DBB38C2003F6F52 /* Logging */; };
 		D6F5AA0B2DBB3A83003F6F52 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6F5AA0A2DBB3A83003F6F52 /* Logging */; };
-		D6F5AA142DBB4075003F6F52 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6F5AA132DBB4075003F6F52 /* Logging */; };
 		D900B3CBEBBCB9E0800E2092 /* Pods_Signal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F121AE4B4AC0D0F2E74697 /* Pods_Signal.framework */; };
 		D90AA3322CC9616B00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2222CC9616A00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto */; };
 		D90AA3332CC9616B00021CB0 /* account_data_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA0772CC9616A00021CB0 /* account_data_03.binproto */; };
@@ -3796,8 +3795,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D65CE2C52DB29BF600221D4F /* AWSDynamoDB.framework in Embed Frameworks */,
-				D65CE2C12DB29BCF00221D4F /* AWSCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5728,6 +5725,10 @@
 		D60537892DB168B70008375C /* SignalShareExtensionDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SignalShareExtensionDebug.entitlements; sourceTree = "<group>"; };
 		D652259E2DBA66E700830042 /* Attachment+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attachment+Hash.swift"; sourceTree = "<group>"; };
 		D653EF5E2DBC4106008617D1 /* AWSConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConfig.swift; sourceTree = "<group>"; };
+		D65A33CF2DC199B400D2B840 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D65A33D12DC199B900D2B840 /* AWSCognitoIdentityProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCognitoIdentityProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D65A33D32DC199BC00D2B840 /* AWSCognitoIdentityProviderASF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCognitoIdentityProviderASF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D65A33D52DC199C100D2B840 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSDynamoDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = ../Desktop/AWSCore.framework; sourceTree = "<group>"; };
 		D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = ../Desktop/AWSDynamoDB.framework; sourceTree = "<group>"; };
 		D65FD7952DB15CB1000A62E1 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -8158,6 +8159,7 @@
 		D6F618642DB9F1DE00299C2D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				DuplicateDetection/AttachmentDownloadStoreExtension.swift,
 				DuplicateDetection/DuplicateDetectionStore.swift,
 				DuplicateDetection/GlobalSignatureService.swift,
 				DuplicateDetection/HashUtils.swift,
@@ -8212,6 +8214,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D900B3CBEBBCB9E0800E2092 /* Pods_Signal.framework in Frameworks */,
+				D65A33D62DC199C100D2B840 /* AWSDynamoDB.framework in Frameworks */,
+				D65A33D42DC199BC00D2B840 /* AWSCognitoIdentityProviderASF.framework in Frameworks */,
+				D65A33D22DC199B900D2B840 /* AWSCognitoIdentityProvider.framework in Frameworks */,
+				D65A33D02DC199B400D2B840 /* AWSCore.framework in Frameworks */,
 				D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */,
 				D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */,
 				D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */,
@@ -8237,7 +8244,6 @@
 				D6421F822DBE8DF500BB149C /* Logging in Frameworks */,
 				D2179CFE16BB0B480006F3AB /* SystemConfiguration.framework in Frameworks */,
 				D221A08E169C9E5E00537ABF /* UIKit.framework in Frameworks */,
-				D900B3CBEBBCB9E0800E2092 /* Pods_Signal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8268,11 +8274,8 @@
 			files = (
 				D6F5AA0B2DBB3A83003F6F52 /* Logging in Frameworks */,
 				D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */,
-				D6F5AA142DBB4075003F6F52 /* Logging in Frameworks */,
-				D65CE2C42DB29BF600221D4F /* AWSDynamoDB.framework in Frameworks */,
 				D65CE2C02DB29BCF00221D4F /* AWSCore.framework in Frameworks */,
 				F942DC9AE888310090ADB968 /* Pods_SignalServiceKit.framework in Frameworks */,
-				D6F5AA092DBB38C2003F6F52 /* Logging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11765,6 +11768,10 @@
 		D221A08C169C9E5E00537ABF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D65A33D52DC199C100D2B840 /* AWSDynamoDB.framework */,
+				D65A33D32DC199BC00D2B840 /* AWSCognitoIdentityProviderASF.framework */,
+				D65A33D12DC199B900D2B840 /* AWSCognitoIdentityProvider.framework */,
+				D65A33CF2DC199B400D2B840 /* AWSCore.framework */,
 				D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */,
 				D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */,
 				D69B7E4F2DB292DF00F276BA /* AWSDynamoDB.framework */,
@@ -22855,17 +22862,7 @@
 			package = D6D8F0072DAC950300CFDC7C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
 			productName = AWSDynamoDB;
 		};
-		D6F5AA082DBB38C2003F6F52 /* Logging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
-			productName = Logging;
-		};
 		D6F5AA0A2DBB3A83003F6F52 /* Logging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
-			productName = Logging;
-		};
-		D6F5AA132DBB4075003F6F52 /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
 			productName = Logging;

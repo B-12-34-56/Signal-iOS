@@ -673,6 +673,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         appReadiness.runNowOrWhenAppDidBecomeReadyAsync {
             DependenciesBridge.shared.orphanedAttachmentCleaner.beginObserving()
         }
+        // Add this to your AppDelegate.swift in the AWS initialization section
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
             Task {
                 Logger.info("[AWS Init] Starting AWS initialization and validation...")
@@ -683,46 +684,52 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 
                 // 1. Setup AWS Credentials
-                AWSConfig.setupAWSCredentials() // Handles its own internal logging for setup errors
+                AWSConfig.setupAWSCredentials()
                 
                 // 2. Validate Credentials
                 let credentialsValid = await AWSConfig.validateAWSCredentials()
-                if !credentialsValid {
-                    Logger.error("[AWS Init] ❌ AWS credentials validation failed. Attachment validation system might operate in degraded mode.")
-                    // Recovery Mechanism: Proceed but log the failure. Features relying on AWS
-                    // (like hash checking) will gracefully fail or default to safe behavior (e.g., allowing downloads).
-                } else {
+                if credentialsValid {
                     Logger.info("[AWS Init] ✅ AWS credentials validated successfully.")
                 }
                 
-                // 3. Ensure DynamoDB Table Exists (only if credentials are valid)
-                var tableReady = false
-                if credentialsValid {
-                    // Attempt to check/create the table. Set createIfNotExists to true for development/testing.
-                    // In production, table creation should ideally be handled by deployment scripts.
-                    tableReady = await AWSConfig.ensureDynamoDbTableExists(createIfNotExists: true)
-                    if tableReady {
-                        Logger.info("[AWS Init] ✅ DynamoDB table '\(AWSConfig.dynamoDbTableName)' confirmed or created.")
+                // 3. Ensure DynamoDB Table Exists
+                let tableReady = await AWSConfig.ensureDynamoDbTableExists(createIfNotExists: true)
+                if tableReady {
+                    Logger.info("[AWS Init] ✅ DynamoDB table '\(AWSConfig.dynamoDbTableName)' confirmed.")
+                }
+                
+                // 4. IMPORTANT: Add the missing column
+                try? await storage.grdbStorage.pool.write { db in
+                    // Check if column exists already
+                    let columnExists = try Bool.fetchOne(db, sql: """
+                        SELECT COUNT(*) > 0 FROM pragma_table_info('Attachment') 
+                        WHERE name = 'isProcessedForDuplicateCheck'
+                    """) ?? false
+                    
+                    if !columnExists {
+                        Logger.info("[AWS Init] Adding 'isProcessedForDuplicateCheck' column to Attachment table")
+                        try db.execute(sql: """
+                            ALTER TABLE Attachment ADD COLUMN 
+                            isProcessedForDuplicateCheck BOOLEAN NOT NULL DEFAULT 0
+                        """)
                     } else {
-                        Logger.error("[AWS Init] ❌ Failed to confirm or create DynamoDB table '\(AWSConfig.dynamoDbTableName)'. Attachment validation may fail.")
-                        // Recovery Mechanism: Proceed, but log failure. GlobalSignatureService calls will likely fail.
+                        // Update existing NULL values to have the correct default
+                        try db.execute(sql: """
+                            UPDATE Attachment 
+                            SET isProcessedForDuplicateCheck = 0 
+                            WHERE isProcessedForDuplicateCheck IS NULL
+                        """)
                     }
                 }
-        
-                // 4. Install Attachment Download Hook
-                // Install the hook regardless of AWS status, but log a warning if dependencies aren't ready.
-                let pool = storage.grdbStorage.pool
-                AttachmentDownloadHook.shared.install(with: pool)
                 
-                if credentialsValid && tableReady {
-                    Logger.info("[AWS Init] ✅ Successfully initialized AWS and installed attachment validation hook.")
-                } else {
-                    Logger.warn("[AWS Init] ⚠️ Completed AWS initialization block, but some steps failed. Attachment validation hook installed, but may operate in degraded mode.")
-                }
+                // 5. Install Attachment Download Hook
+                AttachmentDownloadHook.shared.install(with: storage.grdbStorage.pool)
+                
+                Logger.info("[AWS Init] ✅ Successfully initialized AWS and installed attachment validation hook.")
             }
         }
-        appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
-            AttachmentDownloadRetryRunner.shared.beginObserving()
+        Task.detached(priority: .background) {
+          AttachmentDownloadRetryRunner.shared.beginObserving()
         }
 
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {

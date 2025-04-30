@@ -3,7 +3,7 @@
 
 import Foundation
 import AWSCore
-import AWSCognitoIdentityProvider  // ensure your Podfile/SPM includes these
+import AWSCognitoIdentityProvider
 import AWSDynamoDB
 
 struct AWSConfig {
@@ -20,7 +20,7 @@ struct AWSConfig {
         AWSServiceManager.default().defaultServiceConfiguration = configuration
     }
 
-    /// Quickly check whether an identity has been fetched
+    /// Quickly check and fetch the identityId if needed
     static func validateAWSCredentials() async -> Bool {
         guard let provider = AWSServiceManager
                 .default()
@@ -29,76 +29,93 @@ struct AWSConfig {
         else {
             return false
         }
-        return provider.identityId != nil
+
+        // Already fetched?
+        if provider.identityId != nil {
+            return true
+        }
+
+        // Otherwise actually fetch
+        do {
+            let fetchedId = try await withCheckedThrowingContinuation {
+                (cont: CheckedContinuation<String, Error>) in        // 👈 explicit type
+                provider.getIdentityId().continueWith { task in
+                    if let error = task.error {
+                        cont.resume(throwing: error)
+                    } else {
+                        cont.resume(returning: (task.result as? String) ?? "")
+                    }
+                    return nil
+                }
+            }
+
+
+            return !fetchedId.isEmpty
+        } catch {
+            NSLog("[AWS Init] ⚠️ Error fetching identity: \(error.localizedDescription)")
+            return false
+        }
     }
 }
 
 // MARK: — DynamoDB table helper
-
 extension AWSConfig {
-    /// The name of your existing DynamoDB table
+    /// Your DynamoDB table name
     static let dynamoDbTableName = "ImageSignatures"
 
-    /// Check for—and optionally create—the DynamoDB table.
+    /// Describe (or create) your table
     static func ensureDynamoDbTableExists(createIfNotExists: Bool) async -> Bool {
         let client = AWSDynamoDB.default()
 
-        // 1) Try to describe the table
-        let describeInput = AWSDynamoDBDescribeTableInput()!
-        describeInput.tableName = dynamoDbTableName
+        // 1) Try describe
+        let descInput = AWSDynamoDBDescribeTableInput()!
+        descInput.tableName = dynamoDbTableName
 
         do {
-            _ = try await withCheckedThrowingContinuation { continuation in
-                client.describeTable(describeInput) { output, error in
+            _ = try await withCheckedThrowingContinuation { cont in
+                client.describeTable(descInput) { output, error in
                     if let output = output {
-                        continuation.resume(returning: output)
+                        cont.resume(returning: output)
                     } else {
-                        continuation.resume(throwing: error!)
+                        cont.resume(throwing: error!)
                     }
                 }
             }
-            // Table exists
             return true
-
         } catch let nsError as NSError
           where nsError.domain == AWSDynamoDBErrorDomain
-         && nsError.code == AWSDynamoDBErrorType.resourceNotFound.rawValue
+             && nsError.code == AWSDynamoDBErrorType.resourceNotFound.rawValue
         {
-            // 2) Table not found
             guard createIfNotExists else { return false }
 
-            // 3) Create it with the same key schema you saw in the console
-            // 3) Create it with the same key schema you saw in the console
+            // 2) Build CreateTableInput
             let createInput = AWSDynamoDBCreateTableInput()!
             createInput.tableName = dynamoDbTableName
 
-            // ── attributeDefinitions ────────────────────────────────
             let attr = AWSDynamoDBAttributeDefinition()!
-            attr.attributeName  = "signature"
-            attr.attributeType  = .S         // .s = String
+            attr.attributeName = "signature"
+            attr.attributeType = .S
 
-            // ── keySchema ───────────────────────────────────────────
             let key = AWSDynamoDBKeySchemaElement()!
             key.attributeName = "signature"
-            key.keyType       = .hash         // partition key
+            key.keyType = .hash
 
             createInput.attributeDefinitions = [attr]
-            createInput.keySchema            = [key]
+            createInput.keySchema = [key]
 
-            // ── provisionedThroughput ───────────────────────────────
             let throughput = AWSDynamoDBProvisionedThroughput()!
-            throughput.readCapacityUnits  = 5
+            throughput.readCapacityUnits = 5
             throughput.writeCapacityUnits = 5
             createInput.provisionedThroughput = throughput
-            
 
+            // 3) Create
             do {
-                _ = try await withCheckedThrowingContinuation { continuation in
+                _ = try await withCheckedThrowingContinuation { cont in
                     client.createTable(createInput) { output, error in
                         if let output = output {
-                            continuation.resume(returning: output)
+                            cont.resume(returning: output)
                         } else {
-                            continuation.resume(throwing: error!)
+                            cont.resume(throwing: error!)
                         }
                     }
                 }
@@ -107,7 +124,6 @@ extension AWSConfig {
                 return false
             }
         } catch {
-            // Some other error (e.g. permissions/network)
             return false
         }
     }

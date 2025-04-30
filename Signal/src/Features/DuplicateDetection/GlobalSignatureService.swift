@@ -1,14 +1,14 @@
 import Foundation
 import AWSCore
 import AWSDynamoDB
-import Logging
+import os.log
 
 /// Manages global image signature checks and storage in DynamoDB
 public final class GlobalSignatureService {
     public static let shared = GlobalSignatureService()
     private let client: AWSDynamoDB
     private let tableName = "ImageSignatures"
-    private let logger = Logging.Logger(label: "DuplicateSignatureStore")
+    private let logger = os.Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.joelminaya.signaldev", category: "GlobalSignatureService")
     
     private init() {
         // Configure AWS with Cognito Identity Pool
