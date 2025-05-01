@@ -5,7 +5,7 @@
 
 import Foundation
 public import LibSignalClient
-import Logging
+import os.log
 
 public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescriptionProvider {
     case duplicateBlocked(aHash: String)

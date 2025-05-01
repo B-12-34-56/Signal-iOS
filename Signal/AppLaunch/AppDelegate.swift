@@ -725,6 +725,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 // 5. Install Attachment Download Hook
                 AttachmentDownloadHook.shared.install(with: storage.grdbStorage.pool)
                 
+                // 6. Wire UI delegate so the user sees something when we block
+                DuplicateSignatureStore.shared.delegate = DuplicateSignatureNotifier.shared
+                
                 Logger.info("[AWS Init] ✅ Successfully initialized AWS and installed attachment validation hook.")
             }
         }

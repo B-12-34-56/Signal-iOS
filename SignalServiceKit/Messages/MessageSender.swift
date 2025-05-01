@@ -6,7 +6,7 @@
 import Foundation
 import LibSignalClient
 import UIKit
-import Logging
+import os.log
 
 // MARK: - Message "isXYZ" properties
 

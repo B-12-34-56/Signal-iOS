@@ -1781,9 +1781,7 @@
 		D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221A0E7169DFFC500537ABF /* AVFoundation.framework */; };
 		D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24B5BD4169F568C00681372 /* AudioToolbox.framework */; };
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
-		D6421F822DBE8DF500BB149C /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6421F812DBE8DF500BB149C /* Logging */; };
 		D652259F2DBA66EC00830042 /* Attachment+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D652259E2DBA66E700830042 /* Attachment+Hash.swift */; };
-		D653EF5D2DBC3FD5008617D1 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D653EF5C2DBC3FD5008617D1 /* Logging */; };
 		D653EF5F2DBC410C008617D1 /* AWSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D653EF5E2DBC4106008617D1 /* AWSConfig.swift */; };
 		D65A33D02DC199B400D2B840 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65A33CF2DC199B400D2B840 /* AWSCore.framework */; };
 		D65A33D22DC199B900D2B840 /* AWSCognitoIdentityProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65A33D12DC199B900D2B840 /* AWSCognitoIdentityProvider.framework */; };
@@ -1791,11 +1789,11 @@
 		D65A33D62DC199C100D2B840 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65A33D52DC199C100D2B840 /* AWSDynamoDB.framework */; };
 		D65CE2C02DB29BCF00221D4F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; platformFilter = ios; };
 		D65CE2C62DB29C0B00221D4F /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */; };
-		D65CE2C72DB29C0B00221D4F /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2C32DB29BF600221D4F /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D65CE2C92DB29C0D00221D4F /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; };
-		D65CE2CA2DB29C0D00221D4F /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D65CE2BF2DB29BCF00221D4F /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D6D8D2912DC2D65900EEBB7F /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D8D2902DC2D65900EEBB7F /* Logging.framework */; };
+		D6D8D2942DC2D6F800EEBB7F /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D8D2932DC2D6F800EEBB7F /* Logging.framework */; };
+		D6D8D2982DC2D70500EEBB7F /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D8D2972DC2D70500EEBB7F /* Logging.framework */; };
 		D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */ = {isa = PBXBuildFile; productRef = D6D8F0082DACA6D900CFDC7C /* AWSDynamoDB */; };
-		D6F5AA0B2DBB3A83003F6F52 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6F5AA0A2DBB3A83003F6F52 /* Logging */; };
 		D900B3CBEBBCB9E0800E2092 /* Pods_Signal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31F121AE4B4AC0D0F2E74697 /* Pods_Signal.framework */; };
 		D90AA3322CC9616B00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2222CC9616A00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto */; };
 		D90AA3332CC9616B00021CB0 /* account_data_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA0772CC9616A00021CB0 /* account_data_03.binproto */; };
@@ -3805,8 +3803,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D65CE2C72DB29C0B00221D4F /* AWSDynamoDB.framework in Embed Frameworks */,
-				D65CE2CA2DB29C0D00221D4F /* AWSCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6D8D2962DC2D6F800EEBB7F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -6245,6 +6251,10 @@
 		D6AE59D32DB15826001DF649 /* LICENSE.APACHE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.APACHE; sourceTree = "<group>"; };
 		D6AE59D42DB15826001DF649 /* README-spm-support.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README-spm-support.md"; sourceTree = "<group>"; };
 		D6AE59D62DB1597D001DF649 /* ClearDerivedData.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = ClearDerivedData.sh; path = Scripts/ClearDerivedData.sh; sourceTree = "<group>"; };
+		D6D8D28B2DC2D5DC00EEBB7F /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D8D2902DC2D65900EEBB7F /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D8D2932DC2D6F800EEBB7F /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6D8D2972DC2D70500EEBB7F /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75F3429D66D3BBD9A61AB0C /* Pods-SignalServiceKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignalServiceKitTests.debug.xcconfig"; path = "Target Support Files/Pods-SignalServiceKitTests/Pods-SignalServiceKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D90AA0712CC9616A00021CB0 /* account_data_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = account_data_00.binproto; sourceTree = "<group>"; };
 		D90AA0722CC9616A00021CB0 /* account_data_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = account_data_00.txtproto; sourceTree = "<group>"; };
@@ -8159,7 +8169,7 @@
 		D6F618642DB9F1DE00299C2D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				DuplicateDetection/AttachmentDownloadStoreExtension.swift,
+				"DuplicateDetection/AttachmentDownloadStore+DuplicateBlocking.swift",
 				DuplicateDetection/DuplicateDetectionStore.swift,
 				DuplicateDetection/GlobalSignatureService.swift,
 				DuplicateDetection/HashUtils.swift,
@@ -8188,7 +8198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D653EF5D2DBC3FD5008617D1 /* Logging in Frameworks */,
+				D6D8D2942DC2D6F800EEBB7F /* Logging.framework in Frameworks */,
 				45B1C3C6727579478C0550DF /* Pods_SignalUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -8222,6 +8232,7 @@
 				D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */,
 				D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */,
 				D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */,
+				D6D8D2912DC2D65900EEBB7F /* Logging.framework in Frameworks */,
 				347C37FF2526005800F3D941 /* CloudKit.framework in Frameworks */,
 				45BD60821DE9547E00A8F436 /* Contacts.framework in Frameworks */,
 				B6B226971BE4B7D200860F4D /* ContactsUI.framework in Frameworks */,
@@ -8241,7 +8252,6 @@
 				F9C5C8AA289451B900548EEE /* SignalServiceKit.framework in Frameworks */,
 				34A954BD271A471300B05242 /* SignalUI.framework in Frameworks */,
 				4CC1ECF9211A47CE00CC13BE /* StoreKit.framework in Frameworks */,
-				D6421F822DBE8DF500BB149C /* Logging in Frameworks */,
 				D2179CFE16BB0B480006F3AB /* SystemConfiguration.framework in Frameworks */,
 				D221A08E169C9E5E00537ABF /* UIKit.framework in Frameworks */,
 			);
@@ -8272,7 +8282,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6F5AA0B2DBB3A83003F6F52 /* Logging in Frameworks */,
+				D6D8D2982DC2D70500EEBB7F /* Logging.framework in Frameworks */,
 				D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */,
 				D65CE2C02DB29BCF00221D4F /* AWSCore.framework in Frameworks */,
 				F942DC9AE888310090ADB968 /* Pods_SignalServiceKit.framework in Frameworks */,
@@ -11768,6 +11778,10 @@
 		D221A08C169C9E5E00537ABF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6D8D2972DC2D70500EEBB7F /* Logging.framework */,
+				D6D8D2932DC2D6F800EEBB7F /* Logging.framework */,
+				D6D8D2902DC2D65900EEBB7F /* Logging.framework */,
+				D6D8D28B2DC2D5DC00EEBB7F /* Logging.framework */,
 				D65A33D52DC199C100D2B840 /* AWSDynamoDB.framework */,
 				D65A33D32DC199BC00D2B840 /* AWSCognitoIdentityProviderASF.framework */,
 				D65A33D12DC199B900D2B840 /* AWSCognitoIdentityProvider.framework */,
@@ -16141,6 +16155,7 @@
 				34A954A4271A471200B05242 /* Sources */,
 				34A954A5271A471200B05242 /* Frameworks */,
 				34A954A6271A471200B05242 /* Resources */,
+				D6D8D2962DC2D6F800EEBB7F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -16427,7 +16442,6 @@
 			mainGroup = D221A07E169C9E5E00537ABF;
 			packageReferences = (
 				D6D8F0072DAC950300CFDC7C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
-				D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = D221A08A169C9E5E00537ABF /* Products */;
 			projectDirPath = "";
@@ -22836,36 +22850,13 @@
 				minimumVersion = 2.40.1;
 			};
 		};
-		D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-log.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.6.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D6421F812DBE8DF500BB149C /* Logging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
-			productName = Logging;
-		};
-		D653EF5C2DBC3FD5008617D1 /* Logging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
-			productName = Logging;
-		};
 		D6D8F0082DACA6D900CFDC7C /* AWSDynamoDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D6D8F0072DAC950300CFDC7C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
 			productName = AWSDynamoDB;
-		};
-		D6F5AA0A2DBB3A83003F6F52 /* Logging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D6F5AA052DBB38AE003F6F52 /* XCRemoteSwiftPackageReference "swift-log" */;
-			productName = Logging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
