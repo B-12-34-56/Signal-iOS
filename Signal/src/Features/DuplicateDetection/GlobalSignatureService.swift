@@ -66,8 +66,8 @@ public final class GlobalSignatureService {
         hashAttr.s = aHash
         dateAttr.s = ISO8601DateFormatter().string(from: Date())
         
-        input.item = ["hash": hashAttr, "firstSeen": dateAttr]
-        input.conditionExpression = "attribute_not_exists(hash)"
+        input.item = ["signature": hashAttr, "firstSeen": dateAttr]
+        input.conditionExpression = "attribute_not_exists(signature)"
         _ = client.putItem(input)
     }
 }
