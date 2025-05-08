@@ -1,0 +1,4 @@
+module SignalCore {
+    header "/Users/ibrahimusmani/Documents/Signal-iOS/SignalCore/.build/arm64-apple-macosx/debug/SignalCore.build/SignalCore-Swift.h"
+    requires objc
+}

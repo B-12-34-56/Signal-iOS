@@ -1,0 +1,725 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "AWSAPIGateway-Target-arm64-apple-macosx15.0-debug.module": ["<AWSAPIGateway-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSAppleSignIn-Target-arm64-apple-macosx15.0-debug.module": ["<AWSAppleSignIn-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSAuthCore-Target-arm64-apple-macosx15.0-debug.module": ["<AWSAuthCore-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSAuthUI-Target-arm64-apple-macosx15.0-debug.module": ["<AWSAuthUI-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSAutoScaling-Target-arm64-apple-macosx15.0-debug.module": ["<AWSAutoScaling-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSChimeSDKIdentity-Target-arm64-apple-macosx15.0-debug.module": ["<AWSChimeSDKIdentity-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSChimeSDKMessaging-Target-arm64-apple-macosx15.0-debug.module": ["<AWSChimeSDKMessaging-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSCloudWatch-Target-arm64-apple-macosx15.0-debug.module": ["<AWSCloudWatch-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSCognitoAuth-Target-arm64-apple-macosx15.0-debug.module": ["<AWSCognitoAuth-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSCognitoIdentityProvider-Target-arm64-apple-macosx15.0-debug.module": ["<AWSCognitoIdentityProvider-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSCognitoIdentityProviderASF-Target-arm64-apple-macosx15.0-debug.module": ["<AWSCognitoIdentityProviderASF-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSComprehend-Target-arm64-apple-macosx15.0-debug.module": ["<AWSComprehend-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSConnect-Target-arm64-apple-macosx15.0-debug.module": ["<AWSConnect-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSConnectParticipant-Target-arm64-apple-macosx15.0-debug.module": ["<AWSConnectParticipant-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSDynamoDB-Target-arm64-apple-macosx15.0-debug.module": ["<AWSDynamoDB-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSEC2-Target-arm64-apple-macosx15.0-debug.module": ["<AWSEC2-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSElasticLoadBalancing-Target-arm64-apple-macosx15.0-debug.module": ["<AWSElasticLoadBalancing-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSFacebookSignIn-Target-arm64-apple-macosx15.0-debug.module": ["<AWSFacebookSignIn-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSGoogleSignIn-Target-arm64-apple-macosx15.0-debug.module": ["<AWSGoogleSignIn-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSIoT-Target-arm64-apple-macosx15.0-debug.module": ["<AWSIoT-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSKMS-Target-arm64-apple-macosx15.0-debug.module": ["<AWSKMS-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSKinesis-Target-arm64-apple-macosx15.0-debug.module": ["<AWSKinesis-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSKinesisVideo-Target-arm64-apple-macosx15.0-debug.module": ["<AWSKinesisVideo-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSKinesisVideoArchivedMedia-Target-arm64-apple-macosx15.0-debug.module": ["<AWSKinesisVideoArchivedMedia-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSKinesisVideoSignaling-Target-arm64-apple-macosx15.0-debug.module": ["<AWSKinesisVideoSignaling-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSKinesisVideoWebRTCStorage-Target-arm64-apple-macosx15.0-debug.module": ["<AWSKinesisVideoWebRTCStorage-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSLambda-Target-arm64-apple-macosx15.0-debug.module": ["<AWSLambda-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSLex-Target-arm64-apple-macosx15.0-debug.module": ["<AWSLex-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSLocationXCF-Target-arm64-apple-macosx15.0-debug.module": ["<AWSLocationXCF-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSLogs-Target-arm64-apple-macosx15.0-debug.module": ["<AWSLogs-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSMachineLearning-Target-arm64-apple-macosx15.0-debug.module": ["<AWSMachineLearning-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSMobileClientXCF-Target-arm64-apple-macosx15.0-debug.module": ["<AWSMobileClientXCF-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSPinpoint-Target-arm64-apple-macosx15.0-debug.module": ["<AWSPinpoint-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSPolly-Target-arm64-apple-macosx15.0-debug.module": ["<AWSPolly-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSRekognition-Target-arm64-apple-macosx15.0-debug.module": ["<AWSRekognition-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSS3-Target-arm64-apple-macosx15.0-debug.module": ["<AWSS3-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSSES-Target-arm64-apple-macosx15.0-debug.module": ["<AWSSES-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSSNS-Target-arm64-apple-macosx15.0-debug.module": ["<AWSSNS-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSSQS-Target-arm64-apple-macosx15.0-debug.module": ["<AWSSQS-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSSageMakerRuntime-Target-arm64-apple-macosx15.0-debug.module": ["<AWSSageMakerRuntime-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSSimpleDB-Target-arm64-apple-macosx15.0-debug.module": ["<AWSSimpleDB-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSTextract-Target-arm64-apple-macosx15.0-debug.module": ["<AWSTextract-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSTranscribe-Target-arm64-apple-macosx15.0-debug.module": ["<AWSTranscribe-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSTranscribeStreaming-Target-arm64-apple-macosx15.0-debug.module": ["<AWSTranscribeStreaming-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSTranslate-Target-arm64-apple-macosx15.0-debug.module": ["<AWSTranslate-Target-arm64-apple-macosx15.0-debug.module>"]
+  "AWSUserPoolsSignIn-Target-arm64-apple-macosx15.0-debug.module": ["<AWSUserPoolsSignIn-Target-arm64-apple-macosx15.0-debug.module>"]
+  "ImportUtility-arm64-apple-macosx15.0-debug.exe": ["<ImportUtility-arm64-apple-macosx15.0-debug.exe>"]
+  "ImportUtility-arm64-apple-macosx15.0-debug.module": ["<ImportUtility-arm64-apple-macosx15.0-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<ImportUtility-arm64-apple-macosx15.0-debug.exe>","<ImportUtility-arm64-apple-macosx15.0-debug.module>"]
+  "test": ["<ImportUtility-arm64-apple-macosx15.0-debug.exe>","<ImportUtility-arm64-apple-macosx15.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility":
+    is-mutated: true
+commands:
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAPIGateway_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAPIGateway-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAPIGateway_Target.build/empty.m.o"]
+    description: "Compiling AWSAPIGateway-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSAPIGateway_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAPIGateway-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAPIGateway_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAPIGateway-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAPIGateway_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAPIGateway_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAppleSignIn_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAppleSignIn-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAppleSignIn_Target.build/empty.m.o"]
+    description: "Compiling AWSAppleSignIn-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSAppleSignIn_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAppleSignIn-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAppleSignIn_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAppleSignIn-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAppleSignIn_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAppleSignIn_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthCore_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAuthCore-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthCore_Target.build/empty.m.o"]
+    description: "Compiling AWSAuthCore-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSAuthCore_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAuthCore-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthCore_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAuthCore-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthCore_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthCore_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthUI_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAuthUI-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthUI_Target.build/empty.m.o"]
+    description: "Compiling AWSAuthUI-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSAuthUI_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAuthUI-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthUI_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAuthUI-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthUI_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthUI_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAutoScaling_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAutoScaling-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAutoScaling_Target.build/empty.m.o"]
+    description: "Compiling AWSAutoScaling-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSAutoScaling_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAutoScaling-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAutoScaling_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSAutoScaling-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAutoScaling_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAutoScaling_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKIdentity_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSChimeSDKIdentity-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKIdentity_Target.build/empty.m.o"]
+    description: "Compiling AWSChimeSDKIdentity-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSChimeSDKIdentity_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSChimeSDKIdentity-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKIdentity_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSChimeSDKIdentity-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKIdentity_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKIdentity_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKMessaging_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSChimeSDKMessaging-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKMessaging_Target.build/empty.m.o"]
+    description: "Compiling AWSChimeSDKMessaging-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSChimeSDKMessaging_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSChimeSDKMessaging-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKMessaging_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSChimeSDKMessaging-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKMessaging_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKMessaging_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCloudWatch_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCloudWatch-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCloudWatch_Target.build/empty.m.o"]
+    description: "Compiling AWSCloudWatch-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSCloudWatch_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCloudWatch-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCloudWatch_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCloudWatch-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCloudWatch_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCloudWatch_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoAuth_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoAuth-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoAuth_Target.build/empty.m.o"]
+    description: "Compiling AWSCognitoAuth-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSCognitoAuth_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoAuth-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoAuth_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoAuth-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoAuth_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoAuth_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProviderASF_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoIdentityProviderASF-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProviderASF_Target.build/empty.m.o"]
+    description: "Compiling AWSCognitoIdentityProviderASF-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSCognitoIdentityProviderASF_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoIdentityProviderASF-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProviderASF_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoIdentityProviderASF-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProviderASF_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProviderASF_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProvider_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoIdentityProvider-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProvider_Target.build/empty.m.o"]
+    description: "Compiling AWSCognitoIdentityProvider-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSCognitoIdentityProvider_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoIdentityProvider-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProvider_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSCognitoIdentityProvider-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProvider_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProvider_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSComprehend_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSComprehend-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSComprehend_Target.build/empty.m.o"]
+    description: "Compiling AWSComprehend-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSComprehend_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSComprehend-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSComprehend_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSComprehend-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSComprehend_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSComprehend_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnectParticipant_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSConnectParticipant-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnectParticipant_Target.build/empty.m.o"]
+    description: "Compiling AWSConnectParticipant-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSConnectParticipant_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSConnectParticipant-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnectParticipant_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSConnectParticipant-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnectParticipant_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnectParticipant_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnect_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSConnect-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnect_Target.build/empty.m.o"]
+    description: "Compiling AWSConnect-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSConnect_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSConnect-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnect_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSConnect-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnect_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnect_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSDynamoDB-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o"]
+    description: "Compiling AWSDynamoDB-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSDynamoDB_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSDynamoDB-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSDynamoDB-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSEC2_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSEC2-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSEC2_Target.build/empty.m.o"]
+    description: "Compiling AWSEC2-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSEC2_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSEC2-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSEC2_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSEC2-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSEC2_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSEC2_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSElasticLoadBalancing_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSElasticLoadBalancing-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSElasticLoadBalancing_Target.build/empty.m.o"]
+    description: "Compiling AWSElasticLoadBalancing-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSElasticLoadBalancing_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSElasticLoadBalancing-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSElasticLoadBalancing_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSElasticLoadBalancing-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSElasticLoadBalancing_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSElasticLoadBalancing_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSFacebookSignIn_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSFacebookSignIn-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSFacebookSignIn_Target.build/empty.m.o"]
+    description: "Compiling AWSFacebookSignIn-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSFacebookSignIn_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSFacebookSignIn-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSFacebookSignIn_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSFacebookSignIn-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSFacebookSignIn_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSFacebookSignIn_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSGoogleSignIn_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSGoogleSignIn-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSGoogleSignIn_Target.build/empty.m.o"]
+    description: "Compiling AWSGoogleSignIn-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSGoogleSignIn_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSGoogleSignIn-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSGoogleSignIn_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSGoogleSignIn-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSGoogleSignIn_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSGoogleSignIn_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSIoT_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSIoT-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSIoT_Target.build/empty.m.o"]
+    description: "Compiling AWSIoT-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSIoT_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSIoT-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSIoT_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSIoT-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSIoT_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSIoT_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKMS_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKMS-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKMS_Target.build/empty.m.o"]
+    description: "Compiling AWSKMS-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSKMS_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKMS-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKMS_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKMS-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKMS_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKMS_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoArchivedMedia_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoArchivedMedia-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoArchivedMedia_Target.build/empty.m.o"]
+    description: "Compiling AWSKinesisVideoArchivedMedia-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSKinesisVideoArchivedMedia_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoArchivedMedia-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoArchivedMedia_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoArchivedMedia-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoArchivedMedia_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoArchivedMedia_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoSignaling_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoSignaling-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoSignaling_Target.build/empty.m.o"]
+    description: "Compiling AWSKinesisVideoSignaling-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSKinesisVideoSignaling_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoSignaling-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoSignaling_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoSignaling-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoSignaling_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoSignaling_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoWebRTCStorage_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoWebRTCStorage-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoWebRTCStorage_Target.build/empty.m.o"]
+    description: "Compiling AWSKinesisVideoWebRTCStorage-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSKinesisVideoWebRTCStorage_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoWebRTCStorage-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoWebRTCStorage_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideoWebRTCStorage-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoWebRTCStorage_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoWebRTCStorage_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideo_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideo-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideo_Target.build/empty.m.o"]
+    description: "Compiling AWSKinesisVideo-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSKinesisVideo_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideo-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideo_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesisVideo-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideo_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideo_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesis_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesis-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesis_Target.build/empty.m.o"]
+    description: "Compiling AWSKinesis-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSKinesis_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesis-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesis_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSKinesis-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesis_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesis_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLambda_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLambda-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLambda_Target.build/empty.m.o"]
+    description: "Compiling AWSLambda-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSLambda_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLambda-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLambda_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLambda-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLambda_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLambda_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLex_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLex-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLex_Target.build/empty.m.o"]
+    description: "Compiling AWSLex-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSLex_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLex-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLex_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLex-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLex_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLex_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLocationXCF_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLocationXCF-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLocationXCF_Target.build/empty.m.o"]
+    description: "Compiling AWSLocationXCF-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSLocationXCF_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLocationXCF-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLocationXCF_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLocationXCF-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLocationXCF_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLocationXCF_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLogs_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLogs-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLogs_Target.build/empty.m.o"]
+    description: "Compiling AWSLogs-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSLogs_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLogs-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLogs_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSLogs-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLogs_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLogs_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMachineLearning_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSMachineLearning-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMachineLearning_Target.build/empty.m.o"]
+    description: "Compiling AWSMachineLearning-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSMachineLearning_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSMachineLearning-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMachineLearning_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSMachineLearning-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMachineLearning_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMachineLearning_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMobileClientXCF_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSMobileClientXCF-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMobileClientXCF_Target.build/empty.m.o"]
+    description: "Compiling AWSMobileClientXCF-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSMobileClientXCF_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSMobileClientXCF-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMobileClientXCF_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSMobileClientXCF-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMobileClientXCF_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMobileClientXCF_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPinpoint_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSPinpoint-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPinpoint_Target.build/empty.m.o"]
+    description: "Compiling AWSPinpoint-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSPinpoint_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSPinpoint-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPinpoint_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSPinpoint-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPinpoint_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPinpoint_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPolly_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSPolly-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPolly_Target.build/empty.m.o"]
+    description: "Compiling AWSPolly-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSPolly_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSPolly-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPolly_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSPolly-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPolly_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPolly_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSRekognition_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSRekognition-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSRekognition_Target.build/empty.m.o"]
+    description: "Compiling AWSRekognition-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSRekognition_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSRekognition-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSRekognition_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSRekognition-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSRekognition_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSRekognition_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSS3-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o"]
+    description: "Compiling AWSS3-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSS3_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSS3-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSS3-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSES_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSES-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSES_Target.build/empty.m.o"]
+    description: "Compiling AWSSES-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSSES_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSES-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSES_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSES-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSES_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSES_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSNS_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSNS-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSNS_Target.build/empty.m.o"]
+    description: "Compiling AWSSNS-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSSNS_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSNS-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSNS_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSNS-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSNS_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSNS_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSQS_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSQS-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSQS_Target.build/empty.m.o"]
+    description: "Compiling AWSSQS-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSSQS_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSQS-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSQS_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSQS-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSQS_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSQS_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSageMakerRuntime_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSageMakerRuntime-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSageMakerRuntime_Target.build/empty.m.o"]
+    description: "Compiling AWSSageMakerRuntime-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSSageMakerRuntime_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSageMakerRuntime-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSageMakerRuntime_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSageMakerRuntime-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSageMakerRuntime_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSageMakerRuntime_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSimpleDB_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSimpleDB-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSimpleDB_Target.build/empty.m.o"]
+    description: "Compiling AWSSimpleDB-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSSimpleDB_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSimpleDB-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSimpleDB_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSSimpleDB-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSimpleDB_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSimpleDB_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTextract_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTextract-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTextract_Target.build/empty.m.o"]
+    description: "Compiling AWSTextract-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSTextract_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTextract-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTextract_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTextract-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTextract_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTextract_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribeStreaming_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranscribeStreaming-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribeStreaming_Target.build/empty.m.o"]
+    description: "Compiling AWSTranscribeStreaming-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSTranscribeStreaming_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranscribeStreaming-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribeStreaming_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranscribeStreaming-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribeStreaming_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribeStreaming_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribe_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranscribe-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribe_Target.build/empty.m.o"]
+    description: "Compiling AWSTranscribe-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSTranscribe_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranscribe-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribe_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranscribe-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribe_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribe_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranslate_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranslate-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranslate_Target.build/empty.m.o"]
+    description: "Compiling AWSTranslate-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSTranslate_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranslate-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranslate_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSTranslate-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranslate_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranslate_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSUserPoolsSignIn_Target.build/empty.m.o":
+    tool: clang
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSUserPoolsSignIn-Target/empty.m"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSUserPoolsSignIn_Target.build/empty.m.o"]
+    description: "Compiling AWSUserPoolsSignIn-Target empty.m"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang","-fobjc-arc","-target","arm64-apple-macosx10.13","-O0","-DSWIFT_PACKAGE=1","-DDEBUG=1","-fblocks","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-fmodules","-fmodule-name=AWSUserPoolsSignIn_Target","-fmodules-cache-path=/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSUserPoolsSignIn-Target/include","-isysroot","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-fPIC","-g","-w","-MD","-MT","dependencies","-MF","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSUserPoolsSignIn_Target.build/empty.m.d","-c","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/checkouts/aws-sdk-ios-spm/DependantTargets/AWSUserPoolsSignIn-Target/empty.m","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSUserPoolsSignIn_Target.build/empty.m.o"]
+    deps: "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSUserPoolsSignIn_Target.build/empty.m.d"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility-entitlement.plist"]
+    description: "Write auxiliary file /Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility-entitlement.plist"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/main.swift"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources"]
+    description: "Write auxiliary file /Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swift.o"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.product/Objects.LinkFileList"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<AWSAPIGateway-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAPIGateway_Target.build/empty.m.o"]
+    outputs: ["<AWSAPIGateway-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSAppleSignIn-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAppleSignIn_Target.build/empty.m.o"]
+    outputs: ["<AWSAppleSignIn-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSAuthCore-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthCore_Target.build/empty.m.o"]
+    outputs: ["<AWSAuthCore-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSAuthUI-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAuthUI_Target.build/empty.m.o"]
+    outputs: ["<AWSAuthUI-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSAutoScaling-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSAutoScaling_Target.build/empty.m.o"]
+    outputs: ["<AWSAutoScaling-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSChimeSDKIdentity-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKIdentity_Target.build/empty.m.o"]
+    outputs: ["<AWSChimeSDKIdentity-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSChimeSDKMessaging-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSChimeSDKMessaging_Target.build/empty.m.o"]
+    outputs: ["<AWSChimeSDKMessaging-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSCloudWatch-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCloudWatch_Target.build/empty.m.o"]
+    outputs: ["<AWSCloudWatch-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSCognitoAuth-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoAuth_Target.build/empty.m.o"]
+    outputs: ["<AWSCognitoAuth-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSCognitoIdentityProvider-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProvider_Target.build/empty.m.o"]
+    outputs: ["<AWSCognitoIdentityProvider-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSCognitoIdentityProviderASF-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSCognitoIdentityProviderASF_Target.build/empty.m.o"]
+    outputs: ["<AWSCognitoIdentityProviderASF-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSComprehend-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSComprehend_Target.build/empty.m.o"]
+    outputs: ["<AWSComprehend-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSConnect-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnect_Target.build/empty.m.o"]
+    outputs: ["<AWSConnect-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSConnectParticipant-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSConnectParticipant_Target.build/empty.m.o"]
+    outputs: ["<AWSConnectParticipant-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSDynamoDB-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o"]
+    outputs: ["<AWSDynamoDB-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSEC2-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSEC2_Target.build/empty.m.o"]
+    outputs: ["<AWSEC2-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSElasticLoadBalancing-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSElasticLoadBalancing_Target.build/empty.m.o"]
+    outputs: ["<AWSElasticLoadBalancing-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSFacebookSignIn-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSFacebookSignIn_Target.build/empty.m.o"]
+    outputs: ["<AWSFacebookSignIn-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSGoogleSignIn-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSGoogleSignIn_Target.build/empty.m.o"]
+    outputs: ["<AWSGoogleSignIn-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSIoT-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSIoT_Target.build/empty.m.o"]
+    outputs: ["<AWSIoT-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSKMS-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKMS_Target.build/empty.m.o"]
+    outputs: ["<AWSKMS-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSKinesis-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesis_Target.build/empty.m.o"]
+    outputs: ["<AWSKinesis-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSKinesisVideo-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideo_Target.build/empty.m.o"]
+    outputs: ["<AWSKinesisVideo-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSKinesisVideoArchivedMedia-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoArchivedMedia_Target.build/empty.m.o"]
+    outputs: ["<AWSKinesisVideoArchivedMedia-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSKinesisVideoSignaling-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoSignaling_Target.build/empty.m.o"]
+    outputs: ["<AWSKinesisVideoSignaling-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSKinesisVideoWebRTCStorage-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSKinesisVideoWebRTCStorage_Target.build/empty.m.o"]
+    outputs: ["<AWSKinesisVideoWebRTCStorage-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSLambda-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLambda_Target.build/empty.m.o"]
+    outputs: ["<AWSLambda-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSLex-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLex_Target.build/empty.m.o"]
+    outputs: ["<AWSLex-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSLocationXCF-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLocationXCF_Target.build/empty.m.o"]
+    outputs: ["<AWSLocationXCF-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSLogs-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSLogs_Target.build/empty.m.o"]
+    outputs: ["<AWSLogs-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSMachineLearning-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMachineLearning_Target.build/empty.m.o"]
+    outputs: ["<AWSMachineLearning-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSMobileClientXCF-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSMobileClientXCF_Target.build/empty.m.o"]
+    outputs: ["<AWSMobileClientXCF-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSPinpoint-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPinpoint_Target.build/empty.m.o"]
+    outputs: ["<AWSPinpoint-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSPolly-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSPolly_Target.build/empty.m.o"]
+    outputs: ["<AWSPolly-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSRekognition-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSRekognition_Target.build/empty.m.o"]
+    outputs: ["<AWSRekognition-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSS3-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o"]
+    outputs: ["<AWSS3-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSSES-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSES_Target.build/empty.m.o"]
+    outputs: ["<AWSSES-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSSNS-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSNS_Target.build/empty.m.o"]
+    outputs: ["<AWSSNS-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSSQS-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSQS_Target.build/empty.m.o"]
+    outputs: ["<AWSSQS-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSSageMakerRuntime-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSageMakerRuntime_Target.build/empty.m.o"]
+    outputs: ["<AWSSageMakerRuntime-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSSimpleDB-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSSimpleDB_Target.build/empty.m.o"]
+    outputs: ["<AWSSimpleDB-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSTextract-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTextract_Target.build/empty.m.o"]
+    outputs: ["<AWSTextract-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSTranscribe-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribe_Target.build/empty.m.o"]
+    outputs: ["<AWSTranscribe-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSTranscribeStreaming-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranscribeStreaming_Target.build/empty.m.o"]
+    outputs: ["<AWSTranscribeStreaming-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSTranslate-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSTranslate_Target.build/empty.m.o"]
+    outputs: ["<AWSTranslate-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<AWSUserPoolsSignIn-Target-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSUserPoolsSignIn_Target.build/empty.m.o"]
+    outputs: ["<AWSUserPoolsSignIn-Target-arm64-apple-macosx15.0-debug.module>"]
+
+  "<ImportUtility-arm64-apple-macosx15.0-debug.exe>":
+    tool: phony
+    inputs: ["<ImportUtility-arm64-apple-macosx15.0-debug.exe-CodeSigning>"]
+    outputs: ["<ImportUtility-arm64-apple-macosx15.0-debug.exe>"]
+
+  "<ImportUtility-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swift.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules/ImportUtility.swiftmodule"]
+    outputs: ["<ImportUtility-arm64-apple-macosx15.0-debug.module>"]
+
+  "C.ImportUtility-arm64-apple-macosx15.0-debug.exe":
+    tool: shell
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swift.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.product/Objects.LinkFileList"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/ImportUtility"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility","-module-name","ImportUtility","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_ImportUtility_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.product/Objects.LinkFileList","-target","arm64-apple-macosx12.0","-Xlinker","-add_ast_path","-Xlinker","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules/ImportUtility.swiftmodule","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.ImportUtility-arm64-apple-macosx15.0-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility-entitlement.plist"]
+    outputs: ["<ImportUtility-arm64-apple-macosx15.0-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/ImportUtility"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility-entitlement.plist","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility"]
+
+  "C.ImportUtility-arm64-apple-macosx15.0-debug.module":
+    tool: shell
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/main.swift","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swift.o","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules/ImportUtility.swiftmodule"]
+    description: "Compiling Swift Module 'ImportUtility' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","ImportUtility","-emit-dependencies","-emit-module","-emit-module-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules/ImportUtility.swiftmodule","-output-file-map","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/output-file-map.json","-incremental","-c","@/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx12.0","-enable-batch-mode","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","ImportUtility_main","-color-diagnostics","-swift-version","5","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Package.swift","/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

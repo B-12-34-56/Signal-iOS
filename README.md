@@ -10,17 +10,6 @@ Also available on [Android](https://github.com/signalapp/signal-android) and [De
 
 For troubleshooting and questions, please visit our [support center](https://support.signal.org/) or [unofficial community forum](https://community.signalusers.org/).
 
-## Contributing Bug Reports
-
-The best way to submit a bug report or support request is [via the Support Center](https://support.signal.org/hc/requests/new). Signal iOS doesn't collect any analytics or telemetry, and we rely on your feedback to help us troubleshoot and fix problems when something isn't working correctly.
-
-## Contributing Code
-
-Instructions for how to configure your development environment and build Signal iOS can be found in [BUILDING.md](https://github.com/signalapp/Signal-iOS/blob/main/BUILDING.md). We also recommend reading the [contribution guidelines](https://github.com/signalapp/Signal-iOS/blob/main/CONTRIBUTING.md).
-
-## Contributing Ideas
-
-Have something you want to say about Signal Foundation projects or want to be part of the conversation? Get involved in the [community forum](https://community.signalusers.org).
 
 ## Cryptography Notice
 

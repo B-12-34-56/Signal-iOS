@@ -1,0 +1,64 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/AWSiOSSDKv2-capgpbigoldtbkesuorrjkbjhjfr/Build/Intermediates.noindex/ArchiveIntermediates/AWSKinesisVideoWebRTCStorage/InstallationBuildProductsLocation/Library/Frameworks/AWSKinesisVideoWebRTCStorage.framework/AWSKinesisVideoWebRTCStorage'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x5E30C, size: 0x8, addend: 0x0, symName: _AWSKinesisVideoWebRTCStorageVersionString, symObjAddr: 0x0, symBinAddr: 0x6240, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x5E341, size: 0x8, addend: 0x0, symName: _AWSKinesisVideoWebRTCStorageVersionNumber, symObjAddr: 0x48, symBinAddr: 0x6288, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x5E37E, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0x8 }
+  - { offsetInCU: 0x41, offset: 0x5E398, size: 0x8, addend: 0x0, symName: _AWSKinesisVideoWebRTCStorageErrorDomain, symObjAddr: 0x268, symBinAddr: 0xC0E8, symSize: 0x0 }
+  - { offsetInCU: 0xE1, offset: 0x5E438, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0x8 }
+  - { offsetInCU: 0x114, offset: 0x5E46B, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput JSONKeyPathsByPropertyKey]', symObjAddr: 0x8, symBinAddr: 0x4008, symSize: 0x7C }
+  - { offsetInCU: 0x147, offset: 0x5E49E, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput channelArn]', symObjAddr: 0x84, symBinAddr: 0x4084, symSize: 0x10 }
+  - { offsetInCU: 0x17E, offset: 0x5E4D5, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput setChannelArn:]', symObjAddr: 0x94, symBinAddr: 0x4094, symSize: 0x14 }
+  - { offsetInCU: 0x1BF, offset: 0x5E516, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput clientId]', symObjAddr: 0xA8, symBinAddr: 0x40A8, symSize: 0x10 }
+  - { offsetInCU: 0x1F6, offset: 0x5E54D, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput setClientId:]', symObjAddr: 0xB8, symBinAddr: 0x40B8, symSize: 0x14 }
+  - { offsetInCU: 0x237, offset: 0x5E58E, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageJoinStorageSessionAsViewerInput .cxx_destruct]', symObjAddr: 0xCC, symBinAddr: 0x40CC, symSize: 0x40 }
+  - { offsetInCU: 0x26A, offset: 0x5E5C1, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageJoinStorageSessionInput supportsSecureCoding]', symObjAddr: 0x10C, symBinAddr: 0x410C, symSize: 0x8 }
+  - { offsetInCU: 0x29D, offset: 0x5E5F4, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageJoinStorageSessionInput JSONKeyPathsByPropertyKey]', symObjAddr: 0x114, symBinAddr: 0x4114, symSize: 0x70 }
+  - { offsetInCU: 0x2D0, offset: 0x5E627, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageJoinStorageSessionInput channelArn]', symObjAddr: 0x184, symBinAddr: 0x4184, symSize: 0x10 }
+  - { offsetInCU: 0x307, offset: 0x5E65E, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageJoinStorageSessionInput setChannelArn:]', symObjAddr: 0x194, symBinAddr: 0x4194, symSize: 0x14 }
+  - { offsetInCU: 0x348, offset: 0x5E69F, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageJoinStorageSessionInput .cxx_destruct]', symObjAddr: 0x1A8, symBinAddr: 0x41A8, symSize: 0x14 }
+  - { offsetInCU: 0x27, offset: 0x5E744, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageResponseSerializer initialize]', symObjAddr: 0x0, symBinAddr: 0x41BC, symSize: 0x14C }
+  - { offsetInCU: 0x4B, offset: 0x5E768, size: 0x8, addend: 0x0, symName: _AWSKinesisVideoWebRTCStorageSDKVersion, symObjAddr: 0x18F0, symBinAddr: 0xC0F0, symSize: 0x0 }
+  - { offsetInCU: 0x61, offset: 0x5E77E, size: 0x8, addend: 0x0, symName: _errorCodeDictionary, symObjAddr: 0x18C80, symBinAddr: 0xD2C8, symSize: 0x0 }
+  - { offsetInCU: 0x7C, offset: 0x5E799, size: 0x8, addend: 0x0, symName: __serviceClients, symObjAddr: 0x18C88, symBinAddr: 0xD2D0, symSize: 0x0 }
+  - { offsetInCU: 0x8B, offset: 0x5E7A8, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorage defaultKinesisVideoWebRTCStorage]', symObjAddr: 0x690, symBinAddr: 0x484C, symSize: 0x40 }
+  - { offsetInCU: 0xB5, offset: 0x5E7D2, size: 0x8, addend: 0x0, symName: _defaultKinesisVideoWebRTCStorage._defaultKinesisVideoWebRTCStorage, symObjAddr: 0x18C90, symBinAddr: 0xD2D8, symSize: 0x0 }
+  - { offsetInCU: 0xCB, offset: 0x5E7E8, size: 0x8, addend: 0x0, symName: _defaultKinesisVideoWebRTCStorage.onceToken, symObjAddr: 0x18C98, symBinAddr: 0xD2E0, symSize: 0x0 }
+  - { offsetInCU: 0x160, offset: 0x5E87D, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorage registerKinesisVideoWebRTCStorageWithConfiguration:forKey:]', symObjAddr: 0x818, symBinAddr: 0x49D4, symSize: 0xA8 }
+  - { offsetInCU: 0x186, offset: 0x5E8A3, size: 0x8, addend: 0x0, symName: '_registerKinesisVideoWebRTCStorageWithConfiguration:forKey:.onceToken', symObjAddr: 0x18CA0, symBinAddr: 0xD2E8, symSize: 0x0 }
+  - { offsetInCU: 0x23E, offset: 0x5E95B, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageResponseSerializer initialize]', symObjAddr: 0x0, symBinAddr: 0x41BC, symSize: 0x14C }
+  - { offsetInCU: 0x26D, offset: 0x5E98A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageResponseSerializer responseObjectForResponse:originalRequest:currentRequest:data:error:]', symObjAddr: 0x14C, symBinAddr: 0x4308, symSize: 0x470 }
+  - { offsetInCU: 0x359, offset: 0x5EA76, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorage initialize]', symObjAddr: 0x5BC, symBinAddr: 0x4778, symSize: 0xD4 }
+  - { offsetInCU: 0x3DB, offset: 0x5EAF8, size: 0x8, addend: 0x0, symName: '___64+[AWSKinesisVideoWebRTCStorage defaultKinesisVideoWebRTCStorage]_block_invoke', symObjAddr: 0x6D0, symBinAddr: 0x488C, symSize: 0x148 }
+  - { offsetInCU: 0x429, offset: 0x5EB46, size: 0x8, addend: 0x0, symName: '___90+[AWSKinesisVideoWebRTCStorage registerKinesisVideoWebRTCStorageWithConfiguration:forKey:]_block_invoke', symObjAddr: 0x8C0, symBinAddr: 0x4A7C, symSize: 0x2C }
+  - { offsetInCU: 0x450, offset: 0x5EB6D, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorage KinesisVideoWebRTCStorageForKey:]', symObjAddr: 0x8EC, symBinAddr: 0x4AA8, symSize: 0x188 }
+  - { offsetInCU: 0x4DD, offset: 0x5EBFA, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorage removeKinesisVideoWebRTCStorageForKey:]', symObjAddr: 0xA74, symBinAddr: 0x4C30, symSize: 0xC }
+  - { offsetInCU: 0x51A, offset: 0x5EC37, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage init]', symObjAddr: 0xA80, symBinAddr: 0x4C3C, symSize: 0x3C }
+  - { offsetInCU: 0x54D, offset: 0x5EC6A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage initWithConfiguration:]', symObjAddr: 0xABC, symBinAddr: 0x4C78, symSize: 0x328 }
+  - { offsetInCU: 0x5C3, offset: 0x5ECE0, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage invokeRequest:HTTPMethod:URLString:targetPrefix:operationName:outputClass:]', symObjAddr: 0xDE4, symBinAddr: 0x4FA0, symSize: 0x26C }
+  - { offsetInCU: 0x67A, offset: 0x5ED97, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage joinStorageSession:]', symObjAddr: 0x1050, symBinAddr: 0x520C, symSize: 0x24 }
+  - { offsetInCU: 0x6BF, offset: 0x5EDDC, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage joinStorageSession:completionHandler:]', symObjAddr: 0x1074, symBinAddr: 0x5230, symSize: 0xBC }
+  - { offsetInCU: 0x715, offset: 0x5EE32, size: 0x8, addend: 0x0, symName: '___69-[AWSKinesisVideoWebRTCStorage joinStorageSession:completionHandler:]_block_invoke', symObjAddr: 0x1130, symBinAddr: 0x52EC, symSize: 0x50 }
+  - { offsetInCU: 0x794, offset: 0x5EEB1, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32b, symObjAddr: 0x1180, symBinAddr: 0x533C, symSize: 0x10 }
+  - { offsetInCU: 0x7BD, offset: 0x5EEDA, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0x1190, symBinAddr: 0x534C, symSize: 0x8 }
+  - { offsetInCU: 0x7DC, offset: 0x5EEF9, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage joinStorageSessionAsViewer:]', symObjAddr: 0x1198, symBinAddr: 0x5354, symSize: 0x24 }
+  - { offsetInCU: 0x821, offset: 0x5EF3E, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage joinStorageSessionAsViewer:completionHandler:]', symObjAddr: 0x11BC, symBinAddr: 0x5378, symSize: 0xBC }
+  - { offsetInCU: 0x877, offset: 0x5EF94, size: 0x8, addend: 0x0, symName: '___77-[AWSKinesisVideoWebRTCStorage joinStorageSessionAsViewer:completionHandler:]_block_invoke', symObjAddr: 0x1278, symBinAddr: 0x5434, symSize: 0x50 }
+  - { offsetInCU: 0x8F6, offset: 0x5F013, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage configuration]', symObjAddr: 0x12C8, symBinAddr: 0x5484, symSize: 0x10 }
+  - { offsetInCU: 0x92D, offset: 0x5F04A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage setConfiguration:]', symObjAddr: 0x12D8, symBinAddr: 0x5494, symSize: 0x14 }
+  - { offsetInCU: 0x96E, offset: 0x5F08B, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage networking]', symObjAddr: 0x12EC, symBinAddr: 0x54A8, symSize: 0x10 }
+  - { offsetInCU: 0x9A5, offset: 0x5F0C2, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage setNetworking:]', symObjAddr: 0x12FC, symBinAddr: 0x54B8, symSize: 0x14 }
+  - { offsetInCU: 0x9E6, offset: 0x5F103, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorage .cxx_destruct]', symObjAddr: 0x1310, symBinAddr: 0x54CC, symSize: 0x40 }
+  - { offsetInCU: 0x27, offset: 0x5F492, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageResources sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x550C, symSize: 0x40 }
+  - { offsetInCU: 0x35, offset: 0x5F4A0, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoWebRTCStorageResources sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x550C, symSize: 0x40 }
+  - { offsetInCU: 0x5F, offset: 0x5F4CA, size: 0x8, addend: 0x0, symName: _sharedInstance._sharedResources, symObjAddr: 0xDDA8, symBinAddr: 0xD2F0, symSize: 0x0 }
+  - { offsetInCU: 0x75, offset: 0x5F4E0, size: 0x8, addend: 0x0, symName: _sharedInstance.once_token, symObjAddr: 0xDDB0, symBinAddr: 0xD2F8, symSize: 0x0 }
+  - { offsetInCU: 0x156, offset: 0x5F5C1, size: 0x8, addend: 0x0, symName: '___55+[AWSKinesisVideoWebRTCStorageResources sharedInstance]_block_invoke', symObjAddr: 0x40, symBinAddr: 0x554C, symSize: 0x2C }
+  - { offsetInCU: 0x17D, offset: 0x5F5E8, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageResources JSONObject]', symObjAddr: 0x6C, symBinAddr: 0x5578, symSize: 0x4 }
+  - { offsetInCU: 0x1B2, offset: 0x5F61D, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageResources init]', symObjAddr: 0x70, symBinAddr: 0x557C, symSize: 0x178 }
+  - { offsetInCU: 0x208, offset: 0x5F673, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageResources definitionString]', symObjAddr: 0x1E8, symBinAddr: 0x56F4, symSize: 0xC }
+  - { offsetInCU: 0x23B, offset: 0x5F6A6, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageResources definitionDictionary]', symObjAddr: 0x1F4, symBinAddr: 0x5700, symSize: 0x8 }
+  - { offsetInCU: 0x272, offset: 0x5F6DD, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageResources setDefinitionDictionary:]', symObjAddr: 0x1FC, symBinAddr: 0x5708, symSize: 0xC }
+  - { offsetInCU: 0x2B3, offset: 0x5F71E, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoWebRTCStorageResources .cxx_destruct]', symObjAddr: 0x208, symBinAddr: 0x5714, symSize: 0xC }
+...

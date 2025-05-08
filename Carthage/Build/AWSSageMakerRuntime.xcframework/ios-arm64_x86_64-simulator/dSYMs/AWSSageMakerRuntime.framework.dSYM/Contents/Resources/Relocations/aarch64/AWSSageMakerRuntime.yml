@@ -1,0 +1,114 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/AWSiOSSDKv2-capgpbigoldtbkesuorrjkbjhjfr/Build/Intermediates.noindex/ArchiveIntermediates/AWSSageMakerRuntime/InstallationBuildProductsLocation/Library/Frameworks/AWSSageMakerRuntime.framework/AWSSageMakerRuntime'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x5E808, size: 0x8, addend: 0x0, symName: _AWSSageMakerRuntimeVersionString, symObjAddr: 0x0, symBinAddr: 0x5B40, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x5E83D, size: 0x8, addend: 0x0, symName: _AWSSageMakerRuntimeVersionNumber, symObjAddr: 0x38, symBinAddr: 0x5B78, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x5E87A, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointAsyncInput supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0x2AD4, symSize: 0x8 }
+  - { offsetInCU: 0x41, offset: 0x5E894, size: 0x8, addend: 0x0, symName: _AWSSageMakerRuntimeErrorDomain, symObjAddr: 0xFC0, symBinAddr: 0xC050, symSize: 0x0 }
+  - { offsetInCU: 0x349, offset: 0x5EB9C, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointAsyncInput supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0x2AD4, symSize: 0x8 }
+  - { offsetInCU: 0x37C, offset: 0x5EBCF, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointAsyncInput JSONKeyPathsByPropertyKey]', symObjAddr: 0x8, symBinAddr: 0x2ADC, symSize: 0x104 }
+  - { offsetInCU: 0x3AF, offset: 0x5EC02, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput accept]', symObjAddr: 0x10C, symBinAddr: 0x2BE0, symSize: 0x10 }
+  - { offsetInCU: 0x3E6, offset: 0x5EC39, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput setAccept:]', symObjAddr: 0x11C, symBinAddr: 0x2BF0, symSize: 0x14 }
+  - { offsetInCU: 0x427, offset: 0x5EC7A, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput contentType]', symObjAddr: 0x130, symBinAddr: 0x2C04, symSize: 0x10 }
+  - { offsetInCU: 0x45E, offset: 0x5ECB1, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput setContentType:]', symObjAddr: 0x140, symBinAddr: 0x2C14, symSize: 0x14 }
+  - { offsetInCU: 0x49F, offset: 0x5ECF2, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput customAttributes]', symObjAddr: 0x154, symBinAddr: 0x2C28, symSize: 0x10 }
+  - { offsetInCU: 0x4D6, offset: 0x5ED29, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput setCustomAttributes:]', symObjAddr: 0x164, symBinAddr: 0x2C38, symSize: 0x14 }
+  - { offsetInCU: 0x517, offset: 0x5ED6A, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput endpointName]', symObjAddr: 0x178, symBinAddr: 0x2C4C, symSize: 0x10 }
+  - { offsetInCU: 0x54E, offset: 0x5EDA1, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput setEndpointName:]', symObjAddr: 0x188, symBinAddr: 0x2C5C, symSize: 0x14 }
+  - { offsetInCU: 0x58F, offset: 0x5EDE2, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput inferenceId]', symObjAddr: 0x19C, symBinAddr: 0x2C70, symSize: 0x10 }
+  - { offsetInCU: 0x5C6, offset: 0x5EE19, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput setInferenceId:]', symObjAddr: 0x1AC, symBinAddr: 0x2C80, symSize: 0x14 }
+  - { offsetInCU: 0x607, offset: 0x5EE5A, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput inputLocation]', symObjAddr: 0x1C0, symBinAddr: 0x2C94, symSize: 0x10 }
+  - { offsetInCU: 0x63E, offset: 0x5EE91, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput setInputLocation:]', symObjAddr: 0x1D0, symBinAddr: 0x2CA4, symSize: 0x14 }
+  - { offsetInCU: 0x67F, offset: 0x5EED2, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput invocationTimeoutSeconds]', symObjAddr: 0x1E4, symBinAddr: 0x2CB8, symSize: 0x10 }
+  - { offsetInCU: 0x6B6, offset: 0x5EF09, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput setInvocationTimeoutSeconds:]', symObjAddr: 0x1F4, symBinAddr: 0x2CC8, symSize: 0x14 }
+  - { offsetInCU: 0x6F7, offset: 0x5EF4A, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput requestTTLSeconds]', symObjAddr: 0x208, symBinAddr: 0x2CDC, symSize: 0x10 }
+  - { offsetInCU: 0x72E, offset: 0x5EF81, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput setRequestTTLSeconds:]', symObjAddr: 0x218, symBinAddr: 0x2CEC, symSize: 0x14 }
+  - { offsetInCU: 0x76F, offset: 0x5EFC2, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncInput .cxx_destruct]', symObjAddr: 0x22C, symBinAddr: 0x2D00, symSize: 0xB8 }
+  - { offsetInCU: 0x7A2, offset: 0x5EFF5, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointAsyncOutput supportsSecureCoding]', symObjAddr: 0x2E4, symBinAddr: 0x2DB8, symSize: 0x8 }
+  - { offsetInCU: 0x7D5, offset: 0x5F028, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointAsyncOutput JSONKeyPathsByPropertyKey]', symObjAddr: 0x2EC, symBinAddr: 0x2DC0, symSize: 0xA4 }
+  - { offsetInCU: 0x808, offset: 0x5F05B, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncOutput failureLocation]', symObjAddr: 0x390, symBinAddr: 0x2E64, symSize: 0x10 }
+  - { offsetInCU: 0x83F, offset: 0x5F092, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncOutput setFailureLocation:]', symObjAddr: 0x3A0, symBinAddr: 0x2E74, symSize: 0x14 }
+  - { offsetInCU: 0x880, offset: 0x5F0D3, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncOutput inferenceId]', symObjAddr: 0x3B4, symBinAddr: 0x2E88, symSize: 0x10 }
+  - { offsetInCU: 0x8B7, offset: 0x5F10A, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncOutput setInferenceId:]', symObjAddr: 0x3C4, symBinAddr: 0x2E98, symSize: 0x14 }
+  - { offsetInCU: 0x8F8, offset: 0x5F14B, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncOutput outputLocation]', symObjAddr: 0x3D8, symBinAddr: 0x2EAC, symSize: 0x10 }
+  - { offsetInCU: 0x92F, offset: 0x5F182, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncOutput setOutputLocation:]', symObjAddr: 0x3E8, symBinAddr: 0x2EBC, symSize: 0x14 }
+  - { offsetInCU: 0x970, offset: 0x5F1C3, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointAsyncOutput .cxx_destruct]', symObjAddr: 0x3FC, symBinAddr: 0x2ED0, symSize: 0x54 }
+  - { offsetInCU: 0x9A3, offset: 0x5F1F6, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointInput supportsSecureCoding]', symObjAddr: 0x450, symBinAddr: 0x2F24, symSize: 0x8 }
+  - { offsetInCU: 0x9D6, offset: 0x5F229, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointInput JSONKeyPathsByPropertyKey]', symObjAddr: 0x458, symBinAddr: 0x2F2C, symSize: 0x12C }
+  - { offsetInCU: 0xA09, offset: 0x5F25C, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput accept]', symObjAddr: 0x584, symBinAddr: 0x3058, symSize: 0x10 }
+  - { offsetInCU: 0xA40, offset: 0x5F293, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setAccept:]', symObjAddr: 0x594, symBinAddr: 0x3068, symSize: 0x14 }
+  - { offsetInCU: 0xA81, offset: 0x5F2D4, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput body]', symObjAddr: 0x5A8, symBinAddr: 0x307C, symSize: 0x10 }
+  - { offsetInCU: 0xAB8, offset: 0x5F30B, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setBody:]', symObjAddr: 0x5B8, symBinAddr: 0x308C, symSize: 0x14 }
+  - { offsetInCU: 0xAF9, offset: 0x5F34C, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput contentType]', symObjAddr: 0x5CC, symBinAddr: 0x30A0, symSize: 0x10 }
+  - { offsetInCU: 0xB30, offset: 0x5F383, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setContentType:]', symObjAddr: 0x5DC, symBinAddr: 0x30B0, symSize: 0x14 }
+  - { offsetInCU: 0xB71, offset: 0x5F3C4, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput customAttributes]', symObjAddr: 0x5F0, symBinAddr: 0x30C4, symSize: 0x10 }
+  - { offsetInCU: 0xBA8, offset: 0x5F3FB, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setCustomAttributes:]', symObjAddr: 0x600, symBinAddr: 0x30D4, symSize: 0x14 }
+  - { offsetInCU: 0xBE9, offset: 0x5F43C, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput enableExplanations]', symObjAddr: 0x614, symBinAddr: 0x30E8, symSize: 0x10 }
+  - { offsetInCU: 0xC20, offset: 0x5F473, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setEnableExplanations:]', symObjAddr: 0x624, symBinAddr: 0x30F8, symSize: 0x14 }
+  - { offsetInCU: 0xC61, offset: 0x5F4B4, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput endpointName]', symObjAddr: 0x638, symBinAddr: 0x310C, symSize: 0x10 }
+  - { offsetInCU: 0xC98, offset: 0x5F4EB, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setEndpointName:]', symObjAddr: 0x648, symBinAddr: 0x311C, symSize: 0x14 }
+  - { offsetInCU: 0xCD9, offset: 0x5F52C, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput inferenceId]', symObjAddr: 0x65C, symBinAddr: 0x3130, symSize: 0x10 }
+  - { offsetInCU: 0xD10, offset: 0x5F563, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setInferenceId:]', symObjAddr: 0x66C, symBinAddr: 0x3140, symSize: 0x14 }
+  - { offsetInCU: 0xD51, offset: 0x5F5A4, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput targetContainerHostname]', symObjAddr: 0x680, symBinAddr: 0x3154, symSize: 0x10 }
+  - { offsetInCU: 0xD88, offset: 0x5F5DB, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setTargetContainerHostname:]', symObjAddr: 0x690, symBinAddr: 0x3164, symSize: 0x14 }
+  - { offsetInCU: 0xDC9, offset: 0x5F61C, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput targetModel]', symObjAddr: 0x6A4, symBinAddr: 0x3178, symSize: 0x10 }
+  - { offsetInCU: 0xE00, offset: 0x5F653, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setTargetModel:]', symObjAddr: 0x6B4, symBinAddr: 0x3188, symSize: 0x14 }
+  - { offsetInCU: 0xE41, offset: 0x5F694, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput targetVariant]', symObjAddr: 0x6C8, symBinAddr: 0x319C, symSize: 0x10 }
+  - { offsetInCU: 0xE78, offset: 0x5F6CB, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput setTargetVariant:]', symObjAddr: 0x6D8, symBinAddr: 0x31AC, symSize: 0x14 }
+  - { offsetInCU: 0xEB9, offset: 0x5F70C, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointInput .cxx_destruct]', symObjAddr: 0x6EC, symBinAddr: 0x31C0, symSize: 0xE0 }
+  - { offsetInCU: 0xEEC, offset: 0x5F73F, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointOutput supportsSecureCoding]', symObjAddr: 0x7CC, symBinAddr: 0x32A0, symSize: 0x8 }
+  - { offsetInCU: 0xF1F, offset: 0x5F772, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeInvokeEndpointOutput JSONKeyPathsByPropertyKey]', symObjAddr: 0x7D4, symBinAddr: 0x32A8, symSize: 0xB4 }
+  - { offsetInCU: 0xF52, offset: 0x5F7A5, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput body]', symObjAddr: 0x888, symBinAddr: 0x335C, symSize: 0x10 }
+  - { offsetInCU: 0xF89, offset: 0x5F7DC, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput setBody:]', symObjAddr: 0x898, symBinAddr: 0x336C, symSize: 0x14 }
+  - { offsetInCU: 0xFCA, offset: 0x5F81D, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput contentType]', symObjAddr: 0x8AC, symBinAddr: 0x3380, symSize: 0x10 }
+  - { offsetInCU: 0x1001, offset: 0x5F854, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput setContentType:]', symObjAddr: 0x8BC, symBinAddr: 0x3390, symSize: 0x14 }
+  - { offsetInCU: 0x1042, offset: 0x5F895, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput customAttributes]', symObjAddr: 0x8D0, symBinAddr: 0x33A4, symSize: 0x10 }
+  - { offsetInCU: 0x1079, offset: 0x5F8CC, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput setCustomAttributes:]', symObjAddr: 0x8E0, symBinAddr: 0x33B4, symSize: 0x14 }
+  - { offsetInCU: 0x10BA, offset: 0x5F90D, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput invokedProductionVariant]', symObjAddr: 0x8F4, symBinAddr: 0x33C8, symSize: 0x10 }
+  - { offsetInCU: 0x10F1, offset: 0x5F944, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput setInvokedProductionVariant:]', symObjAddr: 0x904, symBinAddr: 0x33D8, symSize: 0x14 }
+  - { offsetInCU: 0x1132, offset: 0x5F985, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeInvokeEndpointOutput .cxx_destruct]', symObjAddr: 0x918, symBinAddr: 0x33EC, symSize: 0x68 }
+  - { offsetInCU: 0x27, offset: 0x5FA3E, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeResources sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x3454, symSize: 0x40 }
+  - { offsetInCU: 0x35, offset: 0x5FA4C, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeResources sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x3454, symSize: 0x40 }
+  - { offsetInCU: 0x5F, offset: 0x5FA76, size: 0x8, addend: 0x0, symName: _sharedInstance._sharedResources, symObjAddr: 0x118E0, symBinAddr: 0x11270, symSize: 0x0 }
+  - { offsetInCU: 0x75, offset: 0x5FA8C, size: 0x8, addend: 0x0, symName: _sharedInstance.once_token, symObjAddr: 0x118E8, symBinAddr: 0x11278, symSize: 0x0 }
+  - { offsetInCU: 0x156, offset: 0x5FB6D, size: 0x8, addend: 0x0, symName: '___46+[AWSSageMakerRuntimeResources sharedInstance]_block_invoke', symObjAddr: 0x40, symBinAddr: 0x3494, symSize: 0x2C }
+  - { offsetInCU: 0x17D, offset: 0x5FB94, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeResources JSONObject]', symObjAddr: 0x6C, symBinAddr: 0x34C0, symSize: 0x4 }
+  - { offsetInCU: 0x1B2, offset: 0x5FBC9, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeResources init]', symObjAddr: 0x70, symBinAddr: 0x34C4, symSize: 0x178 }
+  - { offsetInCU: 0x208, offset: 0x5FC1F, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeResources definitionString]', symObjAddr: 0x1E8, symBinAddr: 0x363C, symSize: 0xC }
+  - { offsetInCU: 0x23B, offset: 0x5FC52, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeResources definitionDictionary]', symObjAddr: 0x1F4, symBinAddr: 0x3648, symSize: 0x8 }
+  - { offsetInCU: 0x272, offset: 0x5FC89, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeResources setDefinitionDictionary:]', symObjAddr: 0x1FC, symBinAddr: 0x3650, symSize: 0xC }
+  - { offsetInCU: 0x2B3, offset: 0x5FCCA, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeResources .cxx_destruct]', symObjAddr: 0x208, symBinAddr: 0x365C, symSize: 0xC }
+  - { offsetInCU: 0x27, offset: 0x5FDD1, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeResponseSerializer initialize]', symObjAddr: 0x0, symBinAddr: 0x3668, symSize: 0x1B4 }
+  - { offsetInCU: 0x4B, offset: 0x5FDF5, size: 0x8, addend: 0x0, symName: _AWSSageMakerRuntimeSDKVersion, symObjAddr: 0x1AB8, symBinAddr: 0xC098, symSize: 0x0 }
+  - { offsetInCU: 0x61, offset: 0x5FE0B, size: 0x8, addend: 0x0, symName: _errorCodeDictionary, symObjAddr: 0x19A20, symBinAddr: 0x11280, symSize: 0x0 }
+  - { offsetInCU: 0x7C, offset: 0x5FE26, size: 0x8, addend: 0x0, symName: __serviceClients, symObjAddr: 0x19A28, symBinAddr: 0x11288, symSize: 0x0 }
+  - { offsetInCU: 0x8B, offset: 0x5FE35, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntime defaultSageMakerRuntime]', symObjAddr: 0x6F8, symBinAddr: 0x3D60, symSize: 0x40 }
+  - { offsetInCU: 0xB5, offset: 0x5FE5F, size: 0x8, addend: 0x0, symName: _defaultSageMakerRuntime._defaultSageMakerRuntime, symObjAddr: 0x19A30, symBinAddr: 0x11290, symSize: 0x0 }
+  - { offsetInCU: 0xCB, offset: 0x5FE75, size: 0x8, addend: 0x0, symName: _defaultSageMakerRuntime.onceToken, symObjAddr: 0x19A38, symBinAddr: 0x11298, symSize: 0x0 }
+  - { offsetInCU: 0x160, offset: 0x5FF0A, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntime registerSageMakerRuntimeWithConfiguration:forKey:]', symObjAddr: 0x880, symBinAddr: 0x3EE8, symSize: 0xA8 }
+  - { offsetInCU: 0x186, offset: 0x5FF30, size: 0x8, addend: 0x0, symName: '_registerSageMakerRuntimeWithConfiguration:forKey:.onceToken', symObjAddr: 0x19A40, symBinAddr: 0x112A0, symSize: 0x0 }
+  - { offsetInCU: 0x23E, offset: 0x5FFE8, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntimeResponseSerializer initialize]', symObjAddr: 0x0, symBinAddr: 0x3668, symSize: 0x1B4 }
+  - { offsetInCU: 0x26D, offset: 0x60017, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntimeResponseSerializer responseObjectForResponse:originalRequest:currentRequest:data:error:]', symObjAddr: 0x1B4, symBinAddr: 0x381C, symSize: 0x470 }
+  - { offsetInCU: 0x359, offset: 0x60103, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntime initialize]', symObjAddr: 0x624, symBinAddr: 0x3C8C, symSize: 0xD4 }
+  - { offsetInCU: 0x3DB, offset: 0x60185, size: 0x8, addend: 0x0, symName: '___46+[AWSSageMakerRuntime defaultSageMakerRuntime]_block_invoke', symObjAddr: 0x738, symBinAddr: 0x3DA0, symSize: 0x148 }
+  - { offsetInCU: 0x429, offset: 0x601D3, size: 0x8, addend: 0x0, symName: '___72+[AWSSageMakerRuntime registerSageMakerRuntimeWithConfiguration:forKey:]_block_invoke', symObjAddr: 0x928, symBinAddr: 0x3F90, symSize: 0x2C }
+  - { offsetInCU: 0x450, offset: 0x601FA, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntime SageMakerRuntimeForKey:]', symObjAddr: 0x954, symBinAddr: 0x3FBC, symSize: 0x188 }
+  - { offsetInCU: 0x4DD, offset: 0x60287, size: 0x8, addend: 0x0, symName: '+[AWSSageMakerRuntime removeSageMakerRuntimeForKey:]', symObjAddr: 0xADC, symBinAddr: 0x4144, symSize: 0xC }
+  - { offsetInCU: 0x51A, offset: 0x602C4, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime init]', symObjAddr: 0xAE8, symBinAddr: 0x4150, symSize: 0x3C }
+  - { offsetInCU: 0x54D, offset: 0x602F7, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime initWithConfiguration:]', symObjAddr: 0xB24, symBinAddr: 0x418C, symSize: 0x328 }
+  - { offsetInCU: 0x5C3, offset: 0x6036D, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime invokeRequest:HTTPMethod:URLString:targetPrefix:operationName:outputClass:]', symObjAddr: 0xE4C, symBinAddr: 0x44B4, symSize: 0x26C }
+  - { offsetInCU: 0x67C, offset: 0x60426, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime invokeEndpoint:]', symObjAddr: 0x10B8, symBinAddr: 0x4720, symSize: 0x84 }
+  - { offsetInCU: 0x6C5, offset: 0x6046F, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime invokeEndpoint:completionHandler:]', symObjAddr: 0x113C, symBinAddr: 0x47A4, symSize: 0xBC }
+  - { offsetInCU: 0x71B, offset: 0x604C5, size: 0x8, addend: 0x0, symName: '___56-[AWSSageMakerRuntime invokeEndpoint:completionHandler:]_block_invoke', symObjAddr: 0x11F8, symBinAddr: 0x4860, symSize: 0x88 }
+  - { offsetInCU: 0x7AB, offset: 0x60555, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32b, symObjAddr: 0x1280, symBinAddr: 0x48E8, symSize: 0x10 }
+  - { offsetInCU: 0x7D4, offset: 0x6057E, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0x1290, symBinAddr: 0x48F8, symSize: 0x8 }
+  - { offsetInCU: 0x7F3, offset: 0x6059D, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime invokeEndpointAsync:]', symObjAddr: 0x1298, symBinAddr: 0x4900, symSize: 0x84 }
+  - { offsetInCU: 0x83C, offset: 0x605E6, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime invokeEndpointAsync:completionHandler:]', symObjAddr: 0x131C, symBinAddr: 0x4984, symSize: 0xBC }
+  - { offsetInCU: 0x892, offset: 0x6063C, size: 0x8, addend: 0x0, symName: '___61-[AWSSageMakerRuntime invokeEndpointAsync:completionHandler:]_block_invoke', symObjAddr: 0x13D8, symBinAddr: 0x4A40, symSize: 0x88 }
+  - { offsetInCU: 0x922, offset: 0x606CC, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime configuration]', symObjAddr: 0x1460, symBinAddr: 0x4AC8, symSize: 0x10 }
+  - { offsetInCU: 0x959, offset: 0x60703, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime setConfiguration:]', symObjAddr: 0x1470, symBinAddr: 0x4AD8, symSize: 0x14 }
+  - { offsetInCU: 0x99A, offset: 0x60744, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime networking]', symObjAddr: 0x1484, symBinAddr: 0x4AEC, symSize: 0x10 }
+  - { offsetInCU: 0x9D1, offset: 0x6077B, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime setNetworking:]', symObjAddr: 0x1494, symBinAddr: 0x4AFC, symSize: 0x14 }
+  - { offsetInCU: 0xA12, offset: 0x607BC, size: 0x8, addend: 0x0, symName: '-[AWSSageMakerRuntime .cxx_destruct]', symObjAddr: 0x14A8, symBinAddr: 0x4B10, symSize: 0x40 }
+...

@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ibrahimusmani/Documents/Signal-iOS/SignalCore/.build/arm64-apple-macosx/debug/SignalCore.build/master.swiftdeps"
+  },
+  "/Users/ibrahimusmani/Documents/Signal-iOS/SignalCore/Sources/SignalCore/SignalCore.swift": {
+    "dependencies": "/Users/ibrahimusmani/Documents/Signal-iOS/SignalCore/.build/arm64-apple-macosx/debug/SignalCore.build/SignalCore.d",
+    "object": "/Users/ibrahimusmani/Documents/Signal-iOS/SignalCore/.build/arm64-apple-macosx/debug/SignalCore.build/SignalCore.swift.o",
+    "swiftmodule": "/Users/ibrahimusmani/Documents/Signal-iOS/SignalCore/.build/arm64-apple-macosx/debug/SignalCore.build/SignalCore~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibrahimusmani/Documents/Signal-iOS/SignalCore/.build/arm64-apple-macosx/debug/SignalCore.build/SignalCore.swiftdeps"
+  }
+}

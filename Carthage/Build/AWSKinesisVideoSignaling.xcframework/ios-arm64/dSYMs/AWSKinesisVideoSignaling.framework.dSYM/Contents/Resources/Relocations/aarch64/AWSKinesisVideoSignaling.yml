@@ -1,0 +1,97 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/AWSiOSSDKv2-capgpbigoldtbkesuorrjkbjhjfr/Build/Intermediates.noindex/ArchiveIntermediates/AWSKinesisVideoSignaling/InstallationBuildProductsLocation/Library/Frameworks/AWSKinesisVideoSignaling.framework/AWSKinesisVideoSignaling'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x5E30C, size: 0x8, addend: 0x0, symName: _AWSKinesisVideoSignalingVersionString, symObjAddr: 0x0, symBinAddr: 0x6980, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x5E341, size: 0x8, addend: 0x0, symName: _AWSKinesisVideoSignalingVersionNumber, symObjAddr: 0x40, symBinAddr: 0x69C0, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x5E37E, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingResponseSerializer initialize]', symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0x1B4 }
+  - { offsetInCU: 0x4B, offset: 0x5E3A2, size: 0x8, addend: 0x0, symName: _AWSKinesisVideoSignalingSDKVersion, symObjAddr: 0x1AE8, symBinAddr: 0xC0E8, symSize: 0x0 }
+  - { offsetInCU: 0x61, offset: 0x5E3B8, size: 0x8, addend: 0x0, symName: _errorCodeDictionary, symObjAddr: 0x199E0, symBinAddr: 0xDE78, symSize: 0x0 }
+  - { offsetInCU: 0x7C, offset: 0x5E3D3, size: 0x8, addend: 0x0, symName: __serviceClients, symObjAddr: 0x199E8, symBinAddr: 0xDE80, symSize: 0x0 }
+  - { offsetInCU: 0x8B, offset: 0x5E3E2, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignaling defaultKinesisVideoSignaling]', symObjAddr: 0x6F8, symBinAddr: 0x46F8, symSize: 0x40 }
+  - { offsetInCU: 0xB5, offset: 0x5E40C, size: 0x8, addend: 0x0, symName: _defaultKinesisVideoSignaling._defaultKinesisVideoSignaling, symObjAddr: 0x199F0, symBinAddr: 0xDE88, symSize: 0x0 }
+  - { offsetInCU: 0xCB, offset: 0x5E422, size: 0x8, addend: 0x0, symName: _defaultKinesisVideoSignaling.onceToken, symObjAddr: 0x199F8, symBinAddr: 0xDE90, symSize: 0x0 }
+  - { offsetInCU: 0x160, offset: 0x5E4B7, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignaling registerKinesisVideoSignalingWithConfiguration:forKey:]', symObjAddr: 0x880, symBinAddr: 0x4880, symSize: 0xA8 }
+  - { offsetInCU: 0x186, offset: 0x5E4DD, size: 0x8, addend: 0x0, symName: '_registerKinesisVideoSignalingWithConfiguration:forKey:.onceToken', symObjAddr: 0x19A00, symBinAddr: 0xDE98, symSize: 0x0 }
+  - { offsetInCU: 0x257, offset: 0x5E5AE, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingResponseSerializer initialize]', symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0x1B4 }
+  - { offsetInCU: 0x286, offset: 0x5E5DD, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingResponseSerializer responseObjectForResponse:originalRequest:currentRequest:data:error:]', symObjAddr: 0x1B4, symBinAddr: 0x41B4, symSize: 0x470 }
+  - { offsetInCU: 0x372, offset: 0x5E6C9, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignaling initialize]', symObjAddr: 0x624, symBinAddr: 0x4624, symSize: 0xD4 }
+  - { offsetInCU: 0x3F4, offset: 0x5E74B, size: 0x8, addend: 0x0, symName: '___56+[AWSKinesisVideoSignaling defaultKinesisVideoSignaling]_block_invoke', symObjAddr: 0x738, symBinAddr: 0x4738, symSize: 0x148 }
+  - { offsetInCU: 0x442, offset: 0x5E799, size: 0x8, addend: 0x0, symName: '___82+[AWSKinesisVideoSignaling registerKinesisVideoSignalingWithConfiguration:forKey:]_block_invoke', symObjAddr: 0x928, symBinAddr: 0x4928, symSize: 0x2C }
+  - { offsetInCU: 0x469, offset: 0x5E7C0, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignaling KinesisVideoSignalingForKey:]', symObjAddr: 0x954, symBinAddr: 0x4954, symSize: 0x188 }
+  - { offsetInCU: 0x4F6, offset: 0x5E84D, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignaling removeKinesisVideoSignalingForKey:]', symObjAddr: 0xADC, symBinAddr: 0x4ADC, symSize: 0xC }
+  - { offsetInCU: 0x533, offset: 0x5E88A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling init]', symObjAddr: 0xAE8, symBinAddr: 0x4AE8, symSize: 0x3C }
+  - { offsetInCU: 0x566, offset: 0x5E8BD, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling initWithConfiguration:]', symObjAddr: 0xB24, symBinAddr: 0x4B24, symSize: 0x328 }
+  - { offsetInCU: 0x5DC, offset: 0x5E933, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling invokeRequest:HTTPMethod:URLString:targetPrefix:operationName:outputClass:]', symObjAddr: 0xE4C, symBinAddr: 0x4E4C, symSize: 0x26C }
+  - { offsetInCU: 0x695, offset: 0x5E9EC, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling getIceServerConfig:]', symObjAddr: 0x10B8, symBinAddr: 0x50B8, symSize: 0x84 }
+  - { offsetInCU: 0x6DE, offset: 0x5EA35, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling getIceServerConfig:completionHandler:]', symObjAddr: 0x113C, symBinAddr: 0x513C, symSize: 0xBC }
+  - { offsetInCU: 0x734, offset: 0x5EA8B, size: 0x8, addend: 0x0, symName: '___65-[AWSKinesisVideoSignaling getIceServerConfig:completionHandler:]_block_invoke', symObjAddr: 0x11F8, symBinAddr: 0x51F8, symSize: 0x88 }
+  - { offsetInCU: 0x7C4, offset: 0x5EB1B, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32b, symObjAddr: 0x1280, symBinAddr: 0x5280, symSize: 0x10 }
+  - { offsetInCU: 0x7ED, offset: 0x5EB44, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0x1290, symBinAddr: 0x5290, symSize: 0x8 }
+  - { offsetInCU: 0x80C, offset: 0x5EB63, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling sendAlexaOfferToMaster:]', symObjAddr: 0x1298, symBinAddr: 0x5298, symSize: 0x84 }
+  - { offsetInCU: 0x855, offset: 0x5EBAC, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling sendAlexaOfferToMaster:completionHandler:]', symObjAddr: 0x131C, symBinAddr: 0x531C, symSize: 0xBC }
+  - { offsetInCU: 0x8AB, offset: 0x5EC02, size: 0x8, addend: 0x0, symName: '___69-[AWSKinesisVideoSignaling sendAlexaOfferToMaster:completionHandler:]_block_invoke', symObjAddr: 0x13D8, symBinAddr: 0x53D8, symSize: 0x88 }
+  - { offsetInCU: 0x93B, offset: 0x5EC92, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling configuration]', symObjAddr: 0x1460, symBinAddr: 0x5460, symSize: 0x10 }
+  - { offsetInCU: 0x972, offset: 0x5ECC9, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling setConfiguration:]', symObjAddr: 0x1470, symBinAddr: 0x5470, symSize: 0x14 }
+  - { offsetInCU: 0x9B3, offset: 0x5ED0A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling networking]', symObjAddr: 0x1484, symBinAddr: 0x5484, symSize: 0x10 }
+  - { offsetInCU: 0x9EA, offset: 0x5ED41, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling setNetworking:]', symObjAddr: 0x1494, symBinAddr: 0x5494, symSize: 0x14 }
+  - { offsetInCU: 0xA2B, offset: 0x5ED82, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignaling .cxx_destruct]', symObjAddr: 0x14A8, symBinAddr: 0x54A8, symSize: 0x40 }
+  - { offsetInCU: 0x27, offset: 0x5F1EA, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingResources sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x54E8, symSize: 0x40 }
+  - { offsetInCU: 0x35, offset: 0x5F1F8, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingResources sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x54E8, symSize: 0x40 }
+  - { offsetInCU: 0x5F, offset: 0x5F222, size: 0x8, addend: 0x0, symName: _sharedInstance._sharedResources, symObjAddr: 0xC670, symBinAddr: 0xDEA0, symSize: 0x0 }
+  - { offsetInCU: 0x75, offset: 0x5F238, size: 0x8, addend: 0x0, symName: _sharedInstance.once_token, symObjAddr: 0xC678, symBinAddr: 0xDEA8, symSize: 0x0 }
+  - { offsetInCU: 0x156, offset: 0x5F319, size: 0x8, addend: 0x0, symName: '___51+[AWSKinesisVideoSignalingResources sharedInstance]_block_invoke', symObjAddr: 0x40, symBinAddr: 0x5528, symSize: 0x2C }
+  - { offsetInCU: 0x17D, offset: 0x5F340, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingResources JSONObject]', symObjAddr: 0x6C, symBinAddr: 0x5554, symSize: 0x4 }
+  - { offsetInCU: 0x1B2, offset: 0x5F375, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingResources init]', symObjAddr: 0x70, symBinAddr: 0x5558, symSize: 0x178 }
+  - { offsetInCU: 0x208, offset: 0x5F3CB, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingResources definitionString]', symObjAddr: 0x1E8, symBinAddr: 0x56D0, symSize: 0xC }
+  - { offsetInCU: 0x23B, offset: 0x5F3FE, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingResources definitionDictionary]', symObjAddr: 0x1F4, symBinAddr: 0x56DC, symSize: 0x8 }
+  - { offsetInCU: 0x272, offset: 0x5F435, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingResources setDefinitionDictionary:]', symObjAddr: 0x1FC, symBinAddr: 0x56E4, symSize: 0xC }
+  - { offsetInCU: 0x2B3, offset: 0x5F476, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingResources .cxx_destruct]', symObjAddr: 0x208, symBinAddr: 0x56F0, symSize: 0xC }
+  - { offsetInCU: 0x27, offset: 0x5F57D, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingGetIceServerConfigRequest supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0x56FC, symSize: 0x8 }
+  - { offsetInCU: 0x41, offset: 0x5F597, size: 0x8, addend: 0x0, symName: _AWSKinesisVideoSignalingErrorDomain, symObjAddr: 0xB28, symBinAddr: 0xC1A0, symSize: 0x0 }
+  - { offsetInCU: 0x24D, offset: 0x5F7A3, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingGetIceServerConfigRequest supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0x56FC, symSize: 0x8 }
+  - { offsetInCU: 0x280, offset: 0x5F7D6, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingGetIceServerConfigRequest JSONKeyPathsByPropertyKey]', symObjAddr: 0x8, symBinAddr: 0x5704, symSize: 0xB4 }
+  - { offsetInCU: 0x2B3, offset: 0x5F809, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingGetIceServerConfigRequest serviceJSONTransformer]', symObjAddr: 0xBC, symBinAddr: 0x57B8, symSize: 0x1C }
+  - { offsetInCU: 0x2E6, offset: 0x5F83C, size: 0x8, addend: 0x0, symName: '___75+[AWSKinesisVideoSignalingGetIceServerConfigRequest serviceJSONTransformer]_block_invoke', symObjAddr: 0xD8, symBinAddr: 0x57D4, symSize: 0x3C }
+  - { offsetInCU: 0x321, offset: 0x5F877, size: 0x8, addend: 0x0, symName: '___75+[AWSKinesisVideoSignalingGetIceServerConfigRequest serviceJSONTransformer]_block_invoke_2', symObjAddr: 0x114, symBinAddr: 0x5810, symSize: 0x28 }
+  - { offsetInCU: 0x35C, offset: 0x5F8B2, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest channelARN]', symObjAddr: 0x13C, symBinAddr: 0x5838, symSize: 0x10 }
+  - { offsetInCU: 0x393, offset: 0x5F8E9, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest setChannelARN:]', symObjAddr: 0x14C, symBinAddr: 0x5848, symSize: 0x14 }
+  - { offsetInCU: 0x3D4, offset: 0x5F92A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest clientId]', symObjAddr: 0x160, symBinAddr: 0x585C, symSize: 0x10 }
+  - { offsetInCU: 0x40B, offset: 0x5F961, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest setClientId:]', symObjAddr: 0x170, symBinAddr: 0x586C, symSize: 0x14 }
+  - { offsetInCU: 0x44C, offset: 0x5F9A2, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest service]', symObjAddr: 0x184, symBinAddr: 0x5880, symSize: 0x10 }
+  - { offsetInCU: 0x483, offset: 0x5F9D9, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest setService:]', symObjAddr: 0x194, symBinAddr: 0x5890, symSize: 0x10 }
+  - { offsetInCU: 0x4C0, offset: 0x5FA16, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest username]', symObjAddr: 0x1A4, symBinAddr: 0x58A0, symSize: 0x10 }
+  - { offsetInCU: 0x4F7, offset: 0x5FA4D, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest setUsername:]', symObjAddr: 0x1B4, symBinAddr: 0x58B0, symSize: 0x14 }
+  - { offsetInCU: 0x538, offset: 0x5FA8E, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigRequest .cxx_destruct]', symObjAddr: 0x1C8, symBinAddr: 0x58C4, symSize: 0x54 }
+  - { offsetInCU: 0x56B, offset: 0x5FAC1, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingGetIceServerConfigResponse supportsSecureCoding]', symObjAddr: 0x21C, symBinAddr: 0x5918, symSize: 0x8 }
+  - { offsetInCU: 0x59E, offset: 0x5FAF4, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingGetIceServerConfigResponse JSONKeyPathsByPropertyKey]', symObjAddr: 0x224, symBinAddr: 0x5920, symSize: 0x78 }
+  - { offsetInCU: 0x5D1, offset: 0x5FB27, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingGetIceServerConfigResponse iceServerListJSONTransformer]', symObjAddr: 0x29C, symBinAddr: 0x5998, symSize: 0x34 }
+  - { offsetInCU: 0x604, offset: 0x5FB5A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigResponse iceServerList]', symObjAddr: 0x2D0, symBinAddr: 0x59CC, symSize: 0x10 }
+  - { offsetInCU: 0x63B, offset: 0x5FB91, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigResponse setIceServerList:]', symObjAddr: 0x2E0, symBinAddr: 0x59DC, symSize: 0x14 }
+  - { offsetInCU: 0x67C, offset: 0x5FBD2, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingGetIceServerConfigResponse .cxx_destruct]', symObjAddr: 0x2F4, symBinAddr: 0x59F0, symSize: 0x14 }
+  - { offsetInCU: 0x6AF, offset: 0x5FC05, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingIceServer supportsSecureCoding]', symObjAddr: 0x308, symBinAddr: 0x5A04, symSize: 0x8 }
+  - { offsetInCU: 0x6E2, offset: 0x5FC38, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingIceServer JSONKeyPathsByPropertyKey]', symObjAddr: 0x310, symBinAddr: 0x5A0C, symSize: 0xB4 }
+  - { offsetInCU: 0x715, offset: 0x5FC6B, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer password]', symObjAddr: 0x3C4, symBinAddr: 0x5AC0, symSize: 0x10 }
+  - { offsetInCU: 0x74C, offset: 0x5FCA2, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer setPassword:]', symObjAddr: 0x3D4, symBinAddr: 0x5AD0, symSize: 0x14 }
+  - { offsetInCU: 0x78D, offset: 0x5FCE3, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer ttl]', symObjAddr: 0x3E8, symBinAddr: 0x5AE4, symSize: 0x10 }
+  - { offsetInCU: 0x7C4, offset: 0x5FD1A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer setTtl:]', symObjAddr: 0x3F8, symBinAddr: 0x5AF4, symSize: 0x14 }
+  - { offsetInCU: 0x805, offset: 0x5FD5B, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer uris]', symObjAddr: 0x40C, symBinAddr: 0x5B08, symSize: 0x10 }
+  - { offsetInCU: 0x83C, offset: 0x5FD92, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer setUris:]', symObjAddr: 0x41C, symBinAddr: 0x5B18, symSize: 0x14 }
+  - { offsetInCU: 0x87D, offset: 0x5FDD3, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer username]', symObjAddr: 0x430, symBinAddr: 0x5B2C, symSize: 0x10 }
+  - { offsetInCU: 0x8B4, offset: 0x5FE0A, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer setUsername:]', symObjAddr: 0x440, symBinAddr: 0x5B3C, symSize: 0x14 }
+  - { offsetInCU: 0x8F5, offset: 0x5FE4B, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingIceServer .cxx_destruct]', symObjAddr: 0x454, symBinAddr: 0x5B50, symSize: 0x68 }
+  - { offsetInCU: 0x928, offset: 0x5FE7E, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest supportsSecureCoding]', symObjAddr: 0x4BC, symBinAddr: 0x5BB8, symSize: 0x8 }
+  - { offsetInCU: 0x95B, offset: 0x5FEB1, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest JSONKeyPathsByPropertyKey]', symObjAddr: 0x4C4, symBinAddr: 0x5BC0, symSize: 0xA4 }
+  - { offsetInCU: 0x98E, offset: 0x5FEE4, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest channelARN]', symObjAddr: 0x568, symBinAddr: 0x5C64, symSize: 0x10 }
+  - { offsetInCU: 0x9C5, offset: 0x5FF1B, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest setChannelARN:]', symObjAddr: 0x578, symBinAddr: 0x5C74, symSize: 0x14 }
+  - { offsetInCU: 0xA06, offset: 0x5FF5C, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest messagePayload]', symObjAddr: 0x58C, symBinAddr: 0x5C88, symSize: 0x10 }
+  - { offsetInCU: 0xA3D, offset: 0x5FF93, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest setMessagePayload:]', symObjAddr: 0x59C, symBinAddr: 0x5C98, symSize: 0x14 }
+  - { offsetInCU: 0xA7E, offset: 0x5FFD4, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest senderClientId]', symObjAddr: 0x5B0, symBinAddr: 0x5CAC, symSize: 0x10 }
+  - { offsetInCU: 0xAB5, offset: 0x6000B, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest setSenderClientId:]', symObjAddr: 0x5C0, symBinAddr: 0x5CBC, symSize: 0x14 }
+  - { offsetInCU: 0xAF6, offset: 0x6004C, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest .cxx_destruct]', symObjAddr: 0x5D4, symBinAddr: 0x5CD0, symSize: 0x54 }
+  - { offsetInCU: 0xB29, offset: 0x6007F, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse supportsSecureCoding]', symObjAddr: 0x628, symBinAddr: 0x5D24, symSize: 0x8 }
+  - { offsetInCU: 0xB5C, offset: 0x600B2, size: 0x8, addend: 0x0, symName: '+[AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse JSONKeyPathsByPropertyKey]', symObjAddr: 0x630, symBinAddr: 0x5D2C, symSize: 0x78 }
+  - { offsetInCU: 0xB8F, offset: 0x600E5, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse answer]', symObjAddr: 0x6A8, symBinAddr: 0x5DA4, symSize: 0x10 }
+  - { offsetInCU: 0xBC6, offset: 0x6011C, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse setAnswer:]', symObjAddr: 0x6B8, symBinAddr: 0x5DB4, symSize: 0x14 }
+  - { offsetInCU: 0xC07, offset: 0x6015D, size: 0x8, addend: 0x0, symName: '-[AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse .cxx_destruct]', symObjAddr: 0x6CC, symBinAddr: 0x5DC8, symSize: 0x14 }
+...

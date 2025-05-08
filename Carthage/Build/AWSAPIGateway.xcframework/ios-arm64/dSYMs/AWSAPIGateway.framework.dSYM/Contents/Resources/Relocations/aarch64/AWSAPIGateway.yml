@@ -1,0 +1,69 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/AWSiOSSDKv2-capgpbigoldtbkesuorrjkbjhjfr/Build/Intermediates.noindex/ArchiveIntermediates/AWSAPIGateway/InstallationBuildProductsLocation/Library/Frameworks/AWSAPIGateway.framework/AWSAPIGateway'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x5E2AE, size: 0x8, addend: 0x0, symName: _AWSAPIGatewayVersionString, symObjAddr: 0x0, symBinAddr: 0x73E0, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x5E2E3, size: 0x8, addend: 0x0, symName: _AWSAPIGatewayVersionNumber, symObjAddr: 0x38, symBinAddr: 0x7418, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x5E320, size: 0x8, addend: 0x0, symName: '+[AWSAPIGatewayClient initialize]', symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0xD4 }
+  - { offsetInCU: 0x4B, offset: 0x5E344, size: 0x8, addend: 0x0, symName: _AWSAPIGatewayErrorDomain, symObjAddr: 0x2B88, symBinAddr: 0xC0A0, symSize: 0x0 }
+  - { offsetInCU: 0x61, offset: 0x5E35A, size: 0x8, addend: 0x0, symName: _AWSAPIGatewayErrorHTTPBodyKey, symObjAddr: 0x2B90, symBinAddr: 0xC0A8, symSize: 0x0 }
+  - { offsetInCU: 0x77, offset: 0x5E370, size: 0x8, addend: 0x0, symName: _AWSAPIGatewayErrorHTTPHeaderFieldsKey, symObjAddr: 0x2B98, symBinAddr: 0xC0B0, symSize: 0x0 }
+  - { offsetInCU: 0x8D, offset: 0x5E386, size: 0x8, addend: 0x0, symName: _AWSAPIGatewaySDKVersion, symObjAddr: 0x2BA0, symBinAddr: 0xC0B8, symSize: 0x0 }
+  - { offsetInCU: 0x97, offset: 0x5E390, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient init]', symObjAddr: 0xD4, symBinAddr: 0x40D4, symSize: 0x80 }
+  - { offsetInCU: 0xC1, offset: 0x5E3BA, size: 0x8, addend: 0x0, symName: _init.session, symObjAddr: 0x1F9E0, symBinAddr: 0xD1C8, symSize: 0x0 }
+  - { offsetInCU: 0xD7, offset: 0x5E3D0, size: 0x8, addend: 0x0, symName: _init.onceToken, symObjAddr: 0x1F9E8, symBinAddr: 0xD1D0, symSize: 0x0 }
+  - { offsetInCU: 0x1B7, offset: 0x5E4B0, size: 0x8, addend: 0x0, symName: '+[AWSAPIGatewayClient initialize]', symObjAddr: 0x0, symBinAddr: 0x4000, symSize: 0xD4 }
+  - { offsetInCU: 0x22A, offset: 0x5E523, size: 0x8, addend: 0x0, symName: '___27-[AWSAPIGatewayClient init]_block_invoke', symObjAddr: 0x154, symBinAddr: 0x4154, symSize: 0x60 }
+  - { offsetInCU: 0x270, offset: 0x5E569, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient invoke:]', symObjAddr: 0x1B4, symBinAddr: 0x41B4, symSize: 0x438 }
+  - { offsetInCU: 0x2FE, offset: 0x5E5F7, size: 0x8, addend: 0x0, symName: '___30-[AWSAPIGatewayClient invoke:]_block_invoke', symObjAddr: 0x5EC, symBinAddr: 0x45EC, symSize: 0x538 }
+  - { offsetInCU: 0x41D, offset: 0x5E716, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s, symObjAddr: 0xB24, symBinAddr: 0x4B24, symSize: 0x28 }
+  - { offsetInCU: 0x446, offset: 0x5E73F, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s, symObjAddr: 0xB4C, symBinAddr: 0x4B4C, symSize: 0x28 }
+  - { offsetInCU: 0x465, offset: 0x5E75E, size: 0x8, addend: 0x0, symName: '___30-[AWSAPIGatewayClient invoke:]_block_invoke.45', symObjAddr: 0xB74, symBinAddr: 0x4B74, symSize: 0xC4 }
+  - { offsetInCU: 0x4F2, offset: 0x5E7EB, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s, symObjAddr: 0xC38, symBinAddr: 0x4C38, symSize: 0x8 }
+  - { offsetInCU: 0x519, offset: 0x5E812, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0xC40, symBinAddr: 0x4C40, symSize: 0x8 }
+  - { offsetInCU: 0x538, offset: 0x5E831, size: 0x8, addend: 0x0, symName: '___30-[AWSAPIGatewayClient invoke:]_block_invoke.48', symObjAddr: 0xC48, symBinAddr: 0x4C48, symSize: 0xC }
+  - { offsetInCU: 0x593, offset: 0x5E88C, size: 0x8, addend: 0x0, symName: '___30-[AWSAPIGatewayClient invoke:]_block_invoke_2', symObjAddr: 0xC54, symBinAddr: 0x4C54, symSize: 0x188 }
+  - { offsetInCU: 0x631, offset: 0x5E92A, size: 0x8, addend: 0x0, symName: '___30-[AWSAPIGatewayClient invoke:]_block_invoke_3', symObjAddr: 0xDDC, symBinAddr: 0x4DDC, symSize: 0xD0 }
+  - { offsetInCU: 0x6D7, offset: 0x5E9D0, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient invokeHTTPRequest:URLString:pathParameters:queryParameters:headerParameters:body:responseClass:]', symObjAddr: 0xEAC, symBinAddr: 0x4EAC, symSize: 0x480 }
+  - { offsetInCU: 0x7F4, offset: 0x5EAED, size: 0x8, addend: 0x0, symName: '___118-[AWSAPIGatewayClient invokeHTTPRequest:URLString:pathParameters:queryParameters:headerParameters:body:responseClass:]_block_invoke', symObjAddr: 0x132C, symBinAddr: 0x532C, symSize: 0xC4 }
+  - { offsetInCU: 0x881, offset: 0x5EB7A, size: 0x8, addend: 0x0, symName: '___118-[AWSAPIGatewayClient invokeHTTPRequest:URLString:pathParameters:queryParameters:headerParameters:body:responseClass:]_block_invoke_2', symObjAddr: 0x13F0, symBinAddr: 0x53F0, symSize: 0xC }
+  - { offsetInCU: 0x8DC, offset: 0x5EBD5, size: 0x8, addend: 0x0, symName: '___118-[AWSAPIGatewayClient invokeHTTPRequest:URLString:pathParameters:queryParameters:headerParameters:body:responseClass:]_block_invoke_3', symObjAddr: 0x13FC, symBinAddr: 0x53FC, symSize: 0xF4 }
+  - { offsetInCU: 0x98C, offset: 0x5EC85, size: 0x8, addend: 0x0, symName: '___118-[AWSAPIGatewayClient invokeHTTPRequest:URLString:pathParameters:queryParameters:headerParameters:body:responseClass:]_block_invoke_4', symObjAddr: 0x14F0, symBinAddr: 0x54F0, symSize: 0x634 }
+  - { offsetInCU: 0xB4C, offset: 0x5EE45, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient finalizeRequestHeaders:]', symObjAddr: 0x1B24, symBinAddr: 0x5B24, symSize: 0xE8 }
+  - { offsetInCU: 0xBA6, offset: 0x5EE9F, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient requestURL:query:URLPathComponentsDictionary:]', symObjAddr: 0x1C0C, symBinAddr: 0x5C0C, symSize: 0x2BC }
+  - { offsetInCU: 0xC64, offset: 0x5EF5D, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient processParameters:queryString:]', symObjAddr: 0x1EC8, symBinAddr: 0x5EC8, symSize: 0x1B8 }
+  - { offsetInCU: 0xCF2, offset: 0x5EFEB, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient generateQueryStringWithKey:value:]', symObjAddr: 0x2080, symBinAddr: 0x6080, symSize: 0xD4 }
+  - { offsetInCU: 0xD5D, offset: 0x5F056, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient encodeQueryStringValue:]', symObjAddr: 0x2154, symBinAddr: 0x6154, symSize: 0x2A8 }
+  - { offsetInCU: 0xDE6, offset: 0x5F0DF, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient configuration]', symObjAddr: 0x23FC, symBinAddr: 0x63FC, symSize: 0x8 }
+  - { offsetInCU: 0xE1D, offset: 0x5F116, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient setConfiguration:]', symObjAddr: 0x2404, symBinAddr: 0x6404, symSize: 0xC }
+  - { offsetInCU: 0xE5E, offset: 0x5F157, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient APIKey]', symObjAddr: 0x2410, symBinAddr: 0x6410, symSize: 0x8 }
+  - { offsetInCU: 0xE95, offset: 0x5F18E, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient setAPIKey:]', symObjAddr: 0x2418, symBinAddr: 0x6418, symSize: 0xC }
+  - { offsetInCU: 0xED6, offset: 0x5F1CF, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient session]', symObjAddr: 0x2424, symBinAddr: 0x6424, symSize: 0x8 }
+  - { offsetInCU: 0xF0D, offset: 0x5F206, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient setSession:]', symObjAddr: 0x242C, symBinAddr: 0x642C, symSize: 0xC }
+  - { offsetInCU: 0xF4E, offset: 0x5F247, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayClient .cxx_destruct]', symObjAddr: 0x2438, symBinAddr: 0x6438, symSize: 0x3C }
+  - { offsetInCU: 0x27, offset: 0x5F890, size: 0x8, addend: 0x0, symName: '+[AWSAPIGatewayRequest initialize]', symObjAddr: 0x0, symBinAddr: 0x6474, symSize: 0x34 }
+  - { offsetInCU: 0x195, offset: 0x5F9FE, size: 0x8, addend: 0x0, symName: '+[AWSAPIGatewayRequest initialize]', symObjAddr: 0x0, symBinAddr: 0x6474, symSize: 0x34 }
+  - { offsetInCU: 0x1C8, offset: 0x5FA31, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest initWithHTTPMethod:URLString:queryParameters:headerParameters:HTTPBody:]', symObjAddr: 0x34, symBinAddr: 0x64A8, symSize: 0x114 }
+  - { offsetInCU: 0x24F, offset: 0x5FAB8, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest HTTPMethod]', symObjAddr: 0x148, symBinAddr: 0x65BC, symSize: 0x8 }
+  - { offsetInCU: 0x286, offset: 0x5FAEF, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest setHTTPMethod:]', symObjAddr: 0x150, symBinAddr: 0x65C4, symSize: 0xC }
+  - { offsetInCU: 0x2C7, offset: 0x5FB30, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest URLString]', symObjAddr: 0x15C, symBinAddr: 0x65D0, symSize: 0x8 }
+  - { offsetInCU: 0x2FE, offset: 0x5FB67, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest setURLString:]', symObjAddr: 0x164, symBinAddr: 0x65D8, symSize: 0xC }
+  - { offsetInCU: 0x33F, offset: 0x5FBA8, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest queryParameters]', symObjAddr: 0x170, symBinAddr: 0x65E4, symSize: 0x8 }
+  - { offsetInCU: 0x376, offset: 0x5FBDF, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest setQueryParameters:]', symObjAddr: 0x178, symBinAddr: 0x65EC, symSize: 0xC }
+  - { offsetInCU: 0x3B7, offset: 0x5FC20, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest headerParameters]', symObjAddr: 0x184, symBinAddr: 0x65F8, symSize: 0x8 }
+  - { offsetInCU: 0x3EE, offset: 0x5FC57, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest setHeaderParameters:]', symObjAddr: 0x18C, symBinAddr: 0x6600, symSize: 0xC }
+  - { offsetInCU: 0x42F, offset: 0x5FC98, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest HTTPBody]', symObjAddr: 0x198, symBinAddr: 0x660C, symSize: 0x8 }
+  - { offsetInCU: 0x466, offset: 0x5FCCF, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest setHTTPBody:]', symObjAddr: 0x1A0, symBinAddr: 0x6614, symSize: 0xC }
+  - { offsetInCU: 0x4A7, offset: 0x5FD10, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayRequest .cxx_destruct]', symObjAddr: 0x1AC, symBinAddr: 0x6620, symSize: 0x54 }
+  - { offsetInCU: 0x4DA, offset: 0x5FD43, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse init]', symObjAddr: 0x200, symBinAddr: 0x6674, symSize: 0x3C }
+  - { offsetInCU: 0x50D, offset: 0x5FD76, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse initWithHeaders:responseData:NSURLResponseObject:statusCode:]', symObjAddr: 0x23C, symBinAddr: 0x66B0, symSize: 0xD4 }
+  - { offsetInCU: 0x584, offset: 0x5FDED, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse headers]', symObjAddr: 0x310, symBinAddr: 0x6784, symSize: 0x8 }
+  - { offsetInCU: 0x5BB, offset: 0x5FE24, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse setHeaders:]', symObjAddr: 0x318, symBinAddr: 0x678C, symSize: 0xC }
+  - { offsetInCU: 0x5FC, offset: 0x5FE65, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse responseData]', symObjAddr: 0x324, symBinAddr: 0x6798, symSize: 0x8 }
+  - { offsetInCU: 0x633, offset: 0x5FE9C, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse setResponseData:]', symObjAddr: 0x32C, symBinAddr: 0x67A0, symSize: 0xC }
+  - { offsetInCU: 0x674, offset: 0x5FEDD, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse rawResponse]', symObjAddr: 0x338, symBinAddr: 0x67AC, symSize: 0x8 }
+  - { offsetInCU: 0x6AB, offset: 0x5FF14, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse setRawResponse:]', symObjAddr: 0x340, symBinAddr: 0x67B4, symSize: 0xC }
+  - { offsetInCU: 0x6EC, offset: 0x5FF55, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse statusCode]', symObjAddr: 0x34C, symBinAddr: 0x67C0, symSize: 0x8 }
+  - { offsetInCU: 0x723, offset: 0x5FF8C, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse setStatusCode:]', symObjAddr: 0x354, symBinAddr: 0x67C8, symSize: 0x8 }
+  - { offsetInCU: 0x760, offset: 0x5FFC9, size: 0x8, addend: 0x0, symName: '-[AWSAPIGatewayResponse .cxx_destruct]', symObjAddr: 0x35C, symBinAddr: 0x67D0, symSize: 0x3C }
+...

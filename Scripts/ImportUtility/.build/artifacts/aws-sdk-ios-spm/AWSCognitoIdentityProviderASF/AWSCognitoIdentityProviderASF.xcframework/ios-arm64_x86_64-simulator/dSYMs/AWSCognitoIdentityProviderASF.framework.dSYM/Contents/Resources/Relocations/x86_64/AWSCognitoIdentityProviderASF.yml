@@ -1,0 +1,16 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/AWSiOSSDKv2-capgpbigoldtbkesuorrjkbjhjfr/Build/Intermediates.noindex/ArchiveIntermediates/AWSCognitoIdentityProviderASF/InstallationBuildProductsLocation/Library/Frameworks/AWSCognitoIdentityProviderASF.framework/AWSCognitoIdentityProviderASF'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x605B2, size: 0x8, addend: 0x0, symName: _AWSCognitoIdentityProviderASFVersionString, symObjAddr: 0x0, symBinAddr: 0x3810, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x605E7, size: 0x8, addend: 0x0, symName: _AWSCognitoIdentityProviderASFVersionNumber, symObjAddr: 0x48, symBinAddr: 0x3858, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x60624, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityASF userContextData:build:userPoolId:username:deviceId:userPoolClientId:]', symObjAddr: 0x0, symBinAddr: 0x26C5, symSize: 0x19 }
+  - { offsetInCU: 0x78, offset: 0x60675, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityASF userContextData:build:userPoolId:username:deviceId:userPoolClientId:]', symObjAddr: 0x0, symBinAddr: 0x26C5, symSize: 0x19 }
+  - { offsetInCU: 0x10D, offset: 0x6070A, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityASF userContextString:build:userPoolId:username:deviceId:userPoolClientId:]', symObjAddr: 0x19, symBinAddr: 0x26DE, symSize: 0xE22 }
+  - { offsetInCU: 0x93E, offset: 0x60F3B, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityASF deviceName]', symObjAddr: 0xE3B, symBinAddr: 0x3500, symSize: 0x72 }
+  - { offsetInCU: 0x9B9, offset: 0x60FB6, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityASF dashIfNil:]', symObjAddr: 0xEAD, symBinAddr: 0x3572, symSize: 0x47 }
+  - { offsetInCU: 0xA08, offset: 0x61005, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityASF calculateSecretHash:clientId:]', symObjAddr: 0xEF4, symBinAddr: 0x35B9, symSize: 0x14F }
+  - { offsetInCU: 0xB49, offset: 0x61146, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityASF addIfNotNil:key:value:]', symObjAddr: 0x1043, symBinAddr: 0x3708, symSize: 0x1F }
+  - { offsetInCU: 0x27, offset: 0x61241, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityProviderASF userContextData:username:deviceId:userPoolClientId:]', symObjAddr: 0x0, symBinAddr: 0x3727, symSize: 0x39 }
+  - { offsetInCU: 0x51, offset: 0x6126B, size: 0x8, addend: 0x0, symName: '+[AWSCognitoIdentityProviderASF userContextData:username:deviceId:userPoolClientId:]', symObjAddr: 0x0, symBinAddr: 0x3727, symSize: 0x39 }
+...

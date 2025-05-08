@@ -1,0 +1,371 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/AWSiOSSDKv2-capgpbigoldtbkesuorrjkbjhjfr/Build/Intermediates.noindex/ArchiveIntermediates/AWSTranscribeStreaming/InstallationBuildProductsLocation/Library/Frameworks/AWSTranscribeStreaming.framework/AWSTranscribeStreaming'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x60A71, size: 0x8, addend: 0x0, symName: _AWSTranscribeStreamingVersionString, symObjAddr: 0x0, symBinAddr: 0xF520, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x60AA6, size: 0x8, addend: 0x0, symName: _AWSTranscribeStreamingVersionNumber, symObjAddr: 0x40, symBinAddr: 0xF560, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x60AE3, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptResultStream(Helpers) initialize]', symObjAddr: 0x0, symBinAddr: 0x1A58, symSize: 0x166 }
+  - { offsetInCU: 0x46, offset: 0x60B02, size: 0x8, addend: 0x0, symName: _errorCodeDictionary, symObjAddr: 0x9998, symBinAddr: 0x1FF38, symSize: 0x0 }
+  - { offsetInCU: 0xA9, offset: 0x60B65, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptResultStream(Helpers) initialize]', symObjAddr: 0x0, symBinAddr: 0x1A58, symSize: 0x166 }
+  - { offsetInCU: 0x150, offset: 0x60C0C, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptResultStream(Helpers) resultStreamForWSSBody:headers:error:]', symObjAddr: 0x166, symBinAddr: 0x1BBE, symSize: 0x29E }
+  - { offsetInCU: 0x328, offset: 0x60DE4, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptResultStream(Helpers) resultStreamErrorMemberForJSONObject:errorType:error:]', symObjAddr: 0x404, symBinAddr: 0x1E5C, symSize: 0x23E }
+  - { offsetInCU: 0x27, offset: 0x610B4, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeEventEncoder getEndFrameData]', symObjAddr: 0x0, symBinAddr: 0x209A, symSize: 0xFA }
+  - { offsetInCU: 0x8D, offset: 0x6111A, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeEventEncoder getEndFrameData]', symObjAddr: 0x0, symBinAddr: 0x209A, symSize: 0xFA }
+  - { offsetInCU: 0x122, offset: 0x611AF, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeEventEncoder encodeChunk:headers:]', symObjAddr: 0xFA, symBinAddr: 0x2194, symSize: 0x65D }
+  - { offsetInCU: 0x27, offset: 0x616AE, size: 0x8, addend: 0x0, symName: '-[NSData(AWSSRWebSocket) stringBySHA1ThenBase64Encoding]', symObjAddr: 0x0, symBinAddr: 0x27F4, symSize: 0x4B }
+  - { offsetInCU: 0x79, offset: 0x61700, size: 0x8, addend: 0x0, symName: _AWSSRWebSocketErrorDomain, symObjAddr: 0xA7A8, symBinAddr: 0x182C8, symSize: 0x0 }
+  - { offsetInCU: 0x8F, offset: 0x61716, size: 0x8, addend: 0x0, symName: _AWSSRHTTPResponseErrorKey, symObjAddr: 0xA7B0, symBinAddr: 0x182D0, symSize: 0x0 }
+  - { offsetInCU: 0xB8, offset: 0x6173F, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket setupNetworkServiceType:]', symObjAddr: 0x19B4, symBinAddr: 0x41A8, symSize: 0x188 }
+  - { offsetInCU: 0xE0, offset: 0x61767, size: 0x8, addend: 0x0, symName: '_setupNetworkServiceType:.predicate', symObjAddr: 0x67FC0, symBinAddr: 0x1FF48, symSize: 0x0 }
+  - { offsetInCU: 0x20E, offset: 0x61895, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket safeHandleEvent:stream:]', symObjAddr: 0x50A4, symBinAddr: 0x7898, symSize: 0x3AC }
+  - { offsetInCU: 0x487, offset: 0x61B0E, size: 0x8, addend: 0x0, symName: _networkThread, symObjAddr: 0x67FC8, symBinAddr: 0x1FF50, symSize: 0x0 }
+  - { offsetInCU: 0x4E4, offset: 0x61B6B, size: 0x8, addend: 0x0, symName: _networkRunLoop, symObjAddr: 0x67FD0, symBinAddr: 0x1FF58, symSize: 0x0 }
+  - { offsetInCU: 0x4EE, offset: 0x61B75, size: 0x8, addend: 0x0, symName: '+[NSRunLoop(SRWebSocket) AWSSR_networkRunLoop]', symObjAddr: 0x5DA8, symBinAddr: 0x859C, symSize: 0x30 }
+  - { offsetInCU: 0x51A, offset: 0x61BA1, size: 0x8, addend: 0x0, symName: _AWSSR_networkRunLoop.onceToken, symObjAddr: 0x67FD8, symBinAddr: 0x1FF60, symSize: 0x0 }
+  - { offsetInCU: 0x562, offset: 0x61BE9, size: 0x8, addend: 0x0, symName: _CRLFCRLF, symObjAddr: 0x67FB8, symBinAddr: 0x1FF40, symSize: 0x0 }
+  - { offsetInCU: 0x57E, offset: 0x61C05, size: 0x8, addend: 0x0, symName: _CRLFCRLFBytes, symObjAddr: 0xABD0, symBinAddr: 0xF570, symSize: 0x0 }
+  - { offsetInCU: 0x594, offset: 0x61C1B, size: 0x8, addend: 0x0, symName: _validate_dispatch_data_partial_string, symObjAddr: 0x4601, symBinAddr: 0x6DF5, symSize: 0xDB }
+  - { offsetInCU: 0xBED, offset: 0x62274, size: 0x8, addend: 0x0, symName: '-[NSData(AWSSRWebSocket) stringBySHA1ThenBase64Encoding]', symObjAddr: 0x0, symBinAddr: 0x27F4, symSize: 0x4B }
+  - { offsetInCU: 0xC4A, offset: 0x622D1, size: 0x8, addend: 0x0, symName: _newSHA1String, symObjAddr: 0x4B, symBinAddr: 0x283F, symSize: 0xD0 }
+  - { offsetInCU: 0xD11, offset: 0x62398, size: 0x8, addend: 0x0, symName: '-[NSString(AWSSRWebSocket) stringBySHA1ThenBase64Encoding]', symObjAddr: 0x11B, symBinAddr: 0x290F, symSize: 0x4B }
+  - { offsetInCU: 0xD6E, offset: 0x623F5, size: 0x8, addend: 0x0, symName: '+[AWSSRWebSocket initialize]', symObjAddr: 0x166, symBinAddr: 0x295A, symSize: 0x41 }
+  - { offsetInCU: 0xDB6, offset: 0x6243D, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket initWithURLRequest:protocols:allowsUntrustedSSLCertificates:]', symObjAddr: 0x1A7, symBinAddr: 0x299B, symSize: 0x106 }
+  - { offsetInCU: 0xE8D, offset: 0x62514, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket initWithURLRequest:protocols:]', symObjAddr: 0x2AD, symBinAddr: 0x2AA1, symSize: 0x15 }
+  - { offsetInCU: 0xEEC, offset: 0x62573, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket initWithURLRequest:]', symObjAddr: 0x2C2, symBinAddr: 0x2AB6, symSize: 0x14 }
+  - { offsetInCU: 0xF3C, offset: 0x625C3, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket initWithURL:]', symObjAddr: 0x2D6, symBinAddr: 0x2ACA, symSize: 0x14 }
+  - { offsetInCU: 0xF8C, offset: 0x62613, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket initWithURL:protocols:]', symObjAddr: 0x2EA, symBinAddr: 0x2ADE, symSize: 0x99 }
+  - { offsetInCU: 0x104B, offset: 0x626D2, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket initWithURL:protocols:allowsUntrustedSSLCertificates:]', symObjAddr: 0x383, symBinAddr: 0x2B77, symSize: 0xA0 }
+  - { offsetInCU: 0x111B, offset: 0x627A2, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _SR_commonInit]', symObjAddr: 0x423, symBinAddr: 0x2C17, symSize: 0x1EC }
+  - { offsetInCU: 0x12D5, offset: 0x6295C, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket assertOnWorkQueue]', symObjAddr: 0x60F, symBinAddr: 0x2E03, symSize: 0x6 }
+  - { offsetInCU: 0x1305, offset: 0x6298C, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket dealloc]', symObjAddr: 0x615, symBinAddr: 0x2E09, symSize: 0xC4 }
+  - { offsetInCU: 0x139E, offset: 0x62A25, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket open]', symObjAddr: 0x6D9, symBinAddr: 0x2ECD, symSize: 0x2E }
+  - { offsetInCU: 0x13DE, offset: 0x62A65, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _performDelegateBlock:]', symObjAddr: 0x707, symBinAddr: 0x2EFB, symSize: 0x73 }
+  - { offsetInCU: 0x1471, offset: 0x62AF8, size: 0x8, addend: 0x0, symName: _AWSSRFastLog, symObjAddr: 0x77A, symBinAddr: 0x2F6E, symSize: 0x1B6 }
+  - { offsetInCU: 0x155A, offset: 0x62BE1, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket setDelegateDispatchQueue:]', symObjAddr: 0x930, symBinAddr: 0x3124, symSize: 0x11 }
+  - { offsetInCU: 0x159D, offset: 0x62C24, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _checkHandshake:]', symObjAddr: 0x941, symBinAddr: 0x3135, symSize: 0xB0 }
+  - { offsetInCU: 0x167F, offset: 0x62D06, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _HTTPHeadersDidFinish]', symObjAddr: 0x9F1, symBinAddr: 0x31E5, symSize: 0x3F5 }
+  - { offsetInCU: 0x186E, offset: 0x62EF5, size: 0x8, addend: 0x0, symName: '___39-[AWSSRWebSocket _HTTPHeadersDidFinish]_block_invoke', symObjAddr: 0xDE6, symBinAddr: 0x35DA, symSize: 0xA5 }
+  - { offsetInCU: 0x18F8, offset: 0x62F7F, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s, symObjAddr: 0xE8B, symBinAddr: 0x367F, symSize: 0xF }
+  - { offsetInCU: 0x192B, offset: 0x62FB2, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0xE9A, symBinAddr: 0x368E, symSize: 0xF }
+  - { offsetInCU: 0x1956, offset: 0x62FDD, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _readHTTPHeader]', symObjAddr: 0xEA9, symBinAddr: 0x369D, symSize: 0x40 }
+  - { offsetInCU: 0x19BC, offset: 0x63043, size: 0x8, addend: 0x0, symName: '___33-[AWSSRWebSocket _readHTTPHeader]_block_invoke', symObjAddr: 0xEE9, symBinAddr: 0x36DD, symSize: 0xE6 }
+  - { offsetInCU: 0x1AE2, offset: 0x63169, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket didConnect]', symObjAddr: 0xFCF, symBinAddr: 0x37C3, symSize: 0x708 }
+  - { offsetInCU: 0x1F16, offset: 0x6359D, size: 0x8, addend: 0x0, symName: '___28-[AWSSRWebSocket didConnect]_block_invoke', symObjAddr: 0x16D7, symBinAddr: 0x3ECB, symSize: 0xE }
+  - { offsetInCU: 0x1F8D, offset: 0x63614, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _initializeStreams]', symObjAddr: 0x16E5, symBinAddr: 0x3ED9, symSize: 0x10E }
+  - { offsetInCU: 0x20A8, offset: 0x6372F, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _updateSecureStreamOptions]', symObjAddr: 0x17F3, symBinAddr: 0x3FE7, symSize: 0x1C1 }
+  - { offsetInCU: 0x221C, offset: 0x638A3, size: 0x8, addend: 0x0, symName: '___42-[AWSSRWebSocket setupNetworkServiceType:]_block_invoke', symObjAddr: 0x1B3C, symBinAddr: 0x4330, symSize: 0xEE }
+  - { offsetInCU: 0x22AE, offset: 0x63935, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket openConnection]', symObjAddr: 0x1C2A, symBinAddr: 0x441E, symSize: 0x9F }
+  - { offsetInCU: 0x2336, offset: 0x639BD, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket scheduleInRunLoop:forMode:]', symObjAddr: 0x1CC9, symBinAddr: 0x44BD, symSize: 0xF0 }
+  - { offsetInCU: 0x23F8, offset: 0x63A7F, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket unscheduleFromRunLoop:forMode:]', symObjAddr: 0x1DB9, symBinAddr: 0x45AD, symSize: 0xF0 }
+  - { offsetInCU: 0x24BA, offset: 0x63B41, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket close]', symObjAddr: 0x1EA9, symBinAddr: 0x469D, symSize: 0x19 }
+  - { offsetInCU: 0x24F8, offset: 0x63B7F, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket closeWithCode:reason:]', symObjAddr: 0x1EC2, symBinAddr: 0x46B6, symSize: 0xA0 }
+  - { offsetInCU: 0x258C, offset: 0x63C13, size: 0x8, addend: 0x0, symName: '___39-[AWSSRWebSocket closeWithCode:reason:]_block_invoke', symObjAddr: 0x1F62, symBinAddr: 0x4756, symSize: 0x230 }
+  - { offsetInCU: 0x275B, offset: 0x63DE2, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s, symObjAddr: 0x2192, symBinAddr: 0x4986, symSize: 0x25 }
+  - { offsetInCU: 0x279C, offset: 0x63E23, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s, symObjAddr: 0x21B7, symBinAddr: 0x49AB, symSize: 0x25 }
+  - { offsetInCU: 0x27D3, offset: 0x63E5A, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _closeWithProtocolError:]', symObjAddr: 0x21DC, symBinAddr: 0x49D0, symSize: 0x92 }
+  - { offsetInCU: 0x2854, offset: 0x63EDB, size: 0x8, addend: 0x0, symName: '___42-[AWSSRWebSocket _closeWithProtocolError:]_block_invoke', symObjAddr: 0x226E, symBinAddr: 0x4A62, symSize: 0x6B }
+  - { offsetInCU: 0x28C1, offset: 0x63F48, size: 0x8, addend: 0x0, symName: '___42-[AWSSRWebSocket _closeWithProtocolError:]_block_invoke_2', symObjAddr: 0x22D9, symBinAddr: 0x4ACD, symSize: 0x16 }
+  - { offsetInCU: 0x290F, offset: 0x63F96, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _failWithError:]', symObjAddr: 0x22EF, symBinAddr: 0x4AE3, symSize: 0x8D }
+  - { offsetInCU: 0x2992, offset: 0x64019, size: 0x8, addend: 0x0, symName: '___33-[AWSSRWebSocket _failWithError:]_block_invoke', symObjAddr: 0x237C, symBinAddr: 0x4B70, symSize: 0x110 }
+  - { offsetInCU: 0x2A5F, offset: 0x640E6, size: 0x8, addend: 0x0, symName: '___33-[AWSSRWebSocket _failWithError:]_block_invoke_2', symObjAddr: 0x248C, symBinAddr: 0x4C80, symSize: 0xA9 }
+  - { offsetInCU: 0x2AFA, offset: 0x64181, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _writeData:]', symObjAddr: 0x2535, symBinAddr: 0x4D29, symSize: 0x6B }
+  - { offsetInCU: 0x2B7B, offset: 0x64202, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket send:]', symObjAddr: 0x25A0, symBinAddr: 0x4D94, symSize: 0x8F }
+  - { offsetInCU: 0x2BFE, offset: 0x64285, size: 0x8, addend: 0x0, symName: '___23-[AWSSRWebSocket send:]_block_invoke', symObjAddr: 0x262F, symBinAddr: 0x4E23, symSize: 0x108 }
+  - { offsetInCU: 0x2CB1, offset: 0x64338, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket sendPing:]', symObjAddr: 0x2737, symBinAddr: 0x4F2B, symSize: 0xD6 }
+  - { offsetInCU: 0x2D58, offset: 0x643DF, size: 0x8, addend: 0x0, symName: '___27-[AWSSRWebSocket sendPing:]_block_invoke', symObjAddr: 0x280D, symBinAddr: 0x5001, symSize: 0x22 }
+  - { offsetInCU: 0x2DB7, offset: 0x6443E, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket handlePing:]', symObjAddr: 0x282F, symBinAddr: 0x5023, symSize: 0x92 }
+  - { offsetInCU: 0x2E38, offset: 0x644BF, size: 0x8, addend: 0x0, symName: '___29-[AWSSRWebSocket handlePing:]_block_invoke', symObjAddr: 0x28C1, symBinAddr: 0x50B5, symSize: 0x70 }
+  - { offsetInCU: 0x2EB1, offset: 0x64538, size: 0x8, addend: 0x0, symName: '___29-[AWSSRWebSocket handlePing:]_block_invoke_2', symObjAddr: 0x2931, symBinAddr: 0x5125, symSize: 0x22 }
+  - { offsetInCU: 0x2F10, offset: 0x64597, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket handlePong:]', symObjAddr: 0x2953, symBinAddr: 0x5147, symSize: 0xA7 }
+  - { offsetInCU: 0x2F9F, offset: 0x64626, size: 0x8, addend: 0x0, symName: '___29-[AWSSRWebSocket handlePong:]_block_invoke', symObjAddr: 0x29FA, symBinAddr: 0x51EE, symSize: 0xA9 }
+  - { offsetInCU: 0x303A, offset: 0x646C1, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _handleMessage:]', symObjAddr: 0x2AA3, symBinAddr: 0x5297, symSize: 0xA7 }
+  - { offsetInCU: 0x30C9, offset: 0x64750, size: 0x8, addend: 0x0, symName: '___33-[AWSSRWebSocket _handleMessage:]_block_invoke', symObjAddr: 0x2B4A, symBinAddr: 0x533E, symSize: 0x55 }
+  - { offsetInCU: 0x315C, offset: 0x647E3, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket handleCloseWithData:]', symObjAddr: 0x2B9F, symBinAddr: 0x5393, symSize: 0x245 }
+  - { offsetInCU: 0x32AC, offset: 0x64933, size: 0x8, addend: 0x0, symName: '___38-[AWSSRWebSocket handleCloseWithData:]_block_invoke', symObjAddr: 0x2DE4, symBinAddr: 0x55D8, symSize: 0x16 }
+  - { offsetInCU: 0x32FA, offset: 0x64981, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket closeConnection]', symObjAddr: 0x2DFA, symBinAddr: 0x55EE, symSize: 0x43 }
+  - { offsetInCU: 0x3354, offset: 0x649DB, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _handleFrameWithData:opCode:]', symObjAddr: 0x2E3D, symBinAddr: 0x5631, symSize: 0x20B }
+  - { offsetInCU: 0x346F, offset: 0x64AF6, size: 0x8, addend: 0x0, symName: '___46-[AWSSRWebSocket _handleFrameWithData:opCode:]_block_invoke', symObjAddr: 0x3048, symBinAddr: 0x583C, symSize: 0x16 }
+  - { offsetInCU: 0x34BD, offset: 0x64B44, size: 0x8, addend: 0x0, symName: '___46-[AWSSRWebSocket _handleFrameWithData:opCode:]_block_invoke_2', symObjAddr: 0x305E, symBinAddr: 0x5852, symSize: 0x16 }
+  - { offsetInCU: 0x350B, offset: 0x64B92, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _handleFrameHeader:curData:]', symObjAddr: 0x3074, symBinAddr: 0x5868, symSize: 0x16A }
+  - { offsetInCU: 0x35C6, offset: 0x64C4D, size: 0x8, addend: 0x0, symName: '___45-[AWSSRWebSocket _handleFrameHeader:curData:]_block_invoke', symObjAddr: 0x31DE, symBinAddr: 0x59D2, symSize: 0x97 }
+  - { offsetInCU: 0x367F, offset: 0x64D06, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _readFrameContinue]', symObjAddr: 0x3275, symBinAddr: 0x5A69, symSize: 0x24 }
+  - { offsetInCU: 0x36BD, offset: 0x64D44, size: 0x8, addend: 0x0, symName: '___36-[AWSSRWebSocket _readFrameContinue]_block_invoke', symObjAddr: 0x3299, symBinAddr: 0x5A8D, symSize: 0x206 }
+  - { offsetInCU: 0x37E5, offset: 0x64E6C, size: 0x8, addend: 0x0, symName: '___36-[AWSSRWebSocket _readFrameContinue]_block_invoke_2', symObjAddr: 0x349F, symBinAddr: 0x5C93, symSize: 0xFB }
+  - { offsetInCU: 0x38FB, offset: 0x64F82, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32r, symObjAddr: 0x359A, symBinAddr: 0x5D8E, symSize: 0x17 }
+  - { offsetInCU: 0x3924, offset: 0x64FAB, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32r, symObjAddr: 0x35B1, symBinAddr: 0x5DA5, symSize: 0x13 }
+  - { offsetInCU: 0x3943, offset: 0x64FCA, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _readFrameNew]', symObjAddr: 0x35C4, symBinAddr: 0x5DB8, symSize: 0x4B }
+  - { offsetInCU: 0x3985, offset: 0x6500C, size: 0x8, addend: 0x0, symName: '___31-[AWSSRWebSocket _readFrameNew]_block_invoke', symObjAddr: 0x360F, symBinAddr: 0x5E03, symSize: 0x6B }
+  - { offsetInCU: 0x39DF, offset: 0x65066, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _pumpWriting]', symObjAddr: 0x367A, symBinAddr: 0x5E6E, symSize: 0x4A9 }
+  - { offsetInCU: 0x3BE0, offset: 0x65267, size: 0x8, addend: 0x0, symName: '___30-[AWSSRWebSocket _pumpWriting]_block_invoke', symObjAddr: 0x3B23, symBinAddr: 0x6317, symSize: 0xB9 }
+  - { offsetInCU: 0x3C6A, offset: 0x652F1, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _addConsumerWithScanner:callback:]', symObjAddr: 0x3BDC, symBinAddr: 0x63D0, symSize: 0x7D }
+  - { offsetInCU: 0x3D08, offset: 0x6538F, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _addConsumerWithDataLength:callback:readToCurrentFrame:unmaskBytes:]', symObjAddr: 0x3C59, symBinAddr: 0x644D, symSize: 0xBA }
+  - { offsetInCU: 0x3DD4, offset: 0x6545B, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _addConsumerWithScanner:callback:dataLength:]', symObjAddr: 0x3D13, symBinAddr: 0x6507, symSize: 0xCE }
+  - { offsetInCU: 0x3EA7, offset: 0x6552E, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _scheduleCleanup]', symObjAddr: 0x3DE1, symBinAddr: 0x65D5, symSize: 0xDD }
+  - { offsetInCU: 0x3F43, offset: 0x655CA, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _cleanupSelfReference:]', symObjAddr: 0x3EBE, symBinAddr: 0x66B2, symSize: 0xEA }
+  - { offsetInCU: 0x3FF6, offset: 0x6567D, size: 0x8, addend: 0x0, symName: '___40-[AWSSRWebSocket _cleanupSelfReference:]_block_invoke', symObjAddr: 0x3FA8, symBinAddr: 0x679C, symSize: 0x21 }
+  - { offsetInCU: 0x4044, offset: 0x656CB, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _readUntilHeaderCompleteWithCallback:]', symObjAddr: 0x3FC9, symBinAddr: 0x67BD, symSize: 0x21 }
+  - { offsetInCU: 0x4093, offset: 0x6571A, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _readUntilBytes:length:callback:]', symObjAddr: 0x3FEA, symBinAddr: 0x67DE, symSize: 0x8E }
+  - { offsetInCU: 0x413B, offset: 0x657C2, size: 0x8, addend: 0x0, symName: '___50-[AWSSRWebSocket _readUntilBytes:length:callback:]_block_invoke', symObjAddr: 0x4078, symBinAddr: 0x686C, symSize: 0x9D }
+  - { offsetInCU: 0x423F, offset: 0x658C6, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _innerPumpScanner]', symObjAddr: 0x4115, symBinAddr: 0x6909, symSize: 0x4EC }
+  - { offsetInCU: 0x4601, offset: 0x65C88, size: 0x8, addend: 0x0, symName: '___35-[AWSSRWebSocket _innerPumpScanner]_block_invoke', symObjAddr: 0x46DC, symBinAddr: 0x6ED0, symSize: 0x16 }
+  - { offsetInCU: 0x464F, offset: 0x65CD6, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _pumpScanner]', symObjAddr: 0x46F2, symBinAddr: 0x6EE6, symSize: 0x57 }
+  - { offsetInCU: 0x469B, offset: 0x65D22, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket _sendFrameWithOpcode:data:]', symObjAddr: 0x4749, symBinAddr: 0x6F3D, symSize: 0x374 }
+  - { offsetInCU: 0x48E2, offset: 0x65F69, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket stream:handleEvent:]', symObjAddr: 0x4ABD, symBinAddr: 0x72B1, symSize: 0x447 }
+  - { offsetInCU: 0x4B8A, offset: 0x66211, size: 0x8, addend: 0x0, symName: '___37-[AWSSRWebSocket stream:handleEvent:]_block_invoke', symObjAddr: 0x4F04, symBinAddr: 0x76F8, symSize: 0xDF }
+  - { offsetInCU: 0x4C28, offset: 0x662AF, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32w, symObjAddr: 0x4FE3, symBinAddr: 0x77D7, symSize: 0x12 }
+  - { offsetInCU: 0x4C51, offset: 0x662D8, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32w, symObjAddr: 0x4FF5, symBinAddr: 0x77E9, symSize: 0xE }
+  - { offsetInCU: 0x4C70, offset: 0x662F7, size: 0x8, addend: 0x0, symName: '___37-[AWSSRWebSocket stream:handleEvent:]_block_invoke.391', symObjAddr: 0x5003, symBinAddr: 0x77F7, symSize: 0x16 }
+  - { offsetInCU: 0x4CBE, offset: 0x66345, size: 0x8, addend: 0x0, symName: '___37-[AWSSRWebSocket stream:handleEvent:]_block_invoke_2', symObjAddr: 0x5019, symBinAddr: 0x780D, symSize: 0x3B }
+  - { offsetInCU: 0x4D36, offset: 0x663BD, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40w, symObjAddr: 0x5054, symBinAddr: 0x7848, symSize: 0x2E }
+  - { offsetInCU: 0x4D6B, offset: 0x663F2, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40w, symObjAddr: 0x5082, symBinAddr: 0x7876, symSize: 0x22 }
+  - { offsetInCU: 0x4D96, offset: 0x6641D, size: 0x8, addend: 0x0, symName: '___41-[AWSSRWebSocket safeHandleEvent:stream:]_block_invoke', symObjAddr: 0x5450, symBinAddr: 0x7C44, symSize: 0xB5 }
+  - { offsetInCU: 0x4E08, offset: 0x6648F, size: 0x8, addend: 0x0, symName: '___41-[AWSSRWebSocket safeHandleEvent:stream:]_block_invoke_2', symObjAddr: 0x5505, symBinAddr: 0x7CF9, symSize: 0xB4 }
+  - { offsetInCU: 0x4E92, offset: 0x66519, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket delegate]', symObjAddr: 0x55B9, symBinAddr: 0x7DAD, symSize: 0x19 }
+  - { offsetInCU: 0x4ECA, offset: 0x66551, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket setDelegate:]', symObjAddr: 0x55D2, symBinAddr: 0x7DC6, symSize: 0x14 }
+  - { offsetInCU: 0x4F0A, offset: 0x66591, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket url]', symObjAddr: 0x55E6, symBinAddr: 0x7DDA, symSize: 0xD }
+  - { offsetInCU: 0x4F40, offset: 0x665C7, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket readyState]', symObjAddr: 0x55F3, symBinAddr: 0x7DE7, symSize: 0xD }
+  - { offsetInCU: 0x4F76, offset: 0x665FD, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket setReadyState:]', symObjAddr: 0x5600, symBinAddr: 0x7DF4, symSize: 0xD }
+  - { offsetInCU: 0x4FB4, offset: 0x6663B, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket protocol]', symObjAddr: 0x560D, symBinAddr: 0x7E01, symSize: 0xD }
+  - { offsetInCU: 0x4FEA, offset: 0x66671, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket receivedHTTPHeaders]', symObjAddr: 0x561A, symBinAddr: 0x7E0E, symSize: 0xD }
+  - { offsetInCU: 0x501F, offset: 0x666A6, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket requestCookies]', symObjAddr: 0x5627, symBinAddr: 0x7E1B, symSize: 0xD }
+  - { offsetInCU: 0x5054, offset: 0x666DB, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket setRequestCookies:]', symObjAddr: 0x5634, symBinAddr: 0x7E28, symSize: 0x14 }
+  - { offsetInCU: 0x5093, offset: 0x6671A, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket delegateOperationQueue]', symObjAddr: 0x5648, symBinAddr: 0x7E3C, symSize: 0xA }
+  - { offsetInCU: 0x50C8, offset: 0x6674F, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket setDelegateOperationQueue:]', symObjAddr: 0x5652, symBinAddr: 0x7E46, symSize: 0x11 }
+  - { offsetInCU: 0x5109, offset: 0x66790, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket delegateDispatchQueue]', symObjAddr: 0x5663, symBinAddr: 0x7E57, symSize: 0xA }
+  - { offsetInCU: 0x513E, offset: 0x667C5, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket allowsUntrustedSSLCertificates]', symObjAddr: 0x566D, symBinAddr: 0x7E61, symSize: 0xC }
+  - { offsetInCU: 0x5173, offset: 0x667FA, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket setAllowsUntrustedSSLCertificates:]', symObjAddr: 0x5679, symBinAddr: 0x7E6D, symSize: 0xC }
+  - { offsetInCU: 0x51B0, offset: 0x66837, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocket .cxx_destruct]', symObjAddr: 0x5685, symBinAddr: 0x7E79, symSize: 0x110 }
+  - { offsetInCU: 0x51E3, offset: 0x6686A, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumer setupWithScanner:handler:bytesNeeded:readToCurrentFrame:unmaskBytes:]', symObjAddr: 0x5795, symBinAddr: 0x7F89, symSize: 0x99 }
+  - { offsetInCU: 0x52AF, offset: 0x66936, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumer bytesNeeded]', symObjAddr: 0x582E, symBinAddr: 0x8022, symSize: 0xA }
+  - { offsetInCU: 0x52E5, offset: 0x6696C, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumer setBytesNeeded:]', symObjAddr: 0x5838, symBinAddr: 0x802C, symSize: 0xA }
+  - { offsetInCU: 0x5323, offset: 0x669AA, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumer consumer]', symObjAddr: 0x5842, symBinAddr: 0x8036, symSize: 0xA }
+  - { offsetInCU: 0x5359, offset: 0x669E0, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumer handler]', symObjAddr: 0x584C, symBinAddr: 0x8040, symSize: 0xA }
+  - { offsetInCU: 0x538F, offset: 0x66A16, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumer readToCurrentFrame]', symObjAddr: 0x5856, symBinAddr: 0x804A, symSize: 0x9 }
+  - { offsetInCU: 0x53C5, offset: 0x66A4C, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumer unmaskBytes]', symObjAddr: 0x585F, symBinAddr: 0x8053, symSize: 0x9 }
+  - { offsetInCU: 0x53FB, offset: 0x66A82, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumer .cxx_destruct]', symObjAddr: 0x5868, symBinAddr: 0x805C, symSize: 0x28 }
+  - { offsetInCU: 0x542F, offset: 0x66AB6, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumerPool initWithBufferCapacity:]', symObjAddr: 0x5890, symBinAddr: 0x8084, symSize: 0x74 }
+  - { offsetInCU: 0x5490, offset: 0x66B17, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumerPool init]', symObjAddr: 0x5904, symBinAddr: 0x80F8, symSize: 0x17 }
+  - { offsetInCU: 0x54D1, offset: 0x66B58, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumerPool consumerWithScanner:handler:bytesNeeded:readToCurrentFrame:unmaskBytes:]', symObjAddr: 0x591B, symBinAddr: 0x810F, symSize: 0xF3 }
+  - { offsetInCU: 0x55DB, offset: 0x66C62, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumerPool returnConsumer:]', symObjAddr: 0x5A0E, symBinAddr: 0x8202, symSize: 0x4E }
+  - { offsetInCU: 0x5650, offset: 0x66CD7, size: 0x8, addend: 0x0, symName: '-[AWSSRIOConsumerPool .cxx_destruct]', symObjAddr: 0x5A5C, symBinAddr: 0x8250, symSize: 0x10 }
+  - { offsetInCU: 0x5684, offset: 0x66D0B, size: 0x8, addend: 0x0, symName: '-[NSURLRequest(AWSSRCertificateAdditions) AWSSR_SSLPinnedCertificates]', symObjAddr: 0x5A6C, symBinAddr: 0x8260, symSize: 0x23 }
+  - { offsetInCU: 0x56C8, offset: 0x66D4F, size: 0x8, addend: 0x0, symName: '-[NSMutableURLRequest(AWSSRCertificateAdditions) AWSSR_SSLPinnedCertificates]', symObjAddr: 0x5A8F, symBinAddr: 0x8283, symSize: 0x23 }
+  - { offsetInCU: 0x570C, offset: 0x66D93, size: 0x8, addend: 0x0, symName: '-[NSMutableURLRequest(AWSSRCertificateAdditions) setAWSSR_SSLPinnedCertificates:]', symObjAddr: 0x5AB2, symBinAddr: 0x82A6, symSize: 0x23 }
+  - { offsetInCU: 0x575B, offset: 0x66DE2, size: 0x8, addend: 0x0, symName: '-[NSURL(SRWebSocket) AWSSR_origin]', symObjAddr: 0x5AD5, symBinAddr: 0x82C9, symSize: 0x2D3 }
+  - { offsetInCU: 0x5919, offset: 0x66FA0, size: 0x8, addend: 0x0, symName: '___46+[NSRunLoop(SRWebSocket) AWSSR_networkRunLoop]_block_invoke', symObjAddr: 0x5DD8, symBinAddr: 0x85CC, symSize: 0xA9 }
+  - { offsetInCU: 0x5996, offset: 0x6701D, size: 0x8, addend: 0x0, symName: '-[_SRRunLoopThread dealloc]', symObjAddr: 0x5E81, symBinAddr: 0x8675, symSize: 0x2F }
+  - { offsetInCU: 0x59CA, offset: 0x67051, size: 0x8, addend: 0x0, symName: '-[_SRRunLoopThread init]', symObjAddr: 0x5EB0, symBinAddr: 0x86A4, symSize: 0x63 }
+  - { offsetInCU: 0x5A45, offset: 0x670CC, size: 0x8, addend: 0x0, symName: '-[_SRRunLoopThread main]', symObjAddr: 0x5F13, symBinAddr: 0x8707, symSize: 0x12E }
+  - { offsetInCU: 0x5B80, offset: 0x67207, size: 0x8, addend: 0x0, symName: '-[_SRRunLoopThread runLoop]', symObjAddr: 0x6041, symBinAddr: 0x8835, symSize: 0x36 }
+  - { offsetInCU: 0x5BDD, offset: 0x67264, size: 0x8, addend: 0x0, symName: '-[_SRRunLoopThread .cxx_destruct]', symObjAddr: 0x6077, symBinAddr: 0x886B, symSize: 0x31 }
+  - { offsetInCU: 0x27, offset: 0x6823C, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor initWithClientDelegate:callbackQueue:]', symObjAddr: 0x0, symBinAddr: 0x889C, symSize: 0x157 }
+  - { offsetInCU: 0x152, offset: 0x68367, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor initWithClientDelegate:callbackQueue:]', symObjAddr: 0x0, symBinAddr: 0x889C, symSize: 0x157 }
+  - { offsetInCU: 0x22D, offset: 0x68442, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor webSocket:didReceiveMessage:]', symObjAddr: 0x157, symBinAddr: 0x89F3, symSize: 0x1F3 }
+  - { offsetInCU: 0x3C7, offset: 0x685DC, size: 0x8, addend: 0x0, symName: '___61-[AWSSRWebSocketDelegateAdaptor webSocket:didReceiveMessage:]_block_invoke', symObjAddr: 0x34A, symBinAddr: 0x8BE6, symSize: 0x55 }
+  - { offsetInCU: 0x44A, offset: 0x6865F, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s48s, symObjAddr: 0x39F, symBinAddr: 0x8C3B, symSize: 0x2C }
+  - { offsetInCU: 0x497, offset: 0x686AC, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s48s, symObjAddr: 0x3CB, symBinAddr: 0x8C67, symSize: 0x2C }
+  - { offsetInCU: 0x4DA, offset: 0x686EF, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor webSocketDidOpen:]', symObjAddr: 0x3F7, symBinAddr: 0x8C93, symSize: 0x19C }
+  - { offsetInCU: 0x5E3, offset: 0x687F8, size: 0x8, addend: 0x0, symName: '___50-[AWSSRWebSocketDelegateAdaptor webSocketDidOpen:]_block_invoke', symObjAddr: 0x593, symBinAddr: 0x8E2F, symSize: 0x53 }
+  - { offsetInCU: 0x656, offset: 0x6886B, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor webSocket:didFailWithError:]', symObjAddr: 0x604, symBinAddr: 0x8E82, symSize: 0x1F0 }
+  - { offsetInCU: 0x7AB, offset: 0x689C0, size: 0x8, addend: 0x0, symName: '___60-[AWSSRWebSocketDelegateAdaptor webSocket:didFailWithError:]_block_invoke', symObjAddr: 0x7F4, symBinAddr: 0x9072, symSize: 0x55 }
+  - { offsetInCU: 0x82E, offset: 0x68A43, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor webSocket:didCloseWithCode:reason:wasClean:]', symObjAddr: 0x893, symBinAddr: 0x90C7, symSize: 0x370 }
+  - { offsetInCU: 0xA32, offset: 0x68C47, size: 0x8, addend: 0x0, symName: '___76-[AWSSRWebSocketDelegateAdaptor webSocket:didCloseWithCode:reason:wasClean:]_block_invoke', symObjAddr: 0xC03, symBinAddr: 0x9437, symSize: 0x55 }
+  - { offsetInCU: 0xAB5, offset: 0x68CCA, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor webSocket:didReceivePong:]', symObjAddr: 0xC58, symBinAddr: 0x948C, symSize: 0x114 }
+  - { offsetInCU: 0xB88, offset: 0x68D9D, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor clientDelegate]', symObjAddr: 0xD6C, symBinAddr: 0x95A0, symSize: 0x16 }
+  - { offsetInCU: 0xBBF, offset: 0x68DD4, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor setClientDelegate:]', symObjAddr: 0xD82, symBinAddr: 0x95B6, symSize: 0x11 }
+  - { offsetInCU: 0xBFE, offset: 0x68E13, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor callbackQueue]', symObjAddr: 0xD93, symBinAddr: 0x95C7, symSize: 0x16 }
+  - { offsetInCU: 0xC35, offset: 0x68E4A, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor setCallbackQueue:]', symObjAddr: 0xDA9, symBinAddr: 0x95DD, symSize: 0x11 }
+  - { offsetInCU: 0xC74, offset: 0x68E89, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketDelegateAdaptor .cxx_destruct]', symObjAddr: 0xDBA, symBinAddr: 0x95EE, symSize: 0x24 }
+  - { offsetInCU: 0x27, offset: 0x69263, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor configureWithURLRequest:]', symObjAddr: 0x0, symBinAddr: 0x9612, symSize: 0x141 }
+  - { offsetInCU: 0x1EB, offset: 0x69427, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor configureWithURLRequest:]', symObjAddr: 0x0, symBinAddr: 0x9612, symSize: 0x141 }
+  - { offsetInCU: 0x2FA, offset: 0x69536, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor setDelegate:dispatchQueue:]', symObjAddr: 0x141, symBinAddr: 0x9753, symSize: 0xA5 }
+  - { offsetInCU: 0x3BD, offset: 0x695F9, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor send:]', symObjAddr: 0x1E6, symBinAddr: 0x97F8, symSize: 0x15D }
+  - { offsetInCU: 0x4A8, offset: 0x696E4, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor connect]', symObjAddr: 0x343, symBinAddr: 0x9955, symSize: 0x13E }
+  - { offsetInCU: 0x56B, offset: 0x697A7, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor disconnect]', symObjAddr: 0x481, symBinAddr: 0x9A93, symSize: 0x3D }
+  - { offsetInCU: 0x5C2, offset: 0x697FE, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor delegate]', symObjAddr: 0x4BE, symBinAddr: 0x9AD0, symSize: 0xA }
+  - { offsetInCU: 0x5F7, offset: 0x69833, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor setDelegate:]', symObjAddr: 0x4C8, symBinAddr: 0x9ADA, symSize: 0x11 }
+  - { offsetInCU: 0x636, offset: 0x69872, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor clientDelegate]', symObjAddr: 0x4D9, symBinAddr: 0x9AEB, symSize: 0xA }
+  - { offsetInCU: 0x66B, offset: 0x698A7, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor setClientDelegate:]', symObjAddr: 0x4E3, symBinAddr: 0x9AF5, symSize: 0x11 }
+  - { offsetInCU: 0x6AA, offset: 0x698E6, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor webSocket]', symObjAddr: 0x4F4, symBinAddr: 0x9B06, symSize: 0xA }
+  - { offsetInCU: 0x6DF, offset: 0x6991B, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor setWebSocket:]', symObjAddr: 0x4FE, symBinAddr: 0x9B10, symSize: 0x11 }
+  - { offsetInCU: 0x71E, offset: 0x6995A, size: 0x8, addend: 0x0, symName: '-[AWSSRWebSocketAdaptor .cxx_destruct]', symObjAddr: 0x50F, symBinAddr: 0x9B21, symSize: 0x33 }
+  - { offsetInCU: 0x27, offset: 0x699DB, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingResources sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x9B54, symSize: 0x30 }
+  - { offsetInCU: 0x35, offset: 0x699E9, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingResources sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x9B54, symSize: 0x30 }
+  - { offsetInCU: 0x5F, offset: 0x69A13, size: 0x8, addend: 0x0, symName: _sharedInstance._sharedResources, symObjAddr: 0xF6F8, symBinAddr: 0x1FF68, symSize: 0x0 }
+  - { offsetInCU: 0x75, offset: 0x69A29, size: 0x8, addend: 0x0, symName: _sharedInstance.once_token, symObjAddr: 0xF700, symBinAddr: 0x1FF70, symSize: 0x0 }
+  - { offsetInCU: 0x156, offset: 0x69B0A, size: 0x8, addend: 0x0, symName: '___49+[AWSTranscribeStreamingResources sharedInstance]_block_invoke', symObjAddr: 0x30, symBinAddr: 0x9B84, symSize: 0x2D }
+  - { offsetInCU: 0x195, offset: 0x69B49, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResources JSONObject]', symObjAddr: 0x5D, symBinAddr: 0x9BB1, symSize: 0x12 }
+  - { offsetInCU: 0x1D6, offset: 0x69B8A, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResources init]', symObjAddr: 0x6F, symBinAddr: 0x9BC3, symSize: 0x1D0 }
+  - { offsetInCU: 0x2E0, offset: 0x69C94, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResources definitionString]', symObjAddr: 0x23F, symBinAddr: 0x9D93, symSize: 0xD }
+  - { offsetInCU: 0x313, offset: 0x69CC7, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResources definitionDictionary]', symObjAddr: 0x24C, symBinAddr: 0x9DA0, symSize: 0xA }
+  - { offsetInCU: 0x348, offset: 0x69CFC, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResources setDefinitionDictionary:]', symObjAddr: 0x256, symBinAddr: 0x9DAA, symSize: 0x11 }
+  - { offsetInCU: 0x387, offset: 0x69D3B, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResources .cxx_destruct]', symObjAddr: 0x267, symBinAddr: 0x9DBB, symSize: 0x10 }
+  - { offsetInCU: 0x27, offset: 0x69E42, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingResponseSerializer initialize]', symObjAddr: 0x0, symBinAddr: 0x9DCB, symSize: 0x1AD }
+  - { offsetInCU: 0x4B, offset: 0x69E66, size: 0x8, addend: 0x0, symName: _AWSTranscribeStreamingClientErrorDomain, symObjAddr: 0x2750, symBinAddr: 0x18578, symSize: 0x0 }
+  - { offsetInCU: 0x61, offset: 0x69E7C, size: 0x8, addend: 0x0, symName: _AWSTranscribeStreamingSDKVersion, symObjAddr: 0x2758, symBinAddr: 0x18580, symSize: 0x0 }
+  - { offsetInCU: 0x77, offset: 0x69E92, size: 0x8, addend: 0x0, symName: _errorCodeDictionary, symObjAddr: 0x273F8, symBinAddr: 0x1FF78, symSize: 0x0 }
+  - { offsetInCU: 0x92, offset: 0x69EAD, size: 0x8, addend: 0x0, symName: __serviceClients, symObjAddr: 0x27400, symBinAddr: 0x1FF80, symSize: 0x0 }
+  - { offsetInCU: 0xA1, offset: 0x69EBC, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreaming defaultTranscribeStreaming]', symObjAddr: 0x290, symBinAddr: 0xA05B, symSize: 0x30 }
+  - { offsetInCU: 0xCB, offset: 0x69EE6, size: 0x8, addend: 0x0, symName: _defaultTranscribeStreaming._defaultTranscribeStreaming, symObjAddr: 0x27408, symBinAddr: 0x1FF88, symSize: 0x0 }
+  - { offsetInCU: 0xE1, offset: 0x69EFC, size: 0x8, addend: 0x0, symName: _defaultTranscribeStreaming.onceToken, symObjAddr: 0x27410, symBinAddr: 0x1FF90, symSize: 0x0 }
+  - { offsetInCU: 0x1B9, offset: 0x69FD4, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:forKey:webSocketProvider:]', symObjAddr: 0x502, symBinAddr: 0xA2CD, symSize: 0xCE }
+  - { offsetInCU: 0x1DF, offset: 0x69FFA, size: 0x8, addend: 0x0, symName: '_registerTranscribeStreamingWithConfiguration:forKey:webSocketProvider:.onceToken', symObjAddr: 0x27418, symBinAddr: 0x1FF98, symSize: 0x0 }
+  - { offsetInCU: 0x4C9, offset: 0x6A2E4, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingResponseSerializer initialize]', symObjAddr: 0x0, symBinAddr: 0x9DCB, symSize: 0x1AD }
+  - { offsetInCU: 0x588, offset: 0x6A3A3, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreaming initialize]', symObjAddr: 0x1AD, symBinAddr: 0x9F78, symSize: 0xE3 }
+  - { offsetInCU: 0x632, offset: 0x6A44D, size: 0x8, addend: 0x0, symName: '___52+[AWSTranscribeStreaming defaultTranscribeStreaming]_block_invoke', symObjAddr: 0x2C0, symBinAddr: 0xA08B, symSize: 0x1B0 }
+  - { offsetInCU: 0x758, offset: 0x6A573, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:forKey:]', symObjAddr: 0x470, symBinAddr: 0xA23B, symSize: 0x92 }
+  - { offsetInCU: 0x80F, offset: 0x6A62A, size: 0x8, addend: 0x0, symName: '___96+[AWSTranscribeStreaming registerTranscribeStreamingWithConfiguration:forKey:webSocketProvider:]_block_invoke', symObjAddr: 0x5D0, symBinAddr: 0xA39B, symSize: 0x2D }
+  - { offsetInCU: 0x84E, offset: 0x6A669, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreaming TranscribeStreamingForKey:]', symObjAddr: 0x5FD, symBinAddr: 0xA3C8, symSize: 0x1D8 }
+  - { offsetInCU: 0x9AB, offset: 0x6A7C6, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreaming removeTranscribeStreamingForKey:]', symObjAddr: 0x7D5, symBinAddr: 0xA5A0, symSize: 0x19 }
+  - { offsetInCU: 0x9F4, offset: 0x6A80F, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming init]', symObjAddr: 0x7EE, symBinAddr: 0xA5B9, symSize: 0x44 }
+  - { offsetInCU: 0xA33, offset: 0x6A84E, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming initWithConfiguration:webSocketProvider:]', symObjAddr: 0x832, symBinAddr: 0xA5FD, symSize: 0x21A }
+  - { offsetInCU: 0xB92, offset: 0x6A9AD, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming setDelegate:callbackQueue:]', symObjAddr: 0xA4C, symBinAddr: 0xA817, symSize: 0x8B }
+  - { offsetInCU: 0xC39, offset: 0x6AA54, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming startTranscriptionWSS:]', symObjAddr: 0xAD7, symBinAddr: 0xA8A2, symSize: 0xB4 }
+  - { offsetInCU: 0xCFF, offset: 0x6AB1A, size: 0x8, addend: 0x0, symName: '___48-[AWSTranscribeStreaming startTranscriptionWSS:]_block_invoke', symObjAddr: 0xB8B, symBinAddr: 0xA956, symSize: 0x232 }
+  - { offsetInCU: 0xE93, offset: 0x6ACAE, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming sendData:headers:]', symObjAddr: 0xE07, symBinAddr: 0xAB88, symSize: 0x77 }
+  - { offsetInCU: 0xF2E, offset: 0x6AD49, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming sendEndFrame]', symObjAddr: 0xE7E, symBinAddr: 0xABFF, symSize: 0x77 }
+  - { offsetInCU: 0xFA9, offset: 0x6ADC4, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming endTranscription]', symObjAddr: 0xEF5, symBinAddr: 0xAC76, symSize: 0x3D }
+  - { offsetInCU: 0x1001, offset: 0x6AE1C, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming invokeRequestForWSS:HTTPMethod:operationName:outputClass:error:]', symObjAddr: 0xF32, symBinAddr: 0xACB3, symSize: 0x336 }
+  - { offsetInCU: 0x1246, offset: 0x6B061, size: 0x8, addend: 0x0, symName: ___Block_byref_object_copy_, symObjAddr: 0x1268, symBinAddr: 0xAFE9, symSize: 0x16 }
+  - { offsetInCU: 0x126B, offset: 0x6B086, size: 0x8, addend: 0x0, symName: ___Block_byref_object_dispose_, symObjAddr: 0x127E, symBinAddr: 0xAFFF, symSize: 0xF }
+  - { offsetInCU: 0x1296, offset: 0x6B0B1, size: 0x8, addend: 0x0, symName: '___89-[AWSTranscribeStreaming invokeRequestForWSS:HTTPMethod:operationName:outputClass:error:]_block_invoke', symObjAddr: 0x128D, symBinAddr: 0xB00E, symSize: 0x183 }
+  - { offsetInCU: 0x139D, offset: 0x6B1B8, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming setUpWebsocketForRequest:]', symObjAddr: 0x143A, symBinAddr: 0xB191, symSize: 0x90 }
+  - { offsetInCU: 0x140A, offset: 0x6B225, size: 0x8, addend: 0x0, symName: '___51-[AWSTranscribeStreaming setUpWebsocketForRequest:]_block_invoke', symObjAddr: 0x14CA, symBinAddr: 0xB221, symSize: 0x265 }
+  - { offsetInCU: 0x15CB, offset: 0x6B3E6, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming getPreSignedURL:]', symObjAddr: 0x174D, symBinAddr: 0xB486, symSize: 0xDB }
+  - { offsetInCU: 0x1668, offset: 0x6B483, size: 0x8, addend: 0x0, symName: '___42-[AWSTranscribeStreaming getPreSignedURL:]_block_invoke', symObjAddr: 0x1828, symBinAddr: 0xB561, symSize: 0x651 }
+  - { offsetInCU: 0x1A81, offset: 0x6B89C, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming configuration]', symObjAddr: 0x1E79, symBinAddr: 0xBBB2, symSize: 0x11 }
+  - { offsetInCU: 0x1AB6, offset: 0x6B8D1, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming setConfiguration:]', symObjAddr: 0x1E8A, symBinAddr: 0xBBC3, symSize: 0x14 }
+  - { offsetInCU: 0x1AF5, offset: 0x6B910, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming networking]', symObjAddr: 0x1E9E, symBinAddr: 0xBBD7, symSize: 0x11 }
+  - { offsetInCU: 0x1B2A, offset: 0x6B945, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming setNetworking:]', symObjAddr: 0x1EAF, symBinAddr: 0xBBE8, symSize: 0x14 }
+  - { offsetInCU: 0x1B69, offset: 0x6B984, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming webSocketProvider]', symObjAddr: 0x1EC3, symBinAddr: 0xBBFC, symSize: 0x11 }
+  - { offsetInCU: 0x1B9E, offset: 0x6B9B9, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming setWebSocketProvider:]', symObjAddr: 0x1ED4, symBinAddr: 0xBC0D, symSize: 0x14 }
+  - { offsetInCU: 0x1BDD, offset: 0x6B9F8, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreaming .cxx_destruct]', symObjAddr: 0x1EE8, symBinAddr: 0xBC21, symSize: 0x42 }
+  - { offsetInCU: 0x27, offset: 0x6BF87, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingEventDecoder decodeEvent:decodingError:]', symObjAddr: 0x0, symBinAddr: 0xBC63, symSize: 0x45B }
+  - { offsetInCU: 0x8E, offset: 0x6BFEE, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingEventDecoder decodeEvent:decodingError:]', symObjAddr: 0x0, symBinAddr: 0xBC63, symSize: 0x45B }
+  - { offsetInCU: 0x2DE, offset: 0x6C23E, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingEventDecoder verifyPreludeForData:decodingError:]', symObjAddr: 0x45B, symBinAddr: 0xC0BE, symSize: 0x14C }
+  - { offsetInCU: 0x3C4, offset: 0x6C324, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingEventDecoder verifyMessageLengthHeaderForData:decodingError:]', symObjAddr: 0x5A7, symBinAddr: 0xC20A, symSize: 0x173 }
+  - { offsetInCU: 0x4C6, offset: 0x6C426, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingEventDecoder getHeadersForData:]', symObjAddr: 0x71A, symBinAddr: 0xC37D, symSize: 0x3F5 }
+  - { offsetInCU: 0x74C, offset: 0x6C6AC, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingEventDecoder getBodyForData:]', symObjAddr: 0xB0F, symBinAddr: 0xC772, symSize: 0xC4 }
+  - { offsetInCU: 0x849, offset: 0x6C7A9, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingEventDecoder getTotalLengthForData:]', symObjAddr: 0xBD3, symBinAddr: 0xC836, symSize: 0x59 }
+  - { offsetInCU: 0x8CE, offset: 0x6C82E, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingEventDecoder getHeaderLengthForData:]', symObjAddr: 0xC2C, symBinAddr: 0xC88F, symSize: 0x5C }
+  - { offsetInCU: 0x27, offset: 0x6C9E7, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAlternative supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0xC8EB, symSize: 0x8 }
+  - { offsetInCU: 0x41, offset: 0x6CA01, size: 0x8, addend: 0x0, symName: _AWSTranscribeStreamingErrorDomain, symObjAddr: 0x3B00, symBinAddr: 0x18658, symSize: 0x0 }
+  - { offsetInCU: 0x6B3, offset: 0x6D073, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAlternative supportsSecureCoding]', symObjAddr: 0x0, symBinAddr: 0xC8EB, symSize: 0x8 }
+  - { offsetInCU: 0x6E6, offset: 0x6D0A6, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAlternative JSONKeyPathsByPropertyKey]', symObjAddr: 0x8, symBinAddr: 0xC8F3, symSize: 0x8C }
+  - { offsetInCU: 0x725, offset: 0x6D0E5, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAlternative itemsJSONTransformer]', symObjAddr: 0x94, symBinAddr: 0xC97F, symSize: 0x3C }
+  - { offsetInCU: 0x770, offset: 0x6D130, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAlternative items]', symObjAddr: 0xD0, symBinAddr: 0xC9BB, symSize: 0x11 }
+  - { offsetInCU: 0x7A5, offset: 0x6D165, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAlternative setItems:]', symObjAddr: 0xE1, symBinAddr: 0xC9CC, symSize: 0x14 }
+  - { offsetInCU: 0x7E4, offset: 0x6D1A4, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAlternative transcript]', symObjAddr: 0xF5, symBinAddr: 0xC9E0, symSize: 0x11 }
+  - { offsetInCU: 0x819, offset: 0x6D1D9, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAlternative setTranscript:]', symObjAddr: 0x106, symBinAddr: 0xC9F1, symSize: 0x14 }
+  - { offsetInCU: 0x858, offset: 0x6D218, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAlternative .cxx_destruct]', symObjAddr: 0x11A, symBinAddr: 0xCA05, symSize: 0x31 }
+  - { offsetInCU: 0x88B, offset: 0x6D24B, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAudioEvent supportsSecureCoding]', symObjAddr: 0x14B, symBinAddr: 0xCA36, symSize: 0x8 }
+  - { offsetInCU: 0x8BE, offset: 0x6D27E, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAudioEvent JSONKeyPathsByPropertyKey]', symObjAddr: 0x153, symBinAddr: 0xCA3E, symSize: 0x76 }
+  - { offsetInCU: 0x8FD, offset: 0x6D2BD, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAudioEvent audioChunk]', symObjAddr: 0x1C9, symBinAddr: 0xCAB4, symSize: 0x11 }
+  - { offsetInCU: 0x932, offset: 0x6D2F2, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAudioEvent setAudioChunk:]', symObjAddr: 0x1DA, symBinAddr: 0xCAC5, symSize: 0x14 }
+  - { offsetInCU: 0x971, offset: 0x6D331, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAudioEvent .cxx_destruct]', symObjAddr: 0x1EE, symBinAddr: 0xCAD9, symSize: 0x13 }
+  - { offsetInCU: 0x9A4, offset: 0x6D364, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAudioStream supportsSecureCoding]', symObjAddr: 0x201, symBinAddr: 0xCAEC, symSize: 0x8 }
+  - { offsetInCU: 0x9D7, offset: 0x6D397, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAudioStream JSONKeyPathsByPropertyKey]', symObjAddr: 0x209, symBinAddr: 0xCAF4, symSize: 0x76 }
+  - { offsetInCU: 0xA16, offset: 0x6D3D6, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingAudioStream audioEventJSONTransformer]', symObjAddr: 0x27F, symBinAddr: 0xCB6A, symSize: 0x3C }
+  - { offsetInCU: 0xA61, offset: 0x6D421, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAudioStream audioEvent]', symObjAddr: 0x2BB, symBinAddr: 0xCBA6, symSize: 0x11 }
+  - { offsetInCU: 0xA96, offset: 0x6D456, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAudioStream setAudioEvent:]', symObjAddr: 0x2CC, symBinAddr: 0xCBB7, symSize: 0x14 }
+  - { offsetInCU: 0xAD5, offset: 0x6D495, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingAudioStream .cxx_destruct]', symObjAddr: 0x2E0, symBinAddr: 0xCBCB, symSize: 0x13 }
+  - { offsetInCU: 0xB08, offset: 0x6D4C8, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingItem supportsSecureCoding]', symObjAddr: 0x2F3, symBinAddr: 0xCBDE, symSize: 0x8 }
+  - { offsetInCU: 0xB3B, offset: 0x6D4FB, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingItem JSONKeyPathsByPropertyKey]', symObjAddr: 0x2FB, symBinAddr: 0xCBE6, symSize: 0xB8 }
+  - { offsetInCU: 0xB7A, offset: 0x6D53A, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingItem typesJSONTransformer]', symObjAddr: 0x3B3, symBinAddr: 0xCC9E, symSize: 0x27 }
+  - { offsetInCU: 0xBB9, offset: 0x6D579, size: 0x8, addend: 0x0, symName: '___50+[AWSTranscribeStreamingItem typesJSONTransformer]_block_invoke', symObjAddr: 0x3DA, symBinAddr: 0xCCC5, symSize: 0x9C }
+  - { offsetInCU: 0xC30, offset: 0x6D5F0, size: 0x8, addend: 0x0, symName: '___50+[AWSTranscribeStreamingItem typesJSONTransformer]_block_invoke_2', symObjAddr: 0x476, symBinAddr: 0xCD61, symSize: 0x36 }
+  - { offsetInCU: 0xC77, offset: 0x6D637, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem content]', symObjAddr: 0x4AC, symBinAddr: 0xCD97, symSize: 0x11 }
+  - { offsetInCU: 0xCAC, offset: 0x6D66C, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem setContent:]', symObjAddr: 0x4BD, symBinAddr: 0xCDA8, symSize: 0x14 }
+  - { offsetInCU: 0xCEB, offset: 0x6D6AB, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem endTime]', symObjAddr: 0x4D1, symBinAddr: 0xCDBC, symSize: 0x11 }
+  - { offsetInCU: 0xD20, offset: 0x6D6E0, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem setEndTime:]', symObjAddr: 0x4E2, symBinAddr: 0xCDCD, symSize: 0x14 }
+  - { offsetInCU: 0xD5F, offset: 0x6D71F, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem startTime]', symObjAddr: 0x4F6, symBinAddr: 0xCDE1, symSize: 0x11 }
+  - { offsetInCU: 0xD94, offset: 0x6D754, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem setStartTime:]', symObjAddr: 0x507, symBinAddr: 0xCDF2, symSize: 0x14 }
+  - { offsetInCU: 0xDD3, offset: 0x6D793, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem types]', symObjAddr: 0x51B, symBinAddr: 0xCE06, symSize: 0x11 }
+  - { offsetInCU: 0xE08, offset: 0x6D7C8, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem setTypes:]', symObjAddr: 0x52C, symBinAddr: 0xCE17, symSize: 0x11 }
+  - { offsetInCU: 0xE45, offset: 0x6D805, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingItem .cxx_destruct]', symObjAddr: 0x53D, symBinAddr: 0xCE28, symSize: 0x42 }
+  - { offsetInCU: 0xE78, offset: 0x6D838, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingResult supportsSecureCoding]', symObjAddr: 0x57F, symBinAddr: 0xCE6A, symSize: 0x8 }
+  - { offsetInCU: 0xEAB, offset: 0x6D86B, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingResult JSONKeyPathsByPropertyKey]', symObjAddr: 0x587, symBinAddr: 0xCE72, symSize: 0xCE }
+  - { offsetInCU: 0xEEA, offset: 0x6D8AA, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingResult alternativesJSONTransformer]', symObjAddr: 0x655, symBinAddr: 0xCF40, symSize: 0x3C }
+  - { offsetInCU: 0xF35, offset: 0x6D8F5, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult alternatives]', symObjAddr: 0x691, symBinAddr: 0xCF7C, symSize: 0x11 }
+  - { offsetInCU: 0xF6A, offset: 0x6D92A, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult setAlternatives:]', symObjAddr: 0x6A2, symBinAddr: 0xCF8D, symSize: 0x14 }
+  - { offsetInCU: 0xFA9, offset: 0x6D969, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult endTime]', symObjAddr: 0x6B6, symBinAddr: 0xCFA1, symSize: 0x11 }
+  - { offsetInCU: 0xFDE, offset: 0x6D99E, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult setEndTime:]', symObjAddr: 0x6C7, symBinAddr: 0xCFB2, symSize: 0x14 }
+  - { offsetInCU: 0x101D, offset: 0x6D9DD, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult isPartial]', symObjAddr: 0x6DB, symBinAddr: 0xCFC6, symSize: 0x11 }
+  - { offsetInCU: 0x1052, offset: 0x6DA12, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult setIsPartial:]', symObjAddr: 0x6EC, symBinAddr: 0xCFD7, symSize: 0x14 }
+  - { offsetInCU: 0x1091, offset: 0x6DA51, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult resultId]', symObjAddr: 0x700, symBinAddr: 0xCFEB, symSize: 0x11 }
+  - { offsetInCU: 0x10C6, offset: 0x6DA86, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult setResultId:]', symObjAddr: 0x711, symBinAddr: 0xCFFC, symSize: 0x14 }
+  - { offsetInCU: 0x1105, offset: 0x6DAC5, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult startTime]', symObjAddr: 0x725, symBinAddr: 0xD010, symSize: 0x11 }
+  - { offsetInCU: 0x113A, offset: 0x6DAFA, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult setStartTime:]', symObjAddr: 0x736, symBinAddr: 0xD021, symSize: 0x14 }
+  - { offsetInCU: 0x1179, offset: 0x6DB39, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingResult .cxx_destruct]', symObjAddr: 0x74A, symBinAddr: 0xD035, symSize: 0x64 }
+  - { offsetInCU: 0x11AC, offset: 0x6DB6C, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionRequest supportsSecureCoding]', symObjAddr: 0x7AE, symBinAddr: 0xD099, symSize: 0x8 }
+  - { offsetInCU: 0x11DF, offset: 0x6DB9F, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionRequest JSONKeyPathsByPropertyKey]', symObjAddr: 0x7B6, symBinAddr: 0xD0A1, symSize: 0xE4 }
+  - { offsetInCU: 0x121E, offset: 0x6DBDE, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionRequest audioStreamJSONTransformer]', symObjAddr: 0x89A, symBinAddr: 0xD185, symSize: 0x3C }
+  - { offsetInCU: 0x1269, offset: 0x6DC29, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionRequest languageCodeJSONTransformer]', symObjAddr: 0x8D6, symBinAddr: 0xD1C1, symSize: 0x27 }
+  - { offsetInCU: 0x12A8, offset: 0x6DC68, size: 0x8, addend: 0x0, symName: '___84+[AWSTranscribeStreamingStartStreamTranscriptionRequest languageCodeJSONTransformer]_block_invoke', symObjAddr: 0x8FD, symBinAddr: 0xD1E8, symSize: 0xB28 }
+  - { offsetInCU: 0x158F, offset: 0x6DF4F, size: 0x8, addend: 0x0, symName: '___84+[AWSTranscribeStreamingStartStreamTranscriptionRequest languageCodeJSONTransformer]_block_invoke_2', symObjAddr: 0x1425, symBinAddr: 0xDD10, symSize: 0x30 }
+  - { offsetInCU: 0x15D9, offset: 0x6DF99, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionRequest mediaEncodingJSONTransformer]', symObjAddr: 0x1455, symBinAddr: 0xDD40, symSize: 0x27 }
+  - { offsetInCU: 0x1619, offset: 0x6DFD9, size: 0x8, addend: 0x0, symName: '___85+[AWSTranscribeStreamingStartStreamTranscriptionRequest mediaEncodingJSONTransformer]_block_invoke', symObjAddr: 0x147C, symBinAddr: 0xDD67, symSize: 0x4E }
+  - { offsetInCU: 0x166F, offset: 0x6E02F, size: 0x8, addend: 0x0, symName: '___85+[AWSTranscribeStreamingStartStreamTranscriptionRequest mediaEncodingJSONTransformer]_block_invoke_2', symObjAddr: 0x14CA, symBinAddr: 0xDDB5, symSize: 0x2A }
+  - { offsetInCU: 0x16B9, offset: 0x6E079, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest audioStream]', symObjAddr: 0x14F4, symBinAddr: 0xDDDF, symSize: 0x11 }
+  - { offsetInCU: 0x16EE, offset: 0x6E0AE, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest setAudioStream:]', symObjAddr: 0x1505, symBinAddr: 0xDDF0, symSize: 0x14 }
+  - { offsetInCU: 0x172D, offset: 0x6E0ED, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest languageCode]', symObjAddr: 0x1519, symBinAddr: 0xDE04, symSize: 0x11 }
+  - { offsetInCU: 0x1762, offset: 0x6E122, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest setLanguageCode:]', symObjAddr: 0x152A, symBinAddr: 0xDE15, symSize: 0x11 }
+  - { offsetInCU: 0x179F, offset: 0x6E15F, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest mediaEncoding]', symObjAddr: 0x153B, symBinAddr: 0xDE26, symSize: 0x11 }
+  - { offsetInCU: 0x17D4, offset: 0x6E194, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest setMediaEncoding:]', symObjAddr: 0x154C, symBinAddr: 0xDE37, symSize: 0x11 }
+  - { offsetInCU: 0x1811, offset: 0x6E1D1, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest mediaSampleRateHertz]', symObjAddr: 0x155D, symBinAddr: 0xDE48, symSize: 0x11 }
+  - { offsetInCU: 0x1846, offset: 0x6E206, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest setMediaSampleRateHertz:]', symObjAddr: 0x156E, symBinAddr: 0xDE59, symSize: 0x14 }
+  - { offsetInCU: 0x1885, offset: 0x6E245, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest sessionId]', symObjAddr: 0x1582, symBinAddr: 0xDE6D, symSize: 0x11 }
+  - { offsetInCU: 0x18BA, offset: 0x6E27A, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest setSessionId:]', symObjAddr: 0x1593, symBinAddr: 0xDE7E, symSize: 0x14 }
+  - { offsetInCU: 0x18F9, offset: 0x6E2B9, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest vocabularyName]', symObjAddr: 0x15A7, symBinAddr: 0xDE92, symSize: 0x11 }
+  - { offsetInCU: 0x192E, offset: 0x6E2EE, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest setVocabularyName:]', symObjAddr: 0x15B8, symBinAddr: 0xDEA3, symSize: 0x14 }
+  - { offsetInCU: 0x196D, offset: 0x6E32D, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionRequest .cxx_destruct]', symObjAddr: 0x15CC, symBinAddr: 0xDEB7, symSize: 0x53 }
+  - { offsetInCU: 0x19A0, offset: 0x6E360, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionResponse supportsSecureCoding]', symObjAddr: 0x161F, symBinAddr: 0xDF0A, symSize: 0x8 }
+  - { offsetInCU: 0x19D4, offset: 0x6E394, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionResponse JSONKeyPathsByPropertyKey]', symObjAddr: 0x1627, symBinAddr: 0xDF12, symSize: 0x100 }
+  - { offsetInCU: 0x1A14, offset: 0x6E3D4, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionResponse languageCodeJSONTransformer]', symObjAddr: 0x1727, symBinAddr: 0xE012, symSize: 0x27 }
+  - { offsetInCU: 0x1A54, offset: 0x6E414, size: 0x8, addend: 0x0, symName: '___85+[AWSTranscribeStreamingStartStreamTranscriptionResponse languageCodeJSONTransformer]_block_invoke', symObjAddr: 0x174E, symBinAddr: 0xE039, symSize: 0xB28 }
+  - { offsetInCU: 0x1D3E, offset: 0x6E6FE, size: 0x8, addend: 0x0, symName: '___85+[AWSTranscribeStreamingStartStreamTranscriptionResponse languageCodeJSONTransformer]_block_invoke_2', symObjAddr: 0x2276, symBinAddr: 0xEB61, symSize: 0x30 }
+  - { offsetInCU: 0x1D88, offset: 0x6E748, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingStartStreamTranscriptionResponse transcriptResultStreamJSONTransformer]', symObjAddr: 0x22A6, symBinAddr: 0xEB91, symSize: 0x3C }
+  - { offsetInCU: 0x1DD4, offset: 0x6E794, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse languageCode]', symObjAddr: 0x22E2, symBinAddr: 0xEBCD, symSize: 0x11 }
+  - { offsetInCU: 0x1E0A, offset: 0x6E7CA, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse setLanguageCode:]', symObjAddr: 0x22F3, symBinAddr: 0xEBDE, symSize: 0x11 }
+  - { offsetInCU: 0x1E48, offset: 0x6E808, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse mediaEncoding]', symObjAddr: 0x2304, symBinAddr: 0xEBEF, symSize: 0x11 }
+  - { offsetInCU: 0x1E7E, offset: 0x6E83E, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse setMediaEncoding:]', symObjAddr: 0x2315, symBinAddr: 0xEC00, symSize: 0x11 }
+  - { offsetInCU: 0x1EBC, offset: 0x6E87C, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse mediaSampleRateHertz]', symObjAddr: 0x2326, symBinAddr: 0xEC11, symSize: 0x11 }
+  - { offsetInCU: 0x1EF2, offset: 0x6E8B2, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse setMediaSampleRateHertz:]', symObjAddr: 0x2337, symBinAddr: 0xEC22, symSize: 0x14 }
+  - { offsetInCU: 0x1F32, offset: 0x6E8F2, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse requestId]', symObjAddr: 0x234B, symBinAddr: 0xEC36, symSize: 0x11 }
+  - { offsetInCU: 0x1F68, offset: 0x6E928, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse setRequestId:]', symObjAddr: 0x235C, symBinAddr: 0xEC47, symSize: 0x14 }
+  - { offsetInCU: 0x1FA8, offset: 0x6E968, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse sessionId]', symObjAddr: 0x2370, symBinAddr: 0xEC5B, symSize: 0x11 }
+  - { offsetInCU: 0x1FDE, offset: 0x6E99E, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse setSessionId:]', symObjAddr: 0x2381, symBinAddr: 0xEC6C, symSize: 0x14 }
+  - { offsetInCU: 0x201E, offset: 0x6E9DE, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse transcriptResultStream]', symObjAddr: 0x2395, symBinAddr: 0xEC80, symSize: 0x11 }
+  - { offsetInCU: 0x2054, offset: 0x6EA14, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse setTranscriptResultStream:]', symObjAddr: 0x23A6, symBinAddr: 0xEC91, symSize: 0x14 }
+  - { offsetInCU: 0x2094, offset: 0x6EA54, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse vocabularyName]', symObjAddr: 0x23BA, symBinAddr: 0xECA5, symSize: 0x11 }
+  - { offsetInCU: 0x20CA, offset: 0x6EA8A, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse setVocabularyName:]', symObjAddr: 0x23CB, symBinAddr: 0xECB6, symSize: 0x14 }
+  - { offsetInCU: 0x210A, offset: 0x6EACA, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingStartStreamTranscriptionResponse .cxx_destruct]', symObjAddr: 0x23DF, symBinAddr: 0xECCA, symSize: 0x64 }
+  - { offsetInCU: 0x213E, offset: 0x6EAFE, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscript supportsSecureCoding]', symObjAddr: 0x2443, symBinAddr: 0xED2E, symSize: 0x8 }
+  - { offsetInCU: 0x2172, offset: 0x6EB32, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscript JSONKeyPathsByPropertyKey]', symObjAddr: 0x244B, symBinAddr: 0xED36, symSize: 0x76 }
+  - { offsetInCU: 0x21B2, offset: 0x6EB72, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscript resultsJSONTransformer]', symObjAddr: 0x24C1, symBinAddr: 0xEDAC, symSize: 0x3C }
+  - { offsetInCU: 0x21FE, offset: 0x6EBBE, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscript results]', symObjAddr: 0x24FD, symBinAddr: 0xEDE8, symSize: 0x11 }
+  - { offsetInCU: 0x2234, offset: 0x6EBF4, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscript setResults:]', symObjAddr: 0x250E, symBinAddr: 0xEDF9, symSize: 0x14 }
+  - { offsetInCU: 0x2274, offset: 0x6EC34, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscript .cxx_destruct]', symObjAddr: 0x2522, symBinAddr: 0xEE0D, symSize: 0x13 }
+  - { offsetInCU: 0x22A8, offset: 0x6EC68, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptEvent supportsSecureCoding]', symObjAddr: 0x2535, symBinAddr: 0xEE20, symSize: 0x8 }
+  - { offsetInCU: 0x22DC, offset: 0x6EC9C, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptEvent JSONKeyPathsByPropertyKey]', symObjAddr: 0x253D, symBinAddr: 0xEE28, symSize: 0x76 }
+  - { offsetInCU: 0x231C, offset: 0x6ECDC, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptEvent transcriptJSONTransformer]', symObjAddr: 0x25B3, symBinAddr: 0xEE9E, symSize: 0x3C }
+  - { offsetInCU: 0x2368, offset: 0x6ED28, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptEvent transcript]', symObjAddr: 0x25EF, symBinAddr: 0xEEDA, symSize: 0x11 }
+  - { offsetInCU: 0x239E, offset: 0x6ED5E, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptEvent setTranscript:]', symObjAddr: 0x2600, symBinAddr: 0xEEEB, symSize: 0x14 }
+  - { offsetInCU: 0x23DE, offset: 0x6ED9E, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptEvent .cxx_destruct]', symObjAddr: 0x2614, symBinAddr: 0xEEFF, symSize: 0x13 }
+  - { offsetInCU: 0x2412, offset: 0x6EDD2, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptResultStream supportsSecureCoding]', symObjAddr: 0x2627, symBinAddr: 0xEF12, symSize: 0x8 }
+  - { offsetInCU: 0x2446, offset: 0x6EE06, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptResultStream JSONKeyPathsByPropertyKey]', symObjAddr: 0x262F, symBinAddr: 0xEF1A, symSize: 0xE4 }
+  - { offsetInCU: 0x2486, offset: 0x6EE46, size: 0x8, addend: 0x0, symName: '+[AWSTranscribeStreamingTranscriptResultStream transcriptEventJSONTransformer]', symObjAddr: 0x2713, symBinAddr: 0xEFFE, symSize: 0x3C }
+  - { offsetInCU: 0x24D2, offset: 0x6EE92, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream badRequestException]', symObjAddr: 0x274F, symBinAddr: 0xF03A, symSize: 0x11 }
+  - { offsetInCU: 0x2508, offset: 0x6EEC8, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream setBadRequestException:]', symObjAddr: 0x2760, symBinAddr: 0xF04B, symSize: 0x14 }
+  - { offsetInCU: 0x2548, offset: 0x6EF08, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream conflictException]', symObjAddr: 0x2774, symBinAddr: 0xF05F, symSize: 0x11 }
+  - { offsetInCU: 0x257E, offset: 0x6EF3E, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream setConflictException:]', symObjAddr: 0x2785, symBinAddr: 0xF070, symSize: 0x14 }
+  - { offsetInCU: 0x25BE, offset: 0x6EF7E, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream internalFailureException]', symObjAddr: 0x2799, symBinAddr: 0xF084, symSize: 0x11 }
+  - { offsetInCU: 0x25F4, offset: 0x6EFB4, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream setInternalFailureException:]', symObjAddr: 0x27AA, symBinAddr: 0xF095, symSize: 0x14 }
+  - { offsetInCU: 0x2634, offset: 0x6EFF4, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream limitExceededException]', symObjAddr: 0x27BE, symBinAddr: 0xF0A9, symSize: 0x11 }
+  - { offsetInCU: 0x266A, offset: 0x6F02A, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream setLimitExceededException:]', symObjAddr: 0x27CF, symBinAddr: 0xF0BA, symSize: 0x14 }
+  - { offsetInCU: 0x26AA, offset: 0x6F06A, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream serviceUnavailableException]', symObjAddr: 0x27E3, symBinAddr: 0xF0CE, symSize: 0x11 }
+  - { offsetInCU: 0x26E0, offset: 0x6F0A0, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream setServiceUnavailableException:]', symObjAddr: 0x27F4, symBinAddr: 0xF0DF, symSize: 0x14 }
+  - { offsetInCU: 0x2720, offset: 0x6F0E0, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream transcriptEvent]', symObjAddr: 0x2808, symBinAddr: 0xF0F3, symSize: 0x11 }
+  - { offsetInCU: 0x2756, offset: 0x6F116, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream setTranscriptEvent:]', symObjAddr: 0x2819, symBinAddr: 0xF104, symSize: 0x14 }
+  - { offsetInCU: 0x2796, offset: 0x6F156, size: 0x8, addend: 0x0, symName: '-[AWSTranscribeStreamingTranscriptResultStream .cxx_destruct]', symObjAddr: 0x282D, symBinAddr: 0xF118, symSize: 0x75 }
+...

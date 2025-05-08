@@ -1,0 +1,90 @@
+{
+  "timestamp": "2025-05-01T11:41:38-04:00",
+  "empty_files": [
+    {
+      "path": "/DuplicateContentDetection/Services/AWSConnectionManager.swift",
+      "last_modified": "2025-04-30T21:30:43-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Services/AWSCredentialCache.swift",
+      "last_modified": "2025-04-30T21:30:43-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Services/AWSPerformanceMetrics.swift",
+      "last_modified": "2025-04-30T21:30:43-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Services/BatchImportJobTracker.swift",
+      "last_modified": "2025-04-29T07:51:43-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/AWSCredentialsVerificationManagerTests.swift",
+      "last_modified": "2025-04-30T21:30:43-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/AWSIntegrationTest.swift",
+      "last_modified": "2025-04-30T22:42:12-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/AWSLambdaServiceTest.swift",
+      "last_modified": "2025-04-30T22:42:12-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/AWSS3ServiceTest.swift",
+      "last_modified": "2025-04-30T22:42:12-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/DuplicateContentTestRunner.swift",
+      "last_modified": "2025-04-30T21:30:43-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/JestToSwiftTestingGuide.swift",
+      "last_modified": "2025-04-30T22:42:12-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/MockAWSServices.swift",
+      "last_modified": "2025-04-30T21:30:43-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/S3toDynamoDBImporterTest.swift",
+      "last_modified": "2025-04-30T22:42:12-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/TestConfig.swift",
+      "last_modified": "2025-04-30T21:30:43-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/TestUtilities/AWSSelectorManager.swift",
+      "last_modified": "2025-04-30T22:42:12-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/TestUtilities/AWSTestLogger.swift",
+      "last_modified": "2025-04-30T22:42:12-04:00"
+    },
+    {
+      "path": "/DuplicateContentDetection/Tests/TestUtilities/TestDataGenerator.swift",
+      "last_modified": "2025-04-30T22:42:12-04:00"
+    },
+    {
+      "path": "/SignalServiceKit/Network/APIGatewayClient.swift",
+      "last_modified": "2025-04-29T07:51:44-04:00"
+    },
+    {
+      "path": "/SignalServiceKit/Tests/SignalServiceKitTests/Network/APIGatewayClientTests.swift",
+      "last_modified": "2025-04-29T07:51:44-04:00"
+    }
+  ],
+  "test_results": {
+    "SignalServiceKitTests": {
+      "success": false,
+      "output": "Command line invocation:\n    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -scheme SignalServiceKitTests -destination \"platform=iOS Simulator,name=iPhone 15\"\n\nUser defaults from command line:\n    IDEPackageSupportUseBuiltinSCM = YES\n\nResolve Package Graph\nmultiple similar targets 'AWSAPIGateway', 'AWSAutoScaling', 'AWSChimeSDKIdentity' and 30 others appear in package 'aws-sdk-ios-spm' and 'aws-sdk-swift', this may indicate that the two packages are the same and can be de-duplicated by using mirrors. if they are not duplicate consider using the `moduleAliases` parameter in manifest to provide unique names\n2025-05-01 11:41:44.061 xcodebuild[21969:5564246] Writing error result bundle to /var/folders/7k/59vyjx2j1gv527rwq4c59skr0000gn/T/ResultBundle_2025-01-05_11-41-0044.xcresult\nxcodebuild: error: Could not resolve package dependencies:\n  multiple similar targets 'AWSAPIGateway', 'AWSAutoScaling', 'AWSChimeSDKIdentity' and 30 others appear in package 'aws-sdk-ios-spm' and 'aws-sdk-swift', this may indicate that the two packages are the same and can be de-duplicated by using mirrors. if they are not duplicate consider using the `moduleAliases` parameter in manifest to provide unique names\n\n",
+      "timestamp": "2025-05-01T11:41:45-04:00"
+    },
+    "DuplicateContentDetectionTests": {
+      "success": false,
+      "output": "Command line invocation:\n    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -scheme DuplicateContentDetectionTests -destination \"platform=iOS Simulator,name=iPhone 15\"\n\nUser defaults from command line:\n    IDEPackageSupportUseBuiltinSCM = YES\n\nResolve Package Graph\nmultiple similar targets 'AWSAPIGateway', 'AWSAutoScaling', 'AWSChimeSDKIdentity' and 30 others appear in package 'aws-sdk-ios-spm' and 'aws-sdk-swift', this may indicate that the two packages are the same and can be de-duplicated by using mirrors. if they are not duplicate consider using the `moduleAliases` parameter in manifest to provide unique names\n2025-05-01 11:41:47.436 xcodebuild[22037:5564605] Writing error result bundle to /var/folders/7k/59vyjx2j1gv527rwq4c59skr0000gn/T/ResultBundle_2025-01-05_11-41-0047.xcresult\nxcodebuild: error: Could not resolve package dependencies:\n  multiple similar targets 'AWSAPIGateway', 'AWSAutoScaling', 'AWSChimeSDKIdentity' and 30 others appear in package 'aws-sdk-ios-spm' and 'aws-sdk-swift', this may indicate that the two packages are the same and can be de-duplicated by using mirrors. if they are not duplicate consider using the `moduleAliases` parameter in manifest to provide unique names\n\n",
+      "timestamp": "2025-05-01T11:41:48-04:00"
+    }
+  },
+  "errors": []
+}

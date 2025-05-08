@@ -671,8 +671,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
             AttachmentDownloadRetryRunner.shared.beginObserving()
-
-            DuplicateDetectionManager.shared.setupDuplicateDetection()
         }
 
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
