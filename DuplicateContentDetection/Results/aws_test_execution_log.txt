@@ -1,0 +1,2 @@
+bash: swift: command not found
+Test execution completed with errors

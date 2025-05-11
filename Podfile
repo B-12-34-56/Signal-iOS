@@ -126,6 +126,22 @@ def enable_strip(installer)
   end
 end
 
+def promote_minimum_supported_version(installer)
+  project_min_version = current_target_definition.platform.deployment_target
+
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      target_version_string = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+      target_version        = Version.create(target_version_string)
+
+      if target_version < project_min_version
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] =
+          project_min_version.version
+      end
+    end
+  end
+end
+
 # PureLayout by default makes use of UIApplication, and must be configured to be built for an extension.
 def enable_extension_support_for_purelayout(installer)
   installer.pods_project.targets.each do |target|
@@ -174,6 +190,18 @@ def disable_armv7(installer)
     end
   end
 end
+
+# Disable Bitcode: Xcode ≥14 no longer supports it, and some pods still
+# default to “YES”.  Flip every configuration to NO so we don’t get
+# duplicate-symbol errors when linking.
+def disable_bitcode(installer)
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+  end
+end
+
 
 def strip_valid_archs(installer)
   Dir.glob('Pods/Target Support Files/**/*.xcconfig') do |xcconfig_path|

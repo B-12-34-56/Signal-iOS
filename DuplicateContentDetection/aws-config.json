@@ -1,0 +1,174 @@
+{
+  "aws": {
+    "authentication": {
+      "region": "us-east-1",
+      "cognito": {
+        "identityPoolId": "us-east-1:ee264a1b-9b89-4e4a-a346-9128da47af97",
+        "allowUnauthenticatedIdentities": true,
+        "defaultRoles": {
+          "unauthenticated": "Cognito_SignalContentHashUnauth_Role"
+        },
+        "comments": "Cognito Identity Pool provides secure, temporary credentials instead of static API keys"
+      }
+    },
+    
+    "dynamoDb": {
+      "tables": {
+        "contentHashes": {
+          "name": "SignalContentHashes",
+          "region": "us-east-1",
+          "endpoint": "https://dynamodb.us-east-1.amazonaws.com",
+          "schema": {
+            "hashKey": {
+              "name": "ContentHash",
+              "type": "String",
+              "comments": "Base64 encoded SHA-256 hash of content"
+            },
+            "attributes": [
+              {
+                "name": "Timestamp",
+                "type": "String",
+                "comments": "ISO8601 timestamp when the hash was added"
+              },
+              {
+                "name": "TTL",
+                "type": "Number",
+                "comments": "Unix epoch timestamp for automatic expiration"
+              }
+            ]
+          },
+          "ttlSettings": {
+            "enabled": true,
+            "attributeName": "TTL",
+            "defaultTTLInDays": 30,
+            "comments": "Records automatically expire after the TTL period to prevent database growth"
+          },
+          "capacitySettings": {
+            "readCapacity": {
+              "mode": "AUTO",
+              "minUnits": 5,
+              "maxUnits": 100
+            },
+            "writeCapacity": {
+              "mode": "AUTO",
+              "minUnits": 5,
+              "maxUnits": 100
+            },
+            "comments": "Auto-scaling recommended for production workloads"
+          }
+        }
+      },
+      "comments": "DynamoDB stores content hashes used for duplicate detection"
+    },
+    
+    "s3": {
+      "buckets": {
+        "attachments": {
+          "name": "signal-content-attachments",
+          "region": "us-east-1",
+          "acl": "private",
+          "versioning": true,
+          "encryption": {
+            "enabled": true,
+            "type": "AES256"
+          },
+          "lifecycle": {
+            "rules": [
+              {
+                "prefix": "temp/",
+                "expirationDays": 1,
+                "comments": "Temporary attachments expire after 1 day"
+              },
+              {
+                "prefix": "processed/",
+                "expirationDays": 30,
+                "comments": "Processed attachments expire after 30 days"
+              }
+            ]
+          },
+          "comments": "S3 bucket for temporary attachment storage during processing"
+        }
+      }
+    },
+    
+    "lambda": {
+      "functions": {
+        "contentProcessor": {
+          "name": "signal-content-processor",
+          "arn": "arn:aws:lambda:us-east-1:739874238091:function:ContentProcessor",
+          "runtime": "nodejs18.x",
+          "handler": "index.handler",
+          "timeout": 30,
+          "memory": 512,
+          "environment": {
+            "DYNAMODB_TABLE": "SignalContentHashes",
+            "S3_BUCKET": "signal-content-attachments"
+          },
+          "triggers": {
+            "s3": {
+              "bucket": "signal-content-attachments",
+              "events": ["s3:ObjectCreated:*"],
+              "prefix": "uploads/"
+            }
+          },
+          "permissions": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "dynamodb:GetItem",
+            "dynamodb:PutItem"
+          ],
+          "comments": "Lambda function processes attachments and updates hash database"
+        },
+        "s3ToDynamoDB": {
+          "arn": "arn:aws:lambda:us-east-1:739874238091:function:S3toDynamo",
+          "runtime": "nodejs18.x",
+          "handler": "index.handler",
+          "timeout": 60,
+          "memory": 512,
+          "environment": {
+            "DYNAMODB_TABLE": "SignalContentHashes",
+            "SOURCE_BUCKET": "signal-content-attachments"
+          },
+          "permissions": [
+            "s3:GetObject",
+            "dynamodb:BatchWriteItem"
+          ],
+          "comments": "Lambda function triggered to import content hashes in batch from S3 files into DynamoDB"
+        }
+      }
+    }
+  },
+  
+  "configurationRequirements": {
+    "cognitoSetup": [
+      "Create Cognito Identity Pool with unauthenticated access enabled",
+      "Configure IAM roles with appropriate permissions",
+      "Note the Identity Pool ID for use in the app"
+    ],
+    "dynamoDbSetup": [
+      "Create DynamoDB table with schema defined above",
+      "Enable TTL on the TTL attribute",
+      "Configure auto-scaling if needed for production workloads",
+      "Ensure proper IAM permissions for read/write operations"
+    ],
+    "s3Setup": [
+      "Create S3 bucket with appropriate security settings",
+      "Configure lifecycle rules for automatic cleanup",
+      "Set up bucket policy to restrict access to authorized users"
+    ],
+    "lambdaSetup": [
+      "Create Lambda function with the handler code",
+      "Configure environment variables for table and bucket names",
+      "Set up S3 trigger for automatic processing",
+      "Ensure proper IAM role with permissions listed above"
+    ],
+    "securityConsiderations": [
+      "Use IAM roles with least privilege principle",
+      "Enable encryption for data at rest and in transit",
+      "Implement proper error handling and logging",
+      "Regularly rotate credentials and review access policies"
+    ]
+  },
+  
+  "comments": "This configuration file defines the AWS resources required for the Signal duplicate content detection system. It includes authentication settings, DynamoDB configuration for hash storage, S3 bucket for attachment processing, and Lambda function for content analysis. The system uses AWS Cognito Identity Pool for secure authentication instead of static credentials."
+}
