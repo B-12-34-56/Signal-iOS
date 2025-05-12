@@ -419,6 +419,17 @@ public class MessageSender {
         let pendingTask = pendingTasks.buildPendingTask(label: "Message Send")
         defer { pendingTask.complete() }
 
+        // Check for duplicate content before uploading
+        if let message = preparedOutgoingMessage.message as? TSOutgoingMessage {
+            for attachment in message.allAttachments(transaction: SSKEnvironment.shared.databaseStorageRef.read { $0 }) {
+                if let data = try? Data(contentsOf: attachment.originalMediaURL) {
+                    if try await DuplicateDetector.shared.isDuplicate(data) {
+                        throw MessageSendError.duplicateContentDetected
+                    }
+                }
+            }
+        }
+
         try await withThrowingTaskGroup(of: Void.self) { taskGroup in
             let uploadOperations = SSKEnvironment.shared.databaseStorageRef.read { tx in
                 preparedOutgoingMessage.attachmentUploadOperations(tx: tx)
@@ -429,6 +440,15 @@ public class MessageSender {
                 }
             }
             try await taskGroup.waitForAll()
+        }
+
+        // Store hashes after successful upload
+        if let message = preparedOutgoingMessage.message as? TSOutgoingMessage {
+            for attachment in message.allAttachments(transaction: SSKEnvironment.shared.databaseStorageRef.read { $0 }) {
+                if let data = try? Data(contentsOf: attachment.originalMediaURL) {
+                    try await DuplicateDetector.shared.storeHash(data)
+                }
+            }
         }
 
         try await preparedOutgoingMessage.send(self.sendPreparedMessage(_:))

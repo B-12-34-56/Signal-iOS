@@ -5,6 +5,7 @@
 
 public import LibSignalClient
 import SignalRingRTC
+import DuplicateContentDetection
 
 /// An ObjC wrapper around UnidentifiedSenderMessageContent.ContentHint
 @objc
@@ -1148,6 +1149,18 @@ public final class MessageReceiver {
         let updatedThread = TSThread.anyFetch(uniqueId: thread.uniqueId, transaction: tx) ?? thread
 
         do {
+            // Check for duplicate content before creating attachment pointers
+            for attachmentProto in dataMessage.attachments {
+                if let attachmentData = try? attachmentProto.data {
+                    if DuplicateDetector.shared.isDuplicate(attachmentData) {
+                        Logger.info("Duplicate content detected in incoming message")
+                        // Delete the message since it contains duplicate content
+                        DependenciesBridge.shared.interactionDeleteManager.delete(message, sideEffects: .default(), tx: tx)
+                        return nil
+                    }
+                }
+            }
+
             try DependenciesBridge.shared.attachmentManager.createAttachmentPointers(
                 from: dataMessage.attachments.map { proto in
                     return .init(
@@ -1204,6 +1217,13 @@ public final class MessageReceiver {
                 )),
                 tx: tx
             )
+
+            // Store hashes of attachment data after successful creation
+            for attachmentProto in dataMessage.attachments {
+                if let attachmentData = try? attachmentProto.data {
+                    DuplicateDetector.shared.storeHash(attachmentData)
+                }
+            }
         } catch {
             owsFailDebug("Could not build attachments!")
             DependenciesBridge.shared.interactionDeleteManager

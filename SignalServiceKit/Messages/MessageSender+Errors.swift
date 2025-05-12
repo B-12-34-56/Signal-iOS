@@ -11,6 +11,7 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
     case missingDevice
     case blockedContactRecipient
     case threadMissing
+    case duplicateContentDetected
 
     public var localizedDescription: String {
         switch self {
@@ -24,6 +25,9 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
                 "MESSAGE_STATUS_SEND_FAILED",
                 comment: "Label indicating that a message failed to send."
             )
+        case .duplicateContentDetected:
+            return NSLocalizedString("CANNOT_SEND_DUPLICATE_IMAGE",
+                                   comment: "Error message shown when attempting to send an image that has been flagged as duplicate content")
         }
     }
 
@@ -40,6 +44,8 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
         case .blockedContactRecipient:
             return false
         case .threadMissing:
+            return false
+        case .duplicateContentDetected:
             return false
         }
     }

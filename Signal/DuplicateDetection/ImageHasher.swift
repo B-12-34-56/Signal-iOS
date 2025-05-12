@@ -1,8 +1,24 @@
-import UIKit
-import CoreGraphics
+import Foundation
+import CryptoKit
 
 /// Generates and compares perceptual hashes for images
-class ImageHasher {
+public class ImageHasher {
+    public static let shared = ImageHasher()
+    
+    private init() {}
+    
+    public func hash(_ data: Data) -> (hash: Data, hexString: String) {
+        let hash = SHA256.hash(data: data)
+        let hashData = Data(hash)
+        let hexString = hashData.map { String(format: "%02x", $0) }.joined()
+        return (hashData, hexString)
+    }
+    
+    public func hash(_ url: URL) throws -> (hash: Data, hexString: String) {
+        let data = try Data(contentsOf: url)
+        return hash(data)
+    }
+    
     private static let hashSize = 16 // 16x16 image for hash calculation
     
     /// Calculates a perceptual hash for an image
