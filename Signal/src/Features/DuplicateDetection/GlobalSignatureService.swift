@@ -4,17 +4,17 @@ import AWSDynamoDB
 import os.log
 
 /// Manages global image signature checks and storage in DynamoDB
-final class GlobalSignatureService {
-    static let shared = GlobalSignatureService()
+public final class GlobalSignatureService {
+    public static let shared = GlobalSignatureService()
     private let client: AWSDynamoDB
-    private let tableName = "SignalContentHashes"
-    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "GlobalSignatureService")
+    private let tableName = "ImageSignatures"
+    private let logger = os.Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.joelminaya.signaldev", category: "GlobalSignatureService")
     
     private init() {
         // Configure AWS with Cognito Identity Pool
         let credentialsProvider = AWSCognitoCredentialsProvider(
             regionType: .USEast1,
-            identityPoolId: "YOUR_COGNITO_IDENTITY_POOL_ID"
+            identityPoolId: "us-east-1:a41de7b5-bc6b-48f7-ba53-2c45d0466c4c"
         )
         let config = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)!
         AWSServiceManager.default().defaultServiceConfiguration = config
@@ -34,7 +34,7 @@ final class GlobalSignatureService {
             return false
         }
         attr.s = aHash
-        input.key = ["hash": attr]
+        input.key = ["signature": attr]
         
         return await withCheckedContinuation { cont in
             _ = client.getItem(input).continueWith { task in
@@ -66,8 +66,8 @@ final class GlobalSignatureService {
         hashAttr.s = aHash
         dateAttr.s = ISO8601DateFormatter().string(from: Date())
         
-        input.item = ["hash": hashAttr, "firstSeen": dateAttr]
-        input.conditionExpression = "attribute_not_exists(hash)"
+        input.item = ["signature": hashAttr, "firstSeen": dateAttr]
+        input.conditionExpression = "attribute_not_exists(signature)"
         _ = client.putItem(input)
     }
 }

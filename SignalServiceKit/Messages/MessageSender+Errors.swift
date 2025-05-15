@@ -5,8 +5,11 @@
 
 import Foundation
 public import LibSignalClient
+import os.log
 
 public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescriptionProvider {
+    case duplicateBlocked(aHash: String)
+
     case prekeyRateLimit
     case missingDevice
     case blockedContactRecipient
@@ -24,6 +27,13 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
                 "MESSAGE_STATUS_SEND_FAILED",
                 comment: "Label indicating that a message failed to send."
             )
+        case .duplicateBlocked(aHash: let aHash):
+            // Log the hash for debugging purposes if needed, but don't expose it to the user.
+            Logger.debug("Message send failed: Duplicate content blocked. Hash: \(aHash)")
+            return OWSLocalizedString(
+                "ERROR_DESCRIPTION_MESSAGE_SEND_FAILED_DUPLICATE_BLOCKED",
+                comment: "Error message displayed when a message send fails because the attachment content has been identified as previously blocked or potentially harmful duplicate content."
+            )
         }
     }
 
@@ -40,6 +50,9 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
         case .blockedContactRecipient:
             return false
         case .threadMissing:
+            return false
+        case .duplicateBlocked(aHash: let aHash):
+            // If content is blocked, retrying won't help unless the content changes.
             return false
         }
     }
@@ -304,6 +317,7 @@ class SpamChallengeResolvedError: CustomNSError, IsRetryableProvider, UserErrorD
 
 // MARK: -
 
+// NOTE: We typically prefer to use a more specific error.
 class OWSRetryableMessageSenderError: Error, IsRetryableProvider {
     public static var asNSError: NSError {
         OWSRetryableMessageSenderError() as Error as NSError

@@ -1,3 +1,8 @@
+# Clacky-related configuration
+.1024*
+!.1024
+.breakpoints
+
 # Exclude user build config files
 Config/User*.xcconfig
 

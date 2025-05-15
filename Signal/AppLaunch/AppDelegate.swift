@@ -9,6 +9,8 @@ import Intents
 import SignalServiceKit
 import SignalUI
 import WebRTC
+import AWSCore
+
 
 enum LaunchPreflightError {
     case unknownDatabaseVersion
@@ -239,7 +241,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Do this even if `appVersion` isn't used -- there's side effects.
         let appVersion = AppVersionImpl.shared
-
+        
         // Set up and register incremental migration for TSAttachment -> v2 Attachment.
         // TODO: remove this (and the incremental migrator itself) once we make this
         // migration a launch-blocking GRDB migration.
@@ -373,7 +375,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private func launchApp(
         in window: UIWindow,
         launchContext: LaunchContext,
-        loadingViewController: LoadingViewController
+        loadingViewController: LoadingViewController?
     ) {
         assert(window.rootViewController == loadingViewController)
         configureGlobalUI(in: window)
@@ -500,6 +502,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
             appReadiness.runNowOrWhenAppDidBecomeReadySync {
                 _ = SSKEnvironment.shared.messageFetcherJobRef.run()
+                // If the main app gets woken to process messages in the background, check
+                // for any pending NSE requests to fulfill.
+                _ = SSKEnvironment.shared.syncManagerRef.syncAllContactsIfFullSyncRequested()
             }
         }
     }
@@ -652,7 +657,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 YDBStorage.deleteYDBStorage()
                 SSKPreferences.clearLegacyDatabaseFlags(from: appContext.appUserDefaults())
                 try? launchContext.keychainStorage.removeValue(service: "TSKeyChainService", key: "TSDatabasePass")
-                try? launchContext.keychainStorage.removeValue(service: "TSKeyChainService", key: "OWSDatabaseCipherKeySpec")
+                try? launchContext.keychainStorage.removeValue(service: "OWSDatabaseCipherKeySpec", key: "OWSDatabaseCipherKeySpec")
             }
         }
 
@@ -668,9 +673,66 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         appReadiness.runNowOrWhenAppDidBecomeReadyAsync {
             DependenciesBridge.shared.orphanedAttachmentCleaner.beginObserving()
         }
-
+        // Add this to your AppDelegate.swift in the AWS initialization section
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
-            AttachmentDownloadRetryRunner.shared.beginObserving()
+            Task {
+                Logger.info("[AWS Init] Starting AWS initialization and validation...")
+                
+                guard let storage = DependenciesBridge.shared.db as? SDSDatabaseStorage else {
+                    Logger.error("[AWS Init] ❌ Could not obtain SDSDatabaseStorage – duplicate-check hook installation skipped.")
+                    return
+                }
+                
+                // 1. Setup AWS Credentials
+                AWSConfig.setupAWSCredentials()
+                
+                // 2. Validate Credentials
+                let credentialsValid = await AWSConfig.validateAWSCredentials()
+                if credentialsValid {
+                    Logger.info("[AWS Init] ✅ AWS credentials validated successfully.")
+                }
+                
+                // 3. Ensure DynamoDB Table Exists
+                let tableReady = await AWSConfig.ensureDynamoDbTableExists(createIfNotExists: true)
+                if tableReady {
+                    Logger.info("[AWS Init] ✅ DynamoDB table '\(AWSConfig.dynamoDbTableName)' confirmed.")
+                }
+                
+                // 4. IMPORTANT: Add the missing column
+                try? await storage.grdbStorage.pool.write { db in
+                    // Check if column exists already
+                    let columnExists = try Bool.fetchOne(db, sql: """
+                        SELECT COUNT(*) > 0 FROM pragma_table_info('Attachment') 
+                        WHERE name = 'isProcessedForDuplicateCheck'
+                    """) ?? false
+                    
+                    if !columnExists {
+                        Logger.info("[AWS Init] Adding 'isProcessedForDuplicateCheck' column to Attachment table")
+                        try db.execute(sql: """
+                            ALTER TABLE Attachment ADD COLUMN 
+                            isProcessedForDuplicateCheck BOOLEAN NOT NULL DEFAULT 0
+                        """)
+                    } else {
+                        // Update existing NULL values to have the correct default
+                        try db.execute(sql: """
+                            UPDATE Attachment 
+                            SET isProcessedForDuplicateCheck = 0 
+                            WHERE isProcessedForDuplicateCheck IS NULL
+                        """)
+                    }
+                }
+                
+                // 5. Install Attachment Download Hook
+                AttachmentDownloadHook.shared.install(with: storage.grdbStorage.pool)
+                
+                // 6. Wire UI delegate so the user sees something when we block
+                DuplicateSignatureStore.shared.delegate = DuplicateSignatureNotifier.shared
+                
+                Logger.info("[AWS Init] ✅ Successfully initialized AWS and installed attachment validation hook.")
+            }
+        }
+        Task.detached(priority: .background) {
+          AttachmentDownloadRetryRunner.shared.beginObserving()
         }
 
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {

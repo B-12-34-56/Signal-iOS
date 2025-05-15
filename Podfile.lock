@@ -1,4 +1,9 @@
 PODS:
+  - AWSCognitoIdentityProvider (2.40.1):
+    - AWSCognitoIdentityProviderASF (= 2.40.1)
+    - AWSCore (= 2.40.1)
+  - AWSCognitoIdentityProviderASF (2.40.1):
+    - AWSCore (= 2.40.1)
   - AWSCore (2.40.1)
   - AWSDynamoDB (2.40.1):
     - AWSCore (= 2.40.1)
@@ -50,6 +55,7 @@ PODS:
     - YYImage/Core
 
 DEPENDENCIES:
+  - AWSCognitoIdentityProvider
   - AWSCore
   - AWSDynamoDB
   - blurhash (from `./ThirdParty/blurhash.podspec`)
@@ -74,6 +80,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
     - AWSCore
     - AWSDynamoDB
     - BonMot
@@ -146,6 +154,8 @@ CHECKOUT OPTIONS:
     :git: https://github.com/signalapp/YYImage
 
 SPEC CHECKSUMS:
+  AWSCognitoIdentityProvider: 9fecda3032be38905d2cc48bcdc918b5cafd8de9
+  AWSCognitoIdentityProviderASF: 1a366896eb22fb1abb39ebe724c5b89761690707
   AWSCore: 29c85b2be07489b459cc17060b6354e9ba0f96a0
   AWSDynamoDB: 282e2e1c4343f18592fac078678ca3fc66915d3b
   blurhash: 4b3b2b8909cf41ab59fa349788654b8387284ff4
@@ -167,6 +177,6 @@ SPEC CHECKSUMS:
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
   YYImage: f1ddd15ac032a58b78bbed1e012b50302d318331
 
-PODFILE CHECKSUM: cdb517aa6ebf434437fd2ac48229907d16ed1181
+PODFILE CHECKSUM: 19b3e5f48aca1af63e3e6833699662e65866785f
 
 COCOAPODS: 1.16.2
