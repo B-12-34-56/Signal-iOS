@@ -58,7 +58,7 @@ public final class LambdaService {
 
     /// The AWS region for the Lambda service. Should match AWSConfig region.
     /// Corresponds to the region used in `aws-config.json` for Lambda, assumed same as Cognito/DynamoDB.
-    public let lambdaRegion = AWSConfig.cognitoRegion // Use consistent region
+    let lambdaRegion = AWSConfig.cognitoRegion // Use consistent region
 
     /// Default timeout for Lambda invocations (in seconds). Can be overridden per request if needed.
     /// Corresponds to `aws.lambda.functions.contentProcessor.timeout`.

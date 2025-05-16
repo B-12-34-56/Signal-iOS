@@ -15,21 +15,21 @@ public enum AWSConfig {
     // MARK: - DynamoDB Configuration
     
     /// The name of the DynamoDB table that stores content hashes
-    public static let dynamoDbTableName = "SignalContentHashes"
+    public static let dynamoDbTableName = "ImageSignatures"
     
     /// The AWS region where the DynamoDB table is located
-    public static let dynamoDbRegion = AWSRegionType.USWest2
+    static let dynamoDbRegion = AWSRegionType.USEast1
     
     /// The endpoint URL for DynamoDB service
-    public static let dynamoDbEndpoint = "https://dynamodb.us-west-2.amazonaws.com"
+    public static let dynamoDbEndpoint = "https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1"
     
     // MARK: - Cognito Authentication
     
     /// The Cognito Identity Pool ID for authentication
-    public static let identityPoolId = "us-west-2:a1b2c3d4-5e6f-7890-a1b2-c3d4e5f67890"
+    public static let identityPoolId = "us-east-1:ee264a1b-9b89-4e4a-a346-9128da47af97"
     
     /// The AWS region for the Cognito service
-    public static let cognitoRegion = AWSRegionType.USWest2
+    static let cognitoRegion = AWSRegionType.USEast1
     
     // MARK: - TTL Configuration
     
@@ -50,13 +50,39 @@ public enum AWSConfig {
     // MARK: - Request Configuration
     
     /// Timeout interval for network requests (in seconds)
-    public static let requestTimeoutInterval: TimeInterval = 10.0
+    public static let requestTimeoutInterval: TimeInterval = 30.0
     
     /// Timeout interval for resource access (in seconds)
-    public static let resourceTimeoutInterval: TimeInterval = 30.0
+    public static let resourceTimeoutInterval: TimeInterval = 300.0
     
     /// Maximum retry count for AWS operations
     public static let maxRetryCount = 3
+    
+    /// Initial retry delay in seconds
+    public static let initialRetryDelay: TimeInterval = 1.0
+    
+    /// Maximum retry delay in seconds
+    public static let maxRetryDelay: TimeInterval = 30.0
+    
+    // MARK: - API Gateway Configuration
+    
+    /// API Gateway endpoints and keys
+    public static let apiGatewayEndpoint = "https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1"
+    public static let getTagApiGatewayEndpoint = "https://epzoie02m0.execute-api.us-east-1.amazonaws.com/GetTag1"
+    public static let uploadImageApiUrl = "https://np39lyhj20.execute-api.us-east-1.amazonaws.com/Deployment/upload-image"
+    public static let uploadImageApiKey = "iNrOCa2tbD8n5KfbAZ2Ct7ABHEKrBDVQ67XDlDIR"
+    public static let getTagApiUrl = (ProcessInfo.processInfo.environment["API_URL"] ?? "https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1/get-tag")
+    public static let getTagApiKey = (ProcessInfo.processInfo.environment["API_KEY"] ?? "5Zkh0awDm033cqrQM0iCQ9hclI5eUGH679MYJetu")
+    public static let blockImageApiUrl = "https://ecf3rgso5g.execute-api.us-east-1.amazonaws.com/Stage1/block-image"
+    public static let blockImageApiKey = "iNrOCa2tbD8n5KfbAZ2Ct7ABHEKrBDVQ67XDlDIR"
+    
+    // MARK: - S3 Configuration
+    
+    /// S3 configuration
+    public static let s3BucketName = "2314823894myawsbucket"
+    public static let s3Region = AWSRegionType.USEast1
+    public static let s3ImagesPath = "images/"
+    public static var s3BaseURL: String { "https://\(s3BucketName).s3.\(s3Region.rawValue).amazonaws.com/\(s3ImagesPath)" }
     
     // MARK: - Private Properties
     
