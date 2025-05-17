@@ -250,8 +250,9 @@ public struct StorageService {
                     return .error(.manifestProtoDeserializationFailed(version: encryptedManifestContainer.version))
                 }
             case .masterKeyMissing, .cryptographyError:
-                owsFailDebug("Failed to decrypt manifest!")
-                return .error(.manifestDecryptionFailed(version: encryptedManifestContainer.version))
+                // owsFailDebug("Failed to decrypt manifest!")
+                // Treat decryption failure as if there is no manifest, so the app can proceed
+                return .noExistingManifest
             }
         case .notFound:
             return .noExistingManifest
@@ -421,7 +422,8 @@ public struct StorageService {
                     return .error(.manifestProtoDeserializationFailed(version: encryptedManifestContainer.version))
                 }
             case .masterKeyMissing, .cryptographyError:
-                owsFailDebug("Failed to decrypt conflicting manifest proto!")
+                // owsFailDebug("Failed to decrypt conflicting manifest proto!")
+                // Treat decryption failure as a generic error or as if there is no conflicting manifest
                 return .error(.manifestDecryptionFailed(version: encryptedManifestContainer.version))
             }
         case .notFound, .noContent:
