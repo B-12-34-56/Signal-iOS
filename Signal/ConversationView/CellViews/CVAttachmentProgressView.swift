@@ -51,6 +51,14 @@ public class CVAttachmentProgressView: ManualLayoutView {
         createViews()
 
         configureState()
+
+        // Add notification observer for blocked images
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleImageBlockedNotification),
+            name: NSNotification.Name("ImageBlockedNotification"),
+            object: nil
+        )
     }
 
     private enum State: Equatable {
@@ -427,6 +435,22 @@ public class CVAttachmentProgressView: ManualLayoutView {
             }
         case .undownloadable:
             return .none
+        }
+    }
+
+    @objc
+    private func handleImageBlockedNotification() {
+        let alert = UIAlertController(
+            title: "Image Blocked",
+            message: "This image has been blocked by our content filter.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        // Get the top view controller to present the alert
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController {
+            rootViewController.present(alert, animated: true)
         }
     }
 }

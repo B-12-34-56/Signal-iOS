@@ -6,10 +6,10 @@ import AWSS3
 class AWSServiceManager {
     static let shared = AWSServiceManager()
     
-    private let maxRetries = 3
-    private let retryDelay: TimeInterval = 2.0
-    private let bucketName = "signal-images-bucket"
-    private let region = AWSRegionType.USEast1
+    private let maxRetries = AWSConfig.maxRetryCount
+    private let retryDelay: TimeInterval = AWSConfig.initialRetryDelay
+    private let bucketName = AWSConfig.s3BucketName
+    private let region = AWSConfig.region
     
     private init() {
         setupAWS()
@@ -19,7 +19,7 @@ class AWSServiceManager {
         // Configure AWS credentials
         let credentialsProvider = AWSCognitoCredentialsProvider(
             regionType: region,
-            identityPoolId: "us-east-1:12345678-1234-1234-1234-123456789012"
+            identityPoolId: AWSConfig.identityPoolId
         )
         
         let configuration = AWSServiceConfiguration(

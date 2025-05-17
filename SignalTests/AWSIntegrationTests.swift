@@ -5,14 +5,12 @@ import AWSDynamoDB
 @testable import Signal
 
 class AWSIntegrationTests: XCTestCase {
-    var awsConfig: AWSConfig!
     var awsService: AWSService!
     
     override func setUp() {
         super.setUp()
         do {
-            awsConfig = try AWSConfig.shared
-            try awsConfig.configureAWS()
+            try AWSConfig.configureAWS()
             awsService = AWSService.shared
         } catch {
             XCTFail("Failed to initialize AWS configuration: \(error)")
@@ -20,25 +18,38 @@ class AWSIntegrationTests: XCTestCase {
     }
     
     override func tearDown() {
-        awsConfig = nil
         awsService = nil
         super.tearDown()
     }
     
     func testAWSConfiguration() {
+        // Verify AWS is configured
+        XCTAssertNotNil(AWSServiceManager.default().defaultServiceConfiguration)
+        
+        // Verify S3 is registered
+        XCTAssertNotNil(AWSS3.default())
+        
+        // Verify DynamoDB is registered
+        XCTAssertNotNil(AWSDynamoDB.default())
+        
+        // Verify configuration values
+        XCTAssertFalse(AWSConfig.s3BucketName.isEmpty)
+        XCTAssertFalse(AWSConfig.dynamoDbTableName.isEmpty)
+        XCTAssertFalse(AWSConfig.apiGatewayEndpoint.isEmpty)
+        
         // Test S3 Configuration
-        XCTAssertEqual(awsConfig.s3BucketName, "2314823894myawsbucket")
-        XCTAssertEqual(awsConfig.s3Region, .USEast1)
-        XCTAssertEqual(awsConfig.s3ImagesPath, "images")
+        XCTAssertEqual(AWSConfig.s3BucketName, "2314823894myawsbucket")
+        XCTAssertEqual(AWSConfig.region, .USEast1)
+        XCTAssertEqual(AWSConfig.s3ImagesPath, "images")
         
         // Test DynamoDB Configuration
-        XCTAssertEqual(awsConfig.dynamoDbTableName, "ImageSignatures")
-        XCTAssertEqual(awsConfig.dynamoDbRegion, .USEast1)
-        XCTAssertEqual(awsConfig.dynamoDbTableArn, "arn:aws:dynamodb:us-east-1:739874238091:table/ImageSignatures")
+        XCTAssertEqual(AWSConfig.dynamoDbTableName, "ImageSignatures")
+        XCTAssertEqual(AWSConfig.dynamoDbRegion, .USEast1)
+        XCTAssertEqual(AWSConfig.dynamoDbTableArn, "arn:aws:dynamodb:us-east-1:739874238091:table/ImageSignatures")
         
         // Test Cognito Configuration
-        XCTAssertEqual(awsConfig.identityPoolId, "us-east-1:a41de7b5-bc6b-48f7-ba53-2c45d0466c4c")
-        XCTAssertEqual(awsConfig.cognitoRegion, .USEast1)
+        XCTAssertEqual(AWSConfig.identityPoolId, "us-east-1:a41de7b5-bc6b-48f7-ba53-2c45d0466c4c")
+        XCTAssertEqual(AWSConfig.cognitoRegion, .USEast1)
     }
     
     func testImageUpload() {
@@ -67,8 +78,8 @@ class AWSIntegrationTests: XCTestCase {
         
         switch uploadResult {
         case .success(let imageURL):
-            XCTAssertTrue(imageURL.contains(awsConfig.s3BucketName), "Image URL should contain bucket name")
-            XCTAssertTrue(imageURL.contains(awsConfig.s3ImagesPath), "Image URL should contain images path")
+            XCTAssertTrue(imageURL.contains(AWSConfig.s3BucketName), "Image URL should contain bucket name")
+            XCTAssertTrue(imageURL.contains(AWSConfig.s3ImagesPath), "Image URL should contain images path")
         case .failure(let error):
             XCTFail("Upload failed with error: \(error)")
         case .none:

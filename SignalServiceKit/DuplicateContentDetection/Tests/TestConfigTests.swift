@@ -3,7 +3,7 @@ import SignalServiceKit
 import AWSCore
 import AWSDynamoDB
 import AWSS3
-@testable import DuplicateContentDetection
+@testable import SignalServiceKit
 import Logging
 
 class TestConfigTests: XCTestCase {

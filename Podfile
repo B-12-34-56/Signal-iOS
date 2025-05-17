@@ -56,6 +56,8 @@ pod 'Reachability', :inhibit_warnings => true
 pod 'AWSS3'
 pod 'AWSDynamoDB'
 pod 'AWSCore'
+pod 'AWSAPIGateway'
+pod 'AWSLambda'
 
 def ui_pods
   pod 'BonMot', inhibit_warnings: true
@@ -93,6 +95,12 @@ end
 
 target 'SignalServiceKit' do
   pod 'CocoaLumberjack'
+  pod 'AWSAPIGateway'
+  pod 'AWSLambda'
+  pod 'AWSS3'
+  pod 'AWSDynamoDB'
+  pod 'AWSCore'
+  pod 'AWSCognitoIdentityProvider'
 
   target 'SignalServiceKitTests' do
     inherit! :search_paths
@@ -192,7 +200,7 @@ def disable_armv7(installer)
 end
 
 # Disable Bitcode: Xcode ≥14 no longer supports it, and some pods still
-# default to “YES”.  Flip every configuration to NO so we don’t get
+# default to "YES".  Flip every configuration to NO so we don't get
 # duplicate-symbol errors when linking.
 def disable_bitcode(installer)
   installer.pods_project.targets.each do |target|

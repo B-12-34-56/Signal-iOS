@@ -12,7 +12,7 @@ import CryptoKit
 // Import necessary modules - adjust based on actual project structure
 // Assuming these modules contain the required services
 import SignalServiceKit
-@testable import DuplicateContentDetection
+@testable import SignalServiceKit
 
 /// Standalone script for live testing of the Duplicate Content Detection system against AWS.
 /// Can also run in a mock mode for basic checks without AWS interaction.

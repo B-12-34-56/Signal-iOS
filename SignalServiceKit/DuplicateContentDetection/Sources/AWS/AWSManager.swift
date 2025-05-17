@@ -116,7 +116,7 @@ public class AWSManager {
         }
         
         if options.normalize {
-            processedImage = processedImage.normalized()
+            processedImage = processedImage.normalizeColorControls()
         }
         
         // Convert back to data
@@ -224,7 +224,7 @@ extension UIImage {
         return UIImage(cgImage: cgImage)
     }
     
-    func normalized() -> UIImage {
+    func normalizeColorControls() -> UIImage {
         let context = CIContext(options: nil)
         let filter = CIFilter(name: "CIColorControls")!
         filter.setValue(CIImage(image: self), forKey: kCIInputImageKey)

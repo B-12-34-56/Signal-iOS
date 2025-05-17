@@ -5,6 +5,7 @@
 
 import Foundation
 public import LibSignalClient
+import UIKit
 
 public protocol AttachmentUploadManager {
     /// Upload a transient backup file that isn't an attachment (not saved to the database or sent).
@@ -341,6 +342,33 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
         progress: OWSProgressSink?
     ) async throws {
         let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[\(attachmentId)]")
+
+        // Get the attachment
+        let attachment = try await db.read { tx in
+            try self.fetchAttachment(attachmentId: attachmentId, logger: logger, tx: tx)
+        }
+
+        // Check if it's an image attachment
+        if let attachmentStream = attachment.asStream(),
+           attachmentStream.attachment.mimeType.hasPrefix("image/") {
+            let verdict = try await ImageScanService.shared.scan(imageURL: attachmentStream.fileURL)
+            
+            switch verdict {
+            case .allowed:
+                // Continue with upload
+                break
+            case .blocked:
+                // Show alert and throw error
+                NotificationCenter.default.postOnMainThread(
+                    name: NSNotification.Name("ImageBlockedNotification"),
+                    object: nil
+                )
+                throw OWSAssertionError("Image blocked by content filter")
+            case .error:
+                // Log error but allow upload to continue
+                logger.warn("Image scan failed, allowing upload to continue")
+            }
+        }
 
         let encryptedByteCount = db.read { tx in
             return attachmentStore.fetch(id: attachmentId, tx: tx)?.streamInfo?.encryptedByteCount

@@ -7,7 +7,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Configure AWS
         do {
-            try AWSConfig.shared.configureAWS()
+            try AWSConfig.configureAWS()
+            // Validate configuration
+            try AWSConfig.validateConfiguration()
         } catch {
             Logger.error("Failed to configure AWS: \(error)")
             // Handle configuration error appropriately

@@ -1,6 +1,8 @@
 import Foundation
 import AWSCore
 
+public typealias AWSConfig = Signal.AWSConfig
+
 public class AWSConfig {
     public static let shared = AWSConfig()
     

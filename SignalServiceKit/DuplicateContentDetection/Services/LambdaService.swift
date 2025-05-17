@@ -8,7 +8,6 @@ import AWSCore
 import AWSLambda
 import Logging
 import CryptoKit
-import DuplicateContentDetection // Ensure tracker is accessible
 
 /// Manages interactions with AWS Lambda for content processing and analysis,
 /// including image processing, S3 attachment processing, and hash validation.

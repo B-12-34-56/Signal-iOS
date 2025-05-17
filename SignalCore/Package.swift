@@ -22,6 +22,7 @@ let package = Package(
                 .product(name: "AWSCore", package: "aws-sdk-ios-spm"),
                 .product(name: "AWSS3", package: "aws-sdk-ios-spm"),
                 .product(name: "AWSDynamoDB", package: "aws-sdk-ios-spm"),
+                .product(name: "AWSAPIGateway", package: "aws-sdk-ios-spm"),
                 "SignalServiceKit"
             ]),
     ]

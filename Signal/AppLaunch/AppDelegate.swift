@@ -9,6 +9,7 @@ import Intents
 import SignalServiceKit
 import SignalUI
 import WebRTC
+import AWSServiceManager
 
 enum LaunchPreflightError {
     case unknownDatabaseVersion
@@ -158,6 +159,24 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         // This should be the first thing we do.
         let mainAppContext = MainAppContext()
         SetCurrentAppContext(mainAppContext)
+
+        // Configure AWS credentials
+        let creds = AWSBasicSessionCredentialsProvider(
+            accessKey: Bundle.main.object(forInfoDictionaryKey: "AWS_ACCESS_KEY_ID") as! String,
+            secretKey: Bundle.main.object(forInfoDictionaryKey: "AWS_SECRET_ACCESS_KEY") as! String,
+            sessionToken: Bundle.main.object(forInfoDictionaryKey: "AWS_SESSION_TOKEN") as! String
+        )
+        
+        let config = AWSServiceConfiguration(
+            region: .USEast1,
+            credentialsProvider: creds
+        )
+        AWSServiceManager.default().defaultServiceConfiguration = config
+        
+        // Log configuration for verification
+        Logger.info("AWS Configuration:")
+        Logger.info("API Gateway Endpoint: \(Bundle.main.object(forInfoDictionaryKey: "API_GATEWAY_ENDPOINT") as? String ?? "not set")")
+        Logger.info("Cognito Pool ID: \(Bundle.main.object(forInfoDictionaryKey: "COGNITO_IDENTITY_POOL_ID") as? String ?? "not set")")
 
         let debugLogger = DebugLogger.shared
         debugLogger.enableTTYLoggingIfNeeded()
