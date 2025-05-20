@@ -18,6 +18,7 @@ public enum SignalAttachmentError: Error {
     case couldNotRemoveMetadata
     case invalidFileFormat
     case couldNotResizeImage
+    case contentFiltered(reason: String, tags: [String])
 }
 
 // MARK: -
@@ -67,6 +68,8 @@ extension SignalAttachmentError: LocalizedError, UserErrorDescriptionProvider {
             return OWSLocalizedString("ATTACHMENT_ERROR_COULD_NOT_REMOVE_METADATA", comment: "Attachment error message for image attachments in which metadata could not be removed")
         case .couldNotResizeImage:
             return OWSLocalizedString("ATTACHMENT_ERROR_COULD_NOT_RESIZE_IMAGE", comment: "Attachment error message for image attachments which could not be resized")
+        case .contentFiltered(let reason, _):
+            return reason
         }
     }
 }
@@ -148,6 +151,8 @@ public class SignalAttachment: NSObject {
     private var cachedVideoPreview: UIImage?
 
     private(set) public var isVoiceMessage = false
+
+    private var contentFilterResult: FilterResult?
 
     // MARK: Constants
 
@@ -1385,5 +1390,26 @@ public class SignalAttachment: NSObject {
 
         // Attachment is valid
         return attachment
+    }
+
+    public func checkContentFilter() async throws {
+        guard isValidImage || isValidVideo else { return }
+        
+        let result = await ContentFilterService.shared.scanAndUpload(imageData: data, fileName: sourceFilename ?? "attachment")
+        contentFilterResult = result
+        
+        switch result {
+        case .allowed:
+            return
+        case .blocked(let reason, let tags):
+            error = .contentFiltered(reason: reason, tags: tags)
+            throw error!
+        case .error(let error):
+            if let error = error {
+                throw error
+            }
+            // On filter error, we allow the attachment to proceed
+            return
+        }
     }
 }

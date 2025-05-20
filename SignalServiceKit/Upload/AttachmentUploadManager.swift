@@ -241,7 +241,11 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
         progress: OWSProgressSink?
     ) async throws -> Upload.Result<Upload.LocalUploadMetadata> {
         let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[transient]")
-
+        
+        // Create a temporary SignalAttachment to check content filter
+        let attachment = SignalAttachment(dataSource: dataSource, dataUTI: dataSource.mimeType)
+        try await attachment.checkContentFilter()
+        
         let temporaryFile = fileSystem.temporaryFileUrl()
         guard let sourceURL = dataSource.dataUrl else {
             throw OWSAssertionError("Failed to access data source file")
@@ -341,35 +345,18 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
         attachmentId: Attachment.IDType,
         progress: OWSProgressSink?
     ) async throws {
-        let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[\(attachmentId)]")
-
-        // Get the attachment
-        let attachment = try await db.read { tx in
-            try self.fetchAttachment(attachmentId: attachmentId, logger: logger, tx: tx)
+        let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[transit]")
+        
+        // Get the attachment from the store
+        guard let attachment = try await attachmentStore.fetch(id: attachmentId) else {
+            throw OWSAssertionError("Missing attachment")
         }
-
-        // Check if it's an image attachment
-        if let attachmentStream = attachment.asStream(),
-           attachmentStream.attachment.mimeType.hasPrefix("image/") {
-            let verdict = try await ImageScanService.shared.scan(imageURL: attachmentStream.fileURL)
-            
-            switch verdict {
-            case .allowed:
-                // Continue with upload
-                break
-            case .blocked:
-                // Show alert and throw error
-                NotificationCenter.default.postOnMainThread(
-                    name: NSNotification.Name("ImageBlockedNotification"),
-                    object: nil
-                )
-                throw OWSAssertionError("Image blocked by content filter")
-            case .error:
-                // Log error but allow upload to continue
-                logger.warn("Image scan failed, allowing upload to continue")
-            }
-        }
-
+        
+        // Create a temporary SignalAttachment to check content filter
+        let dataSource = try await attachmentStore.attachmentData(for: attachment)
+        let signalAttachment = SignalAttachment(dataSource: dataSource, dataUTI: attachment.mimeType)
+        try await signalAttachment.checkContentFilter()
+        
         let encryptedByteCount = db.read { tx in
             return attachmentStore.fetch(id: attachmentId, tx: tx)?.streamInfo?.encryptedByteCount
         } ?? 0

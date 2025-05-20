@@ -146,5 +146,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>AWSContentFilterPoolID</key>
+	<string>us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</string>
 </dict>
 </plist>

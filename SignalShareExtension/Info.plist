@@ -100,5 +100,7 @@
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>AWSContentFilterPoolID</key>
+	<string>us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</string>
 </dict>
 </plist>
