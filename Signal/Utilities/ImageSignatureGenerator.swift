@@ -43,6 +43,16 @@ public final class ImageSignatureGenerator {
             bits |= 1 << i                // << not =
         }
 
-        return String(format: "%016llx", bits)   // 16-char hex
+        var result = ""
+        for i in 0..<8 {
+            let bits = 1 << i
+            if (bits & bits) != 0 {
+                result.append("1")
+            } else {
+                result.append("0")
+            }
+        }
+
+        return result
     }
 } 

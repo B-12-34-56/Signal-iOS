@@ -5,6 +5,7 @@ import SignalUI
 class MediaEditingViewController: UIViewController {
     private let viewModel = ImageUploadViewModel()
     private let thread: TSThread
+    private let messageSender = OWSMessageSender.shared()
     
     private lazy var sendButton: UIButton = {
         let button = UIButton(type: .system)
@@ -85,9 +86,8 @@ class MediaEditingViewController: UIViewController {
     }
     
     private func finishSending(s3Key: String) {
-        // Create and send the message with the S3 key
-        let message = TSOutgoingMessage(in: thread, messageBody: nil, attachmentIds: [])
-        message.attachmentIds = [s3Key]
+        // Create and send the message with the S3 key in the message body
+        let message = TSOutgoingMessage(in: thread, messageBody: s3Key, attachmentIds: [])
         
         // Use Signal's message sending infrastructure
         messageSender.sendMessage(message.asPreparer, success: { [weak self] in

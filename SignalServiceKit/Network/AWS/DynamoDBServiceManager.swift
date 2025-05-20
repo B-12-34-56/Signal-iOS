@@ -8,31 +8,40 @@ final class DynamoDBServiceManager {
     private let table = Bundle.main.object(forInfoDictionaryKey: "DYNAMODB_TABLE_NAME") as? String ?? "ImageHashIndex"
 
     // -------- Duplicate check --------
-    func checkForDuplicate(signature: String,
-                          perceptualHash: String,
-                          completion: @escaping (Result<Bool, Error>) -> Void) {
-
-        // PK query – exact SHA-256 match
-        let keyCond = AWSDynamoDBQueryExpression()
-        keyCond.keyConditionExpression = "#k = :sig"
-        keyCond.expressionAttributeNames  = ["#k" : "signature"]
-        keyCond.expressionAttributeValues = [":sig": signature]
-        keyCond.tableName = table
-
-        AWSDynamoDB.default().query(keyCond) { pkResp, pkErr in
-            if let e = pkErr { return completion(.failure(e)) }
-            guard pkResp?.count == 0 else { return completion(.success(true)) }
-
-            // Fallback scan by perceptualHash
-            let scan = AWSDynamoDBScanExpression()
-            scan.filterExpression = "#ph = :p"
-            scan.expressionAttributeNames  = ["#ph": "perceptualHash"]
-            scan.expressionAttributeValues = [":p": perceptualHash]
-            scan.tableName = self.table
-
-            AWSDynamoDB.default().scan(scan) { scResp, scErr in
-                if let e = scErr { completion(.failure(e)) }
-                else             { completion(.success( (scResp?.count ?? 0) > 0 )) }
+    func checkForDuplicate(signature: String, perceptualHash: String) async throws -> Bool {
+        // Check SHA-256 signature
+        let queryInput = AWSDynamoDBQueryInput()
+        queryInput.tableName = table
+        queryInput.keyConditionExpression = "#k = :sig"
+        queryInput.expressionAttributeNames = ["#k": "signature"]
+        queryInput.expressionAttributeValues = [":sig": .init(s: signature)]
+        
+        return try await withCheckedThrowingContinuation { continuation in
+            AWSDynamoDB.default().query(queryInput) { output, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                    return
+                }
+                
+                if let items = output?.items, !items.isEmpty {
+                    continuation.resume(returning: true)
+                    return
+                }
+                
+                // If no exact match, check perceptual hash
+                let scanInput = AWSDynamoDBScanInput()
+                scanInput.tableName = self.table
+                scanInput.filterExpression = "perceptual_hash = :hash"
+                scanInput.expressionAttributeValues = [":hash": .init(s: perceptualHash)]
+                
+                AWSDynamoDB.default().scan(scanInput) { output, error in
+                    if let error = error {
+                        continuation.resume(throwing: error)
+                        return
+                    }
+                    
+                    continuation.resume(returning: output?.items?.isEmpty == false)
+                }
             }
         }
     }
