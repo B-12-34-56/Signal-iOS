@@ -1785,6 +1785,11 @@
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
 		D607B1BB2DD81E0F005EBAEE /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D607B1B72DD81E0F005EBAEE /* Secrets.xcconfig */; };
 		D607B1BC2DD81E0F005EBAEE /* Secrets.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = D607B1B82DD81E0F005EBAEE /* Secrets.xcconfig.example */; };
+		D64F55A62DDF840600730F25 /* DynamoDBServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F55A32DDF840600730F25 /* DynamoDBServiceManager.swift */; };
+		D64F55A72DDF840600730F25 /* AWSServiceBoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F55A22DDF840600730F25 /* AWSServiceBoot.swift */; };
+		D64F55A82DDF840600730F25 /* ImageSignatureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F55A42DDF840600730F25 /* ImageSignatureGenerator.swift */; };
+		D68C42612DDEB5E400D7A553 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68C42602DDEB5E400D7A553 /* AWSCore.framework */; };
+		D68C42632DDEB5E800D7A553 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68C42622DDEB5E800D7A553 /* AWSS3.framework */; };
 		D68EAAA42DDD4FA000E48F28 /* ContentFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68EAAA32DDD4FA000E48F28 /* ContentFilterService.swift */; };
 		D90AA3322CC9616B00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2222CC9616A00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto */; };
 		D90AA3332CC9616B00021CB0 /* account_data_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA0772CC9616A00021CB0 /* account_data_03.binproto */; };
@@ -5695,6 +5700,11 @@
 		D607B1B72DD81E0F005EBAEE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		D607B1B82DD81E0F005EBAEE /* Secrets.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.xcconfig.example; sourceTree = "<group>"; };
 		D607B1C12DD828FC005EBAEE /* DuplicateContentDetectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuplicateContentDetectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D64F55A22DDF840600730F25 /* AWSServiceBoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSServiceBoot.swift; sourceTree = "<group>"; };
+		D64F55A32DDF840600730F25 /* DynamoDBServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamoDBServiceManager.swift; sourceTree = "<group>"; };
+		D64F55A42DDF840600730F25 /* ImageSignatureGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSignatureGenerator.swift; sourceTree = "<group>"; };
+		D68C42602DDEB5E400D7A553 /* AWSCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68C42622DDEB5E800D7A553 /* AWSS3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AWSS3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68EAAA32DDD4FA000E48F28 /* ContentFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilterService.swift; sourceTree = "<group>"; };
 		D90AA0712CC9616A00021CB0 /* account_data_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = account_data_00.binproto; sourceTree = "<group>"; };
 		D90AA0722CC9616A00021CB0 /* account_data_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = account_data_00.txtproto; sourceTree = "<group>"; };
@@ -7644,6 +7654,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D68C42632DDEB5E800D7A553 /* AWSS3.framework in Frameworks */,
+				D68C42612DDEB5E400D7A553 /* AWSCore.framework in Frameworks */,
 				D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */,
 				D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */,
 				D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */,
@@ -11194,6 +11206,8 @@
 		D221A08C169C9E5E00537ABF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D68C42622DDEB5E800D7A553 /* AWSS3.framework */,
+				D68C42602DDEB5E400D7A553 /* AWSCore.framework */,
 				A1C32D4D17A0652C000A904E /* AddressBook.framework */,
 				A1C32D4F17A06537000A904E /* AddressBookUI.framework */,
 				B60EDE031A05A01700D73516 /* AudioToolbox.framework */,
@@ -11241,6 +11255,7 @@
 		D221A093169C9E5E00537ABF /* Signal */ = {
 			isa = PBXGroup;
 			children = (
+				D64F55A52DDF840600730F25 /* Service */,
 				F94D12FD28BD0DD900B2C478 /* Accessibility */,
 				5045F44129E0DAA400058E5F /* AppLaunch */,
 				661AEE462C2088DF0046B1D8 /* Attachments */,
@@ -11302,6 +11317,16 @@
 				D607B1B82DD81E0F005EBAEE /* Secrets.xcconfig.example */,
 			);
 			path = Filtering;
+			sourceTree = "<group>";
+		};
+		D64F55A52DDF840600730F25 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D64F55A22DDF840600730F25 /* AWSServiceBoot.swift */,
+				D64F55A32DDF840600730F25 /* DynamoDBServiceManager.swift */,
+				D64F55A42DDF840600730F25 /* ImageSignatureGenerator.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		D90AA3252CC9616A00021CB0 /* test-cases */ = {
@@ -16957,6 +16982,9 @@
 				880D902C2480889B003D2B14 /* EmojiPickerCollectionView.swift in Sources */,
 				880D902E2480A23E003D2B14 /* EmojiPickerSectionToolbar.swift in Sources */,
 				880D902A2480887F003D2B14 /* EmojiPickerSheet.swift in Sources */,
+				D64F55A62DDF840600730F25 /* DynamoDBServiceManager.swift in Sources */,
+				D64F55A72DDF840600730F25 /* AWSServiceBoot.swift in Sources */,
+				D64F55A82DDF840600730F25 /* ImageSignatureGenerator.swift in Sources */,
 				F090C8202762F2C5005C20FC /* EmojiReactionPickerConfigViewController.swift in Sources */,
 				8855DF87238F1E0C0066D96F /* EmojiReactorsTableView.swift in Sources */,
 				88238EBC24F21EE400F28079 /* EmojiSkinTonePicker.swift in Sources */,
