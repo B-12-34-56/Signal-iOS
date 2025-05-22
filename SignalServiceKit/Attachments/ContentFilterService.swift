@@ -1,7 +1,7 @@
 import Foundation
 import AWSS3
 import AWSCore
-import SignalServiceKit
+import CommonCrypto
 
 public enum FilterResult {
     case allowed(tags: [String])
@@ -25,7 +25,7 @@ public class ContentFilterService: NSObject {
             return
         }
         
-        let credentialsProvider = AWSCognitoCredentialsProvider(region: .USEast1, identityPoolId: poolID)
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: poolID)
         let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
     }
@@ -39,7 +39,16 @@ public class ContentFilterService: NSObject {
         return digest.map { String(format: "%02hhx", $0) }.joined()
     }
     
-    @objc
+    // Async version of scanAndUpload
+    public func scanAndUpload(imageData: Data, fileName: String) async -> FilterResult {
+        return await withCheckedContinuation { continuation in
+            scanAndUpload(imageData: imageData, fileName: fileName) { result in
+                continuation.resume(returning: result)
+            }
+        }
+    }
+    
+
     public func scanAndUpload(imageData: Data, fileName: String, completion: @escaping (FilterResult) -> Void) {
         // 1. Compute a unique key for the image
         let imageHash = computeMD5(data: imageData)

@@ -6,6 +6,7 @@
 import Foundation
 public import LibSignalClient
 import UIKit
+import UniformTypeIdentifiers
 
 public protocol AttachmentUploadManager {
     /// Upload a transient backup file that isn't an attachment (not saved to the database or sent).
@@ -243,7 +244,15 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
         let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[transient]")
         
         // Create a temporary SignalAttachment to check content filter
-        let attachment = SignalAttachment(dataSource: dataSource, dataUTI: dataSource.mimeType)
+        let inferredUti = dataSource.sourceFilename
+            .flatMap { UTType(filenameExtension: ($0 as NSString).pathExtension) }?
+            .identifier
+            ?? UTType.data.identifier
+            
+        let attachment = SignalAttachment.attachment(
+            dataSource: dataSource,
+            dataUTI: inferredUti
+        )
         try await attachment.checkContentFilter()
         
         let temporaryFile = fileSystem.temporaryFileUrl()
@@ -347,14 +356,33 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
     ) async throws {
         let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[transit]")
         
-        // Get the attachment from the store
-        guard let attachment = try await attachmentStore.fetch(id: attachmentId) else {
-            throw OWSAssertionError("Missing attachment")
+        // 1. Fetch attachment inside a DB transaction so we can pass `tx:`
+        let attachment = try await db.read { tx -> Attachment in
+            guard let attachment = self.attachmentStore.fetch(id: attachmentId, tx: tx) else {
+                throw OWSAssertionError("Missing attachment")
+            }
+            return attachment
         }
         
-        // Create a temporary SignalAttachment to check content filter
-        let dataSource = try await attachmentStore.attachmentData(for: attachment)
-        let signalAttachment = SignalAttachment(dataSource: dataSource, dataUTI: attachment.mimeType)
+        // 2. Convert the AttachmentStream to a DataSource with the new API name
+        let dataSource = try await db.read { tx -> DataSource in
+            guard let stream = attachment.asStream() else {
+                throw OWSAssertionError("Attachment is not a stream")
+            }
+            // Create a DataSource from the file URL
+            return try DataSourcePath(fileUrl: stream.fileURL, shouldDeleteOnDeallocation: false)
+        }
+
+        // 3. Derive the UTI; `Attachment.dataUTI` was removed in the refactor
+        let inferredUti = attachment.mediaName?
+            .split(separator: ".").last
+            .flatMap { UTType(filenameExtension: String($0)) }?
+            .identifier ?? UTType.data.identifier
+
+        let signalAttachment = SignalAttachment.attachment(
+            dataSource: dataSource,
+            dataUTI: inferredUti
+        )
         try await signalAttachment.checkContentFilter()
         
         let encryptedByteCount = db.read { tx in

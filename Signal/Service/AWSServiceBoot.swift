@@ -5,22 +5,29 @@ import AWSDynamoDB
 
 struct AWSServiceBoot {
     static func configure() {
-        let access = Bundle.main.object(forInfoDictionaryKey: "AWS_ACCESS_KEY") as? String
-        let secret = Bundle.main.object(forInfoDictionaryKey: "AWS_SECRET_KEY") as? String
-        let region = Bundle.main.object(forInfoDictionaryKey: "AWS_REGION") as? String
-        
-        let credentialsProvider = AWSStaticCredentialsProvider(
-            accessKey: access ?? "",
-            secretKey: secret ?? ""
-        )
-        
-        let serviceConfig = AWSServiceConfiguration(
-            region: .USEast1,
-            credentialsProvider: credentialsProvider
-        )
-        
-        AWSServiceManager.default().defaultServiceConfiguration = serviceConfig
-        
-        print("AWS ready")
+        do {
+            // Initialize AWS configuration
+            _ = try AWSConfig.shared
+            
+            // Configure AWS Cognito
+            let cognitoConfig = AWSCognitoCredentialsProvider(
+                regionType: AWSConfig.region,
+                identityPoolId: AWSConfig.identityPoolId
+            )
+            
+            let configuration = AWSServiceConfiguration(
+                region: AWSConfig.region,
+                credentialsProvider: cognitoConfig
+            )
+            
+            // Register services
+            AWSServiceManager.default().defaultServiceConfiguration = configuration
+            AWSS3.register(with: configuration!, forKey: "S3")
+            AWSDynamoDB.register(with: configuration!, forKey: "DynamoDB")
+            
+            Logger.info("AWS services configured successfully")
+        } catch {
+            Logger.error("Failed to configure AWS services: \(error)")
+        }
     }
 } 

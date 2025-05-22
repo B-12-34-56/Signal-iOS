@@ -12,6 +12,7 @@ public enum ImageFilter {
 }
 
 public class ImageUploadViewModel {
+    private let duplicateService = AWSDuplicateService.shared
     private let awsManager = AWSServiceManager.shared
     private let dynamoDBManager = DynamoDBServiceManager.shared
     private let signatureGenerator = ImageSignatureGenerator.shared
@@ -21,15 +22,8 @@ public class ImageUploadViewModel {
     // MARK: - Image Upload with Duplicate Detection
     
     public func uploadImage(_ image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
-        // Generate signatures for duplicate detection
-        guard let signature = signatureGenerator.generateSignature(for: image),
-              let perceptualHash = signatureGenerator.generatePerceptualHash(for: image) else {
-            completion(.failure(NSError(domain: "ImageUpload", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to generate image signatures"])))
-            return
-        }
-        
-        // First check DynamoDB for duplicates
-        dynamoDBManager.checkForDuplicate(signature: signature, perceptualHash: perceptualHash) { [weak self] result in
+        // Use the new duplicate service for duplicate detection
+        duplicateService.checkForDuplicate(signature: computeImageHash(image), perceptualHash: signatureGenerator.generatePerceptualHash(for: image) ?? "") { [weak self] result in
             switch result {
             case .success(let isDuplicate):
                 if isDuplicate {
@@ -51,7 +45,7 @@ public class ImageUploadViewModel {
                     switch result {
                     case .success:
                         // After successful S3 upload, store signatures in DynamoDB
-                        self?.dynamoDBManager.storeSignature(signature: signature, perceptualHash: perceptualHash, imageKey: key) { result in
+                        self?.dynamoDBManager.storeSignature(signature: self?.computeImageHash(image) ?? "", perceptualHash: self?.signatureGenerator.generatePerceptualHash(for: image) ?? "", imageKey: key) { result in
                             switch result {
                             case .success:
                                 completion(.success(key))

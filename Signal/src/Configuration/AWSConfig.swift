@@ -6,57 +6,57 @@
 import Foundation
 import AWSCore
 
-enum AWSConfigError: Error {
+public enum AWSConfigError: Error {
     case missingRequiredValue(String)
     case invalidValue(String)
     case configurationError(String)
 }
 
-class AWSConfig {
-    static let shared = AWSConfig()
+public class AWSConfig {
+    public static let shared = AWSConfig()
     
     // MARK: - S3 Configuration
-    let s3BucketName: String
-    let s3Region: String
-    let s3ImagesPath: String
-    let s3BaseURL: String
+    public let s3BucketName: String
+    public let s3Region: String
+    public let s3ImagesPath: String
+    public let s3BaseURL: String
     
     // MARK: - DynamoDB Configuration
-    let dynamoDbTableName: String
-    let dynamoDbRegion: String
-    let dynamoDbEndpoint: String
+    public let dynamoDbTableName: String
+    public let dynamoDbRegion: String
+    public let dynamoDbEndpoint: String
     
     // MARK: - API Gateway Endpoints
-    let apiGatewayEndpoint: String
-    let getTagApiGatewayEndpoint: String
-    let uploadImageApiGatewayEndpoint: String
+    public let apiGatewayEndpoint: String
+    public let getTagApiGatewayEndpoint: String
+    public let uploadImageApiGatewayEndpoint: String
     
     // MARK: - Cognito Configuration
-    let identityPoolId: String
-    let cognitoRegion: String
+    public let identityPoolId: String
+    public let cognitoRegion: String
     
     // MARK: - API Keys
-    let getTagApiKey: String
-    let uploadImageApiKey: String
+    public let getTagApiKey: String
+    public let uploadImageApiKey: String
     
     // MARK: - DynamoDB Field Names
-    let hashFieldName: String
-    let timestampFieldName: String
-    let ttlFieldName: String
+    public let hashFieldName: String
+    public let timestampFieldName: String
+    public let ttlFieldName: String
     
     // MARK: - Timeouts and Retries
-    let requestTimeoutInterval: TimeInterval
-    let resourceTimeoutInterval: TimeInterval
-    let maxRetryCount: Int
-    let initialRetryDelay: TimeInterval
-    let maxRetryDelay: TimeInterval
+    public let requestTimeoutInterval: TimeInterval
+    public let resourceTimeoutInterval: TimeInterval
+    public let maxRetryCount: Int
+    public let initialRetryDelay: TimeInterval
+    public let maxRetryDelay: TimeInterval
     
     // MARK: - TTL Configuration
-    let defaultTTL: TimeInterval
+    public let defaultTTL: TimeInterval
     
     // MARK: - API Gateway ARNs
-    let getTagApiGatewayArn: String
-    let uploadImageApiGatewayArn: String
+    public let getTagApiGatewayArn: String
+    public let uploadImageApiGatewayArn: String
     
     private init() throws {
         // Load configuration from environment variables or use defaults
