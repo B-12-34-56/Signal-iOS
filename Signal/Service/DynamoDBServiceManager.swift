@@ -2,147 +2,176 @@ import Foundation
 import AWSDynamoDB
 import AWSCore
 
+private func attrS(_ value: String) -> AWSDynamoDBAttributeValue {
+    let v = AWSDynamoDBAttributeValue()
+    v?.s = value
+    return v!
+}
+
+private func attrN(_ value: String) -> AWSDynamoDBAttributeValue {
+    let v = AWSDynamoDBAttributeValue()
+    v?.n = value
+    return v!
+}
+
 class DynamoDBServiceManager {
     static let shared = DynamoDBServiceManager()
-    
+
     private let tableName = "signal-image-signatures"
-    private let dynamoDB = AWSDynamoDB.default()
-    private let region = AWSRegionType.USEast1
-    
+    private let dynamoDB: AWSDynamoDB
+
     private init() {
-        setupDynamoDB()
+        // We assume AWSServiceBoot.configure() has already run at app launch,
+        // so AWSDynamoDB.default() will use the correct AWSServiceConfiguration.
+        self.dynamoDB = AWSDynamoDB.default()
     }
-    
-    private func setupDynamoDB() {
-        // Configure DynamoDB
-        let credentialsProvider = AWSCognitoCredentialsProvider(
-            regionType: region,
-            identityPoolId: "us-east-1:12345678-1234-1234-1234-123456789012"
-        )
-        
-        let configuration = AWSServiceConfiguration(
-            region: region,
-            credentialsProvider: credentialsProvider
-        )
-        
-        AWSDynamoDB.register(with: configuration!, forKey: "DynamoDB")
-    }
-    
-    // MARK: - Image Signature Operations
-    
-    func storeImageSignature(_ signature: String, imageKey: String, completion: @escaping (Error?) -> Void) {
-        let item: [String: AWSDynamoDBAttributeValue] = [
-            "signature": .init(s: signature),
-            "imageKey": .init(s: imageKey),
-            "timestamp": .init(n: String(Date().timeIntervalSince1970))
-        ]
-        
-        let request = AWSDynamoDBPutItemInput()
+
+    // MARK: - Exact-match Duplicate Check
+
+    func storeImageSignature(_ signature: String,
+                             imageKey: String,
+                             completion: @escaping (Error?) -> Void)
+    {
+        guard let request = AWSDynamoDBPutItemInput() else {
+            completion(NSError(domain: "DynamoDBServiceManager",
+                               code: -1,
+                               userInfo: [NSLocalizedDescriptionKey:
+                                    "Failed to create PutItemInput"]))
+            return
+        }
         request.tableName = tableName
-        request.item = item
-        
-        dynamoDB.putItem(request) { response, error in
+        request.item = [
+            "signature":      attrS(signature),
+            "image_key":      attrS(imageKey),
+            "timestamp":      attrN(String(Date().timeIntervalSince1970))
+        ]
+
+        dynamoDB.putItem(request) { _, error in
             completion(error)
         }
     }
-    
-    func checkForDuplicate(signature: String, perceptualHash: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        let queryRequest = AWSDynamoDBQueryInput()
-        queryRequest?.tableName = tableName
-        queryRequest?.indexName = "SignatureIndex"
-        queryRequest?.keyConditionExpression = "signature = :signature"
-        queryRequest?.expressionAttributeValues = [
-            ":signature": AWSDynamoDBAttributeValue(string: signature)
+
+    // MARK: - Full Duplicate-check Workflow
+
+    func checkForDuplicate(signature: String,
+                           perceptualHash: String,
+                           completion: @escaping (Result<Bool, Error>) -> Void)
+    {
+        // 1) Exact-match query
+        guard let q = AWSDynamoDBQueryInput() else {
+            completion(.failure(NSError(domain: "DynamoDBServiceManager",
+                                        code: -1,
+                                        userInfo: [NSLocalizedDescriptionKey:
+                                            "Failed to create QueryInput"])))
+            return
+        }
+        q.tableName               = tableName
+        q.indexName               = "SignatureIndex"
+        q.keyConditionExpression  = "signature = :sig"
+        q.expressionAttributeValues = [
+            ":sig": attrS(signature)
         ]
-        
-        dynamoDB.query(queryRequest!) { response, error in
+
+        dynamoDB.query(q) { response, error in
             if let error = error {
-                completion(.failure(error))
-                return
+                return completion(.failure(error))
             }
-            
             if let items = response?.items, !items.isEmpty {
-                completion(.success(true))
-                return
+                // exact match → duplicate
+                return completion(.success(true))
             }
-            
-            self.checkPerceptualHashSimilarity(perceptualHash) { result in
-                switch result {
-                case .success(let isSimilar):
-                    completion(.success(isSimilar))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
+            // 2) Fallback to perceptual-hash scan
+            self.scanForPerceptualMatch(perceptualHash, completion: completion)
         }
     }
-    
-    private func checkPerceptualHashSimilarity(_ hash: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        let scanRequest = AWSDynamoDBScanInput()
-        scanRequest?.tableName = tableName
-        scanRequest?.filterExpression = "perceptual_hash = :hash"
-        scanRequest?.expressionAttributeValues = [
-            ":hash": AWSDynamoDBAttributeValue(string: hash)
+
+    private func scanForPerceptualMatch(_ hash: String,
+                                        completion: @escaping (Result<Bool, Error>) -> Void)
+    {
+        guard let s = AWSDynamoDBScanInput() else {
+            completion(.failure(NSError(domain: "DynamoDBServiceManager",
+                                        code: -1,
+                                        userInfo: [NSLocalizedDescriptionKey:
+                                            "Failed to create ScanInput"])))
+            return
+        }
+        s.tableName                = tableName
+        s.filterExpression         = "perceptual_hash = :hash"
+        s.expressionAttributeValues = [
+            ":hash": attrS(hash)
         ]
-        
-        dynamoDB.scan(scanRequest!) { response, error in
+
+        dynamoDB.scan(s) { response, error in
             if let error = error {
-                completion(.failure(error))
-                return
+                return completion(.failure(error))
             }
-            
             if let items = response?.items {
                 for item in items {
-                    if let storedHash = item["perceptual_hash"]?.string {
-                        let distance = self.hammingDistance(hash, storedHash)
-                        if distance < 10 {
-                            completion(.success(true))
-                            return
+                    if let stored = item["perceptual_hash"]?.s {
+                        if self.hammingDistance(hash, stored) < 10 {
+                            return completion(.success(true))
                         }
                     }
                 }
             }
-            
             completion(.success(false))
         }
     }
-    
-    func storeSignature(signature: String, perceptualHash: String, imageKey: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        let item: [String: AWSDynamoDBAttributeValue] = [
-            "signature": AWSDynamoDBAttributeValue(string: signature),
-            "perceptual_hash": AWSDynamoDBAttributeValue(string: perceptualHash),
-            "image_key": AWSDynamoDBAttributeValue(string: imageKey),
-            "timestamp": AWSDynamoDBAttributeValue(string: ISO8601DateFormatter().string(from: Date()))
+
+    // MARK: - Alternate storeSignature API
+
+    func storeSignature(signature: String,
+                        perceptualHash: String,
+                        imageKey: String,
+                        completion: @escaping (Result<Void, Error>) -> Void)
+    {
+        guard let r = AWSDynamoDBPutItemInput() else {
+            return completion(.failure(NSError(domain: "DynamoDBServiceManager",
+                                               code: -1,
+                                               userInfo: [NSLocalizedDescriptionKey:
+                                                    "Failed to create PutItemInput"])))
+        }
+        r.tableName = tableName
+        r.item = [
+            "signature":        attrS(signature),
+            "perceptual_hash":  attrS(perceptualHash),
+            "image_key":        attrS(imageKey),
+            "timestamp":        attrS(ISO8601DateFormatter()
+                                            .string(from: Date()))
         ]
-        
-        let putRequest = AWSDynamoDBPutItemInput()
-        putRequest?.tableName = tableName
-        putRequest?.item = item
-        
-        dynamoDB.putItem(putRequest!) { response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
+
+        dynamoDB.putItem(r) { _, error in
+            if let e = error {
+                return completion(.failure(e))
             }
-            
             completion(.success(()))
         }
     }
-    
-    private func hammingDistance(_ str1: String, _ str2: String) -> Int {
-        guard str1.count == str2.count else { return Int.max }
-        return zip(str1, str2).filter { $0 != $1 }.count
-    }
-    
-    func deleteImageSignature(_ signature: String, completion: @escaping (Error?) -> Void) {
-        let request = AWSDynamoDBDeleteItemInput()
-        request.tableName = tableName
-        request.key = [
-            "signature": .init(s: signature)
-        ]
-        
-        dynamoDB.deleteItem(request) { response, error in
+
+    // MARK: - Cleanup
+
+    func deleteImageSignature(_ signature: String,
+                              completion: @escaping (Error?) -> Void)
+    {
+        guard let d = AWSDynamoDBDeleteItemInput() else {
+            completion(NSError(domain: "DynamoDBServiceManager",
+                               code: -1,
+                               userInfo: [NSLocalizedDescriptionKey:
+                                    "Failed to create DeleteItemInput"]))
+            return
+        }
+        d.tableName = tableName
+        d.key = ["signature": attrS(signature)]
+
+        dynamoDB.deleteItem(d) { _, error in
             completion(error)
         }
     }
-} 
+
+    // MARK: - Utility
+
+    private func hammingDistance(_ a: String, _ b: String) -> Int {
+        guard a.count == b.count else { return Int.max }
+        return zip(a, b).filter { $0 != $1 }.count
+    }
+}

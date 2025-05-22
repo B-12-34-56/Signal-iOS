@@ -2,32 +2,30 @@ import Foundation
 import AWSCore
 import AWSS3
 import AWSDynamoDB
+import SignalServiceKit
 
 struct AWSServiceBoot {
-    static func configure() {
-        do {
-            // Initialize AWS configuration
-            _ = try AWSConfig.shared
-            
-            // Configure AWS Cognito
-            let cognitoConfig = AWSCognitoCredentialsProvider(
-                regionType: AWSConfig.region,
-                identityPoolId: AWSConfig.identityPoolId
-            )
-            
-            let configuration = AWSServiceConfiguration(
-                region: AWSConfig.region,
-                credentialsProvider: cognitoConfig
-            )
-            
-            // Register services
-            AWSServiceManager.default().defaultServiceConfiguration = configuration
-            AWSS3.register(with: configuration!, forKey: "S3")
-            AWSDynamoDB.register(with: configuration!, forKey: "DynamoDB")
-            
-            Logger.info("AWS services configured successfully")
-        } catch {
-            Logger.error("Failed to configure AWS services: \(error)")
-        }
-    }
-} 
+  static func configure() {
+    // — Cognito credentials provider —
+    let credentialsProvider = AWSCognitoCredentialsProvider(
+      regionType: .USEast1,
+      identityPoolId: "us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    )
+
+    // — Default AWS configuration —
+    let serviceConfig = AWSServiceConfiguration(
+      region: .USEast1,
+      credentialsProvider: credentialsProvider
+    )
+    AWSServiceManager.default().defaultServiceConfiguration = serviceConfig
+
+    // — Register S3 & DynamoDB clients (optional keys) —
+    AWSS3.register(with: serviceConfig!, forKey: "S3")
+    AWSDynamoDB.register(with: serviceConfig!, forKey: "DynamoDB")
+
+    // — Enable SDK logging —
+    AWSDDLog.sharedInstance.logLevel = .info
+
+    Logger.info("AWS services configured successfully")
+  }
+}

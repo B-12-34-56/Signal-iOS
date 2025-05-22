@@ -13,9 +13,9 @@ public enum ImageFilter {
 
 public class ImageUploadViewModel {
     private let duplicateService = AWSDuplicateService.shared
-    private let awsManager = AWSServiceManager.shared
     private let dynamoDBManager = DynamoDBServiceManager.shared
     private let signatureGenerator = ImageSignatureGenerator.shared
+    private let bucket = Bundle.main.object(forInfoDictionaryKey: "S3_BUCKET_NAME") as? String ?? ""
     
     public init() {}
     
@@ -40,29 +40,57 @@ public class ImageUploadViewModel {
                     return
                 }
                 
-                // Upload to S3
-                self?.awsManager.uploadImageData(imageData, key: key) { result in
-                    switch result {
-                    case .success:
-                        // After successful S3 upload, store signatures in DynamoDB
-                        self?.dynamoDBManager.storeSignature(signature: self?.computeImageHash(image) ?? "", perceptualHash: self?.signatureGenerator.generatePerceptualHash(for: image) ?? "", imageKey: key) { result in
-                            switch result {
-                            case .success:
-                                completion(.success(key))
-                            case .failure(let error):
-                                // If DynamoDB storage fails, we should delete the S3 object
-                                self?.awsManager.deleteImage(key: key) { _ in }
+                // Upload to S3 directly using AWS SDK
+                let expr = AWSS3TransferUtilityUploadExpression()
+                expr.progressBlock = { _, progress in
+                    NotificationCenter.default.post(name: .awsUploadProgress,
+                                                 object: key,
+                                                 userInfo: ["fraction": progress.fractionCompleted])
+                }
+                
+                AWSS3TransferUtility.default().uploadData(
+                    imageData,
+                    bucket: self?.bucket ?? "",
+                    key: key,
+                    contentType: "application/octet-stream",
+                    expression: expr) { task, error in
+                        DispatchQueue.main.async {
+                            if let error = error {
                                 completion(.failure(error))
+                                return
+                            }
+                            
+                            // After successful S3 upload, store signatures in DynamoDB
+                            self?.dynamoDBManager.storeSignature(
+                                signature: self?.computeImageHash(image) ?? "",
+                                perceptualHash: self?.signatureGenerator.generatePerceptualHash(for: image) ?? "",
+                                imageKey: key) { result in
+                                    switch result {
+                                    case .success:
+                                        completion(.success(key))
+                                    case .failure(let error):
+                                        // If DynamoDB storage fails, delete the S3 object
+                                        self?.deleteImage(key: key) { _ in }
+                                        completion(.failure(error))
+                                    }
                             }
                         }
-                    case .failure(let error):
-                        completion(.failure(error))
-                    }
                 }
                 
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+    
+    private func deleteImage(key: String, completion: @escaping (Error?) -> Void) {
+        let req = AWSS3DeleteObjectRequest()!
+        req.bucket = bucket
+        req.key = key
+        AWSS3.default().deleteObject(req) { _, err in 
+            DispatchQueue.main.async { 
+                completion(err) 
+            } 
         }
     }
     
@@ -117,4 +145,10 @@ public class ImageUploadViewModel {
         let hash = Cryptography.sha256(imageData)
         return hash.hexadecimalString
     }
+}
+
+// MARK: - Notification Names
+
+extension Notification.Name {
+    static let awsUploadProgress = Notification.Name("awsUploadProgress")
 } 
