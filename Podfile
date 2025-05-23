@@ -398,3 +398,5 @@ def copy_acknowledgements
 
   write_output_file(final_specifiers)
 end
+
+pod 'Logging'

@@ -1,0 +1,9 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild test -workspace Signal.xcworkspace -scheme Pods-SignalServiceKitTests -destination "platform=iOS Simulator,name=iPad (10th generation),OS=18.2"
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  swift-argument-parser: https://github.com/apple/swift-argument-parser.git @ 1.5.0
+

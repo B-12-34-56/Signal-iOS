@@ -1,0 +1,609 @@
+{
+  "_type": {
+    "_name": "ActionsInvocationRecord"
+  },
+  "actions": {
+    "_type": {
+      "_name": "Array"
+    },
+    "_values": [
+      {
+        "_type": {
+          "_name": "ActionRecord"
+        },
+        "actionResult": {
+          "_type": {
+            "_name": "ActionResult"
+          },
+          "coverage": {
+            "_type": {
+              "_name": "CodeCoverageInfo"
+            },
+            "hasCoverageData": {
+              "_type": {
+                "_name": "Bool"
+              },
+              "_value": "true"
+            }
+          },
+          "diagnosticsRef": {
+            "_type": {
+              "_name": "Reference"
+            },
+            "id": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "0~mWtAwrJC4kFs8u9JTj0Xltg_XoSGjOxyUD-zFXaD6eCSvkembUXqiJX-rjAtR4SSVapIvFfxpUKTdmmtencbgg=="
+            }
+          },
+          "issues": {
+            "_type": {
+              "_name": "ResultIssueSummaries"
+            },
+            "errorSummaries": {
+              "_type": {
+                "_name": "Array"
+              },
+              "_values": [
+                {
+                  "_type": {
+                    "_name": "IssueSummary"
+                  },
+                  "issueType": {
+                    "_type": {
+                      "_name": "String"
+                    },
+                    "_value": "Uncategorized"
+                  },
+                  "message": {
+                    "_type": {
+                      "_name": "String"
+                    },
+                    "_value": "Testing cancelled because the build failed."
+                  }
+                }
+              ]
+            }
+          },
+          "logRef": {
+            "_type": {
+              "_name": "Reference"
+            },
+            "id": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "0~h30tuGQiSYIsHN5GL-zlVbgaMJ50udwUHpFimpH3Q_swhQKguzvvrIfYe9DnDL2EjcXKNIV1s42bYrXcZKVaVw=="
+            },
+            "targetType": {
+              "_type": {
+                "_name": "TypeDefinition"
+              },
+              "name": {
+                "_type": {
+                  "_name": "String"
+                },
+                "_value": "ActivityLogSection"
+              }
+            }
+          },
+          "metrics": {
+            "_type": {
+              "_name": "ResultMetrics"
+            },
+            "errorCount": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "1"
+            }
+          },
+          "resultName": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "action"
+          },
+          "status": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "cancelled"
+          },
+          "testsRef": {
+            "_type": {
+              "_name": "Reference"
+            },
+            "id": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "0~3tdcR6bwWxdzU22qUxcKe3glLeiYH8_XaDCQvx9TbExlAgQti1qiRQMlvHkmkDeb8RlcrUaKL8To60JB7E1wdA=="
+            },
+            "targetType": {
+              "_type": {
+                "_name": "TypeDefinition"
+              },
+              "name": {
+                "_type": {
+                  "_name": "String"
+                },
+                "_value": "ActionTestPlanRunSummaries"
+              }
+            }
+          }
+        },
+        "buildResult": {
+          "_type": {
+            "_name": "ActionResult"
+          },
+          "coverage": {
+            "_type": {
+              "_name": "CodeCoverageInfo"
+            }
+          },
+          "issues": {
+            "_type": {
+              "_name": "ResultIssueSummaries"
+            },
+            "errorSummaries": {
+              "_type": {
+                "_name": "Array"
+              },
+              "_values": [
+                {
+                  "_type": {
+                    "_name": "IssueSummary"
+                  },
+                  "issueType": {
+                    "_type": {
+                      "_name": "String"
+                    },
+                    "_value": "Error"
+                  },
+                  "message": {
+                    "_type": {
+                      "_name": "String"
+                    },
+                    "_value": "The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation."
+                  }
+                }
+              ]
+            }
+          },
+          "logRef": {
+            "_type": {
+              "_name": "Reference"
+            },
+            "id": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "0~gJhPk4aePn33CoXVllSkQ21jeC38L0wJqWcLNzbMugHxp195RmzbsO8CLQiSdepqxPCrTAbRrxbWk5W9Gasm3A=="
+            },
+            "targetType": {
+              "_type": {
+                "_name": "TypeDefinition"
+              },
+              "name": {
+                "_type": {
+                  "_name": "String"
+                },
+                "_value": "ActivityLogSection"
+              }
+            }
+          },
+          "metrics": {
+            "_type": {
+              "_name": "ResultMetrics"
+            },
+            "errorCount": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "1"
+            }
+          },
+          "resultName": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "build"
+          },
+          "status": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "failed"
+          }
+        },
+        "endedTime": {
+          "_type": {
+            "_name": "Date"
+          },
+          "_value": "2025-05-20T10:53:33.644-0400"
+        },
+        "runDestination": {
+          "_type": {
+            "_name": "ActionRunDestinationRecord"
+          },
+          "displayName": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "iPhone 16"
+          },
+          "localComputerRecord": {
+            "_type": {
+              "_name": "ActionDeviceRecord"
+            },
+            "busSpeedInMHz": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "0"
+            },
+            "cpuCount": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "1"
+            },
+            "cpuKind": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "Apple M2"
+            },
+            "cpuSpeedInMHz": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "0"
+            },
+            "identifier": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "00008112-000C21960AF1401E"
+            },
+            "isConcreteDevice": {
+              "_type": {
+                "_name": "Bool"
+              },
+              "_value": "true"
+            },
+            "logicalCPUCoresPerPackage": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "8"
+            },
+            "modelCode": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "Mac14,7"
+            },
+            "modelName": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "MacBook Pro"
+            },
+            "modelUTI": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "com.apple.macbookpro-13-2022"
+            },
+            "name": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "My Mac"
+            },
+            "nativeArchitecture": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "arm64e"
+            },
+            "operatingSystemVersion": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "15.4.1"
+            },
+            "operatingSystemVersionWithBuildNumber": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "15.4.1 (24E263)"
+            },
+            "physicalCPUCoresPerPackage": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "8"
+            },
+            "platformRecord": {
+              "_type": {
+                "_name": "ActionPlatformRecord"
+              },
+              "identifier": {
+                "_type": {
+                  "_name": "String"
+                },
+                "_value": "com.apple.platform.macosx"
+              },
+              "userDescription": {
+                "_type": {
+                  "_name": "String"
+                },
+                "_value": "macOS"
+              }
+            },
+            "ramSizeInMegabytes": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "8192"
+            }
+          },
+          "targetArchitecture": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "arm64"
+          },
+          "targetDeviceRecord": {
+            "_type": {
+              "_name": "ActionDeviceRecord"
+            },
+            "busSpeedInMHz": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "0"
+            },
+            "cpuCount": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "0"
+            },
+            "cpuSpeedInMHz": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "0"
+            },
+            "identifier": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "7AE53A7E-8F0D-482E-BB5F-8176A1CA9630"
+            },
+            "isConcreteDevice": {
+              "_type": {
+                "_name": "Bool"
+              },
+              "_value": "true"
+            },
+            "logicalCPUCoresPerPackage": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "0"
+            },
+            "modelCode": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "iPhone17,3"
+            },
+            "modelName": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "iPhone 16"
+            },
+            "modelUTI": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "com.apple.iphone-16-1"
+            },
+            "name": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "iPhone 16"
+            },
+            "nativeArchitecture": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "arm64"
+            },
+            "operatingSystemVersion": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "18.4"
+            },
+            "operatingSystemVersionWithBuildNumber": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "18.4 (22E238)"
+            },
+            "physicalCPUCoresPerPackage": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "0"
+            },
+            "platformRecord": {
+              "_type": {
+                "_name": "ActionPlatformRecord"
+              },
+              "identifier": {
+                "_type": {
+                  "_name": "String"
+                },
+                "_value": "com.apple.platform.iphonesimulator"
+              },
+              "userDescription": {
+                "_type": {
+                  "_name": "String"
+                },
+                "_value": "iOS Simulator"
+              }
+            },
+            "ramSizeInMegabytes": {
+              "_type": {
+                "_name": "Int"
+              },
+              "_value": "0"
+            }
+          },
+          "targetSDKRecord": {
+            "_type": {
+              "_name": "ActionSDKRecord"
+            },
+            "identifier": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "iphonesimulator18.4"
+            },
+            "name": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "Simulator - iOS 18.4"
+            },
+            "operatingSystemVersion": {
+              "_type": {
+                "_name": "String"
+              },
+              "_value": "18.4"
+            }
+          }
+        },
+        "schemeCommandName": {
+          "_type": {
+            "_name": "String"
+          },
+          "_value": "Test"
+        },
+        "schemeTaskName": {
+          "_type": {
+            "_name": "String"
+          },
+          "_value": "BuildAndAction"
+        },
+        "startedTime": {
+          "_type": {
+            "_name": "Date"
+          },
+          "_value": "2025-05-20T10:53:13.829-0400"
+        },
+        "testPlanName": {
+          "_type": {
+            "_name": "String"
+          },
+          "_value": "Signal"
+        },
+        "title": {
+          "_type": {
+            "_name": "String"
+          },
+          "_value": "Testing workspace Signal with scheme Signal"
+        }
+      }
+    ]
+  },
+  "issues": {
+    "_type": {
+      "_name": "ResultIssueSummaries"
+    },
+    "errorSummaries": {
+      "_type": {
+        "_name": "Array"
+      },
+      "_values": [
+        {
+          "_type": {
+            "_name": "IssueSummary"
+          },
+          "issueType": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "Error"
+          },
+          "message": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation."
+          }
+        },
+        {
+          "_type": {
+            "_name": "IssueSummary"
+          },
+          "issueType": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "Uncategorized"
+          },
+          "message": {
+            "_type": {
+              "_name": "String"
+            },
+            "_value": "Testing cancelled because the build failed."
+          }
+        }
+      ]
+    }
+  },
+  "metadataRef": {
+    "_type": {
+      "_name": "Reference"
+    },
+    "id": {
+      "_type": {
+        "_name": "String"
+      },
+      "_value": "0~6TABYkyd5ZTJG29prKI5XCz0rMvPi0MalfFcN4h1NKw9-JjblgVyiCMJ1gCZBfd4b8G-Fhgy5ihu9-pz7v_ugA=="
+    },
+    "targetType": {
+      "_type": {
+        "_name": "TypeDefinition"
+      },
+      "name": {
+        "_type": {
+          "_name": "String"
+        },
+        "_value": "ActionsInvocationMetadata"
+      }
+    }
+  },
+  "metrics": {
+    "_type": {
+      "_name": "ResultMetrics"
+    },
+    "errorCount": {
+      "_type": {
+        "_name": "Int"
+      },
+      "_value": "2"
+    }
+  }
+}

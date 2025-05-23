@@ -67,6 +67,7 @@ DEPENDENCIES:
   - LibSignalClient (from `https://github.com/signalapp/libsignal.git`, tag `v0.68.1`)
   - LibSignalClient/Tests (from `https://github.com/signalapp/libsignal.git`, tag `v0.68.1`)
   - libwebp (from `./ThirdParty/libwebp.podspec.json`)
+  - Logging
   - lottie-ios
   - Mantle (from `https://github.com/signalapp/Mantle`, branch `signal-master`)
   - MobileCoin/CoreHTTP (from `https://github.com/mobilecoinofficial/MobileCoin-Swift`, tag `v6.0.3`)
@@ -177,6 +178,10 @@ SPEC CHECKSUMS:
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
   YYImage: f1ddd15ac032a58b78bbed1e012b50302d318331
 
+<<<<<<< Updated upstream
 PODFILE CHECKSUM: 19b3e5f48aca1af63e3e6833699662e65866785f
+=======
+PODFILE CHECKSUM: bd72aa267cabc30ae7754ae24a5b67511a09665f
+>>>>>>> Stashed changes
 
 COCOAPODS: 1.16.2
