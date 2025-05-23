@@ -15,6 +15,7 @@ PODS:
     - AWSCore (= 2.40.2)
   - blurhash (0.0.1)
   - BonMot (6.0.0)
+  - CocoaImageHashing (1.7.0)
   - CocoaLumberjack (3.7.4):
     - CocoaLumberjack/Core (= 3.7.4)
   - CocoaLumberjack/Core (3.7.4)
@@ -69,6 +70,7 @@ DEPENDENCIES:
   - AWSS3
   - blurhash (from `./ThirdParty/blurhash.podspec`)
   - BonMot
+  - CocoaImageHashing
   - CocoaLumberjack
   - GRDB.swift/SQLCipher
   - LibMobileCoin/CoreHTTP (from `https://github.com/signalapp/libmobilecoin-ios-artifacts`, tag `signal/6.0.2`)
@@ -97,6 +99,7 @@ SPEC REPOS:
     - AWSLambda
     - AWSS3
     - BonMot
+    - CocoaImageHashing
     - CocoaLumberjack
     - GRDB.swift
     - Logging
@@ -175,6 +178,7 @@ SPEC CHECKSUMS:
   AWSS3: 20c6f122e962cdf6ddaf60f52422bb94da584026
   blurhash: f588a9d659f4c742a325bbbbd438d1ef3c34af19
   BonMot: fb2b6a2209cb3149aca37b7131d49c051c04ae86
+  CocoaImageHashing: 2c8efd6dd60f9030cd54086b34ffc48e927821c3
   CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   GRDB.swift: 1395cb3556df6b16ed69dfc74c3886abc75d2825
   LibMobileCoin: 4c76066a0aa8c614099da08e38562fd7b4b2d246
@@ -192,6 +196,6 @@ SPEC CHECKSUMS:
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
   YYImage: 3887e29d0418f57e031ae6b795d9d0a77592afbd
 
-PODFILE CHECKSUM: 9bc721cbecff41cb4db475e49db7bde8921f0a32
+PODFILE CHECKSUM: 7769055568058b86d588f5543566911493ca5d9b
 
 COCOAPODS: 1.16.2

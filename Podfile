@@ -101,6 +101,7 @@ target 'SignalServiceKit' do
   pod 'AWSDynamoDB'
   pod 'AWSCore'
   pod 'AWSCognitoIdentityProvider'
+  pod 'CocoaImageHashing'
 
   target 'SignalServiceKitTests' do
     inherit! :search_paths

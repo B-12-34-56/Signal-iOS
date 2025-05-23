@@ -2,8 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AWSContentFilterBucket</key>
+	<string>your-content-filter-bucket</string>
+	<key>AWSContentFilterFunction</key>
+	<string>your-content-filter-function</string>
+	<key>AWSContentFilterRegion</key>
+	<string>us-east-1</string>
 	<key>AWSContentFilterPoolID</key>
 	<string>us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</string>
+	<key>AWSContentFilterTable</key>
+	<string>your-content-filter-table</string>
 	<key>AWS_ACCESS_KEY</key>
 	<string>$(AWS_ACCESS_KEY)</string>
 	<key>AWS_REGION</key>
@@ -56,6 +64,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>0</string>
+	<key>DuplicateThreshold</key>
+	<integer>3</integer>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LOGS_EMAIL</key>

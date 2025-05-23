@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 import AWSS3
-import AWSDynamoDB
 import SignalServiceKit
 
 public enum ImageFilter {
@@ -11,86 +10,103 @@ public enum ImageFilter {
     case sepia
 }
 
-public class ImageUploadViewModel {
-    private let duplicateService = AWSDuplicateService.shared
-    private let dynamoDBManager = DynamoDBServiceManager.shared
-    private let signatureGenerator = ImageSignatureGenerator.shared
-    private let bucket = Bundle.main.object(forInfoDictionaryKey: "S3_BUCKET_NAME") as? String ?? ""
+public class ImageUploadViewModel: NSObject {
+    private let contentFilterService = ContentFilterService.shared
     
     public init() {}
     
-    // MARK: - Image Upload with Duplicate Detection
+    // MARK: - Image Upload
     
-    public func uploadImage(_ image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
-        // Use the new duplicate service for duplicate detection
-        duplicateService.checkForDuplicate(signature: computeImageHash(image), perceptualHash: signatureGenerator.generatePerceptualHash(for: image) ?? "") { [weak self] result in
+    func uploadImage(_ image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            let error = NSError(domain: "ImageUpload", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to JPEG"])
+            handleError(error)
+            completion(.failure(error))
+            return
+        }
+        
+        // Show progress notification
+        NotificationCenter.default.post(
+            name: .imageUploadProgress,
+            object: nil,
+            userInfo: ["progress": 0.0]
+        )
+        
+        // Process and upload image
+        contentFilterService.scanAndUpload(imageData: imageData, fileName: "image.jpg") { [weak self] result in
             switch result {
-            case .success(let isDuplicate):
-                if isDuplicate {
-                    completion(.failure(NSError(domain: "ImageUpload", code: -2, userInfo: [NSLocalizedDescriptionKey: "Duplicate image detected"])))
-                    return
-                }
+            case .allowed(let tags, let s3URL):
+                // Update progress
+                NotificationCenter.default.post(
+                    name: .imageUploadProgress,
+                    object: nil,
+                    userInfo: ["progress": 1.0]
+                )
                 
-                // If not a duplicate, proceed with S3 upload
-                let key = "images/\(UUID().uuidString).jpg"
+                // Log allowed tags
+                Logger.info("Image allowed with tags: \(tags)")
                 
-                // Convert image to data with compression
-                guard let imageData = image.jpegData(compressionQuality: 0.8) else {
-                    completion(.failure(NSError(domain: "ImageUpload", code: -3, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to data"])))
-                    return
-                }
+                // Return the S3 URL
+                completion(.success(s3URL))
                 
-                // Upload to S3 directly using AWS SDK
-                let expr = AWSS3TransferUtilityUploadExpression()
-                expr.progressBlock = { _, progress in
-                    NotificationCenter.default.post(name: .awsUploadProgress,
-                                                 object: key,
-                                                 userInfo: ["fraction": progress.fractionCompleted])
-                }
+            case .blocked(let reason, let tags):
+                // Show blocked notification
+                NotificationCenter.default.post(
+                    name: .imageUploadBlocked,
+                    object: nil,
+                    userInfo: [
+                        "reason": reason,
+                        "tags": tags
+                    ]
+                )
                 
-                AWSS3TransferUtility.default().uploadData(
-                    imageData,
-                    bucket: self?.bucket ?? "",
-                    key: key,
-                    contentType: "application/octet-stream",
-                    expression: expr) { task, error in
-                        DispatchQueue.main.async {
-                            if let error = error {
-                                completion(.failure(error))
-                                return
-                            }
-                            
-                            // After successful S3 upload, store signatures in DynamoDB
-                            self?.dynamoDBManager.storeSignature(
-                                signature: self?.computeImageHash(image) ?? "",
-                                perceptualHash: self?.signatureGenerator.generatePerceptualHash(for: image) ?? "",
-                                imageKey: key) { result in
-                                    switch result {
-                                    case .success:
-                                        completion(.success(key))
-                                    case .failure(let error):
-                                        // If DynamoDB storage fails, delete the S3 object
-                                        self?.deleteImage(key: key) { _ in }
-                                        completion(.failure(error))
-                                    }
-                            }
+                // Log blocked reason and tags
+                Logger.warn("Image blocked: \(reason), tags: \(tags)")
+                
+                // Show alert for duplicate images
+                if reason == "Duplicate image detected" {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(
+                            title: "Duplicate Image",
+                            message: "This image has been sent too many times.",
+                            preferredStyle: .alert
+                        )
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        
+                        // Present alert on topmost view controller
+                        if let topVC = UIApplication.shared.topMostViewController() {
+                            topVC.present(alert, animated: true)
                         }
+                    }
                 }
                 
-            case .failure(let error):
+                // Return error
+                let error = NSError(domain: "ImageUpload", code: -2, userInfo: [
+                    NSLocalizedDescriptionKey: reason,
+                    "tags": tags
+                ])
                 completion(.failure(error))
+                
+            case .error(let error):
+                self?.handleError(error)
+                completion(.failure(error ?? NSError(domain: "ImageUpload", code: -3)))
             }
         }
     }
     
-    private func deleteImage(key: String, completion: @escaping (Error?) -> Void) {
-        let req = AWSS3DeleteObjectRequest()!
-        req.bucket = bucket
-        req.key = key
-        AWSS3.default().deleteObject(req) { _, err in 
-            DispatchQueue.main.async { 
-                completion(err) 
-            } 
+    private func handleError(_ error: Error?) {
+        // Show error notification
+        NotificationCenter.default.post(
+            name: .imageUploadError,
+            object: nil,
+            userInfo: ["error": error as Any]
+        )
+        
+        // Log error
+        if let error = error {
+            Logger.error("Image upload error: \(error)")
+        } else {
+            Logger.error("Unknown image upload error")
         }
     }
     
@@ -133,22 +149,13 @@ public class ImageUploadViewModel {
         
         return UIImage(cgImage: outputCGImage)
     }
-    
-    // MARK: - Image Hashing
-    
-    public func computeImageHash(_ image: UIImage) -> String {
-        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
-            return UUID().uuidString
-        }
-        
-        // Use SHA-256 for image hashing
-        let hash = Cryptography.sha256(imageData)
-        return hash.hexadecimalString
-    }
 }
 
 // MARK: - Notification Names
 
 extension Notification.Name {
-    static let awsUploadProgress = Notification.Name("awsUploadProgress")
+    static let imageUploadProgress = Notification.Name("imageUploadProgress")
+    static let imageUploadBlocked = Notification.Name("imageUploadBlocked")
+    static let imageUploadError = Notification.Name("imageUploadError")
+    static let imageUploadDuplicate = Notification.Name("imageUploadDuplicate")
 } 
