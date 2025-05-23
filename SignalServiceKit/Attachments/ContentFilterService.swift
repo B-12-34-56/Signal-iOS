@@ -193,7 +193,11 @@ public class ContentFilterService: NSObject {
             return
         }
         
-        let request = AWSLambdaInvokerInvocationRequest()
+        guard let request = AWSLambdaInvokerInvocationRequest() else {
+            Logger.error("ContentFilter: Failed to create Lambda request")
+            completion(.error(ContentFilterError.analysisError("Failed to create Lambda request")))
+            return
+        }
         request.functionName = lambdaFunctionName
         request.invocationType = .requestResponse
         request.payload = jsonData

@@ -1783,11 +1783,12 @@
 		D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221A0E7169DFFC500537ABF /* AVFoundation.framework */; };
 		D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24B5BD4169F568C00681372 /* AudioToolbox.framework */; };
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
+		D602AAAE2DE0257100317FCC /* ImageHashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D602AAAD2DE0257100317FCC /* ImageHashing.swift */; };
+		D602AAB02DE0257900317FCC /* DuplicateFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D602AAAF2DE0257900317FCC /* DuplicateFilterService.swift */; };
 		D607B1BB2DD81E0F005EBAEE /* Secrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D607B1B72DD81E0F005EBAEE /* Secrets.xcconfig */; };
 		D607B1BC2DD81E0F005EBAEE /* Secrets.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = D607B1B82DD81E0F005EBAEE /* Secrets.xcconfig.example */; };
 		D64F55A62DDF840600730F25 /* DynamoDBServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F55A32DDF840600730F25 /* DynamoDBServiceManager.swift */; };
 		D64F55A72DDF840600730F25 /* AWSServiceBoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F55A22DDF840600730F25 /* AWSServiceBoot.swift */; };
-		D64F55A82DDF840600730F25 /* ImageSignatureGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64F55A42DDF840600730F25 /* ImageSignatureGenerator.swift */; };
 		D68C42612DDEB5E400D7A553 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68C42602DDEB5E400D7A553 /* AWSCore.framework */; };
 		D68C42632DDEB5E800D7A553 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68C42622DDEB5E800D7A553 /* AWSS3.framework */; };
 		D68EAAA42DDD4FA000E48F28 /* ContentFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68EAAA32DDD4FA000E48F28 /* ContentFilterService.swift */; };
@@ -5696,6 +5697,8 @@
 		D221A0E7169DFFC500537ABF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = ../../../../../../System/Library/Frameworks/AVFoundation.framework; sourceTree = "<group>"; };
 		D24B5BD4169F568C00681372 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = ../../../../../../System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<group>"; };
 		D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D602AAAD2DE0257100317FCC /* ImageHashing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHashing.swift; sourceTree = "<group>"; };
+		D602AAAF2DE0257900317FCC /* DuplicateFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateFilterService.swift; sourceTree = "<group>"; };
 		D607B1B62DD81E0F005EBAEE /* ImageScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScanService.swift; sourceTree = "<group>"; };
 		D607B1B72DD81E0F005EBAEE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		D607B1B82DD81E0F005EBAEE /* Secrets.xcconfig.example */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.xcconfig.example; sourceTree = "<group>"; };
@@ -10343,6 +10346,8 @@
 		7255A4C32B98D5A800E95368 /* Attachments */ = {
 			isa = PBXGroup;
 			children = (
+				D602AAAF2DE0257900317FCC /* DuplicateFilterService.swift */,
+				D602AAAD2DE0257100317FCC /* ImageHashing.swift */,
 				D68EAAA32DDD4FA000E48F28 /* ContentFilterService.swift */,
 				664428952C12305D0092D0E2 /* SignalAttachment+Sending.swift */,
 				66AF4D7228D1377E008A156E /* SignalAttachment+VideoSegmenting.swift */,
@@ -14779,7 +14784,6 @@
 					};
 					D221A088169C9E5E00537ABF = {
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -16988,7 +16992,6 @@
 				880D902A2480887F003D2B14 /* EmojiPickerSheet.swift in Sources */,
 				D64F55A62DDF840600730F25 /* DynamoDBServiceManager.swift in Sources */,
 				D64F55A72DDF840600730F25 /* AWSServiceBoot.swift in Sources */,
-				D64F55A82DDF840600730F25 /* ImageSignatureGenerator.swift in Sources */,
 				F090C8202762F2C5005C20FC /* EmojiReactionPickerConfigViewController.swift in Sources */,
 				8855DF87238F1E0C0066D96F /* EmojiReactorsTableView.swift in Sources */,
 				88238EBC24F21EE400F28079 /* EmojiSkinTonePicker.swift in Sources */,
@@ -17977,6 +17980,7 @@
 				F9C5CE66289453B400548EEE /* MockKeychainStorage.swift in Sources */,
 				6600BB1D2BA3ABDD0005A035 /* MockLinkPreviewManager.swift in Sources */,
 				D990CAC92B4CCB97000A99A2 /* MockLocalUsernameManager.swift in Sources */,
+				D602AAB02DE0257900317FCC /* DuplicateFilterService.swift in Sources */,
 				B9327B3E2BBCC2EB00CCDBBA /* MockNicknameManager.swift in Sources */,
 				D91AC93C2B62F7C200814975 /* MockOutgoingCallEventSyncMessageManager.swift in Sources */,
 				664657372AC371B90099DE1C /* MockPhoneNumberDiscoverabilityManager.swift in Sources */,
@@ -18548,6 +18552,7 @@
 				F9C5CBF4289453B300548EEE /* TSMessage.swift in Sources */,
 				668A00E92C2B5F59007B8808 /* TSMutex.swift in Sources */,
 				F9C5CBF3289453B300548EEE /* TSOutgoingDeleteMessage.m in Sources */,
+				D602AAAE2DE0257100317FCC /* ImageHashing.swift in Sources */,
 				D93086272C616391008E3A27 /* TSOutgoingMessage+Builder.swift in Sources */,
 				F9C5CBF6289453B300548EEE /* TSOutgoingMessage+SDS.swift in Sources */,
 				F9C5CBEB289453B300548EEE /* TSOutgoingMessage.m in Sources */,
@@ -19981,8 +19986,10 @@
 				CLANG_ADDRESS_SANITIZER_CONTAINER_OVERFLOW = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Signal/Signal.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X42J968FBA;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
@@ -20003,6 +20010,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SIGNAL_BUNDLEID_PREFIX).signal";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.joelminaya.signaldev;
 				PRODUCT_NAME = Signal;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -20235,8 +20243,10 @@
 				CLANG_ADDRESS_SANITIZER_CONTAINER_OVERFLOW = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Signal/Signal.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X42J968FBA;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_OPTIMIZATION_LEVEL = 3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -20257,6 +20267,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SIGNAL_BUNDLEID_PREFIX).signal";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.joelminaya.signaldev;
 				PRODUCT_NAME = Signal;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -20594,10 +20605,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_INTEGER = YES;
 				CODE_SIGN_ENTITLEMENTS = Signal/Signal.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = X42J968FBA;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -20617,6 +20630,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SIGNAL_BUNDLEID_PREFIX).signal";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.joelminaya.signaldev;
 				PRODUCT_NAME = Signal;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
