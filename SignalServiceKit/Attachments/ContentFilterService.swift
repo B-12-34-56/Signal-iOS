@@ -2,10 +2,14 @@ import Foundation
 import AWSS3
 import AWSCore
 import AWSLambda
-import AWSDynamoDB
 import UIKit
+import SignalServiceKit
 
-// MARK: - FilterResult Enum
+public enum FilterResult {
+    case allowed(tags: [String], s3URL: URL)
+    case blocked(reason: String, tags: [String])
+    case error(Error?)
+}
 
 public enum ContentFilterError: Error {
     case configurationError(String)
@@ -55,7 +59,6 @@ public class ContentFilterService: NSObject {
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         AWSS3.register(with: configuration!, forKey: "S3")
         AWSLambda.register(with: configuration!, forKey: "Lambda")
-        AWSDynamoDB.register(with: configuration!, forKey: "DynamoDB")
         
         // Enable AWS SDK logging
         AWSDDLog.sharedInstance.logLevel = .info
@@ -94,37 +97,6 @@ public class ContentFilterService: NSObject {
         }
     }
     
-    // MARK: - DynamoDB Duplicate Detection
-    
-    private func checkGlobalDuplicate(sha256Hash: String, completion: @escaping (Bool) -> Void) {
-        let dynamoDB = AWSDynamoDB.default()
-        let input = AWSDynamoDBGetItemInput()
-        input?.tableName = "GlobalImageHashes" // Table name must match your AWS setup
-        input?.key = ["sha256Hash": AWSDynamoDBAttributeValue(s: sha256Hash)]
-        
-        dynamoDB.getItem(input!).continueWith { task in
-            if let error = task.error {
-                Logger.error("ContentFilter: DynamoDB getItem failed: \(error)")
-                completion(false)
-                return nil
-            }
-            if let result = task.result, let item = result.item, !item.isEmpty {
-                completion(true) // Duplicate found
-            } else {
-                completion(false) // Not a duplicate
-            }
-            return nil
-        }
-    }
-    
-    private func markGlobalDuplicate(sha256Hash: String) {
-        let dynamoDB = AWSDynamoDB.default()
-        let input = AWSDynamoDBPutItemInput()
-        input?.tableName = "GlobalImageHashes"
-        input?.item = ["sha256Hash": AWSDynamoDBAttributeValue(s: sha256Hash)]
-        dynamoDB.putItem(input!)
-    }
-    
     // MARK: - Public Methods
     
     public func scanAndUpload(imageData: Data, fileName: String) async -> FilterResult {
@@ -143,61 +115,61 @@ public class ContentFilterService: NSObject {
             return
         }
         
-        // 2. Check for global duplicate using DynamoDB
-        checkGlobalDuplicate(sha256Hash: sha256Hash) { [weak self] isGlobalDuplicate in
-            if isGlobalDuplicate {
-                completion(.blocked(reason: "Global duplicate image detected", tags: []))
-                return
-            }
-            // 3. Check for local duplicate using DuplicateFilterService
-            guard let image = UIImage(data: imageData) else {
-                Logger.error("ContentFilter: Failed to create UIImage from data")
-                completion(.error(ContentFilterError.processingError("Failed to create UIImage")))
-                return
-            }
-            DuplicateFilterService.shared.checkDuplicate(image: image) { result in
-                switch result {
-                case .success(let isDuplicate):
-                    if isDuplicate {
-                        completion(.blocked(reason: "Duplicate image detected", tags: []))
+        // 2. Check for duplicates using DuplicateFilterService
+        guard let image = UIImage(data: imageData) else {
+            Logger.error("ContentFilter: Failed to create UIImage from data")
+            completion(.error(ContentFilterError.processingError("Failed to create UIImage")))
+            return
+        }
+        
+        DuplicateFilterService.shared.checkDuplicate(image: image) { [weak self] result in
+            switch result {
+            case .success(let isDuplicate):
+                if isDuplicate {
+                    completion(.blocked(reason: "Duplicate image detected", tags: []))
+                    return
+                }
+                
+                // 3. Upload to S3 bucket
+                let s3Key = "images/\(sha256Hash).jpg"
+                let expression = AWSS3TransferUtilityUploadExpression()
+                let transferUtility = AWSS3TransferUtility.default()
+                
+                transferUtility.uploadData(imageData,
+                                         bucket: self?.s3Bucket ?? "",
+                                         key: s3Key,
+                                         contentType: "image/jpeg",
+                                         expression: expression) { task, error in
+                    if let error = error {
+                        Logger.error("ContentFilter: S3 upload failed: \(error)")
+                        completion(.error(ContentFilterError.uploadError(error.localizedDescription)))
                         return
                     }
-                    // 4. Upload to S3 bucket
-                    let s3Key = "images/\(sha256Hash).jpg"
-                    let expression = AWSS3TransferUtilityUploadExpression()
-                    let transferUtility = AWSS3TransferUtility.default()
-                    transferUtility.uploadData(imageData,
-                                             bucket: self?.s3Bucket ?? "",
-                                             key: s3Key,
-                                             contentType: "image/jpeg",
-                                             expression: expression) { task, error in
-                        if let error = error {
-                            Logger.error("ContentFilter: S3 upload failed: \(error)")
-                            completion(.error(ContentFilterError.uploadError(error.localizedDescription)))
-                            return
-                        }
-                        // 5. Call Lambda function for content analysis
-                        self?.analyzeContent(s3Key: s3Key, sha256Hash: sha256Hash, perceptualHash: perceptualHash) { result in
-                            switch result {
-                            case .allowed(let tags, let s3URL):
-                                // Mark as globally uploaded
-                                self?.markGlobalDuplicate(sha256Hash: sha256Hash)
-                                completion(.allowed)
-                            case .blocked(let reason, let tags):
-                                // Delete the uploaded image since it's blocked
-                                self?.deleteS3Object(key: s3Key) { _ in }
-                                completion(.blocked(reason: reason, tags: tags))
-                            case .error(let error):
-                                // Delete the uploaded image since there was an error
-                                self?.deleteS3Object(key: s3Key) { _ in }
-                                completion(.error(error))
-                            }
+                    
+                    // 4. Call Lambda function for content analysis
+                    self?.analyzeContent(s3Key: s3Key, sha256Hash: sha256Hash, perceptualHash: perceptualHash) { result in
+                        switch result {
+                        case .allowed(let tags, _):
+                            // Create S3 URL
+                            let s3URL = URL(string: "https://\(self?.s3Bucket ?? "").s3.amazonaws.com/\(s3Key)")!
+                            completion(.allowed(tags: tags, s3URL: s3URL))
+                            
+                        case .blocked(let reason, let tags):
+                            // Delete the uploaded image since it's blocked
+                            self?.deleteS3Object(key: s3Key) { _ in }
+                            completion(.blocked(reason: reason, tags: tags))
+                            
+                        case .error(let error):
+                            // Delete the uploaded image since there was an error
+                            self?.deleteS3Object(key: s3Key) { _ in }
+                            completion(.error(error))
                         }
                     }
-                case .failure(let error):
-                    Logger.error("ContentFilter: Duplicate check failed: \(error)")
-                    completion(.error(ContentFilterError.duplicateError(error.localizedDescription)))
                 }
+                
+            case .failure(let error):
+                Logger.error("ContentFilter: Duplicate check failed: \(error)")
+                completion(.error(ContentFilterError.duplicateError(error.localizedDescription)))
             }
         }
     }
@@ -274,7 +246,7 @@ public class ContentFilterService: NSObject {
                 } else {
                     // Create S3 URL for allowed images
                     let s3URL = URL(string: "https://\(self.s3Bucket).s3.amazonaws.com/\(s3Key)")!
-                    completion(.allowed)
+                    completion(.allowed(tags: tags, s3URL: s3URL))
                 }
                 
                 return nil

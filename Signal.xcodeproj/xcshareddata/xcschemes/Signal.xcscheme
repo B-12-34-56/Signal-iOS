@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1600"
+   LastUpgradeVersion = "1620"
    version = "1.8">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -108,6 +108,7 @@
                ReferencedContainer = "container:Signal.xcodeproj">
             </BuildableReference>
          </TestableReference>
+<<<<<<< HEAD
          <TestableReference
             skipped = "NO"
             parallelizable = "YES">
@@ -119,6 +120,8 @@
                ReferencedContainer = "container:Signal.xcodeproj">
             </BuildableReference>
          </TestableReference>
+=======
+>>>>>>> origin/Ibrahim
       </Testables>
    </TestAction>
    <LaunchAction

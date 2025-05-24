@@ -193,6 +193,7 @@ public final class GlobalSignatureService {
         return false
     }
     
+<<<<<<< HEAD
     /// Checks if a content hash exists in the DynamoDB database and returns the S3 key if found.
     /// - Parameters:
     ///   - hash: The content hash to check (Base64 encoded)
@@ -260,11 +261,21 @@ public final class GlobalSignatureService {
     /// - Returns: A boolean indicating success (includes case where item already existed)
     @discardableResult
     public func store(hash: String, s3Key: String, retryCount: Int? = nil) async -> Bool {
+=======
+    /// Stores a content hash in the DynamoDB database with retry logic and idempotency.
+    /// - Parameters:
+    ///   - hash: The content hash to store (Base64 encoded)
+    ///   - retryCount: Optional maximum number of attempts, defaults to class default
+    /// - Returns: A boolean indicating success (includes case where item already existed)
+    @discardableResult
+    public func store(_ hash: String, retryCount: Int? = nil) async -> Bool {
+>>>>>>> origin/Ibrahim
         let maxAttempts = retryCount ?? defaultRetryCount
         guard let input = AWSDynamoDBPutItemInput() else {
             logger.error("[Store] Failed to create PutItemInput for hash store: \(hash.prefix(8))")
             return false
         }
+<<<<<<< HEAD
         input.tableName = tableName
         let currentDate = Date()
         let timestampString = ISO8601DateFormatter().string(from: currentDate)
@@ -287,6 +298,42 @@ public final class GlobalSignatureService {
         for attempt in 0..<maxAttempts {
             do {
                 logger.debug("[Store] Attempt \(attempt + 1)/\(maxAttempts) to store hash \(hash.prefix(8))")
+=======
+        
+        input.tableName = tableName
+        
+        // Current timestamp in ISO8601 format
+        let currentDate = Date()
+        let timestampString = ISO8601DateFormatter().string(from: currentDate)
+        
+        // Calculate TTL timestamp for automatic expiration
+        let ttlTimestampValue = calculateTTLTimestamp()
+        
+        // Create the attribute values
+        guard let hashAttr = createStringAttributeValue(hash),
+              let timestampAttr = createStringAttributeValue(timestampString),
+              let ttlAttr = createNumberAttributeValue(ttlTimestampValue) else {
+            logger.error("[Store] Failed to create one or more AttributeValues for hash store: \(hash.prefix(8))")
+            return false
+        }
+        
+        // Create item with hash, timestamp, and TTL attributes
+        input.item = [
+            hashFieldName: hashAttr,
+            timestampFieldName: timestampAttr,
+            ttlFieldName: ttlAttr
+        ]
+        
+        // Use condition expression to only insert if the item doesn't already exist (ensures idempotency)
+        input.conditionExpression = "attribute_not_exists(#hashKey)"
+        input.expressionAttributeNames = ["#hashKey": hashFieldName]
+        
+        for attempt in 0..<maxAttempts {
+            do {
+                logger.debug("[Store] Attempt \(attempt + 1)/\(maxAttempts) to store hash \(hash.prefix(8))")
+                
+                // Using try-await pattern to make AWS SDK work with structured concurrency
+>>>>>>> origin/Ibrahim
                 _ = try await withCheckedThrowingContinuation { continuation in
                     _ = client.putItem(input).continueWith { task in
                         if let error = task.error {
@@ -297,18 +344,34 @@ public final class GlobalSignatureService {
                         return nil
                     }
                 }
+<<<<<<< HEAD
                 logger.info("[Store] Successfully stored hash \(hash.prefix(8)) in DynamoDB.")
                 return true // Success
             } catch let error as NSError {
+=======
+                
+                logger.info("[Store] Successfully stored hash \(hash.prefix(8)) in DynamoDB.")
+                return true // Success
+                
+            } catch let error as NSError {
+                // Check specifically for ConditionalCheckFailedException (means item already exists - considered success for idempotency)
+>>>>>>> origin/Ibrahim
                 if error.domain == AWSDynamoDBErrorDomain, error.code == AWSDynamoDBErrorType.conditionalCheckFailed.rawValue {
                     logger.info("[Store] Hash \(hash.prefix(8)) already exists in DynamoDB (ConditionalCheckFailedException). Considered successful.")
                     return true // Item already exists, which is fine for idempotency
                 }
+<<<<<<< HEAD
                 logger.warning("[Store] DynamoDB putItem failed for hash \(hash.prefix(8)) (attempt \(attempt + 1)/\(maxAttempts)): \(error.localizedDescription), Code: \(error.code), Domain: \(error.domain)")
+=======
+                
+                logger.warning("[Store] DynamoDB putItem failed for hash \(hash.prefix(8)) (attempt \(attempt + 1)/\(maxAttempts)): \(error.localizedDescription), Code: \(error.code), Domain: \(error.domain)")
+                
+>>>>>>> origin/Ibrahim
                 guard isRetryableAWSError(error), attempt < maxAttempts - 1 else {
                     logger.error("[Store] DynamoDB putItem failed after \(attempt + 1) attempts for hash \(hash.prefix(8)). Will not retry.")
                     return false // exhausted retries or non-retryable error
                 }
+<<<<<<< HEAD
                 let delay = AWSConfig.calculateBackoffDelay(attempt: attempt)
                 logger.info("[Store] Retrying DynamoDB putItem for hash \(hash.prefix(8)) after \(String(format: "%.2f", delay)) seconds...")
                 try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
@@ -317,10 +380,30 @@ public final class GlobalSignatureService {
                 if attempt >= maxAttempts - 1 {
                     return false
                 }
+=======
+                
+                // Apply exponential backoff with jitter
+                let delay = AWSConfig.calculateBackoffDelay(attempt: attempt)
+                logger.info("[Store] Retrying DynamoDB putItem for hash \(hash.prefix(8)) after \(String(format: "%.2f", delay)) seconds...")
+                try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
+                
+            } catch {
+                logger.error("[Store] An unexpected error occurred during DynamoDB putItem for hash \(hash.prefix(8)) (attempt \(attempt + 1)/\(maxAttempts)): \(error)")
+                
+                if attempt >= maxAttempts - 1 {
+                    return false
+                }
+                
+                // Apply backoff for unexpected errors too
+>>>>>>> origin/Ibrahim
                 let delay = AWSConfig.calculateBackoffDelay(attempt: attempt)
                 try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
             }
         }
+<<<<<<< HEAD
+=======
+        
+>>>>>>> origin/Ibrahim
         logger.error("[Store] Reached end of store function unexpectedly for hash \(hash.prefix(8)).")
         return false
     }

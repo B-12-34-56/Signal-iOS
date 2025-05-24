@@ -5,6 +5,7 @@
 
 # Exclude user build config files
 Config/User*.xcconfig
+secrets.xcconfig
 
 # Exclude the build directory
 build/*
@@ -45,3 +46,5 @@ Scripts/sds_codegen/sds-includes/*
 /.vscode
 
 fastlane/Preview.html
+
+

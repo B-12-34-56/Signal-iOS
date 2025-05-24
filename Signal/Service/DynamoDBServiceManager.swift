@@ -174,6 +174,7 @@ class DynamoDBServiceManager {
         guard a.count == b.count else { return Int.max }
         return zip(a, b).filter { $0 != $1 }.count
     }
+<<<<<<< HEAD
 
     // MARK: - S3 Key Lookup for Deduplication
     func getS3Key(for hash: String) async -> String? {
@@ -223,4 +224,6 @@ class DynamoDBServiceManager {
             return false
         }
     }
+=======
+>>>>>>> origin/Ibrahim
 }

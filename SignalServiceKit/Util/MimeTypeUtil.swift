@@ -119,9 +119,31 @@ public enum MimeTypeUtil {
     }
 
     public static func mimeTypeForFileExtension(_ fileExtension: String) -> String? {
-        owsAssertDebug(!fileExtension.isEmpty)
-        return genericExtensionTypesToMimeTypes[fileExtension]
+        let key = fileExtension.lowercased()
+
+        // Accept an empty extension instead of crashing.
+        guard !key.isEmpty else {
+            Logger.warn("Empty file extension")
+            return nil                          // <- was octet-stream
+        }
+
+        if genericExtensionTypesToMimeTypes[key] == nil {
+            // TEMP DEBUG:
+            print("⚠️ UNKNOWN EXTENSION:", key)
+        }
+
+        if let mime = genericExtensionTypesToMimeTypes[key] {
+            return mime
+        }
+        if let utType = UTType(filenameExtension: key),
+           let mime  = utType.preferredMIMEType {
+            return mime                                      // graceful fallback
+        }
+
+        Logger.warn("Unknown extension \(key)")
+        return nil                              // <- nil means "unknown"
     }
+
     public static func fileExtensionForUtiType(_ utiType: String) -> String? {
         // Special-case the "aac" filetype we use for voice messages (for legacy reasons)
         // to use a .m4a file extension, not .aac, since AVAudioPlayer can't handle .aac
@@ -132,6 +154,7 @@ public enum MimeTypeUtil {
             return UTType(utiType)?.preferredFilenameExtension
         }
     }
+
     public static func fileExtensionForMimeType(_ mimeType: String) -> String? {
         if mimeType == MimeType.textXSignalPlain.rawValue {
             return oversizeTextAttachmentFileExtension
@@ -143,8 +166,9 @@ public enum MimeTypeUtil {
         // converting to a UTI type.  For example, .m4a files will have a
         // UTI type of kUTTypeMPEG4Audio which incorrectly yields the file
         // extension .mp4 instead of .m4a.
-        return genericMimeTypesToExtensionTypes[mimeType] ?? fileExtensionForMimeTypeViaUtiType(mimeType)
+        return genericExtensionTypesToMimeTypes[mimeType] ?? fileExtensionForMimeTypeViaUtiType(mimeType)
     }
+
     private static func fileExtensionForMimeTypeViaUtiType(_ mimeType: String) -> String? {
         guard let utiType = utiTypeForMimeType(mimeType) else {
             return nil
@@ -2271,6 +2295,9 @@ public enum MimeTypeUtil {
         "zir": "application/vnd.zul",
         "zirz": "application/vnd.zul",
         "zmm": "application/vnd.handheld-entertainment+xml",
+        "dng": "image/x-adobe-dng",
+        "heics": "image/heic-sequence",
+        "heifs": "image/heif-sequence"
     ]
 }
 

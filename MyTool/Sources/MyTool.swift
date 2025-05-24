@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // The Swift Programming Language
 // https://docs.swift.org/swift-book
 // 
@@ -12,3 +13,14 @@ struct MyTool: ParsableCommand {
         print("Hello, world!")
     }
 }
+=======
+import Foundation
+
+public struct MyTool {
+    public init() {}
+ 
+    public func doSomething() {
+        // Add your implementation here
+    }
+} 
+>>>>>>> origin/Ibrahim

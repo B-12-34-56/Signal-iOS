@@ -8,6 +8,7 @@
         "revision" : "88dc028dc240ddbb617f4d7d85d1c4e3495e3295",
         "version" : "2.40.2"
       }
+<<<<<<< HEAD
     },
     {
       "identity" : "swift-argument-parser",
@@ -26,6 +27,8 @@
         "revision" : "3d8596ed08bd13520157f0355e35caed215ffbfa",
         "version" : "1.6.3"
       }
+=======
+>>>>>>> origin/Ibrahim
     }
   ],
   "version" : 2

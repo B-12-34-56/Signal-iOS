@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1600"
+   LastUpgradeVersion = "1620"
    wasCreatedForAppExtension = "YES"
    version = "2.0">
    <BuildAction
@@ -64,6 +64,7 @@
                ReferencedContainer = "container:Signal.xcodeproj">
             </BuildableReference>
          </TestableReference>
+<<<<<<< HEAD
          <TestableReference
             skipped = "NO"
             parallelizable = "YES">
@@ -75,6 +76,8 @@
                ReferencedContainer = "container:Signal.xcodeproj">
             </BuildableReference>
          </TestableReference>
+=======
+>>>>>>> origin/Ibrahim
       </Testables>
    </TestAction>
    <LaunchAction

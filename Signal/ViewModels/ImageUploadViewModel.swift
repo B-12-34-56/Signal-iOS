@@ -1,6 +1,10 @@
 import Foundation
 import UIKit
 import AWSS3
+<<<<<<< HEAD
+=======
+import SignalServiceKit
+>>>>>>> origin/Ibrahim
 
 public enum ImageFilter {
     case none
@@ -10,6 +14,7 @@ public enum ImageFilter {
 }
 
 public class ImageUploadViewModel: NSObject {
+<<<<<<< HEAD
     public override init() {}
     
     // MARK: - Image Upload
@@ -34,6 +39,87 @@ public class ImageUploadViewModel: NSObject {
                 }
             case .failure(let error):
                 completion(.failure(error))
+=======
+    private let contentFilterService = ContentFilterService.shared
+    
+    public init() {}
+    
+    // MARK: - Image Upload
+    
+    func uploadImage(_ image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+            let error = NSError(domain: "ImageUpload", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to JPEG"])
+            handleError(error)
+            completion(.failure(error))
+            return
+        }
+        
+        // Show progress notification
+        NotificationCenter.default.post(
+            name: .imageUploadProgress,
+            object: nil,
+            userInfo: ["progress": 0.0]
+        )
+        
+        // Process and upload image
+        contentFilterService.scanAndUpload(imageData: imageData, fileName: "image.jpg") { [weak self] result in
+            switch result {
+            case .allowed(let tags, let s3URL):
+                // Update progress
+                NotificationCenter.default.post(
+                    name: .imageUploadProgress,
+                    object: nil,
+                    userInfo: ["progress": 1.0]
+                )
+                
+                // Log allowed tags
+                Logger.info("Image allowed with tags: \(tags)")
+                
+                // Return the S3 URL
+                completion(.success(s3URL))
+                
+            case .blocked(let reason, let tags):
+                // Show blocked notification
+                NotificationCenter.default.post(
+                    name: .imageUploadBlocked,
+                    object: nil,
+                    userInfo: [
+                        "reason": reason,
+                        "tags": tags
+                    ]
+                )
+                
+                // Log blocked reason and tags
+                Logger.warn("Image blocked: \(reason), tags: \(tags)")
+                
+                // Show alert for duplicate images
+                if reason == "Duplicate image detected" {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(
+                            title: "Duplicate Image",
+                            message: "This image has been sent too many times.",
+                            preferredStyle: .alert
+                        )
+                        alert.addAction(UIAlertAction(title: "OK", style: .default))
+                        
+                        // Present alert on topmost view controller
+                        if let topVC = UIApplication.shared.topMostViewController() {
+                            topVC.present(alert, animated: true)
+                        }
+                    }
+                }
+                
+                // Return error
+                let error = NSError(domain: "ImageUpload", code: -2, userInfo: [
+                    NSLocalizedDescriptionKey: reason,
+                    "tags": tags
+                ])
+                completion(.failure(error))
+                
+            case .error(let error):
+                self?.handleError(error)
+                completion(.failure(error ?? NSError(domain: "ImageUpload", code: -3)))
+>>>>>>> origin/Ibrahim
             }
         }
     }
@@ -95,6 +181,7 @@ public class ImageUploadViewModel: NSObject {
     }
 }
 
+<<<<<<< HEAD
 // MARK: - Data SHA256 Helper
 
 private extension Data {
@@ -110,6 +197,8 @@ private extension Data {
     }
 }
 
+=======
+>>>>>>> origin/Ibrahim
 // MARK: - Notification Names
 
 extension Notification.Name {

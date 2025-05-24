@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
+<<<<<<< HEAD
 <!--
 AWS S3 Testing Information
 
@@ -50,6 +51,8 @@ See implementation docs for code samples.
 - Never expose real credentials in public repositories.
 - Presigned URLs provide secure, time-limited access for uploads.
 -->
+=======
+>>>>>>> origin/Ibrahim
 <dict>
     <key>AWS_ACCESS_KEY_ID</key>
     <string>$(AWS_ACCESS_KEY_ID)</string>

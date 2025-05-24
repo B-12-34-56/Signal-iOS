@@ -2,6 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<<<<<<< HEAD
+=======
+	<key>AWSContentFilterBucket</key>
+	<string>your-content-filter-bucket</string>
+	<key>AWSContentFilterFunction</key>
+	<string>your-content-filter-function</string>
+	<key>AWSContentFilterPoolID</key>
+	<string>us-east-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</string>
+	<key>AWSContentFilterRegion</key>
+	<string>us-east-1</string>
+	<key>AWSContentFilterTable</key>
+	<string>your-content-filter-table</string>
+	<key>AWS_ACCESS_KEY</key>
+	<string>$(AWS_ACCESS_KEY)</string>
+	<key>AWS_REGION</key>
+	<string>us-east-1</string>
+	<key>AWS_SECRET_KEY</key>
+	<string>$(AWS_SECRET_KEY)</string>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>AttachmentValidationBackfillMigrator</string>
+		<string>MessageAttachmentMigrationTask</string>
+		<string>MessageFetchBGRefreshTask</string>
+		<string>LazyDatabaseMigratorTask</string>
+	</array>
+	<key>BuildDetails</key>
+	<dict/>
+>>>>>>> origin/Ibrahim
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -17,6 +45,110 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
+<<<<<<< HEAD
 	<string>1</string>
+=======
+	<string>0</string>
+	<key>DuplicateThreshold</key>
+	<integer>3</integer>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<key>LOGS_EMAIL</key>
+	<string>support@signal.org</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.social-networking</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>maps</string>
+		<string>comgooglemaps</string>
+		<string>mailto</string>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>amazonaws.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>signal.org</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Signal needs to use Apple Music to play media attachments.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_sgnl-new-device._tcp</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Signal uses your camera to take photos and for video calls.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>Signal uses your contacts to find users you know. We do not store your contacts on the server.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Signal's Screen Lock uses Face ID.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Signal uses the local network to allow you to directly transfer your account to a new phone. It will not be used unless you explicitly choose to initiate a transfer to a new device.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Signal needs access to your location in order to share your current location.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Signal needs access to your microphone to make and receive phone calls and record voice messages.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Signal will save photos to your library.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Signal will let you choose which photos from your library to send.</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>INSendMessageIntent</string>
+		<string>INStartCallIntent</string>
+	</array>
+	<key>OWSBundleIDPrefix</key>
+	<string>$(SIGNAL_BUNDLEID_PREFIX)</string>
+	<key>OWSMerchantID</key>
+	<string>$(SIGNAL_MERCHANTID)</string>
+	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
+	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+		<string>voip</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>Launch Screen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+>>>>>>> origin/Ibrahim
 </dict>
 </plist>
