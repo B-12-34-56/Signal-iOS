@@ -15,30 +15,30 @@ public enum AWSConfig {
     // MARK: - DynamoDB Configuration
 
     /// The name of the DynamoDB table that stores content hashes
-    public static let dynamoDbTableName = "ImageSignatures"
+    public static let dynamoDbTableName = "DUMMY_DYNAMODB_TABLE" // TODO: Replace with env var or secrets manager
 
     /// The AWS region where the DynamoDB table is located
     public static let dynamoDbRegion = "us-east-1"
 
     /// The endpoint URL for operations, now pointing to API Gateway which might proxy DynamoDB actions.
-    public static let dynamoDbEndpoint = "https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1" // Updated Endpoint
+    public static let dynamoDbEndpoint = "https://dummy-api-gateway.execute-api.us-east-1.amazonaws.com/Stage1" // TODO: Replace with env var or secrets manager
 
     /// The endpoint URL for the API Gateway (same as above for now)
-    public static let apiGatewayEndpoint = "https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1"
+    public static let apiGatewayEndpoint = "https://dummy-api-gateway.execute-api.us-east-1.amazonaws.com/Stage1" // TODO: Replace with env var or secrets manager
 
     /// The endpoint URL for the GetTag-specific API Gateway
-    public static let getTagApiGatewayEndpoint = "https://epzoie02m0.execute-api.us-east-1.amazonaws.com/GetTag1"
+    public static let getTagApiGatewayEndpoint = "https://dummy-gettag-api.execute-api.us-east-1.amazonaws.com/GetTag1" // TODO: Replace with env var or secrets manager
 
     // MARK: - Cognito Authentication
 
     /// The Cognito Identity Pool ID for authentication (Production Value)
-    public static let identityPoolId = "us-east-1:ee264a1b-9b89-4e4a-a346-9128da47af97"
+    public static let identityPoolId = "us-east-1:dummy-identity-pool-id" // TODO: Replace with env var or secrets manager
 
     /// The AWS region for the Cognito service
     public static let cognitoRegion = AWSRegionType.USEast1
 
     /// API Key for the API Gateway (Replace with secure retrieval method)
-    public static let apiKey = "YOUR_API_GATEWAY_API_KEY_PLACEHOLDER"
+    public static let apiKey = "DUMMY_API_KEY" // TODO: Replace with env var or secrets manager
 
     // MARK: - TTL Configuration
 
