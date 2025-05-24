@@ -1,10 +1,7 @@
 import Foundation
 import UIKit
 import AWSS3
-<<<<<<< HEAD
-=======
 import SignalServiceKit
->>>>>>> origin/Ibrahim
 
 public enum ImageFilter {
     case none
@@ -14,32 +11,6 @@ public enum ImageFilter {
 }
 
 public class ImageUploadViewModel: NSObject {
-<<<<<<< HEAD
-    public override init() {}
-    
-    // MARK: - Image Upload
-    
-    func computeImageHash(_ image: UIImage) -> String {
-        guard let data = image.jpegData(compressionQuality: 0.8) else { return "" }
-        return data.sha256()
-    }
-    
-    func checkImageSignature(hash: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        AWSService.shared.checkImageSignature(hash: hash, completion: completion)
-    }
-    
-    func uploadImage(_ image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
-        AWSService.shared.uploadImage(image) { result in
-            switch result {
-            case .success(let urlString):
-                if let url = URL(string: urlString) {
-                    completion(.success(url))
-                } else {
-                    completion(.failure(NSError(domain: "ImageUpload", code: -4, userInfo: [NSLocalizedDescriptionKey: "Invalid S3 URL string"])) )
-                }
-            case .failure(let error):
-                completion(.failure(error))
-=======
     private let contentFilterService = ContentFilterService.shared
     
     public init() {}
@@ -119,7 +90,6 @@ public class ImageUploadViewModel: NSObject {
             case .error(let error):
                 self?.handleError(error)
                 completion(.failure(error ?? NSError(domain: "ImageUpload", code: -3)))
->>>>>>> origin/Ibrahim
             }
         }
     }
@@ -181,24 +151,6 @@ public class ImageUploadViewModel: NSObject {
     }
 }
 
-<<<<<<< HEAD
-// MARK: - Data SHA256 Helper
-
-private extension Data {
-    func sha256() -> String {
-        if #available(iOS 13.0, *) {
-            import CryptoKit
-            let digest = CryptoKit.SHA256.hash(data: self)
-            return digest.map { String(format: "%02x", $0) }.joined()
-        } else {
-            // Fallback for older iOS
-            return self.base64EncodedString()
-        }
-    }
-}
-
-=======
->>>>>>> origin/Ibrahim
 // MARK: - Notification Names
 
 extension Notification.Name {

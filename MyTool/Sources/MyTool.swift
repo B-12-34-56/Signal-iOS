@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
-// 
-// Swift Argument Parser
-// https://swiftpackageindex.com/apple/swift-argument-parser/documentation
-
-import ArgumentParser
-
-@main
-struct MyTool: ParsableCommand {
-    mutating func run() throws {
-        print("Hello, world!")
-    }
-}
-=======
 import Foundation
 
 public struct MyTool {
@@ -23,4 +7,3 @@ public struct MyTool {
         // Add your implementation here
     }
 } 
->>>>>>> origin/Ibrahim

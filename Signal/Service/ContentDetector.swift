@@ -7,13 +7,6 @@ struct ContentDetector {
         return digest.map { String(format: "%02x", $0) }.joined()
     }
 
-<<<<<<< HEAD
-    static func determineImageExtension(for image: UIImage, data: Data) -> String {
-        if data.starts(with: [0x89, 0x50, 0x4E, 0x47]) { return "png" }
-        if data.starts(with: [0xFF, 0xD8]) { return "jpg" }
-        // Add more formats as needed (gif, webp, heic, etc.)
-        if let cgImage = image.cgImage, cgImage.alphaInfo != .none { return "png" }
-=======
     static func determineImageExtension(from data: Data) -> String {
         guard data.count > 12 else { return "jpg" }
         if data.starts(with: [0x89, 0x50, 0x4E, 0x47]) { return "png" }
@@ -25,7 +18,6 @@ struct ContentDetector {
                 return "heic"
             }
         }
->>>>>>> origin/Ibrahim
         return "jpg"
     }
 } 

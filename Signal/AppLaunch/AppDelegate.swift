@@ -10,12 +10,8 @@ import SignalServiceKit
 import SignalUI
 import WebRTC
 import AWSCore
-<<<<<<< HEAD
-
-=======
 import AWSS3
 import AWSDynamoDB
->>>>>>> origin/Ibrahim
 
 enum LaunchPreflightError {
     case unknownDatabaseVersion

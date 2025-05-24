@@ -1145,11 +1145,7 @@ DEALINGS IN THE SOFTWARE.
 			<key>License</key>
 			<string>Apache License, Version 2.0</string>
 			<key>Title</key>
-<<<<<<< HEAD
-			<string>AWSCore, AWSDynamoDB</string>
-=======
 			<string>AWSAPIGateway, AWSCognitoIdentityProvider, AWSCognitoIdentityProviderASF, AWSCore, AWSDynamoDB, AWSLambda, AWSS3</string>
->>>>>>> origin/Ibrahim
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

@@ -1,58 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<<<<<<< HEAD
-<!--
-AWS S3 Testing Information
-
-This document summarizes all AWS S3 configuration, credentials, bucket/folder info, and upload details needed for API testing, based on the implementation documentation.
-
----
-
-1. S3 Buckets and Folders
-- Web: Bucket Name: dxtnhmfqv8, Subfolder: uploads/
-- Mobile: Bucket Name: filter-slide, Subfolder: image-test/
-- Common Region: us-east-1
-
-2. AWS Credentials (for Testing)
-- Access Key ID: AKIAU6GD3P3JDEGAPNG5
-- Secret Access Key: Ili4MwV+lJExQlxe/6duNJAxsX6KDOcCKqnHK6UN
-
-3. S3 Client Configuration Example
-See implementation docs for code samples.
-
-4. Presigned URL Upload Example
-See implementation docs for code samples.
-
-5. Other Notes
-- Presigned URLs are used for secure uploads.
-- Content-Type must be set properly.
-- File key is generated as ${SUBFOLDER}${filename}.
-- File size and type validation is performed before upload.
-
-6. Lambda Integration (Post-Upload)
-- Used for image deduplication and tag detection (AWS Rekognition).
-
-7. Summary Table
-| Platform | Bucket Name   | Subfolder    | Region     | Access Key ID         | Secret Access Key                      |
-|----------|--------------|-------------|------------|----------------------|----------------------------------------|
-| Web      | dxtnhmfqv8   | uploads/    | us-east-1  | AKIAU6GD3P3JDEGAPNG5 | Ili4MwV+lJExQlxe/6duNJAxsX6KDOcCKqnHK6UN |
-| Mobile   | filter-slide | image-test/ | us-east-1  | AKIAU6GD3P3JDEGAPNG5 | Ili4MwV+lJExQlxe/6duNJAxsX6KDOcCKqnHK6UN |
-
-8. Dependencies
-- @aws-sdk/client-s3: ^3.744.0
-- @aws-sdk/s3-request-presigner: ^3.744.0
-- expo: ^52.0.38 (for mobile)
-- react: ^19.0.0
-- react-dom: ^19.0.0
-
-9. Security Notes
-- Use environment variables for credentials in production.
-- Never expose real credentials in public repositories.
-- Presigned URLs provide secure, time-limited access for uploads.
--->
-=======
->>>>>>> origin/Ibrahim
 <dict>
     <key>AWS_ACCESS_KEY_ID</key>
     <string>$(AWS_ACCESS_KEY_ID)</string>

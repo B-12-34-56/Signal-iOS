@@ -6,13 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm",
       "state" : {
-<<<<<<< HEAD
-        "revision" : "88dc028dc240ddbb617f4d7d85d1c4e3495e3295",
-        "version" : "2.40.2"
-=======
         "revision" : "512a43ed2770957d40618ad415a9826e6dd99ea9",
         "version" : "2.40.1"
->>>>>>> origin/Ibrahim
       }
     },
     {
