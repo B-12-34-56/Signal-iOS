@@ -4,25 +4,41 @@ import AWSS3
 
 class AWSService {
     static let shared = AWSService()
-    private var uploadedImageCache: [String: String] = [:]
+    private var uploadedImageCache: [String: String] {
+        get { UserDefaults.standard.dictionary(forKey: "ImageHashCache") as? [String: String] ?? [:] }
+        set { UserDefaults.standard.set(newValue, forKey: "ImageHashCache") }
+    }
 
-    func uploadImage(_ image: UIImage, progressHandler: ((Double) -> Void)? = nil, completion: @escaping (Result<String, Error>) -> Void) {
+    func uploadImageWithOriginalData(
+        _ image: UIImage,
+        originalData: Data?,
+        fileURL: URL?,
+        progressHandler: ((Double) -> Void)? = nil,
+        completion: @escaping (Result<String, Error>) -> Void
+    ) {
+        let hash: String
         let imageData: Data
         let fileExt: String
-        if let pngData = image.pngData() {
-            imageData = pngData
-            fileExt = "png"
-        } else if let jpegData = image.jpegData(compressionQuality: 1.0) {
-            imageData = jpegData
-            fileExt = "jpg"
+
+        if let original = originalData {
+            hash = ContentDetector.computeImageHash(data: original)
+            imageData = original
+            fileExt = ContentDetector.determineImageExtension(from: original)
+        } else if let url = fileURL, let fileData = try? Data(contentsOf: url) {
+            hash = ContentDetector.computeImageHash(data: fileData)
+            imageData = fileData
+            fileExt = url.pathExtension.isEmpty ? "jpg" : url.pathExtension
         } else {
-            completion(.failure(NSError(domain: "AWSService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid image data"])))
-            return
+            guard let normalizedData = normalizeImage(image) else {
+                completion(.failure(NSError(domain: "AWSService", code: -1)))
+                return
+            }
+            hash = ContentDetector.computeImageHash(data: normalizedData)
+            imageData = normalizedData
+            fileExt = "jpg"
         }
 
-        let hash = ContentDetector.computeImageHash(data: imageData)
-        let ext = ContentDetector.determineImageExtension(for: image, data: imageData)
-        let objectKey = "images/\(hash).\(ext)"
+        let objectKey = "images/\(hash).\(fileExt)"
 
         if let cachedURL = uploadedImageCache[hash] {
             completion(.success(cachedURL))
@@ -57,6 +73,20 @@ class AWSService {
                 completion(.failure(error))
             }
         }
+    }
+
+    private func normalizeImage(_ image: UIImage) -> Data? {
+        let maxSize: CGFloat = 2048
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1.0
+        let size = image.size
+        let renderer = UIGraphicsImageRenderer(size: size, format: format)
+        let normalizedImage = renderer.image { context in
+            UIColor.black.setFill()
+            context.fill(CGRect(origin: .zero, size: size))
+            image.draw(in: CGRect(origin: .zero, size: size))
+        }
+        return normalizedImage.jpegData(compressionQuality: 0.95)
     }
 
     func generateS3Key(for data: Data) -> String {
