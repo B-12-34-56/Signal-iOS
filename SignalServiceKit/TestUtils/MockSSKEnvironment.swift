@@ -16,14 +16,21 @@ public class MockSSKEnvironment {
         SetCurrentAppContext(testAppContext)
         let appReadiness = AppReadinessImpl()
 
-        _ = await AppSetup().start(
-            appContext: testAppContext,
-            appReadiness: appReadiness,
-            databaseStorage: try! SDSDatabaseStorage(
+        let databaseStorage: SDSDatabaseStorage
+        do {
+            databaseStorage = try SDSDatabaseStorage(
                 appReadiness: appReadiness,
                 databaseFileUrl: SDSDatabaseStorage.grdbDatabaseFileUrl,
                 keychainStorage: MockKeychainStorage()
-            ),
+            )
+        } catch {
+            fatalError("Failed to initialize SDSDatabaseStorage: \(error)")
+        }
+
+        _ = await AppSetup().start(
+            appContext: testAppContext,
+            appReadiness: appReadiness,
+            databaseStorage: databaseStorage,
             paymentsEvents: PaymentsEventsNoop(),
             mobileCoinHelper: MobileCoinHelperMock(),
             callMessageHandler: NoopCallMessageHandler(),

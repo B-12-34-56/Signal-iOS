@@ -397,7 +397,10 @@ public class MessageSender {
         dataSource: DataSource,
         localThread: TSContactThread
     ) async throws {
-        let uploadResult = try await DependenciesBridge.shared.attachmentUploadManager.uploadTransientAttachment(
+        guard let uploadManager = DependenciesBridge.shared.attachmentUploadManager else {
+            throw MessageSenderError.attachmentUploadManagerUnavailable
+        }
+        let uploadResult = try await uploadManager.uploadTransientAttachment(
             dataSource: dataSource
         )
         let message = SSKEnvironment.shared.databaseStorageRef.read { tx in

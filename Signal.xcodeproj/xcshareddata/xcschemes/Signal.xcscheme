@@ -108,6 +108,17 @@
                ReferencedContainer = "container:Signal.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3AE922502DE2544100777D2D"
+               BuildableName = "SignalTests2.xctest"
+               BlueprintName = "SignalTests2"
+               ReferencedContainer = "container:Signal.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

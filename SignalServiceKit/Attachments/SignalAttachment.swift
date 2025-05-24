@@ -1091,7 +1091,7 @@ public class SignalAttachment: NSObject {
         }
 
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
-            throw SignalAttachmentError.missingData
+            throw SignalAttachmentError.invalidFileFormat
         }
 
         guard let type = CGImageSourceGetType(source) else {
@@ -1390,26 +1390,5 @@ public class SignalAttachment: NSObject {
 
         // Attachment is valid
         return attachment
-    }
-
-    public func checkContentFilter() async throws {
-        guard isValidImage || isValidVideo else { return }
-        
-        let result = await ContentFilterService.shared.scanAndUpload(imageData: data, fileName: sourceFilename ?? "attachment")
-        contentFilterResult = result
-        
-        switch result {
-        case .allowed:
-            return
-        case .blocked(let reason, let tags):
-            error = .contentFiltered(reason: reason, tags: tags)
-            throw error!
-        case .error(let error):
-            if let error = error {
-                throw error
-            }
-            // On filter error, we allow the attachment to proceed
-            return
-        }
     }
 }

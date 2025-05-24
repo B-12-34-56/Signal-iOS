@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import SignalServiceKit
 
 /// Wraps a TSOutgoingMessage that:
 /// * Is already inserted to the database, if the message type needs inserting
@@ -248,7 +249,7 @@ public class PreparedOutgoingMessage {
     public func attachmentUploadOperations(tx: DBReadTransaction) -> [() async throws -> Void] {
         return attachmentIdsForUpload(tx: tx).map { attachmentId in
             return {
-                try await DependenciesBridge.shared.attachmentUploadManager.uploadTransitTierAttachment(
+                try await DependenciesBridge.shared.attachmentUploadManager?.uploadTransitTierAttachment(
                     attachmentId: attachmentId
                 )
             }

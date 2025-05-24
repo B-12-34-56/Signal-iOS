@@ -1205,8 +1205,6 @@ public class AppSetup {
             udManager: udManager
         )
 
-        let attachmentCloner = SignalAttachmentClonerImpl()
-
         let attachmentViewOnceManager = AttachmentViewOnceManagerImpl(
             attachmentStore: attachmentStore,
             db: db,
@@ -1249,15 +1247,12 @@ public class AppSetup {
             accountAttributesUpdater: accountAttributesUpdater,
             adHocCallRecordManager: adHocCallRecordManager,
             appExpiry: appExpiry,
-            attachmentCloner: attachmentCloner,
             attachmentContentValidator: attachmentContentValidator,
             attachmentDownloadManager: attachmentDownloadManager,
             attachmentDownloadStore: attachmentDownloadStore,
             attachmentManager: attachmentManager,
             attachmentStore: attachmentStore,
             attachmentThumbnailService: attachmentThumbnailService,
-            attachmentUploadManager: attachmentUploadManager,
-            attachmentValidationBackfillMigrator: attachmentValidationBackfillMigrator,
             attachmentViewOnceManager: attachmentViewOnceManager,
             audioWaveformManager: audioWaveformManager,
             authorMergeHelper: authorMergeHelper,
@@ -1364,7 +1359,8 @@ public class AppSetup {
             usernameLookupManager: usernameLookupManager,
             usernameValidationManager: usernameValidationManager,
             wallpaperImageStore: wallpaperImageStore,
-            wallpaperStore: wallpaperStore
+            wallpaperStore: wallpaperStore,
+            attachmentUploadManager: attachmentUploadManager
         )
         DependenciesBridge.setShared(dependenciesBridge)
 

@@ -65,10 +65,17 @@ target 'Signal' do
   ui_pods
     pod 'AWSCore'
     pod 'AWSDynamoDB'
-    pod 'AWSCognitoIdentityProvider'
 
   target 'SignalTests' do
     inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['EXCLUDED_ARCHS[sdk=macosx*]'] = 'arm64 x86_64'
+    end
   end
 end
 
@@ -78,7 +85,6 @@ target 'SignalShareExtension' do
   ui_pods
   pod 'AWSCore'
   pod 'AWSDynamoDB'
-  pod 'AWSCognitoIdentityProvider'
 end
 
 target 'SignalUI' do
@@ -86,7 +92,6 @@ target 'SignalUI' do
 
   pod 'AWSCore'
   pod 'AWSDynamoDB'
-  pod 'AWSCognitoIdentityProvider'
   target 'SignalUITests' do
     inherit! :search_paths
   end

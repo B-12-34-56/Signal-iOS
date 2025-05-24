@@ -154,6 +154,7 @@ public class DependenciesBridge {
     public let usernameValidationManager: UsernameValidationManager
     public let wallpaperImageStore: WallpaperImageStore
     public let wallpaperStore: WallpaperStore
+    public let attachmentUploadManager: AttachmentUploadManager?
 
     init(
         accountAttributesUpdater: AccountAttributesUpdater,
@@ -271,7 +272,8 @@ public class DependenciesBridge {
         usernameLookupManager: UsernameLookupManager,
         usernameValidationManager: UsernameValidationManager,
         wallpaperImageStore: WallpaperImageStore,
-        wallpaperStore: WallpaperStore
+        wallpaperStore: WallpaperStore,
+        attachmentUploadManager: AttachmentUploadManager? = nil
     ) {
         self.accountAttributesUpdater = accountAttributesUpdater
         self.adHocCallRecordManager = adHocCallRecordManager
@@ -389,5 +391,6 @@ public class DependenciesBridge {
         self.usernameValidationManager = usernameValidationManager
         self.wallpaperImageStore = wallpaperImageStore
         self.wallpaperStore = wallpaperStore
+        self.attachmentUploadManager = attachmentUploadManager
     }
 }
