@@ -182,8 +182,18 @@ class MainAppContext: NSObject, AppContext {
     }
 
     func appSharedDataDirectoryPath() -> String {
-        FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: TSConstants.applicationGroup)!.path
+        let groupID = TSConstants.applicationGroup
+        print("→ TSConstants.applicationGroup = '\(groupID)'")
+        if let url = FileManager.default.containerURL(
+             forSecurityApplicationGroupIdentifier: groupID
+           ) {
+          print("→ Shared container URL: \(url.path)")
+          return url.path
+        } else {
+          fatalError("‼️ Shared container returned nil for group: '\(groupID)'")
+        }
     }
+
 
     func appDatabaseBaseDirectoryPath() -> String { appSharedDataDirectoryPath() }
 

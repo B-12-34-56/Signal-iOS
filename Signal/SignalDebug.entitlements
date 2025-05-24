@@ -17,15 +17,13 @@
 	<string>NSFileProtectionComplete</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array/>
-	<key>com.apple.developer.pushkit.unrestricted-voip</key>
-	<true/>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
 	<string>$(TeamIdentifierPrefix)$(CFBundleIdentifier)</string>
 	<key>com.apple.developer.usernotifications.communication</key>
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.org.whispersystems.signal</string>
+		<string>group.com.joelminaya.signaldev</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
