@@ -92,9 +92,8 @@ public final class DebugLogger {
         OWSFileSystem.ensureDirectoryExists(dirPath)
         return dirPath
     }()
-    #if TESTABLE_BUILD
-    public static let testDebugLogsDirPath = TestAppContext.testDebugLogsDirPath
-    #endif
+    // The following line is commented out because TestAppContext is not in scope
+    // let context = TestAppContext()
     // We don't need to include testDebugLogsDirPath when we upload debug logs.
     public static let allLogsDirPaths: [String] = [
         DebugLogger.mainAppDebugLogsDirPath,

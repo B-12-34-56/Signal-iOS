@@ -1,0 +1,584 @@
+{
+  "watchOS" : [
+
+  ],
+  "Mac" : [
+
+  ],
+  "commitish" : "2.40.2",
+  "iOS" : [
+    {
+      "name" : "AWSAPIGateway",
+      "hash" : "87ec8c0758fbe2b16e23d49d07fe8533fe3c605e4e5138da6e6fbef46f873733",
+      "container" : "AWSAPIGateway.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "name" : "AWSAPIGateway",
+      "container" : "AWSAPIGateway.xcframework",
+      "identifier" : "ios-arm64",
+      "hash" : "a4b589c70489e24e1b26fd4f1a2da2d9394536a1a3e8e2b919bf6481de878c78"
+    },
+    {
+      "container" : "AWSAppleSignIn.xcframework",
+      "hash" : "5db9e211dfced214782a5943854cfbfb539294d329836ab8f6be4bc17c9cf951",
+      "identifier" : "ios-arm64",
+      "name" : "AWSAppleSignIn"
+    },
+    {
+      "name" : "AWSAppleSignIn",
+      "container" : "AWSAppleSignIn.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "64fb83124e3e6bd2143720926efd63219af42c6434f09324831fc8da241e96a2"
+    },
+    {
+      "hash" : "0f48751ae3d3c22ca47e7a6aafff05af25f8e5c2153191ab35f6bc9e550bb864",
+      "name" : "AWSAuthCore",
+      "container" : "AWSAuthCore.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "container" : "AWSAuthCore.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSAuthCore",
+      "hash" : "a46695aee03ae91afd52c54bc5e2c48f07d0f4ceb26a7e0102fd4beda69feb02"
+    },
+    {
+      "hash" : "5579f0f3d25533ef80b98e9023484e445e77496b77dc2ad11821fccbc965acbe",
+      "container" : "AWSAuthUI.xcframework",
+      "name" : "AWSAuthUI",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSAuthUI",
+      "hash" : "26ad4ed6c732164e4ebda7a16448cd5371162e299fa47b2e8a01aec3035f46b9",
+      "container" : "AWSAuthUI.xcframework"
+    },
+    {
+      "name" : "AWSAutoScaling",
+      "hash" : "c2dd1ab638b57960afbe5e255daff541fd00e10d64e32bc57e38f5c5aa8bb206",
+      "container" : "AWSAutoScaling.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "name" : "AWSAutoScaling",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "1e0d0ee933cdea03a44d0f28f24a415dfaf4fe34d665e23e5eb5335cf1e82444",
+      "container" : "AWSAutoScaling.xcframework"
+    },
+    {
+      "container" : "AWSChimeSDKIdentity.xcframework",
+      "hash" : "ba1f8c534f5bad55b88d19e288aa5601a66d2cdda07bc22a44a107d4ebc59315",
+      "name" : "AWSChimeSDKIdentity",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "name" : "AWSChimeSDKIdentity",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSChimeSDKIdentity.xcframework",
+      "hash" : "29e026257b93afc10597bf530814e36b9112b9099bac537ca5549bc7e5125191"
+    },
+    {
+      "hash" : "c57aeed4d2b85af57bd53b1fb68bdbec7e738c28085486040800af0cde322c54",
+      "container" : "AWSChimeSDKMessaging.xcframework",
+      "name" : "AWSChimeSDKMessaging",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "container" : "AWSChimeSDKMessaging.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSChimeSDKMessaging",
+      "hash" : "f6b4076835e669f716e5adcc7807f94e96f0dcf6f1fe5b541473fb479c004036"
+    },
+    {
+      "name" : "AWSCloudWatch",
+      "container" : "AWSCloudWatch.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "1a071d077ff61dc6f2821373abf66a7308433d7fd7c2e991103a82aadf8bb564"
+    },
+    {
+      "name" : "AWSCloudWatch",
+      "container" : "AWSCloudWatch.xcframework",
+      "identifier" : "ios-arm64",
+      "hash" : "28ffa05c760f8ae250370e5fce7eea499d2b855b5426c8c836a915002268d257"
+    },
+    {
+      "hash" : "911ddae0e41a7630021501dd1a5198361cbd62e4ffafb42d131ed23c5874aadc",
+      "name" : "AWSCognitoAuth",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSCognitoAuth.xcframework"
+    },
+    {
+      "identifier" : "ios-arm64",
+      "hash" : "8e7bd1cd6d518bbfc224359666f918caec2846e9e73872be5a7867d5f5eb457e",
+      "name" : "AWSCognitoAuth",
+      "container" : "AWSCognitoAuth.xcframework"
+    },
+    {
+      "container" : "AWSCognitoIdentityProvider.xcframework",
+      "identifier" : "ios-arm64",
+      "hash" : "03c99003a080da45b67994db9d7d4f462a96b022c1805fc6dbfb93fa25220e7a",
+      "name" : "AWSCognitoIdentityProvider"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "56d3a4a70369e770565c0f1932e0dae1d55b94538fed3bf1343c3876a3486be9",
+      "name" : "AWSCognitoIdentityProvider",
+      "container" : "AWSCognitoIdentityProvider.xcframework"
+    },
+    {
+      "container" : "AWSCognitoIdentityProviderASF.xcframework",
+      "hash" : "d54decaa9bad9cc55cfcf7adcef49cfa408e4bc2245f0b01bafcf68817a66f32",
+      "name" : "AWSCognitoIdentityProviderASF",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "hash" : "7b076c996dd6a0fef1ee3b3338d9cb87a529c50d9d5023a5486449cea1871d1e",
+      "name" : "AWSCognitoIdentityProviderASF",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSCognitoIdentityProviderASF.xcframework"
+    },
+    {
+      "name" : "AWSComprehend",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSComprehend.xcframework",
+      "hash" : "9bf861802909fcdf3e34e7aba8f7becb31db037fb5daa369c246d789d71c6771"
+    },
+    {
+      "name" : "AWSComprehend",
+      "container" : "AWSComprehend.xcframework",
+      "hash" : "ec95f6e32c2f90167b8f56460baece6a193161e3aa965763c0dd93623a1e4cf7",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "container" : "AWSConnect.xcframework",
+      "hash" : "54e32fbd8048406222866b0d22d2429a2370ae406e9d8a10a1d8aa35ffc8ca4b",
+      "identifier" : "ios-arm64",
+      "name" : "AWSConnect"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "e0c7a58ad4e364cac664b2ef03d4c192cc9ed0d0f591dc8a0247b511f362d5a4",
+      "name" : "AWSConnect",
+      "container" : "AWSConnect.xcframework"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSConnectParticipant.xcframework",
+      "hash" : "ac3360d965c46c243db3b00b38cec38c0819d6c91a85ba555f0ec7a17898f712",
+      "name" : "AWSConnectParticipant"
+    },
+    {
+      "hash" : "d4b4ec6db75e0ac9543fe38f84c17c6462bfc67426914bbbadc4d38af00b13ee",
+      "name" : "AWSConnectParticipant",
+      "container" : "AWSConnectParticipant.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "swiftToolchainVersion" : "5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)",
+      "container" : "AWSCore.xcframework",
+      "identifier" : "ios-arm64",
+      "name" : "AWSCore",
+      "hash" : "2e0e02792d2f778c6cff6f1c72072e98db944c90287c043b0f9b4f86d12bdce9"
+    },
+    {
+      "name" : "AWSCore",
+      "container" : "AWSCore.xcframework",
+      "hash" : "80c431852d3d4ac5d3f838cfa18b39b24945cf6715c52630d3c4a52ea044ae28",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "swiftToolchainVersion" : "5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
+    },
+    {
+      "container" : "AWSDynamoDB.xcframework",
+      "hash" : "f294f5c8a05923cfb76af8a8cd63702092af66c7b25733558d1400f6190c47de",
+      "name" : "AWSDynamoDB",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "container" : "AWSDynamoDB.xcframework",
+      "name" : "AWSDynamoDB",
+      "hash" : "3ff4435bf043d93108ac9335353e00bbdc3259d5d77ac832daa1975ed010d74f",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "container" : "AWSEC2.xcframework",
+      "hash" : "56f6b74e30356be538ea30e400e0cb8f93f8e2728f267bba9dc10e0b62a90525",
+      "identifier" : "ios-arm64",
+      "name" : "AWSEC2"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSEC2",
+      "hash" : "aca4135bd303b7d25e3b61d743a0799c6508a2851536e03385d98f6d433ce613",
+      "container" : "AWSEC2.xcframework"
+    },
+    {
+      "container" : "AWSElasticLoadBalancing.xcframework",
+      "identifier" : "ios-arm64",
+      "name" : "AWSElasticLoadBalancing",
+      "hash" : "de03700f2e6f01b55065bb1008f9d2c0fe7c0fbebf3ed7da11c7ce1f6fc220c9"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSElasticLoadBalancing.xcframework",
+      "name" : "AWSElasticLoadBalancing",
+      "hash" : "2c93c643290c9e8fa47852e887a6956734b8a0da2a8cff0e2310d2947a0765c9"
+    },
+    {
+      "container" : "AWSFacebookSignIn.xcframework",
+      "name" : "AWSFacebookSignIn",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "fe3e4add9716832f382324b2b4f131a5f42a7541fff010a5f5e486f0e58e0cc1"
+    },
+    {
+      "container" : "AWSFacebookSignIn.xcframework",
+      "identifier" : "ios-arm64",
+      "name" : "AWSFacebookSignIn",
+      "hash" : "3b12b64dee94437c898bb7934ad0dd5c78e3d9f301fb589c1c68f9cdd345e77b"
+    },
+    {
+      "name" : "AWSGoogleSignIn",
+      "container" : "AWSGoogleSignIn.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "d4a925e78b2722ecb99c6093d128b31175695f8f69d82f48212c2a087af084ce"
+    },
+    {
+      "hash" : "4be3c576de097b893d7c46da2b7a204e3d7a8db815344277451c271c9f574d23",
+      "container" : "AWSGoogleSignIn.xcframework",
+      "name" : "AWSGoogleSignIn",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "hash" : "d603a15e10f5946a88c0ad333c28300079b2368e0bdf5d013237831d84d1d160",
+      "name" : "AWSIoT",
+      "container" : "AWSIoT.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "container" : "AWSIoT.xcframework",
+      "name" : "AWSIoT",
+      "hash" : "7dd88105139f8fb2a95bac077f10b5195d4103bfe02a5257d37fc2e1be7fd3c9",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "name" : "AWSKMS",
+      "identifier" : "ios-arm64",
+      "container" : "AWSKMS.xcframework",
+      "hash" : "39ddecac0e98cedeea3c1cb4858505405446e4adda15b1d8fc2196ce9ef27afa"
+    },
+    {
+      "container" : "AWSKMS.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSKMS",
+      "hash" : "bb71cbc2ebc0ca7cc07388817ad5f35075070ff431bd9f0d134c9d089fc80bc1"
+    },
+    {
+      "name" : "AWSKinesis",
+      "hash" : "73c704b09f334b2feca2f077cb18ccd7e6ff12080ecda7791d756ed564980334",
+      "container" : "AWSKinesis.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "hash" : "f297b479b1df3e36dabb95ba423ebe22e4831c3cd3ee08848a06dcccbcb55f2a",
+      "container" : "AWSKinesis.xcframework",
+      "name" : "AWSKinesis",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "hash" : "b834749f3c48a1fbcab0334431d214c8e2c82c67da7167dcf9381f35ce7941b2",
+      "identifier" : "ios-arm64",
+      "container" : "AWSKinesisVideo.xcframework",
+      "name" : "AWSKinesisVideo"
+    },
+    {
+      "container" : "AWSKinesisVideo.xcframework",
+      "name" : "AWSKinesisVideo",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "7d0e4cac68834cc121f5157d7f08ef3e35a5e5e40e1e47086bd74b4aa5c73e08"
+    },
+    {
+      "hash" : "bb277ca86fc41d630cdf60dbf1144db203bf56d46f545b1c83dedc6031288e8d",
+      "identifier" : "ios-arm64",
+      "name" : "AWSKinesisVideoArchivedMedia",
+      "container" : "AWSKinesisVideoArchivedMedia.xcframework"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSKinesisVideoArchivedMedia",
+      "container" : "AWSKinesisVideoArchivedMedia.xcframework",
+      "hash" : "1291b1070e1a04384f79b84da740427a9766679b05c1ddfe0d44eca02cb97193"
+    },
+    {
+      "hash" : "c25031dccc568fb73a2e3d95cfb89d4799de747989e056dc7e1b4106f0ed20da",
+      "name" : "AWSKinesisVideoSignaling",
+      "container" : "AWSKinesisVideoSignaling.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "hash" : "0695ca495f014358a505d6a95e34bc35abf7c24254211c43ff3ab992c6938806",
+      "name" : "AWSKinesisVideoSignaling",
+      "container" : "AWSKinesisVideoSignaling.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "identifier" : "ios-arm64",
+      "name" : "AWSKinesisVideoWebRTCStorage",
+      "container" : "AWSKinesisVideoWebRTCStorage.xcframework",
+      "hash" : "58d4cfc73f3a5a536cd72df87ad937d3f54179be44bbce92f3375bf6f039dced"
+    },
+    {
+      "name" : "AWSKinesisVideoWebRTCStorage",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSKinesisVideoWebRTCStorage.xcframework",
+      "hash" : "80ca55c718af1f9d90709c6bffc1feb27d84a09078113f586f5e5812743a73d7"
+    },
+    {
+      "name" : "AWSLambda",
+      "hash" : "29825d7c54bac9caa61165db85a2da6c4206489a7b9c53db0d2991fcb73d77bd",
+      "container" : "AWSLambda.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "identifier" : "ios-arm64",
+      "name" : "AWSLambda",
+      "hash" : "03e32c696379952890d8712902391b35f5cf0e564b57dc672460c85a680360c7",
+      "container" : "AWSLambda.xcframework"
+    },
+    {
+      "identifier" : "ios-x86_64-simulator",
+      "name" : "AWSLex",
+      "hash" : "4737969ce2775392a4bf340eee1e77709edffad0ba6fe228bfef4b370a1c0477",
+      "container" : "AWSLex.xcframework"
+    },
+    {
+      "container" : "AWSLex.xcframework",
+      "hash" : "1af8e7487d1e6ca632369e7cff72a9036b55fd44161bc46eb5edc806a6e7e5db",
+      "name" : "AWSLex",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "container" : "AWSLocationXCF.xcframework",
+      "identifier" : "ios-arm64",
+      "name" : "AWSLocationXCF",
+      "swiftToolchainVersion" : "5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)",
+      "hash" : "40471f1988314dd5f0e20d666bb85ae66f95d18f519e32dfea1bf78179370668"
+    },
+    {
+      "container" : "AWSLocationXCF.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "swiftToolchainVersion" : "5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)",
+      "hash" : "e43b7c4a9b62f7f4aa0738a2e51632ff418211b3ed79ac81e4d644462de7614b",
+      "name" : "AWSLocationXCF"
+    },
+    {
+      "container" : "AWSLogs.xcframework",
+      "name" : "AWSLogs",
+      "identifier" : "ios-arm64",
+      "hash" : "f2a55d5ecbb715bebd54acec2c15d6803d51b98f742a9c7c6dc23184dd176572"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "fd6ee22264a19a0d15352fd0a8a4bc295cef508c7c0348e65d35323e0f3a1ad5",
+      "name" : "AWSLogs",
+      "container" : "AWSLogs.xcframework"
+    },
+    {
+      "name" : "AWSMachineLearning",
+      "identifier" : "ios-arm64",
+      "container" : "AWSMachineLearning.xcframework",
+      "hash" : "0d4fdabe3a3dec00e75ffb6eef07083f566f9ad8dcd19ffc7fb6a2f9be0ceb16"
+    },
+    {
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "432d46507a17ac535e1d78988a92eeca9f9ef047ab653e2b84ab418323ea87f2",
+      "name" : "AWSMachineLearning",
+      "container" : "AWSMachineLearning.xcframework"
+    },
+    {
+      "swiftToolchainVersion" : "5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)",
+      "container" : "AWSMobileClientXCF.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSMobileClientXCF",
+      "hash" : "532fa29d868a681fd8a3b5a31611fbc2e4f318c3d958ad8523c349f68ac6a7c5"
+    },
+    {
+      "name" : "AWSMobileClientXCF",
+      "identifier" : "ios-arm64",
+      "container" : "AWSMobileClientXCF.xcframework",
+      "hash" : "4407c5b8bcc649c82c870a02ae6de8ddf61113a707b154939bc9f62b35e80bb1",
+      "swiftToolchainVersion" : "5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)"
+    },
+    {
+      "hash" : "9ec973c3698e9967caacfcef223c8bb57b7f1e8a220342f8f58f21f61be7378f",
+      "name" : "AWSPinpoint",
+      "container" : "AWSPinpoint.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "name" : "AWSPinpoint",
+      "container" : "AWSPinpoint.xcframework",
+      "hash" : "2b4112e7eb91c08c9fefbc17320cb92dae314ac3bc7c03c4829ccc041a3212d9",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "name" : "AWSPolly",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "c0e3dcb80326f216b176a6ddb1f97b360463c6d4a69d5981ad426d02bda114d8",
+      "container" : "AWSPolly.xcframework"
+    },
+    {
+      "container" : "AWSPolly.xcframework",
+      "name" : "AWSPolly",
+      "identifier" : "ios-arm64",
+      "hash" : "69919fc401749ec75cec00e68731eec32037378c9da24af538f42cfec0ade7e1"
+    },
+    {
+      "hash" : "63cfe717ef5fd6c492a5ea2f33a8bc79c1ea3f50b86265fb9371e019d41362e8",
+      "name" : "AWSRekognition",
+      "container" : "AWSRekognition.xcframework",
+      "identifier" : "ios-arm64"
+    },
+    {
+      "container" : "AWSRekognition.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "b8d111ca40a1fbc55c7b13d2ba787ced24fef5b819521ec7971c5f3b33f4c2b5",
+      "name" : "AWSRekognition"
+    },
+    {
+      "container" : "AWSS3.xcframework",
+      "name" : "AWSS3",
+      "identifier" : "ios-arm64",
+      "hash" : "471b94346465c22b8b93898c107a95c175b31646886bc0d830a0d341758b0635"
+    },
+    {
+      "hash" : "a7735cf206379e6f6fb195737729ae52f114c4ec04f2a8a5d30469be189c95cc",
+      "name" : "AWSS3",
+      "container" : "AWSS3.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "container" : "AWSSES.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSSES",
+      "hash" : "9356f87171c88538d4da891df80a3dab8d235dc1ea1b6b2424d456d223974e06"
+    },
+    {
+      "name" : "AWSSES",
+      "identifier" : "ios-arm64",
+      "hash" : "b50c205b9e7dea21b7bf2f2bfae46584ea2886f91472a09fe8cdb85a18b82737",
+      "container" : "AWSSES.xcframework"
+    },
+    {
+      "container" : "AWSSNS.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSSNS",
+      "hash" : "6c3bd302673a4efeb5b1ac29e6c0261f7637c68cf11bb431aead2dfa8211f86b"
+    },
+    {
+      "container" : "AWSSNS.xcframework",
+      "name" : "AWSSNS",
+      "identifier" : "ios-arm64",
+      "hash" : "b3541f0aeb4f4e014d05640f8c305f01281ab5f25634de35fe1456a133ce94a4"
+    },
+    {
+      "container" : "AWSSQS.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "hash" : "da2d344db14618a1a04d3ede83e7a72a971eef8becfde70593993cfb381f73db",
+      "name" : "AWSSQS"
+    },
+    {
+      "hash" : "8f12a1788797cdc28f6fb9e0f49eb21693aa3228a427b39f089f6f2dfae0e5be",
+      "container" : "AWSSQS.xcframework",
+      "identifier" : "ios-arm64",
+      "name" : "AWSSQS"
+    },
+    {
+      "hash" : "00b6595a658fcf09c341a46b7eef0d805530ea31c281b608c56b4b31ef92e355",
+      "container" : "AWSSageMakerRuntime.xcframework",
+      "identifier" : "ios-arm64",
+      "name" : "AWSSageMakerRuntime"
+    },
+    {
+      "hash" : "9ee28b3b61990a99dcf5e482872c28ce46971f63ac1e8c746883f55a99596c7e",
+      "container" : "AWSSageMakerRuntime.xcframework",
+      "name" : "AWSSageMakerRuntime",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "hash" : "ccd6fea7fc37059709196d962002d451a883125a7eb1b4560cb65d49efdbbe38",
+      "name" : "AWSSimpleDB",
+      "container" : "AWSSimpleDB.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "container" : "AWSSimpleDB.xcframework",
+      "hash" : "993f256cf2d6db681525576c9140f269cdf06aae5a4c443e238f9c989a23f561",
+      "identifier" : "ios-arm64",
+      "name" : "AWSSimpleDB"
+    },
+    {
+      "hash" : "afef81c98e9889a0d5998212c2184ddd04dce0f4892eb707e02a0ec55f3773f2",
+      "name" : "AWSTextract",
+      "identifier" : "ios-arm64",
+      "container" : "AWSTextract.xcframework"
+    },
+    {
+      "hash" : "a5437e7e780d94b3f660c7318952ea27835d3897df752d01846d2916fa4064b6",
+      "name" : "AWSTextract",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSTextract.xcframework"
+    },
+    {
+      "name" : "AWSTranscribe",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSTranscribe.xcframework",
+      "hash" : "012eccff2a655dc2d28d3e7ac38bc213cf4c59f09aa2415b7c1ba57c1e7d77a6"
+    },
+    {
+      "name" : "AWSTranscribe",
+      "identifier" : "ios-arm64",
+      "hash" : "61c9bb6234f201f6215d31fe2beac587328c433ae0c7631d073c8e0e67aa1150",
+      "container" : "AWSTranscribe.xcframework"
+    },
+    {
+      "name" : "AWSTranscribeStreaming",
+      "hash" : "d70c1a46a7a06cb817a696c9e5002ed2beeeedb8246ef70a0bd8b05a021002a8",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "container" : "AWSTranscribeStreaming.xcframework"
+    },
+    {
+      "identifier" : "ios-arm64",
+      "name" : "AWSTranscribeStreaming",
+      "hash" : "03b852daa380076b75d5f0b6c00d2185c766b9c2fe8c27f465ff0983843b04a2",
+      "container" : "AWSTranscribeStreaming.xcframework"
+    },
+    {
+      "hash" : "e25af5778027bfc87988f373db52c30ca12cc62014bd0672892b2d2f16f30302",
+      "name" : "AWSTranslate",
+      "container" : "AWSTranslate.xcframework",
+      "identifier" : "ios-arm64_x86_64-simulator"
+    },
+    {
+      "container" : "AWSTranslate.xcframework",
+      "name" : "AWSTranslate",
+      "identifier" : "ios-arm64",
+      "hash" : "cb9072d98e9e5d1ca3f624ee7a22f9dd2eb557017898b22fe33b8561f8fe33c2"
+    },
+    {
+      "identifier" : "ios-arm64",
+      "name" : "AWSUserPoolsSignIn",
+      "hash" : "ee0be0b6db278408607803ff14ea68188467eebd7c336c8651f4d963e8548553",
+      "container" : "AWSUserPoolsSignIn.xcframework"
+    },
+    {
+      "hash" : "b6a1f1d48ac963ed87207c8d31464a1cb661ce41c141c9e84fc6534c7617d692",
+      "identifier" : "ios-arm64_x86_64-simulator",
+      "name" : "AWSUserPoolsSignIn",
+      "container" : "AWSUserPoolsSignIn.xcframework"
+    }
+  ],
+  "tvOS" : [
+
+  ]
+}

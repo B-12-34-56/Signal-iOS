@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "Signal-arm64-apple-macosx15.0-debug.exe": ["<Signal-arm64-apple-macosx15.0-debug.exe>"]
+  "Signal-arm64-apple-macosx15.0-debug.module": ["<Signal-arm64-apple-macosx15.0-debug.module>"]
+  "main": ["<Signal-arm64-apple-macosx15.0-debug.exe>","<Signal-arm64-apple-macosx15.0-debug.module>"]
+  "test": ["<Signal-arm64-apple-macosx15.0-debug.exe>","<Signal-arm64-apple-macosx15.0-debug.module>"]
+default: "main"
+nodes:
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal":
+    is-mutated: true
+commands:
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal-entitlement.plist"]
+    description: "Write auxiliary file /Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal-entitlement.plist"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Sources/main.swift"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources"]
+    description: "Write auxiliary file /Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/main.swift.o"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.product/Objects.LinkFileList"
+
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+
+  "<Signal-arm64-apple-macosx15.0-debug.exe>":
+    tool: phony
+    inputs: ["<Signal-arm64-apple-macosx15.0-debug.exe-CodeSigning>"]
+    outputs: ["<Signal-arm64-apple-macosx15.0-debug.exe>"]
+
+  "<Signal-arm64-apple-macosx15.0-debug.module>":
+    tool: phony
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/main.swift.o","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules/Signal.swiftmodule"]
+    outputs: ["<Signal-arm64-apple-macosx15.0-debug.module>"]
+
+  "C.Signal-arm64-apple-macosx15.0-debug.exe":
+    tool: shell
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/main.swift.o","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.product/Objects.LinkFileList"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/Signal"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug","-o","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal","-module-name","Signal","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_Signal_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift-5.5/macosx","-target","arm64-apple-macosx10.13","-Xlinker","-add_ast_path","-Xlinker","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules/Signal.swiftmodule","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.Signal-arm64-apple-macosx15.0-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal-entitlement.plist"]
+    outputs: ["<Signal-arm64-apple-macosx15.0-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/Signal"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal-entitlement.plist","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal"]
+
+  "C.Signal-arm64-apple-macosx15.0-debug.module":
+    tool: shell
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Sources/main.swift","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources"]
+    outputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/main.swift.o","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules/Signal.swiftmodule"]
+    description: "Compiling Swift Module 'Signal' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","Signal","-emit-dependencies","-emit-module","-emit-module-path","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules/Signal.swiftmodule","-output-file-map","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/output-file-map.json","-incremental","-c","@/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources","-I","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx10.13","-enable-batch-mode","-index-store-path","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","Signal_main","-color-diagnostics","-swift-version","6","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","signal"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Sources/","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Package.swift","/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

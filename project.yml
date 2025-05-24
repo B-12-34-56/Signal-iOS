@@ -1,0 +1,63 @@
+name: Signal
+options:
+  bundleIdPrefix: org.signal
+  deploymentTarget:
+    iOS: '15.0'
+targets:
+  Signal:
+    type: application
+    platform: iOS
+    sources:
+      - Signal
+    info:
+      path: Signal/Signal-Info.plist
+    dependencies:
+      - target: SignalUI
+      - target: SignalServiceKit
+      - target: SignalShareExtension
+      - target: SignalNSE
+  SignalUI:
+    type: framework
+    platform: iOS
+    sources:
+      - SignalUI
+  SignalShareExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - SignalShareExtension
+    info:
+      path: SignalShareExtension/Info.plist
+  SignalServiceKit:
+    type: framework
+    platform: iOS
+    sources:
+      - SignalServiceKit
+  SignalNSE:
+    type: app-extension
+    platform: iOS
+    sources:
+      - SignalNSE
+    info:
+      path: SignalNSE/Info.plist
+  SignalTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Signal/test
+    dependencies:
+      - target: Signal
+  SignalUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - Signal/test
+    dependencies:
+      - target: Signal
+  SignalServiceKitTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - SignalServiceKit/test
+    dependencies:
+      - target: SignalServiceKit 

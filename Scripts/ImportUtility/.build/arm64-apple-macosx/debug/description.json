@@ -1,0 +1,446 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.ImportUtility-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources",
+      "importPath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "ImportUtility",
+      "moduleOutputPath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules/ImportUtility.swiftmodule",
+      "objects" : [
+        "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "ImportUtility_main",
+        "-color-diagnostics",
+        "-swift-version",
+        "5",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g"
+      ],
+      "outputFileMapPath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules/ImportUtility.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/main.swift"
+      ],
+      "tempsPath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "ImportUtility" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "ImportUtility",
+      "-incremental",
+      "-c",
+      "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/main.swift",
+      "-I",
+      "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "ImportUtility_main",
+      "-color-diagnostics",
+      "-swift-version",
+      "5",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "AWSAPIGateway_Target" : [
+      "AWSAPIGateway",
+      "AWSCore"
+    ],
+    "AWSAppleSignIn_Target" : [
+      "AWSAppleSignIn",
+      "AWSAuthCore",
+      "AWSCore"
+    ],
+    "AWSAuthCore_Target" : [
+      "AWSAuthCore",
+      "AWSCore"
+    ],
+    "AWSAuthUI_Target" : [
+      "AWSAuthUI",
+      "AWSAuthCore",
+      "AWSCore"
+    ],
+    "AWSAutoScaling_Target" : [
+      "AWSAutoScaling",
+      "AWSCore"
+    ],
+    "AWSChimeSDKIdentity_Target" : [
+      "AWSChimeSDKIdentity",
+      "AWSCore"
+    ],
+    "AWSChimeSDKMessaging_Target" : [
+      "AWSChimeSDKMessaging",
+      "AWSCore"
+    ],
+    "AWSCloudWatch_Target" : [
+      "AWSCloudWatch",
+      "AWSCore"
+    ],
+    "AWSCognitoAuth_Target" : [
+      "AWSCognitoAuth",
+      "AWSCognitoIdentityProviderASF",
+      "AWSCore"
+    ],
+    "AWSCognitoIdentityProviderASF_Target" : [
+      "AWSCognitoIdentityProviderASF",
+      "AWSCore"
+    ],
+    "AWSCognitoIdentityProvider_Target" : [
+      "AWSCognitoIdentityProvider",
+      "AWSCognitoIdentityProviderASF",
+      "AWSCore"
+    ],
+    "AWSComprehend_Target" : [
+      "AWSComprehend",
+      "AWSCore"
+    ],
+    "AWSConnectParticipant_Target" : [
+      "AWSConnectParticipant",
+      "AWSCore"
+    ],
+    "AWSConnect_Target" : [
+      "AWSConnect",
+      "AWSCore"
+    ],
+    "AWSDynamoDB_Target" : [
+      "AWSDynamoDB",
+      "AWSCore"
+    ],
+    "AWSEC2_Target" : [
+      "AWSEC2",
+      "AWSCore"
+    ],
+    "AWSElasticLoadBalancing_Target" : [
+      "AWSElasticLoadBalancing",
+      "AWSCore"
+    ],
+    "AWSFacebookSignIn_Target" : [
+      "AWSFacebookSignIn",
+      "AWSAuthCore",
+      "AWSCore"
+    ],
+    "AWSGoogleSignIn_Target" : [
+      "AWSGoogleSignIn",
+      "AWSAuthCore",
+      "AWSCore"
+    ],
+    "AWSIoT_Target" : [
+      "AWSIoT",
+      "AWSCore"
+    ],
+    "AWSKMS_Target" : [
+      "AWSKMS",
+      "AWSCore"
+    ],
+    "AWSKinesisVideoArchivedMedia_Target" : [
+      "AWSKinesisVideoArchivedMedia",
+      "AWSCore"
+    ],
+    "AWSKinesisVideoSignaling_Target" : [
+      "AWSKinesisVideoSignaling",
+      "AWSCore"
+    ],
+    "AWSKinesisVideoWebRTCStorage_Target" : [
+      "AWSKinesisVideoWebRTCStorage",
+      "AWSCore"
+    ],
+    "AWSKinesisVideo_Target" : [
+      "AWSKinesisVideo",
+      "AWSCore"
+    ],
+    "AWSKinesis_Target" : [
+      "AWSKinesis",
+      "AWSCore"
+    ],
+    "AWSLambda_Target" : [
+      "AWSLambda",
+      "AWSCore"
+    ],
+    "AWSLex_Target" : [
+      "AWSLex",
+      "AWSCore"
+    ],
+    "AWSLocationXCF_Target" : [
+      "AWSLocationXCF",
+      "AWSCore"
+    ],
+    "AWSLogs_Target" : [
+      "AWSLogs",
+      "AWSCore"
+    ],
+    "AWSMachineLearning_Target" : [
+      "AWSMachineLearning",
+      "AWSCore"
+    ],
+    "AWSMobileClientXCF_Target" : [
+      "AWSMobileClientXCF",
+      "AWSCognitoIdentityProvider",
+      "AWSAuthCore"
+    ],
+    "AWSPinpoint_Target" : [
+      "AWSPinpoint",
+      "AWSCore"
+    ],
+    "AWSPolly_Target" : [
+      "AWSPolly",
+      "AWSCore"
+    ],
+    "AWSRekognition_Target" : [
+      "AWSRekognition",
+      "AWSCore"
+    ],
+    "AWSS3_Target" : [
+      "AWSS3",
+      "AWSCore"
+    ],
+    "AWSSES_Target" : [
+      "AWSSES",
+      "AWSCore"
+    ],
+    "AWSSNS_Target" : [
+      "AWSSNS",
+      "AWSCore"
+    ],
+    "AWSSQS_Target" : [
+      "AWSSQS",
+      "AWSCore"
+    ],
+    "AWSSageMakerRuntime_Target" : [
+      "AWSSageMakerRuntime",
+      "AWSCore"
+    ],
+    "AWSSimpleDB_Target" : [
+      "AWSSimpleDB",
+      "AWSCore"
+    ],
+    "AWSTextract_Target" : [
+      "AWSTextract",
+      "AWSCore"
+    ],
+    "AWSTranscribeStreaming_Target" : [
+      "AWSTranscribeStreaming",
+      "AWSCore"
+    ],
+    "AWSTranscribe_Target" : [
+      "AWSTranscribe",
+      "AWSCore"
+    ],
+    "AWSTranslate_Target" : [
+      "AWSTranslate",
+      "AWSCore"
+    ],
+    "AWSUserPoolsSignIn_Target" : [
+      "AWSUserPoolsSignIn",
+      "AWSCore",
+      "AWSAuthCore",
+      "AWSCognitoIdentityProvider"
+    ],
+    "ImportUtility" : [
+      "AWSDynamoDB_Target",
+      "AWSDynamoDB",
+      "AWSS3_Target",
+      "AWSS3",
+      "AWSCore"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "writeCommands" : {
+    "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility-entitlement.plist"
+    },
+    "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/sources"
+    },
+    "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSDynamoDB_Target.build/empty.m.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/AWSS3_Target.build/empty.m.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.product/Objects.LinkFileList"
+    },
+    "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

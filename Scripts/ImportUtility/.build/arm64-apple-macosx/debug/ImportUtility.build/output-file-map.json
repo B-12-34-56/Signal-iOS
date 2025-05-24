@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/master.swiftdeps"
+  },
+  "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/Sources/main.swift": {
+    "dependencies": "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.d",
+    "object": "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swift.o",
+    "swiftmodule": "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/arm64-apple-macosx/debug/ImportUtility.build/main.swiftdeps"
+  }
+}

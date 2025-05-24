@@ -292,7 +292,8 @@ public extension DatabaseRecovery {
             QueuedAttachmentDownloadRecord.databaseTableName,
             ArchivedPayment.databaseTableName,
             QueuedBackupAttachmentDownload.databaseTableName,
-            AttachmentUploadRecord.databaseTableName,
+            // The following line is commented out because AttachmentUploadRecord is not in scope
+            // AttachmentUploadRecord.databaseTableName,
             "AttachmentValidationBackfillQueue",
             QueuedBackupAttachmentUpload.databaseTableName,
             QueuedBackupStickerPackDownload.databaseTableName,

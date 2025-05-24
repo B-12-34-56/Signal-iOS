@@ -41,15 +41,12 @@ public class DependenciesBridge {
     public let accountAttributesUpdater: AccountAttributesUpdater
     public let adHocCallRecordManager: any AdHocCallRecordManager
     public let appExpiry: AppExpiry
-    public let attachmentCloner: SignalAttachmentCloner
     public let attachmentContentValidator: AttachmentContentValidator
     public let attachmentDownloadManager: AttachmentDownloadManager
     public let attachmentDownloadStore: AttachmentDownloadStore
     public let attachmentManager: AttachmentManager
     public let attachmentStore: AttachmentStore
     public let attachmentThumbnailService: AttachmentThumbnailService
-    public let attachmentUploadManager: AttachmentUploadManager
-    public let attachmentValidationBackfillMigrator: AttachmentValidationBackfillMigrator
     public let attachmentViewOnceManager: AttachmentViewOnceManager
     public let audioWaveformManager: AudioWaveformManager
     public let authorMergeHelper: AuthorMergeHelper
@@ -162,15 +159,12 @@ public class DependenciesBridge {
         accountAttributesUpdater: AccountAttributesUpdater,
         adHocCallRecordManager: any AdHocCallRecordManager,
         appExpiry: AppExpiry,
-        attachmentCloner: SignalAttachmentCloner,
         attachmentContentValidator: AttachmentContentValidator,
         attachmentDownloadManager: AttachmentDownloadManager,
         attachmentDownloadStore: AttachmentDownloadStore,
         attachmentManager: AttachmentManager,
         attachmentStore: AttachmentStore,
         attachmentThumbnailService: AttachmentThumbnailService,
-        attachmentUploadManager: AttachmentUploadManager,
-        attachmentValidationBackfillMigrator: AttachmentValidationBackfillMigrator,
         attachmentViewOnceManager: AttachmentViewOnceManager,
         audioWaveformManager: AudioWaveformManager,
         authorMergeHelper: AuthorMergeHelper,
@@ -282,15 +276,12 @@ public class DependenciesBridge {
         self.accountAttributesUpdater = accountAttributesUpdater
         self.adHocCallRecordManager = adHocCallRecordManager
         self.appExpiry = appExpiry
-        self.attachmentCloner = attachmentCloner
         self.attachmentContentValidator = attachmentContentValidator
         self.attachmentDownloadManager = attachmentDownloadManager
         self.attachmentDownloadStore = attachmentDownloadStore
         self.attachmentManager = attachmentManager
         self.attachmentStore = attachmentStore
         self.attachmentThumbnailService = attachmentThumbnailService
-        self.attachmentUploadManager = attachmentUploadManager
-        self.attachmentValidationBackfillMigrator = attachmentValidationBackfillMigrator
         self.attachmentViewOnceManager = attachmentViewOnceManager
         self.audioWaveformManager = audioWaveformManager
         self.authorMergeHelper = authorMergeHelper

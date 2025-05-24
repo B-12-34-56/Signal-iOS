@@ -1,0 +1,239 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.Signal-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources",
+      "importPath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Sources/main.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "Signal",
+      "moduleOutputPath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules/Signal.swiftmodule",
+      "objects" : [
+        "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/main.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx10.13",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "Signal_main",
+        "-color-diagnostics",
+        "-swift-version",
+        "6",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "signal"
+      ],
+      "outputFileMapPath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/main.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules/Signal.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Sources/main.swift"
+      ],
+      "tempsPath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "Signal" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "Signal",
+      "-package-name",
+      "signal",
+      "-incremental",
+      "-c",
+      "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Sources/main.swift",
+      "-I",
+      "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx10.13",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "Signal_main",
+      "-color-diagnostics",
+      "-swift-version",
+      "6",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "signal",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "Signal" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "writeCommands" : {
+    "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal-entitlement.plist"
+    },
+    "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/Sources/main.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/sources"
+    },
+    "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.build/main.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/Signal.product/Objects.LinkFileList"
+    },
+    "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/ibrahimusmani/Documents/Signal-iOS/Signal/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

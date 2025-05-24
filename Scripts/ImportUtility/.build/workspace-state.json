@@ -1,0 +1,778 @@
+{
+  "object" : {
+    "artifacts" : [
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSRekognition/AWSRekognition.xcframework",
+        "source" : {
+          "checksum" : "881ac8ece0cf2b9935a088a0df0f8b585e462e4ad945e3add5042b595381e1cb",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSRekognition-2.40.2.zip"
+        },
+        "targetName" : "AWSRekognition"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSIoT/AWSIoT.xcframework",
+        "source" : {
+          "checksum" : "e1cfde62d214f96352d07e5ee5a3e0a3a0981e0dc54de2fdecdc52fba071e806",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSIoT-2.40.2.zip"
+        },
+        "targetName" : "AWSIoT"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSSQS/AWSSQS.xcframework",
+        "source" : {
+          "checksum" : "5d7a0b6c154f3b0a1442ec68589ad6a9d170139e65623f03370afa7ba7eab7ed",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSSQS-2.40.2.zip"
+        },
+        "targetName" : "AWSSQS"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSFacebookSignIn/AWSFacebookSignIn.xcframework",
+        "source" : {
+          "checksum" : "2c982e947228f031cb501f83a445c3d229eb577b38602e59286dea1ebc6b7491",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSFacebookSignIn-2.40.2.zip"
+        },
+        "targetName" : "AWSFacebookSignIn"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSGoogleSignIn/AWSGoogleSignIn.xcframework",
+        "source" : {
+          "checksum" : "94f693ddbd69549816659ea22de3ae281d0df8a98e72e84800d7a6d8d41cc3c8",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSGoogleSignIn-2.40.2.zip"
+        },
+        "targetName" : "AWSGoogleSignIn"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSCloudWatch/AWSCloudWatch.xcframework",
+        "source" : {
+          "checksum" : "4c8158abdc75e4cf42bc8a05d6b9e903491e08f9983d941b47a3c24c0c9ef19e",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSCloudWatch-2.40.2.zip"
+        },
+        "targetName" : "AWSCloudWatch"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSPinpoint/AWSPinpoint.xcframework",
+        "source" : {
+          "checksum" : "982502cb3f09ac223d0204927b1ecc120126c21f73d48b5966e9944bc7bea741",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSPinpoint-2.40.2.zip"
+        },
+        "targetName" : "AWSPinpoint"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSAppleSignIn/AWSAppleSignIn.xcframework",
+        "source" : {
+          "checksum" : "80ce138442a3e7805d8e98453938219a97999db10a204a2a47d1cd29a2a2426f",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSAppleSignIn-2.40.2.zip"
+        },
+        "targetName" : "AWSAppleSignIn"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSLex/AWSLex.xcframework",
+        "source" : {
+          "checksum" : "4b1d8f525fb5c8a3ba9940e62661aa03ee9ef3975563a81181e19c6768786d5d",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSLex-2.40.2.zip"
+        },
+        "targetName" : "AWSLex"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSAPIGateway/AWSAPIGateway.xcframework",
+        "source" : {
+          "checksum" : "6c5a3d9de02869fdc606e129ea16a59565b25225520b86fb5bb02f6c4618328e",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSAPIGateway-2.40.2.zip"
+        },
+        "targetName" : "AWSAPIGateway"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSCore/AWSCore.xcframework",
+        "source" : {
+          "checksum" : "6784a3770f4a562c5238273a992b1404a332dc385390d1431f4af14685a963bc",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSCore-2.40.2.zip"
+        },
+        "targetName" : "AWSCore"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSSimpleDB/AWSSimpleDB.xcframework",
+        "source" : {
+          "checksum" : "95b67e351320de21ab1af06935b1628bc374c91bb14ce3d119bff1f24407c113",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSSimpleDB-2.40.2.zip"
+        },
+        "targetName" : "AWSSimpleDB"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSUserPoolsSignIn/AWSUserPoolsSignIn.xcframework",
+        "source" : {
+          "checksum" : "5cb6789af98dde44be4acd47ab17ad80b65ee7754958752ac5a4e4b9f06ae44b",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSUserPoolsSignIn-2.40.2.zip"
+        },
+        "targetName" : "AWSUserPoolsSignIn"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSKMS/AWSKMS.xcframework",
+        "source" : {
+          "checksum" : "2f84bc79ecd01fbd688728732740b342311031908048ac81ac51ad6e1bb792ef",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSKMS-2.40.2.zip"
+        },
+        "targetName" : "AWSKMS"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSComprehend/AWSComprehend.xcframework",
+        "source" : {
+          "checksum" : "a3106ee5989287804a556fa04abd7033f66d23d84c217762352977e0fece55e0",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSComprehend-2.40.2.zip"
+        },
+        "targetName" : "AWSComprehend"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSAuthCore/AWSAuthCore.xcframework",
+        "source" : {
+          "checksum" : "984c65f204d8f700b7ae62b7aa936d853b146d3d037fa56ea01e3f00cdc60cfb",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSAuthCore-2.40.2.zip"
+        },
+        "targetName" : "AWSAuthCore"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSCognitoAuth/AWSCognitoAuth.xcframework",
+        "source" : {
+          "checksum" : "a482897a26bdb14c1b992bd4f7ae2cfc5c2817fed6c236c9a27a28a1490baeb7",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSCognitoAuth-2.40.2.zip"
+        },
+        "targetName" : "AWSCognitoAuth"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSAutoScaling/AWSAutoScaling.xcframework",
+        "source" : {
+          "checksum" : "834dd9acf585077fa205debf0cdda7785bf7c565cae01240d6fa9d9587293dff",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSAutoScaling-2.40.2.zip"
+        },
+        "targetName" : "AWSAutoScaling"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMedia.xcframework",
+        "source" : {
+          "checksum" : "65f8f156aa74fc08ea01ab294602bcd9b312650bc38b14d2f871df10f0b5970f",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSKinesisVideoArchivedMedia-2.40.2.zip"
+        },
+        "targetName" : "AWSKinesisVideoArchivedMedia"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSLogs/AWSLogs.xcframework",
+        "source" : {
+          "checksum" : "70b091092681ee36e1885a2cf2529436af5cf2bf771afa2ff16639d8b7d3c66b",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSLogs-2.40.2.zip"
+        },
+        "targetName" : "AWSLogs"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSMobileClientXCF/AWSMobileClientXCF.xcframework",
+        "source" : {
+          "checksum" : "e0f10e0a168c9af2df5df16784165cb2d7ecd68eb0c91cdfb6cfacdd14cb0c83",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSMobileClientXCF-2.40.2.zip"
+        },
+        "targetName" : "AWSMobileClientXCF"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSTranscribeStreaming/AWSTranscribeStreaming.xcframework",
+        "source" : {
+          "checksum" : "860d67f415dd009ff5cb719f1be9c8c6f5b0235e9fd03ac08abc9c1f55e5325c",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSTranscribeStreaming-2.40.2.zip"
+        },
+        "targetName" : "AWSTranscribeStreaming"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSConnect/AWSConnect.xcframework",
+        "source" : {
+          "checksum" : "7b49940e8c950f8b79edee9161865d102f0b50600536ca64699ecbe1ceb6f1a5",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSConnect-2.40.2.zip"
+        },
+        "targetName" : "AWSConnect"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSKinesis/AWSKinesis.xcframework",
+        "source" : {
+          "checksum" : "ab54f8154344de404bdaae42a34f8b2c47e85a04f6fd7fb7a67b22537180ebaf",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSKinesis-2.40.2.zip"
+        },
+        "targetName" : "AWSKinesis"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.xcframework",
+        "source" : {
+          "checksum" : "524619c668be9bc0be5fcb199e63b0dd579e530c44ea69643d30944c2d249f1e",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSCognitoIdentityProviderASF-2.40.2.zip"
+        },
+        "targetName" : "AWSCognitoIdentityProviderASF"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSConnectParticipant/AWSConnectParticipant.xcframework",
+        "source" : {
+          "checksum" : "a7a117fb08b12718abcf8bf43fd1b5ac6695089c1d40e52d0ac97fe968084e3c",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSConnectParticipant-2.40.2.zip"
+        },
+        "targetName" : "AWSConnectParticipant"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSKinesisVideoWebRTCStorage/AWSKinesisVideoWebRTCStorage.xcframework",
+        "source" : {
+          "checksum" : "4ff42bb536bb239c4fa299206456d6bf9ce497fd7826840e93e7325ad8aae84b",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSKinesisVideoWebRTCStorage-2.40.2.zip"
+        },
+        "targetName" : "AWSKinesisVideoWebRTCStorage"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSSNS/AWSSNS.xcframework",
+        "source" : {
+          "checksum" : "fc6466d6cc700fbbf281af817b69ecef6ad144f5c41fb132f11f603eaf407b17",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSSNS-2.40.2.zip"
+        },
+        "targetName" : "AWSSNS"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSPolly/AWSPolly.xcframework",
+        "source" : {
+          "checksum" : "edadb709211040e78b711013e7aaef33e23f411d94f081d4d707b19608fc9222",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSPolly-2.40.2.zip"
+        },
+        "targetName" : "AWSPolly"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSTextract/AWSTextract.xcframework",
+        "source" : {
+          "checksum" : "d3f4fca654ffb9e98b12d859b5e34ef67cac643689daa939009b176897b4299e",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSTextract-2.40.2.zip"
+        },
+        "targetName" : "AWSTextract"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSKinesisVideo/AWSKinesisVideo.xcframework",
+        "source" : {
+          "checksum" : "a59d2d230689b03f7abe07836125e489eaf287853bdfa7491c99083bc9404899",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSKinesisVideo-2.40.2.zip"
+        },
+        "targetName" : "AWSKinesisVideo"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSEC2/AWSEC2.xcframework",
+        "source" : {
+          "checksum" : "bc582ad0b08c54cb1766a982d99dacfe8f6272a931d7bd6a922ad12529dc996e",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSEC2-2.40.2.zip"
+        },
+        "targetName" : "AWSEC2"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSDynamoDB/AWSDynamoDB.xcframework",
+        "source" : {
+          "checksum" : "bd0b6b734f2d95708057fd5da301df953963fb54f6efe9d8558684c9f520a08c",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSDynamoDB-2.40.2.zip"
+        },
+        "targetName" : "AWSDynamoDB"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSKinesisVideoSignaling/AWSKinesisVideoSignaling.xcframework",
+        "source" : {
+          "checksum" : "fe88ba5282978dbaca164cb0f06ca7fce1ac4c3aac21a73bc81a3f1da3b3719a",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSKinesisVideoSignaling-2.40.2.zip"
+        },
+        "targetName" : "AWSKinesisVideoSignaling"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSTranscribe/AWSTranscribe.xcframework",
+        "source" : {
+          "checksum" : "487d2d105ace7809152d339e4cfe7c57fee97888b3de470e7f804d0eaaf9a193",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSTranscribe-2.40.2.zip"
+        },
+        "targetName" : "AWSTranscribe"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSSES/AWSSES.xcframework",
+        "source" : {
+          "checksum" : "06d0767639ffc5a375ce93be1590a3b4207426dd0737874392e7935445fe76a9",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSSES-2.40.2.zip"
+        },
+        "targetName" : "AWSSES"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSLambda/AWSLambda.xcframework",
+        "source" : {
+          "checksum" : "9040529297fd38d3e05d09fa5aba19103d41f7c47ae797544c383a8594aeac35",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSLambda-2.40.2.zip"
+        },
+        "targetName" : "AWSLambda"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSElasticLoadBalancing/AWSElasticLoadBalancing.xcframework",
+        "source" : {
+          "checksum" : "81c93db216f6865ea5f8dc1bea2509712754144a3e4e9bdcb1879645a95b4b45",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSElasticLoadBalancing-2.40.2.zip"
+        },
+        "targetName" : "AWSElasticLoadBalancing"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSChimeSDKMessaging/AWSChimeSDKMessaging.xcframework",
+        "source" : {
+          "checksum" : "b6a9d0f3ff32c9f08e296cb4207732b792abf16cc8d3e50ce2eb49d3696df5d6",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSChimeSDKMessaging-2.40.2.zip"
+        },
+        "targetName" : "AWSChimeSDKMessaging"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSLocationXCF/AWSLocationXCF.xcframework",
+        "source" : {
+          "checksum" : "ee079d799beabbc3d8369278b9107c6c7b617ee351b6079a0cb1494cf08a11c5",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSLocationXCF-2.40.2.zip"
+        },
+        "targetName" : "AWSLocationXCF"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSSageMakerRuntime/AWSSageMakerRuntime.xcframework",
+        "source" : {
+          "checksum" : "c19186642612d986f026e1bfe5ce4194b94c2e5a5be31d3a579afc0fc13850e0",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSSageMakerRuntime-2.40.2.zip"
+        },
+        "targetName" : "AWSSageMakerRuntime"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSMachineLearning/AWSMachineLearning.xcframework",
+        "source" : {
+          "checksum" : "ef25d3591f25409fc9abb9a7f07c55aca8a3a2bd2818a7a7b0dccd9c3a4390ad",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSMachineLearning-2.40.2.zip"
+        },
+        "targetName" : "AWSMachineLearning"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSS3/AWSS3.xcframework",
+        "source" : {
+          "checksum" : "c07e12433a8f4be2884fb5745be35207e03b52babdf34a38c28bca59560a538d",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSS3-2.40.2.zip"
+        },
+        "targetName" : "AWSS3"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.xcframework",
+        "source" : {
+          "checksum" : "a589f27404ea54062b4c9f75d5c9b02e303b733d53f2809cbd20cecb8e1190ab",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSCognitoIdentityProvider-2.40.2.zip"
+        },
+        "targetName" : "AWSCognitoIdentityProvider"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSTranslate/AWSTranslate.xcframework",
+        "source" : {
+          "checksum" : "13e5f05ae2e2efc1e77fa4ddc382ae2c1a3ba612bc551a10400f21c1187b6194",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSTranslate-2.40.2.zip"
+        },
+        "targetName" : "AWSTranslate"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSAuthUI/AWSAuthUI.xcframework",
+        "source" : {
+          "checksum" : "51acae8443735f545e8e36ac35ca735ee921bc7984948f0026e8eacfa9f12199",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSAuthUI-2.40.2.zip"
+        },
+        "targetName" : "AWSAuthUI"
+      },
+      {
+        "kind" : "xcframework",
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "path" : "/Users/ibrahimusmani/Documents/Signal-iOS/Scripts/ImportUtility/.build/artifacts/aws-sdk-ios-spm/AWSChimeSDKIdentity/AWSChimeSDKIdentity.xcframework",
+        "source" : {
+          "checksum" : "233e101dfce28710f5eafb15be64cb5202804b7a9fe4523c99dc2daaa86ba0c6",
+          "type" : "remote",
+          "url" : "https://releases.amplify.aws/aws-sdk-ios/AWSChimeSDKIdentity-2.40.2.zip"
+        },
+        "targetName" : "AWSChimeSDKIdentity"
+      }
+    ],
+    "dependencies" : [
+      {
+        "basedOn" : null,
+        "packageRef" : {
+          "identity" : "aws-sdk-ios-spm",
+          "kind" : "remoteSourceControl",
+          "location" : "https://github.com/aws-amplify/aws-sdk-ios-spm.git",
+          "name" : "AWSiOSSDKV2"
+        },
+        "state" : {
+          "checkoutState" : {
+            "revision" : "88dc028dc240ddbb617f4d7d85d1c4e3495e3295",
+            "version" : "2.40.2"
+          },
+          "name" : "sourceControlCheckout"
+        },
+        "subpath" : "aws-sdk-ios-spm"
+      }
+    ]
+  },
+  "version" : 6
+}

@@ -1,0 +1,6 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -workspace Signal.xcworkspace -scheme Pods-SignalUITests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 16" test
+
+Build settings from command line:
+    SDKROOT = iphonesimulator18.4
+
