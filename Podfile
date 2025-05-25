@@ -72,9 +72,12 @@ target 'Signal' do
   end
 end
 
-target 'SignalNSE' do
-  pod 'AWSCore'
-  pod 'AWSDynamoDB'
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['EXCLUDED_ARCHS[sdk=macosx*]'] = 'arm64 x86_64'
+    end
+  end
 end
 
 # These extensions inherit all of the common pods
@@ -106,14 +109,12 @@ target 'SignalServiceKit' do
   end
 end
 
-post_install do |installer|
-  # Exclude macOS architectures
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['EXCLUDED_ARCHS[sdk=macosx*]'] = 'arm64 x86_64'
-    end
-  end
+target 'SignalNSE' do
+  pod 'AWSCore'
+  pod 'AWSDynamoDB'
+end
 
+post_install do |installer|
   enable_strip(installer)
   enable_extension_support_for_purelayout(installer)
   configure_warning_flags(installer)
