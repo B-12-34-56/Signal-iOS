@@ -8,6 +8,7 @@ public import LibSignalClient
 import os.log
 
 public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescriptionProvider {
+    case attachmentUploadManagerUnavailable      
     case duplicateBlocked(aHash: String)
 
     case prekeyRateLimit
