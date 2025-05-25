@@ -7,12 +7,6 @@ import Foundation
 import LibSignalClient
 import UIKit
 import os.log
-import SignalServiceKit // for SSKEnvironment, etc.
-import GRDB
-import ObjectiveC.runtime
-import SignalServiceKit.Attachments.Attachment_Hash
-import SignalServiceKit.Attachments.DuplicateSignatureStore
-import SignalServiceKit.Network.GlobalSignatureService
 
 // MARK: - Message "isXYZ" properties
 

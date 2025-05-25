@@ -35,11 +35,6 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
                 "ERROR_DESCRIPTION_MESSAGE_SEND_FAILED_DUPLICATE_BLOCKED",
                 comment: "Error message displayed when a message send fails because the attachment content has been identified as previously blocked or potentially harmful duplicate content."
             )
-        @unknown default:
-            return OWSLocalizedString(
-                "MESSAGE_STATUS_SEND_FAILED",
-                comment: "Label indicating that a message failed to send."
-            )
         }
     }
 
@@ -59,8 +54,6 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
             return false
         case .duplicateBlocked(aHash: let aHash):
             // If content is blocked, retrying won't help unless the content changes.
-            return false
-        @unknown default:
             return false
         }
     }
