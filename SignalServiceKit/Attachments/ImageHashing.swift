@@ -31,4 +31,18 @@ public final class ImageHashing {
         let pHash  = perceptualHash(image: image)
         return (shaHex, pHash)
     }
+    
+    public func computeHashesAsync(for image: UIImage, completion: @escaping ((String, String?)?) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            guard let jpeg = image.jpegData(compressionQuality: 0.8) else {
+                DispatchQueue.main.async { completion(nil) }
+                return
+            }
+            let shaHex = self.sha256Hash(data: jpeg)
+            let pHash  = self.perceptualHash(image: image)
+            DispatchQueue.main.async {
+                completion((shaHex, pHash))
+            }
+        }
+    }
 } 

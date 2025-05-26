@@ -284,12 +284,45 @@ class AWSImageUploadTests: XCTestCase {
         }
     }
     
+    func testBackgroundHashingAndDuplicateBlocking() {
+        let expectation1 = expectation(description: "First image check (should not be duplicate)")
+        let expectation2 = expectation(description: "Second image check (should be duplicate)")
+        let testImage = createTestImage()
+        let filterService = DuplicateFilterService.shared
+
+        // First check: should not be duplicate
+        filterService.checkDuplicate(image: testImage) { result in
+            XCTAssertFalse(Thread.isMainThread, "Hashing should not run on main thread")
+            switch result {
+            case .success(let isDuplicate):
+                XCTAssertFalse(isDuplicate, "First image should not be duplicate")
+                expectation1.fulfill()
+            case .failure(let error):
+                XCTFail("First check failed: \(error)")
+            }
+        }
+        wait(for: [expectation1], timeout: 10.0)
+
+        // Second check: should be duplicate
+        filterService.checkDuplicate(image: testImage) { result in
+            XCTAssertFalse(Thread.isMainThread, "Hashing should not run on main thread")
+            switch result {
+            case .success(let isDuplicate):
+                XCTAssertTrue(isDuplicate, "Second image should be detected as duplicate")
+                expectation2.fulfill()
+            case .failure(let error):
+                XCTFail("Second check failed: \(error)")
+            }
+        }
+        wait(for: [expectation2], timeout: 10.0)
+    }
+    
     // MARK: - Helper Methods
     
     private func createTestImage() -> UIImage {
-        let size = CGSize(width: 100, height: 100)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        UIColor.blue.setFill()
+        let size = CGSize(width: 32, height: 32)
+        UIGraphicsBeginImageContext(size)
+        UIColor.red.setFill()
         UIRectFill(CGRect(origin: .zero, size: size))
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()

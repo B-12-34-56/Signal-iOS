@@ -1,0 +1,14 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -workspace Signal.xcworkspace -scheme Pods-SignalServiceKitTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 16" clean test
+
+Build settings from command line:
+    SDKROOT = iphonesimulator18.4
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  swift-argument-parser: https://github.com/apple/swift-argument-parser.git @ 1.5.0
+  AWSiOSSDKV2: https://github.com/aws-amplify/aws-sdk-ios-spm @ 2.40.1
+  MyTool: /Users/ibrahimusmani/Documents/Signal2/Signal-iOS/MyTool
+

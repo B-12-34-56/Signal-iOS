@@ -1,0 +1,54 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -list -workspace Signal.xcworkspace
+
+Resolve Package Graph
+
+
+Resolved source packages:
+  swift-argument-parser: https://github.com/apple/swift-argument-parser.git @ 1.5.0
+  MyTool: /Users/ibrahimusmani/Documents/Signal2/Signal-iOS/MyTool
+
+Information about workspace "Signal":
+    Schemes:
+        AWSCognitoIdentityProvider
+        AWSCognitoIdentityProvider-AWSCognitoIdentityProvider
+        AWSCognitoIdentityProviderASF
+        AWSCognitoIdentityProviderASF-AWSCognitoIdentityProviderASF
+        AWSCore
+        AWSCore-AWSCore
+        AWSDynamoDB
+        AWSDynamoDB-AWSDynamoDB
+        blurhash
+        BonMot
+        CocoaLumberjack
+        CocoaLumberjack-CocoaLumberjackPrivacy
+        GRDB.swift
+        LibMobileCoin
+        libPhoneNumber-iOS
+        LibSignalClient
+        LibSignalClient-Unit-Tests
+        libwebp
+        Logging
+        lottie-ios
+        lottie-ios-LottiePrivacyInfo
+        Mantle
+        MobileCoin
+        MyTool
+        Pods-Signal
+        Pods-SignalNSE
+        Pods-SignalServiceKit
+        Pods-SignalServiceKitTests
+        Pods-SignalShareExtension
+        Pods-SignalTests
+        Pods-SignalUI
+        Pods-SignalUITests
+        PureLayout
+        Reachability
+        Reachability-Reachability_Privacy
+        SignalRingRTC
+        SQLCipher
+        SQLCipher-SQLCipher
+        SwiftProtobuf
+        SwiftProtobuf-SwiftProtobuf
+        YYImage
+
