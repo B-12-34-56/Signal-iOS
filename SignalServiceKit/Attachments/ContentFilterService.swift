@@ -3,7 +3,6 @@ import AWSS3
 import AWSCore
 import AWSLambda
 import UIKit
-import SignalServiceKit
 
 public enum FilterResult {
     case allowed(tags: [String], s3URL: URL)
@@ -126,6 +125,7 @@ public class ContentFilterService: NSObject {
             switch result {
             case .success(let isDuplicate):
                 if isDuplicate {
+                    // TODO: Show user feedback (toast, modal, etc.) for duplicate detection here
                     completion(.blocked(reason: "Duplicate image detected", tags: []))
                     return
                 }
@@ -144,6 +144,11 @@ public class ContentFilterService: NSObject {
                         Logger.error("ContentFilter: S3 upload failed: \(error)")
                         completion(.error(ContentFilterError.uploadError(error.localizedDescription)))
                         return
+                    }
+                    
+                    // Save hashes to local DB after successful upload
+                    if let perceptualHash = perceptualHash, let pHash = UInt64(perceptualHash, radix: 16) {
+                        ImageHashDatabase.shared.saveHash(sha256Hash, phash: pHash, fileExtension: "jpg", s3URL: s3Key, mimeType: "image/jpeg", fileSize: Int64(imageData.count))
                     }
                     
                     // 4. Call Lambda function for content analysis

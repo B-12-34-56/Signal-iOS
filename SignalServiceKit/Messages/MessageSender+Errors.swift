@@ -9,7 +9,7 @@ import os.log
 
 public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescriptionProvider {
     case duplicateBlocked(aHash: String)
-
+    case attachmentUploadManagerUnavailable
     case prekeyRateLimit
     case missingDevice
     case blockedContactRecipient
@@ -34,6 +34,11 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
                 "ERROR_DESCRIPTION_MESSAGE_SEND_FAILED_DUPLICATE_BLOCKED",
                 comment: "Error message displayed when a message send fails because the attachment content has been identified as previously blocked or potentially harmful duplicate content."
             )
+        case .attachmentUploadManagerUnavailable:
+            return OWSLocalizedString(
+                "ERROR_DESCRIPTION_ATTACHMENT_UPLOAD_MANAGER_UNAVAILABLE",
+                comment: "Error message indicating that the attachment upload manager is unavailable."
+            )
         }
     }
 
@@ -53,6 +58,8 @@ public enum MessageSenderError: Error, IsRetryableProvider, UserErrorDescription
             return false
         case .duplicateBlocked(aHash: let aHash):
             // If content is blocked, retrying won't help unless the content changes.
+            return false
+        case .attachmentUploadManagerUnavailable:
             return false
         }
     }

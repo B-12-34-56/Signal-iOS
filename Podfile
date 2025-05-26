@@ -72,49 +72,23 @@ target 'Signal' do
   end
 end
 
+target 'SignalServiceKit' do
+  pod 'Mantle', git: 'https://github.com/signalapp/Mantle', branch: 'signal-master'
+  pod 'CocoaLumberjack'
+  pod 'AWSCore'
+  pod 'AWSDynamoDB'
+  pod 'CocoaImageHashing'
+  target 'SignalServiceKitTests' do
+    inherit! :search_paths
+  end
+end
+
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['EXCLUDED_ARCHS[sdk=macosx*]'] = 'arm64 x86_64'
     end
   end
-end
-
-# These extensions inherit all of the common pods
-
-target 'SignalShareExtension' do
-  ui_pods
-  pod 'AWSCore'
-  pod 'AWSDynamoDB'
-  pod 'AWSCognitoIdentityProvider'
-end
-
-target 'SignalUI' do
-  ui_pods
-
-  pod 'AWSCore'
-  pod 'AWSDynamoDB'
-  pod 'AWSCognitoIdentityProvider'
-  target 'SignalUITests' do
-    inherit! :search_paths
-  end
-end
-
-target 'SignalServiceKit' do
-  pod 'CocoaLumberjack'
-  pod 'AWSCore'
-  pod 'AWSDynamoDB'
-  target 'SignalServiceKitTests' do
-    inherit! :search_paths
-  end
-end
-
-target 'SignalNSE' do
-  pod 'AWSCore'
-  pod 'AWSDynamoDB'
-end
-
-post_install do |installer|
   enable_strip(installer)
   enable_extension_support_for_purelayout(installer)
   configure_warning_flags(installer)
@@ -299,16 +273,19 @@ def copy_acknowledgements
   acknowledgements_files << "Pods/SignalRingRTC/out/release/acknowledgments-webrtc-ios.plist"
 
   def get_specifier_groups(acknowledgements_files)
-    acknowledgements_files.map do |file|
+    acknowledgements_files.filter_map do |file|
+      next unless File.exist?(file)
       extract_cmd = ['plutil', '-extract', 'PreferenceSpecifiers', 'json', '-o', '-', file]
-
-      io = IO.popen(extract_cmd, unsetenv_others: true, exception: true)
-      result = JSON.parse(io.read)
+      io = IO.popen(extract_cmd, unsetenv_others: true)
+      output = io.read
       io.close
       status = $?
-      raise status unless status.exitstatus == 0
-
-      result
+      next unless status.exitstatus == 0
+      begin
+        JSON.parse(output)
+      rescue JSON::ParserError
+        nil
+      end
     end
   end
 

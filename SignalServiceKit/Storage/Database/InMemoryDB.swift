@@ -12,9 +12,9 @@ public final class InMemoryDB: DB {
     private let schedulers: Schedulers
     let databaseQueue: DatabaseQueue
 
-    public init(schedulers: Schedulers = DispatchQueueSchedulers()) {
+    public init(schedulers: Schedulers = DispatchQueueSchedulers()) throws {
         self.schedulers = schedulers
-        let result = DatabaseQueue()
+        let result = try DatabaseQueue()
         let schemaUrl = Bundle(for: GRDBSchemaMigrator.self).url(forResource: "schema", withExtension: "sql")!
         do {
             try result.write { try $0.execute(sql: try String(contentsOf: schemaUrl)) }

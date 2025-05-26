@@ -69,7 +69,12 @@ public class MockSSKEnvironment {
         waitForMainQueue()
 
         // Wait for all pending readers/writers to finish.
-        SSKEnvironment.shared.databaseStorageRef.grdbStorage.pool.barrierWriteWithoutTransaction { _ in }
+        do {
+            try SSKEnvironment.shared.databaseStorageRef.grdbStorage.pool.barrierWriteWithoutTransaction { _ in }
+        } catch {
+            // TODO: Handle error from barrierWriteWithoutTransaction appropriately
+            print("Error in barrierWriteWithoutTransaction: \(error)")
+        }
 
         // Wait for the main queue *again* in case more work was scheduled.
         waitForMainQueue()

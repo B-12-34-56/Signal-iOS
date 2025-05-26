@@ -16,3 +16,14 @@ struct SentDeviceMessage {
     var destinationDeviceId: DeviceId
     var destinationRegistrationId: UInt32
 }
+
+// MARK: - Device Set Types for SenderKey
+
+struct MismatchedDevices: Decodable {
+    let missingDevices: [UInt32]
+    let extraDevices: [UInt32]
+}
+
+struct StaleDevices: Decodable {
+    let staleDevices: [UInt32]
+}

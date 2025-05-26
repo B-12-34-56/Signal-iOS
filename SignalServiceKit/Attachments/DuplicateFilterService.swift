@@ -33,17 +33,36 @@ public final class DuplicateFilterService: NSObject {
         completion: @escaping (Result<Bool, Error>) -> Void) {
 
         // 1. Hash
-        guard let (sha, pHash) = ImageHashing.shared.computeHashes(for: image) else {
+        guard let (sha, pHashStr) = ImageHashing.shared.computeHashes(for: image),
+              let pHash = pHashStr.flatMap({ UInt64($0, radix: 16) }) else {
             completion(.failure(DuplicateFilterError.processing("hash-fail"))); return
         }
 
-        // 2. Payload
-        let body: [String: Any] = ["sha256Hash": sha, "perceptualHash": pHash as Any]
+        // 2. Local DB check (SHA-256 exact)
+        if let _ = ImageHashDatabase.shared.checkSHA256(sha) {
+            completion(.success(true))
+            return
+        }
+
+        // 3. Local DB check (pHash near-duplicate)
+        let all = ImageHashDatabase.shared.allPerceptualHashes()
+        let threshold = self.threshold
+        let isNearDuplicate = all.contains { rec in
+            let dist = hammingDistance(pHash, rec.phash)
+            return dist <= threshold
+        }
+        if isNearDuplicate {
+            completion(.success(true))
+            return
+        }
+
+        // 4. Payload for AWS
+        let body: [String: Any] = ["sha256Hash": sha, "perceptualHash": pHashStr as Any]
         guard let json = try? JSONSerialization.data(withJSONObject: body) else {
             completion(.failure(DuplicateFilterError.processing("json-fail"))); return
         }
 
-        // 3. Lambda request – unwrap optional
+        // 5. Lambda request – unwrap optional
         guard let req = AWSLambdaInvokerInvocationRequest() else {
             completion(.failure(DuplicateFilterError.processing("request-nil"))); return
         }
@@ -64,6 +83,11 @@ public final class DuplicateFilterService: NSObject {
                 completion(.failure(DuplicateFilterError.response("parse-fail"))); return nil
             }
 
+            // If not duplicate, save to local DB
+            if count < self.threshold, let pHashStr = pHashStr, let pHash = UInt64(pHashStr, radix: 16) {
+                ImageHashDatabase.shared.saveHash(sha, phash: pHash, fileExtension: "jpg", s3URL: "", mimeType: "image/jpeg", fileSize: 0)
+            }
+
             completion(.success(count >= self.threshold))
             return nil
         }
@@ -73,5 +97,10 @@ public final class DuplicateFilterService: NSObject {
         try await withCheckedThrowingContinuation { cont in
             checkDuplicate(image: image) { cont.resume(with: $0) }
         }
+    }
+
+    // Utility: Hamming distance for 64-bit hashes
+    private func hammingDistance(_ a: UInt64, _ b: UInt64) -> Int {
+        (a ^ b).nonzeroBitCount
     }
 }
