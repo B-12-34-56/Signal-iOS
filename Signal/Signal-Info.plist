@@ -149,5 +149,27 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>COGNITO_IDENTITY_POOL_ID</key>
+	<string>us-east-1:ee264a1b-9b89-4e4a-a346-9128da47af97</string>
+	<key>COGNITO_REGION</key>
+	<string>us-east-1</string>
+	<key>DYNAMODB_TABLE_NAME</key>
+	<string>ImageSignatures</string>
+	<key>DYNAMODB_REGION</key>
+	<string>us-east-1</string>
+	<key>DYNAMODB_ENDPOINT</key>
+	<string>https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1</string>
+	<key>API_GATEWAY_ENDPOINT</key>
+	<string>https://zudiexk4c3.execute-api.us-east-1.amazonaws.com/Stage1</string>
+	<key>GET_TAG_API_GATEWAY_ENDPOINT</key>
+	<string>https://epzoie02m0.execute-api.us-east-1.amazonaws.com/GetTag1</string>
+	<key>S3_BUCKET_NAME</key>
+	<string>dxtnhmfqv8</string>
+	<key>S3_UPLOAD_FOLDER</key>
+	<string>uploads/</string>
+	<key>AWS_ACCESS_KEY_ID</key>
+	<string>AKIAU6GD3P3JDEGAPNG5</string>
+	<key>AWS_SECRET_ACCESS_KEY</key>
+	<string>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</string>
 </dict>
 </plist>
