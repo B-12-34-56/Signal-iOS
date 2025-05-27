@@ -73,14 +73,15 @@ class GroupMemberStoreImpl: GroupMemberStore {
 #if TESTABLE_BUILD
 
 class MockGroupMemberStore: GroupMemberStore {
-    // Fix: Use lazy initialization with proper error handling
-    private lazy var db: InMemoryDB = {
+    private let db: InMemoryDB
+
+    init() {
         do {
-            return try InMemoryDB()
+            db = try InMemoryDB()
         } catch {
             fatalError("Failed to initialize InMemoryDB: \(error)")
         }
-    }()
+    }
 
     func insert(fullGroupMember groupMember: TSGroupMember, tx: DBWriteTransaction) {
         db.insert(record: groupMember)

@@ -8,17 +8,16 @@ import SignalServiceKit     // exposes `AttachmentDownloadStore` + `QueuedAttach
 
 // MARK: – helper
 extension QueuedAttachmentDownloadRecord {
-    /// Terminal value for “don’t retry me” in `AttachmentDownloadQueue.state`
+    /// Terminal value for "don't retry me" in `AttachmentDownloadQueue.state`
     static let blockedState = "blocked"
 }
 
 extension AttachmentDownloadStore {
 
     // ────────────────  NO-OP stubs the runner still expects  ────────────────
-    func fetchRetryableDownloads(beforeOrAt ts: Int64,
-                                 db: Database) throws -> [QueuedAttachmentDownloadRecord] { [] }
+    func fetchRetryableDownloads(tx: Database, beforeOrAt timestamp: Int64) throws -> [QueuedAttachmentDownloadRecord] { [] }
 
-    func updateRetryAttempt(id: Int64,
+    func updateRetryAttemptNoOp(id: Int64,
                             newTimestamp: Int64,
                             newAttemptCount: Int,
                             db: Database) throws { /* no-op */ }

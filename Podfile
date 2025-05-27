@@ -63,9 +63,10 @@ target 'Signal' do
 
   # Pods only available inside the main Signal app
   ui_pods
-    pod 'AWSCore'
-    pod 'AWSDynamoDB'
-    pod 'AWSCognitoIdentityProvider'
+  pod 'AWSCore'
+  pod 'AWSDynamoDB'
+  pod 'AWSCognitoIdentityProvider'
+  pod 'AWSS3'
 
   target 'SignalTests' do
     inherit! :search_paths
@@ -77,10 +78,25 @@ target 'SignalServiceKit' do
   pod 'CocoaLumberjack'
   pod 'AWSCore'
   pod 'AWSDynamoDB'
+  pod 'AWSCognitoIdentityProvider'
+  pod 'AWSS3'
   pod 'CocoaImageHashing'
   target 'SignalServiceKitTests' do
     inherit! :search_paths
   end
+end
+
+target 'SignalUI' do
+  pod 'Logging'
+  pod 'lottie-ios', :inhibit_warnings => true
+  pod 'PureLayout', :inhibit_warnings => true
+  pod 'BonMot', inhibit_warnings: true
+  pod 'LibMobileCoin/CoreHTTP', git: 'https://github.com/signalapp/libmobilecoin-ios-artifacts', tag: 'signal/6.0.2', submodules: true
+  pod 'MobileCoin/CoreHTTP', git: 'https://github.com/mobilecoinofficial/MobileCoin-Swift', tag: 'v6.0.3'
+  pod 'AWSCore'
+  pod 'AWSDynamoDB'
+  pod 'AWSCognitoIdentityProvider'
+  pod 'AWSS3'
 end
 
 post_install do |installer|

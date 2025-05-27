@@ -7,6 +7,8 @@ PODS:
   - AWSCore (2.40.2)
   - AWSDynamoDB (2.40.2):
     - AWSCore (= 2.40.2)
+  - AWSS3 (2.40.2):
+    - AWSCore (= 2.40.2)
   - blurhash (0.0.1)
   - BonMot (6.1.3)
   - CocoaImageHashing (1.7.0)
@@ -59,6 +61,7 @@ DEPENDENCIES:
   - AWSCognitoIdentityProvider
   - AWSCore
   - AWSDynamoDB
+  - AWSS3
   - blurhash (from `./ThirdParty/blurhash.podspec`)
   - BonMot
   - CocoaImageHashing
@@ -69,6 +72,7 @@ DEPENDENCIES:
   - LibSignalClient (from `https://github.com/signalapp/libsignal.git`, tag `v0.68.1`)
   - LibSignalClient/Tests (from `https://github.com/signalapp/libsignal.git`, tag `v0.68.1`)
   - libwebp (from `./ThirdParty/libwebp.podspec.json`)
+  - Logging
   - lottie-ios
   - Mantle (from `https://github.com/signalapp/Mantle`, branch `signal-master`)
   - MobileCoin/CoreHTTP (from `https://github.com/mobilecoinofficial/MobileCoin-Swift`, tag `v6.0.3`)
@@ -86,6 +90,7 @@ SPEC REPOS:
     - AWSCognitoIdentityProviderASF
     - AWSCore
     - AWSDynamoDB
+    - AWSS3
     - BonMot
     - CocoaImageHashing
     - CocoaLumberjack
@@ -158,6 +163,7 @@ SPEC CHECKSUMS:
   AWSCognitoIdentityProviderASF: 47cbe5d3035e8fee617956d33c85c4203808fa54
   AWSCore: 3d4b9508d6bc57d83d4efd44044e726dfd6c0cd1
   AWSDynamoDB: 82fff81abf57cda754c08680f7f5cf6a9e7a650d
+  AWSS3: 20c6f122e962cdf6ddaf60f52422bb94da584026
   blurhash: f588a9d659f4c742a325bbbbd438d1ef3c34af19
   BonMot: 1534503509ef48d3c4d0fbec2d0ea35f2887b4ea
   CocoaImageHashing: 2c8efd6dd60f9030cd54086b34ffc48e927821c3
@@ -178,6 +184,6 @@ SPEC CHECKSUMS:
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
   YYImage: 3887e29d0418f57e031ae6b795d9d0a77592afbd
 
-PODFILE CHECKSUM: 125ebefe31e63ef4bc24d112268579d87e7b30f9
+PODFILE CHECKSUM: 22ab3065e647abd0d5582a96772053979a866c94
 
 COCOAPODS: 1.16.2

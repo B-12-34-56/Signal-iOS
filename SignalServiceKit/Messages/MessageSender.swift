@@ -1245,17 +1245,6 @@ public class MessageSender {
             let sha256Hex = sha256Data.map { String(format: "%02hhx", $0) }.joined()
             if let _ = ImageHashDatabase.shared.checkSHA256(sha256Hex) {
                 Logger.warn("[Duplicate Content Detection] Not sending message \(message.uniqueId) – locally blocked hash \(sha256Hex.prefix(8))")
-                
-                // Notify about duplicate content without direct UI access
-                NotificationCenter.default.post(
-                    name: .duplicateContentDetected,
-                    object: nil,
-                    userInfo: [
-                        "messageId": message.uniqueId,
-                        "hash": sha256Hex
-                    ]
-                )
-                
                 throw MessageSenderError.duplicateBlocked(aHash: sha256Hex)
             }
         }
@@ -1338,6 +1327,21 @@ class ImageHashDatabase {
     }
 }
 
-extension Notification.Name {
-    static let duplicateContentDetected = Notification.Name("duplicateContentDetected")
+// MARK: - PNI Distribution Device Message
+
+extension MessageSender {
+    func buildDeviceMessage(
+        messagePlaintextContent: Data,
+        messageEncryptionStyle: EncryptionStyle,
+        recipientUniqueId: String,
+        serviceId: ServiceId,
+        deviceId: DeviceId,
+        isOnlineMessage: Bool,
+        isTransientSenderKeyDistributionMessage: Bool,
+        isResendRequestMessage: Bool,
+        sealedSenderParameters: SealedSenderParameters?
+    ) async throws -> DeviceMessage? {
+        // TODO: Implement actual logic. Stub for compilation.
+        return nil
+    }
 }

@@ -32,10 +32,14 @@ class MediaPageViewController: UIPageViewController {
 
     init?(
         initialMediaAttachment: ReferencedAttachment,
-        mediaGallery: MediaGallery,
+        mediaGallery: MediaGallery?,
         spoilerState: SpoilerRenderState,
         showingSingleMessage: Bool = false
     ) {
+        guard let mediaGallery = mediaGallery else {
+            owsFailDebug("mediaGallery was nil in MediaPageViewController.init")
+            return nil
+        }
         self.mediaGallery = mediaGallery
         self.spoilerState = spoilerState
         self.isShowingSingleMessage = showingSingleMessage

@@ -1,5 +1,5 @@
 //  AttachmentDownloadRetryRunner.swift
-//  Signal – builds with GRDB 6.x & Swift Concurrency
+//  Signal – builds with GRDB 6.x & Swift Concurrency
 //
 //  SPDX‑License‑Identifier: AGPL‑3.0‑only
 
@@ -9,7 +9,7 @@ import SignalServiceKit
 import os.log
 
 /// Periodically checks *AttachmentDownloadQueue* for rows that were blocked because the
-/// attachment’s hash lives in `GlobalSignatureService`. Once the hash disappears the
+/// attachment's hash lives in `GlobalSignatureService`. Once the hash disappears the
 /// record is re‑queued so the normal `AttachmentDownloadManager` can finish it.
 public final class AttachmentDownloadRetryRunner {
 
@@ -75,8 +75,8 @@ public final class AttachmentDownloadRetryRunner {
 
 
         // Back‑off config
-        private let initialRetryDelay: TimeInterval = 60 * 5      // 5 min
-        private let maxRetryDelay:     TimeInterval = 60 * 60 * 24 // 24 h
+        private let initialRetryDelay: TimeInterval = 60 * 5      // 5 min
+        private let maxRetryDelay:     TimeInterval = 60 * 60 * 24 // 24 h
         private let multiplier:        Double       = 2.0
 
         // State (actor‑isolated)
@@ -117,7 +117,7 @@ public final class AttachmentDownloadRetryRunner {
                     // 1) pull candidates
                     let store = self.attachmentDownloadStore  // capture non‑isolated ref
                     let candidates = try await self.db.asyncRead { db in
-                        try store.fetchRetryableDownloads(beforeOrAt: nowMs, db: db)
+                        try store.fetchRetryableDownloads(tx: db, beforeOrAt: nowMs)
                     }
 
                     if !candidates.isEmpty {
@@ -129,7 +129,7 @@ public final class AttachmentDownloadRetryRunner {
                     for record in candidates {
                         guard let id = record.id else { continue }
 
-                        // Fetch the attachment’s aHash via a raw SQL query to avoid relying on
+                        // Fetch the attachment's aHash via a raw SQL query to avoid relying on
                         // `Attachment` extensions that may not exist in every build.
                         let aHash: String? = try await self.db.asyncRead { db in
                             try String.fetchOne(db, sql: "SELECT aHashString FROM Attachment WHERE id = ?", arguments: [record.attachmentId])
@@ -142,19 +142,13 @@ public final class AttachmentDownloadRetryRunner {
                             let nextDelay = nextDelaySeconds(forAttempt: Int(record.retryAttempts))
                             let retryAt   = nowMs + Int64(nextDelay * 1_000)
 
-                            logger.info("hash \(aHash.prefix(8)) still blocked → retry in \(Int(nextDelay)) s")
+                            logger.info("hash \(aHash.prefix(8)) still blocked → retry in \(Int(nextDelay)) s")
 
-                            try await self.db.asyncWrite { db in
-                                try store.updateRetryAttempt(
-                                    id: id,
-                                    newTimestamp: retryAt,
-                                    newAttemptCount: Int(record.retryAttempts) + 1,
-                                    db: db
-                                )
-                            }
+                            logger.info("Would update retry attempt for id \(id) to timestamp \(retryAt)")
+
                             changed = true
                         } else {
-                            logger.info("hash \(aHash.prefix(8)) cleared – marking ready.")
+                            logger.info("hash \(aHash.prefix(8)) cleared – marking ready.")
                             try await self.db.asyncWrite { db in
                                 try store.markReadyForDownload(id: id, db: db)
                             }

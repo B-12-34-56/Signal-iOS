@@ -168,12 +168,16 @@ public class SearchableNameIndexerImpl: SearchableNameIndexer {
         guard let value = indexableName.indexableNameContent() else {
             return
         }
+        guard let identifier = indexableName.indexableNameIdentifier() else {
+            Logger.error("[SearchableNameIndexer] insert: Could not get identifier for \(type(of: indexableName))")
+            return
+        }
         let normalizedValue = FullTextSearchIndexer.normalizeText(value)
         do {
-            let (identifierColumn, identifierValue) = indexableName.indexableNameIdentifier().columnNameAndValue()
+            let (identifierColumn, identifierValue) = identifier.columnNameAndValue()
             try dbForWriteTx(tx).execute(
                 sql: """
-                INSERT INTO "\(Constants.databaseTableName)" ("\(identifierColumn.rawValue)", "value") VALUES (?, ?)
+                INSERT INTO \"\(Constants.databaseTableName)\" (\"\(identifierColumn.rawValue)\", \"value\") VALUES (?, ?)
                 """,
                 arguments: [identifierValue, normalizedValue]
             )
@@ -188,11 +192,15 @@ public class SearchableNameIndexerImpl: SearchableNameIndexer {
     }
 
     public func delete(_ indexableName: IndexableName, tx: DBWriteTransaction) {
+        guard let identifier = indexableName.indexableNameIdentifier() else {
+            Logger.error("[SearchableNameIndexer] delete: Could not get identifier for \(type(of: indexableName))")
+            return
+        }
         do {
-            let (identifierColumn, identifierValue) = indexableName.indexableNameIdentifier().columnNameAndValue()
+            let (identifierColumn, identifierValue) = identifier.columnNameAndValue()
             try dbForWriteTx(tx).execute(
                 sql: """
-                DELETE FROM "\(Constants.databaseTableName)" WHERE "\(identifierColumn.rawValue)"=?
+                DELETE FROM \"\(Constants.databaseTableName)\" WHERE \"\(identifierColumn.rawValue)\"=?
                 """,
                 arguments: [identifierValue]
             )
@@ -267,13 +275,17 @@ public enum IndexableNameIdentifier {
 }
 
 public protocol IndexableName {
-    func indexableNameIdentifier() -> IndexableNameIdentifier
+    func indexableNameIdentifier() -> IndexableNameIdentifier?
     func indexableNameContent() -> String?
 }
 
 extension TSThread: IndexableName {
-    public func indexableNameIdentifier() -> IndexableNameIdentifier {
-        return .tsThread(grdbId!.int64Value)
+    public func indexableNameIdentifier() -> IndexableNameIdentifier? {
+        guard let grdbId = grdbId else {
+            Logger.error("[SearchableNameIndexer] TSThread missing grdbId, cannot create identifier: \(self)")
+            return nil
+        }
+        return .tsThread(grdbId.int64Value)
     }
 
     public func indexableNameContent() -> String? {
@@ -290,8 +302,12 @@ extension TSThread: IndexableName {
 }
 
 extension SignalAccount: IndexableName {
-    public func indexableNameIdentifier() -> IndexableNameIdentifier {
-        return .signalAccount(grdbId!.int64Value)
+    public func indexableNameIdentifier() -> IndexableNameIdentifier? {
+        guard let grdbId = grdbId else {
+            Logger.error("[SearchableNameIndexer] SignalAccount missing grdbId, cannot create identifier: \(self)")
+            return nil
+        }
+        return .signalAccount(grdbId.int64Value)
     }
 
     public func indexableNameContent() -> String? {
@@ -314,8 +330,12 @@ extension SignalAccount: IndexableName {
 }
 
 extension OWSUserProfile: IndexableName {
-    public func indexableNameIdentifier() -> IndexableNameIdentifier {
-        return .userProfile(grdbId!.int64Value)
+    public func indexableNameIdentifier() -> IndexableNameIdentifier? {
+        guard let grdbId = grdbId else {
+            Logger.error("[SearchableNameIndexer] OWSUserProfile missing grdbId, cannot create identifier: \(self)")
+            return nil
+        }
+        return .userProfile(grdbId.int64Value)
     }
 
     public func indexableNameContent() -> String? {
@@ -333,8 +353,12 @@ extension OWSUserProfile: IndexableName {
 }
 
 extension SignalRecipient: IndexableName {
-    public func indexableNameIdentifier() -> IndexableNameIdentifier {
-        return .signalRecipient(grdbId!.int64Value)
+    public func indexableNameIdentifier() -> IndexableNameIdentifier? {
+        guard let grdbId = grdbId else {
+            Logger.error("[SearchableNameIndexer] SignalRecipient missing grdbId, cannot create identifier: \(self)")
+            return nil
+        }
+        return .signalRecipient(grdbId.int64Value)
     }
 
     public func indexableNameContent() -> String? {
@@ -369,7 +393,7 @@ extension SignalRecipient: IndexableName {
 }
 
 extension UsernameLookupRecord: IndexableName {
-    public func indexableNameIdentifier() -> IndexableNameIdentifier {
+    public func indexableNameIdentifier() -> IndexableNameIdentifier? {
         return .usernameLookupRecord(Aci(fromUUID: aci))
     }
 
@@ -379,13 +403,12 @@ extension UsernameLookupRecord: IndexableName {
 }
 
 extension NicknameRecord: IndexableName {
-    public func indexableNameIdentifier() -> IndexableNameIdentifier {
+    public func indexableNameIdentifier() -> IndexableNameIdentifier? {
         return .nicknameRecord(recipientRowId: self.recipientRowID)
     }
 
     public func indexableNameContent() -> String? {
         guard let profileName = ProfileName(nicknameRecord: self) else { return nil }
-        // No system contact here, so this value doesn't matter.
         let config = DisplayName.Config(shouldUseSystemContactNicknames: false)
         return DisplayName.nickname(profileName).resolvedValue(config: config)
     }

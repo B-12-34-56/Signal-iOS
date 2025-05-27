@@ -314,11 +314,18 @@ class MediaGallery {
         Logger.debug("")
     }
 
-    @MainActor
-    init(thread: TSThread, mediaCategory: AllMediaCategory, spoilerState: SpoilerRenderState) {
-        self.threadUniqueId = thread.uniqueId
+    convenience init?(thread: TSThread, mediaCategory: AllMediaCategory, spoilerState: SpoilerRenderState) {
+        guard let grdbId = thread.grdbId else {
+            Logger.error("[MediaGallery] TSThread missing grdbId, cannot create gallery for thread: \(thread)")
+            return nil
+        }
+        self.init(threadId: grdbId.int64Value, mediaCategory: mediaCategory, spoilerState: spoilerState)
+    }
+
+    init?(threadId: Int64, mediaCategory: AllMediaCategory, spoilerState: SpoilerRenderState) {
+        self.threadUniqueId = String(threadId)
         mediaFilter = AllMediaFilter.defaultMediaType(for: mediaCategory)
-        let finder = MediaGalleryAttachmentFinder(threadId: thread.grdbId!.int64Value, filter: mediaFilter)
+        let finder = MediaGalleryAttachmentFinder(threadId: threadId, filter: mediaFilter)
         self.mediaGalleryFinder = finder
         self.spoilerState = spoilerState
         self.mediaCategory = mediaCategory
@@ -335,7 +342,9 @@ class MediaGallery {
             name: MediaGalleryChangeInfo.didRemoveAttachmentsNotification,
             object: nil
         )
-        DependenciesBridge.shared.databaseChangeObserver.appendDatabaseChangeDelegate(self)
+        DispatchQueue.main.async {
+            DependenciesBridge.shared.databaseChangeObserver.appendDatabaseChangeDelegate(self)
+        }
     }
 
     // MARK: -

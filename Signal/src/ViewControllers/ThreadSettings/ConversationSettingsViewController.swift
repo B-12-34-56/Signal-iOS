@@ -885,12 +885,24 @@ class ConversationSettingsViewController: OWSTableViewController2, BadgeCollecti
         didSet { AssertIsOnMainThread() }
     }
 
-    private lazy var mediaGalleryFinder = MediaGalleryAttachmentFinder(
-        threadId: thread.grdbId!.int64Value,
-        filter: .defaultMediaType(for: AllMediaCategory.defaultValue)
-    )
+    private lazy var mediaGalleryFinder: MediaGalleryAttachmentFinder? = {
+        makeMediaGalleryAttachmentFinder(for: thread)
+    }()
+
+    private func makeMediaGalleryAttachmentFinder(for thread: TSThread) -> MediaGalleryAttachmentFinder? {
+        guard let grdbId = thread.grdbId else {
+            Logger.error("[ConversationSettingsViewController] TSThread missing grdbId, cannot create MediaGalleryAttachmentFinder for thread: \(thread)")
+            return nil
+        }
+        return MediaGalleryAttachmentFinder(threadId: grdbId.int64Value, filter: .defaultMediaType(for: AllMediaCategory.defaultValue))
+    }
 
     func updateRecentAttachments() {
+        guard let mediaGalleryFinder = mediaGalleryFinder else {
+            Logger.error("[ConversationSettingsViewController] MediaGalleryAttachmentFinder unavailable, cannot update recent attachments.")
+            recentMedia.removeAll()
+            return
+        }
         let recentAttachments = SSKEnvironment.shared.databaseStorageRef.read { transaction in
             mediaGalleryFinder.recentMediaAttachments(limit: maximumRecentMedia, tx: transaction)
         }
