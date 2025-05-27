@@ -40,7 +40,7 @@ extension MediaTileViewController: MediaGalleryCollectionViewUpdaterDelegate {
 
     func updaterDidFinish(numberOfSectionsBefore: Int, numberOfSectionsAfter: Int) {
         Logger.debug("\(numberOfSectionsBefore) -> \(numberOfSectionsAfter)")
-        owsPrecondition(numberOfSectionsAfter == mediaGallery.galleryDates.count)
+        owsPrecondition(numberOfSectionsAfter == mediaGallery?.galleryDates.count ?? 0)
         if numberOfSectionsBefore == 0 && numberOfSectionsAfter > 0 {
             // Adding a "load newer" section. It goes at the end.
             collectionView?.insertSections(IndexSet(integer: localSection(numberOfSectionsAfter)))
@@ -81,8 +81,11 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     private let accessoriesHelper: MediaGalleryAccessoriesHelper
     private let spoilerState: SpoilerRenderState
 
-    private lazy var mediaGallery: MediaGallery = {
-        let mediaGallery = MediaGallery(thread: thread, mediaCategory: mediaCategory, spoilerState: spoilerState)
+    private lazy var mediaGallery: MediaGallery? = {
+        guard let mediaGallery = MediaGallery(thread: thread, mediaCategory: mediaCategory, spoilerState: spoilerState) else {
+            Logger.error("[MediaTileViewController] Failed to create MediaGallery - thread missing grdbId")
+            return nil
+        }
         mediaGallery.addDelegate(self)
         return mediaGallery
     }()
@@ -96,9 +99,9 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         UIView.performWithoutAnimation {
             let mediaCategoryChanged = self.mediaCategory != mediaCategory
             if mediaCategoryChanged {
-                mediaGallery.removeAllDelegates()
+                mediaGallery?.removeAllDelegates()
                 mediaGallery = MediaGallery(thread: thread, mediaCategory: mediaCategory, spoilerState: spoilerState)
-                mediaGallery.addDelegate(self)
+                mediaGallery?.addDelegate(self)
                 self.mediaCategory = mediaCategory
             }
             let layout: Layout = isGridLayout ? .grid : .list
@@ -111,14 +114,15 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
             }
             if mediaCategoryChanged {
                 collectionView.reloadData()
-                _ = mediaGallery.loadEarlierSections(batchSize: kLoadBatchSize)
-                if !mediaGallery.galleryDates.isEmpty {
+                _ = mediaGallery?.loadEarlierSections(batchSize: kLoadBatchSize)
+                if (mediaGallery?.galleryDates.isEmpty == false) {
                     eagerlyLoadMoreIfPossible()
                 }
                 collectionView.reloadData()
-                if mediaGallery.galleryDates.count > 0 {
-                    let lastSectionItemCount = mediaGallery.numberOfItemsInSection(mediaGallery.galleryDates.count - 1)
-                    indexPath = IndexPath(item: lastSectionItemCount - 1, section: mediaGallery.galleryDates.count)
+                if mediaGallery?.galleryDates.count ?? 0 > 0 {
+                    let lastSection = mediaGallery?.galleryDates.count ?? 0
+                    let lastSectionItemCount = mediaGallery?.numberOfItemsInSection(lastSection - 1) ?? 0
+                    indexPath = IndexPath(item: lastSectionItemCount - 1, section: lastSection)
                 } else {
                     indexPath = nil
                 }
@@ -182,7 +186,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     }
 
     private var indexPathsOfVisibleRealItems: [IndexPath] {
-        let numberOfDates = mediaGallery.galleryDates.count
+        let numberOfDates = mediaGallery?.galleryDates.count ?? 0
         return reallyVisibleIndexPaths.filter { path in
             path.section > 0 && path.section <= numberOfDates
         }.sorted { lhs, rhs in
@@ -197,8 +201,10 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     }
 
     private func filter(_ mediaFilter: AllMediaFilter) {
-        let maybeDate = oldestVisibleIndexPath.map { mediaGallery.galleryDates[mediaGallerySection($0.section)] }
-        let indexPathToScrollTo = mediaGallery.setMediaFilter(
+        let maybeDate = oldestVisibleIndexPath.flatMap { indexPath in
+            mediaGallery?.galleryDates[mediaGallerySection(indexPath.section)]
+        }
+        let indexPathToScrollTo = mediaGallery?.setMediaFilter(
             mediaFilter,
             loadUntil: maybeDate ?? GalleryDate(date: Date.distantPast),
             batchSize: kLoadBatchSize,
@@ -267,9 +273,9 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         // (indirectly) into MediaGallerySections.
         view.layoutIfNeeded()
 
-        if mediaGallery.galleryDates.isEmpty {
-            _ = self.mediaGallery.loadEarlierSections(batchSize: kLoadBatchSize)
-            if mediaGallery.galleryDates.isEmpty {
+        if mediaGallery?.galleryDates.isEmpty == true {
+            _ = self.mediaGallery?.loadEarlierSections(batchSize: kLoadBatchSize)
+            if mediaGallery?.galleryDates.isEmpty == true {
                 // There must be no media.
                 return
             }
@@ -291,9 +297,10 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         // Unclear why but without a slight delay the scroll doesn't apply on appear.
         // TODO: remove dispatch and figure out why the scroll is interrupted.
         DispatchQueue.main.async {
-            let lastSectionItemCount = self.mediaGallery.numberOfItemsInSection(self.mediaGallery.galleryDates.count - 1)
+            let lastSection = (self.mediaGallery?.galleryDates.count ?? 1) - 1
+            let lastSectionItemCount = self.mediaGallery?.numberOfItemsInSection(lastSection >= 0 ? lastSection : 0) ?? 0
             self.collectionView.scrollToItem(
-                at: IndexPath(item: lastSectionItemCount - 1, section: self.mediaGallery.galleryDates.count),
+                at: IndexPath(item: lastSectionItemCount - 1, section: self.mediaGallery?.galleryDates.count ?? 0),
                 at: .bottom,
                 animated: false
             )
@@ -356,7 +363,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     private var willDecelerate = false {
         didSet {
             if oldValue && !willDecelerate {
-                mediaGallery.runAsyncCompletionsIfPossible()
+                mediaGallery?.runAsyncCompletionsIfPossible()
             }
         }
     }
@@ -400,7 +407,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
                 collectionView?.addSubview(scrollFlag)
             }
             scrollFlag.alpha = 1.0
-        } else if scrollFlagShouldBeVisible && !willDecelerate {
+        } else if scrollFlagShouldBeVisible && willDecelerate == false {
             scrollFlagShouldBeVisible = false
             UIView.animate(withDuration: 0.25) {
                 self.scrollFlag.alpha = 0.0
@@ -424,13 +431,13 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     }
 
     private func updateScrollFlag() {
-        guard mediaGallery.galleryDates.count > 0,
+        guard mediaGallery?.galleryDates.count ?? 0 > 0,
               let indexPath = reallyVisibleIndexPaths.min() else {
             scrollFlag.alpha = 0.0
             return
         }
         let i = mediaGallerySection(indexPath.section)
-        let date = mediaGallery.galleryDates[i]
+        let date = mediaGallery?.galleryDates[i] ?? GalleryDate(date: Date.distantPast)
         scrollFlag.stringValue = date.localizedString
         scrollFlag.sizeToFit()
 
@@ -530,7 +537,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
 
     override func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
         defer { previousAdjustedContentInset = scrollView.adjustedContentInset }
-        guard !mediaGallery.galleryDates.isEmpty else {
+        guard mediaGallery?.galleryDates.isEmpty == false else {
             return
         }
 
@@ -547,13 +554,10 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     }
 
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-
         Logger.debug("")
-
-        guard !mediaGallery.galleryDates.isEmpty else {
+        guard mediaGallery?.galleryDates.isEmpty == false else {
             return false
         }
-
         switch indexPath.section {
         case kLoadOlderSectionIdx, loadNewerSectionIdx:
             return false
@@ -563,13 +567,10 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     }
 
     override func collectionView(_ collectionView: UICollectionView, shouldDeselectItemAt indexPath: IndexPath) -> Bool {
-
         Logger.debug("")
-
-        guard !mediaGallery.galleryDates.isEmpty else {
+        guard mediaGallery?.galleryDates.isEmpty == false else {
             return false
         }
-
         switch indexPath.section {
         case kLoadOlderSectionIdx, loadNewerSectionIdx:
             return false
@@ -579,13 +580,10 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     }
 
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-
         Logger.debug("")
-
-        guard !mediaGallery.galleryDates.isEmpty else {
+        guard mediaGallery?.galleryDates.isEmpty == false else {
             return false
         }
-
         switch indexPath.section {
         case kLoadOlderSectionIdx, loadNewerSectionIdx:
             return false
@@ -630,7 +628,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         Logger.debug("")
 
-        let dates = mediaGallery.galleryDates
+        let dates = mediaGallery?.galleryDates ?? []
         guard !dates.isEmpty else {
             // empty gallery
             Logger.debug("No gallery dates - return 1")
@@ -644,7 +642,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection sectionIdx: Int) -> Int {
-        guard !mediaGallery.galleryDates.isEmpty else {
+        guard mediaGallery?.galleryDates.isEmpty == false else {
             // empty gallery
             return 0
         }
@@ -659,7 +657,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
             return 0
         }
 
-        let count = mediaGallery.numberOfItemsInSection(mediaGallerySection(sectionIdx))
+        let count = mediaGallery?.numberOfItemsInSection(mediaGallerySection(sectionIdx)) ?? 0
         return count
     }
 
@@ -671,7 +669,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
 
         let defaultView: (() -> UICollectionReusableView) = { UICollectionReusableView() }
 
-        guard !mediaGallery.galleryDates.isEmpty else {
+        guard let galleryDates = mediaGallery?.galleryDates, !galleryDates.isEmpty else {
             guard
                 let sectionHeader = collectionView.dequeueReusableSupplementaryView(
                     ofKind: kind,
@@ -682,7 +680,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
                 return defaultView()
             }
             sectionHeader.contentType = mediaCategory
-            sectionHeader.isFilterOn = mediaGallery.isFiltering
+            sectionHeader.isFilterOn = mediaGallery?.isFiltering ?? false
             sectionHeader.clearFilterAction = { [weak self] in
                 self?.disableFiltering()
             }
@@ -728,7 +726,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
                     owsFailDebug("unable to build section header for indexPath: \(indexPath)")
                     return defaultView()
                 }
-                guard let date = mediaGallery.galleryDates[safe: mediaGallerySection(indexPath.section)] else {
+                guard let date = mediaGallery?.galleryDates[safe: mediaGallerySection(indexPath.section)] else {
                     owsFailDebug("unknown section for indexPath: \(indexPath)")
                     return defaultView()
                 }
@@ -758,7 +756,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
             allCells.append(cell)
         }
         cell.indexPathDidChange(indexPath, itemCount: collectionView.numberOfItems(inSection: indexPath.section))
-        guard !mediaGallery.galleryDates.isEmpty else {
+        guard mediaGallery?.galleryDates.isEmpty == false else {
             owsFailDebug("unexpected cell for loadNewerSectionIdx")
             cell.makePlaceholder()
             return cell
@@ -826,11 +824,11 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
     }
 
     private func galleryItem(at indexPath: IndexPath, loadAsync: Bool = false) -> MediaGalleryItem? {
+        guard let mediaGallery = mediaGallery else { return nil }
         let underlyingPath = mediaGalleryIndexPath(indexPath)
         if let loadedGalleryItem = mediaGallery.galleryItem(at: underlyingPath) {
             return loadedGalleryItem
         }
-
         mediaGallery.ensureGalleryItemsLoaded(.after,
                                               sectionIndex: underlyingPath.section,
                                               itemIndex: underlyingPath.item,
@@ -838,7 +836,6 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
                                               shouldLoadAlbumRemainder: false,
                                               async: loadAsync,
                                               userData: MediaGalleryUpdateUserData(disableAnimations: true))
-
         return mediaGallery.galleryItem(at: underlyingPath)
     }
 
@@ -943,7 +940,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         referenceSizeForHeaderInSection section: Int
     ) -> CGSize {
 
-        guard !mediaGallery.galleryDates.isEmpty else {
+        guard mediaGallery?.galleryDates.isEmpty == false else {
             // Make section header occupy entire visible collection view heigth so that the text is centered.
             let collectionViewViewportHeight = collectionView.frame.height - collectionView.adjustedContentInset.totalHeight
             return CGSize(width: collectionView.frame.height, height: collectionViewViewportHeight)
@@ -953,10 +950,10 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
             switch section {
             case kLoadOlderSectionIdx:
                 // Show "loading older..." iff there is still older data to be fetched
-                return mediaGallery.hasFetchedOldest ? 0 : loadingDataHeaderHeight()
+                return mediaGallery?.hasFetchedOldest == true ? 0 : loadingDataHeaderHeight()
             case loadNewerSectionIdx:
                 // Show "loading newer..." iff there is still more recent data to be fetched
-                return mediaGallery.hasFetchedMostRecent ? 0 : loadingDataHeaderHeight()
+                return mediaGallery?.hasFetchedMostRecent == true ? 0 : loadingDataHeaderHeight()
             default:
                 return dateHeaderHeight()
             }
@@ -973,7 +970,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         layout collectionViewLayout: UICollectionViewLayout,
         insetForSectionAt section: Int
     ) -> UIEdgeInsets {
-        guard !mediaGallery.galleryDates.isEmpty else { return .zero }
+        guard mediaGallery?.galleryDates.isEmpty == false else { return .zero }
 
         guard layout == .list else { return .zero }
 
@@ -1083,9 +1080,10 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         self.collectionView.performBatchUpdates {
             Logger.debug("Did begin batch update")
 
-            let oldItemCounts = (0..<self.mediaGallery.galleryDates.count).map {
-                self.mediaGallery.numberOfItemsInSection($0)
-            }
+            let oldItemCounts: [Int] = {
+                let count = self.mediaGallery?.galleryDates.count ?? 0
+                return (0..<count).compactMap { self.mediaGallery?.numberOfItemsInSection($0) }
+            }()
 
             // This causes "new" values to become visible.
             let journal = update.commit()
@@ -1156,19 +1154,19 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
 
     let kLoadOlderSectionIdx: Int = 0
     var loadNewerSectionIdx: Int {
-        return localSection(mediaGallery.galleryDates.count)
+        return localSection(mediaGallery?.galleryDates.count ?? 0)
     }
     private var eagerLoadingDidComplete = false
     private var eagerLoadOutstanding = false
 
     private func eagerlyLoadMoreIfPossible() {
         Logger.debug("")
-        guard !mediaGallery.hasFetchedOldest else {
+        guard mediaGallery?.hasFetchedOldest == false else {
             Logger.debug("done")
             eagerLoadingDidComplete = true
             return
         }
-        guard !eagerLoadOutstanding else {
+        guard eagerLoadOutstanding == false else {
             Logger.debug("Already doing an eager load")
             return
         }
@@ -1178,7 +1176,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         // This is a low priority update because we never want eager loads to starve user-initiated
         // loads (such as loading more sections because of scrolling or loading items to display).
         Logger.debug("Will eagerly load earlier sections")
-        mediaGallery.asyncLoadEarlierSections(batchSize: kLoadBatchSize,
+        mediaGallery?.asyncLoadEarlierSections(batchSize: kLoadBatchSize,
                                               highPriority: false,
                                               userData: userData) { [weak self] newSections in
             Logger.debug("Eagerly loaded \(newSections)")
@@ -1200,12 +1198,12 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         let direction: GalleryDirection
 
         var shouldRecordContentSizeBeforeInsertingToTop = false
-        if contentOffsetY < kEdgeThreshold && !mediaGallery.hasFetchedOldest {
+        if contentOffsetY < kEdgeThreshold && mediaGallery?.hasFetchedOldest == false {
             // Near the top, load older content
             shouldRecordContentSizeBeforeInsertingToTop = true
             direction = .before
 
-        } else if oldContentHeight - contentOffsetY < kEdgeThreshold && !mediaGallery.hasFetchedMostRecent {
+        } else if oldContentHeight - contentOffsetY < kEdgeThreshold && mediaGallery?.hasFetchedMostRecent == false {
             // Near the bottom, load newer content
             direction = .after
 
@@ -1213,7 +1211,7 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
             return
         }
 
-        guard !isFetchingMoreData else {
+        guard isFetchingMoreData == false else {
             Logger.debug("already fetching more data")
             return
         }
@@ -1224,14 +1222,14 @@ class MediaTileViewController: UICollectionViewController, MediaGalleryDelegate,
         isFetchingMoreData = true
         switch direction {
         case .before:
-            mediaGallery.asyncLoadEarlierSections(batchSize: kLoadBatchSize,
+            mediaGallery?.asyncLoadEarlierSections(batchSize: kLoadBatchSize,
                                                   highPriority: true,
                                                   userData: userData) { [weak self] newSections in
                 Logger.debug("found new sections: \(newSections)")
                 self?.isFetchingMoreData = false
             }
         case .after:
-            mediaGallery.asyncLoadLaterSections(batchSize: kLoadBatchSize, userData: userData) { [weak self] newSections in
+            mediaGallery?.asyncLoadLaterSections(batchSize: kLoadBatchSize, userData: userData) { [weak self] newSections in
                 Logger.debug("found new sections: \(newSections)")
                 self?.isFetchingMoreData = false
             }
@@ -1252,7 +1250,7 @@ extension MediaTileViewController: MediaPresentationContextProvider {
             return nil
         }
 
-        guard let underlyingPath = mediaGallery.indexPath(for: galleryItem) else {
+        guard let underlyingPath = mediaGallery?.indexPath(for: galleryItem) else {
             owsFailDebug("galleryItemIndexPath was unexpectedly nil")
             return nil
         }
@@ -1533,7 +1531,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
     var scrollView: UIScrollView { return collectionView }
 
     var isEmpty: Bool {
-        return mediaGallery.galleryDates.isEmpty
+        return mediaGallery?.galleryDates.isEmpty ?? false
     }
 
     var hasSelection: Bool {
@@ -1582,7 +1580,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
                             "ALL_MEDIA_FILTER_NONE",
                             comment: "Menu option to remove content type restriction in All Media view"
                         ),
-                    isChecked: mediaGallery.mediaFilter == AllMediaFilter.defaultMediaType(for: mediaCategory),
+                    isChecked: mediaGallery?.mediaFilter == AllMediaFilter.defaultMediaType(for: mediaCategory),
                     handler: { [weak self] in
                         self?.disableFiltering()
                     }
@@ -1593,7 +1591,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
                             "ALL_MEDIA_FILTER_PHOTOS",
                             comment: "Menu option to limit All Media view to displaying only photos"
                         ),
-                    isChecked: mediaGallery.mediaFilter == .photos,
+                    isChecked: mediaGallery?.mediaFilter == .photos,
                     handler: { [weak self] in
                         self?.filter(.photos)
                     }
@@ -1604,7 +1602,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
                             "ALL_MEDIA_FILTER_VIDEOS",
                             comment: "Menu option to limit All Media view to displaying only videos"
                         ),
-                    isChecked: mediaGallery.mediaFilter == .videos,
+                    isChecked: mediaGallery?.mediaFilter == .videos,
                     handler: { [weak self] in
                         self?.filter(.videos)
                     }
@@ -1615,7 +1613,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
                             "ALL_MEDIA_FILTER_GIFS",
                             comment: "Menu option to limit All Media view to displaying only GIFs"
                         ),
-                    isChecked: mediaGallery.mediaFilter == .gifs,
+                    isChecked: mediaGallery?.mediaFilter == .gifs,
                     handler: { [weak self] in
                         self?.filter(.gifs)
                     }
@@ -1630,7 +1628,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
                             "ALL_MEDIA_AUDIO_FILTER_ALL",
                             comment: "Menu option to remove content type restriction in All Media (Audio) view"
                         ),
-                    isChecked: mediaGallery.mediaFilter == AllMediaFilter.defaultMediaType(for: mediaCategory),
+                    isChecked: mediaGallery?.mediaFilter == AllMediaFilter.defaultMediaType(for: mediaCategory),
                     handler: { [weak self] in
                         self?.disableFiltering()
                     }
@@ -1641,7 +1639,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
                             "ALL_MEDIA_AUDIO_FILTER_VOICE_MSG",
                             comment: "Menu option to limit All Media (Audio) view to displaying only Voice Messages"
                         ),
-                    isChecked: mediaGallery.mediaFilter == .voiceMessages,
+                    isChecked: mediaGallery?.mediaFilter == .voiceMessages,
                     handler: { [weak self] in
                         self?.filter(.voiceMessages)
                     }
@@ -1652,7 +1650,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
                             "ALL_MEDIA_AUDIO_FILTER_AUDIO_FILES",
                             comment: "Menu option to limit All Media (Audio) view to displaying non-voice message audio files"
                         ),
-                    isChecked: mediaGallery.mediaFilter == .audioFiles,
+                    isChecked: mediaGallery?.mediaFilter == .audioFiles,
                     handler: { [weak self] in
                         self?.filter(.audioFiles)
                     }
@@ -1669,11 +1667,11 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
     func disableFiltering() {
         let date: GalleryDate?
         if let indexPath = oldestVisibleIndexPath?.shiftingSection(by: -1) {
-            date = mediaGallery.galleryDates[indexPath.section]
+            date = mediaGallery?.galleryDates[indexPath.section]
         } else {
             date = nil
         }
-        let indexPathToScrollTo = mediaGallery.setMediaFilter(
+        let indexPathToScrollTo = mediaGallery?.setMediaFilter(
             AllMediaFilter.defaultMediaType(for: mediaCategory),
             loadUntil: date ?? GalleryDate(date: .distantFuture),
             batchSize: kLoadBatchSize,
@@ -1681,8 +1679,8 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
         )
 
         if date == nil {
-            if mediaGallery.galleryDates.isEmpty {
-                _ = self.mediaGallery.loadEarlierSections(batchSize: kLoadBatchSize)
+            if mediaGallery?.galleryDates.isEmpty ?? false {
+                _ = self.mediaGallery?.loadEarlierSections(batchSize: kLoadBatchSize)
             }
             if eagerLoadingDidComplete {
                 // Filtering removed everything so we must restart eager loading.
@@ -1747,7 +1745,7 @@ extension MediaTileViewController: MediaGalleryPrimaryViewController {
             style: .destructive,
             handler: { [self] _ in
                 let galleryIndexPaths = indexPaths.map { self.mediaGalleryIndexPath($0) }
-                self.mediaGallery.delete(items: items, atIndexPaths: galleryIndexPaths, initiatedBy: self)
+                self.mediaGallery?.delete(items: items, atIndexPaths: galleryIndexPaths, initiatedBy: self)
                 self.accessoriesHelper.endSelectMode()
                 DispatchQueue.main.async {
                     self.presentToast(text: toastText, extraVInset: self.collectionView.contentInset.bottom)
