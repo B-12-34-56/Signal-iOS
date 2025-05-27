@@ -8,37 +8,31 @@ public enum AWSConfigError: Error {
 }
 
 public class AWSConfig {
-<<<<<<< HEAD
-=======
-    // Fix: Use lazy initialization with error handling
->>>>>>> origin/Ibrahim
     public static let shared: AWSConfig = {
         do {
             return try AWSConfig()
         } catch {
-<<<<<<< HEAD
-=======
-            // Log the error and provide a fallback or crash intentionally
->>>>>>> origin/Ibrahim
             fatalError("Failed to initialize AWSConfig: \(error)")
         }
     }()
     
     // MARK: - S3 Configuration
-    let s3BucketName: String
-    let s3Region: String
-    let s3ImagesPath: String
-    let s3BaseURL: String
+    public let s3BucketName: String
+    public let s3Region: String
+    public let s3ImagesPath: String
+    public let s3BaseURL: String
     
     // MARK: - DynamoDB Configuration
     public let dynamoDbTableName: String
     public let dynamoDbRegion: String
     public let dynamoDbEndpoint: String
     
-    // MARK: - API Gateway Endpoints
+    // MARK: - API Gateway Endpoints & ARNs
     public let apiGatewayEndpoint: String
     public let getTagApiGatewayEndpoint: String
     public let uploadImageApiGatewayEndpoint: String
+    public let getTagApiGatewayArn: String
+    public let uploadImageApiGatewayArn: String
     
     // MARK: - Cognito Configuration
     public let identityPoolId: String
@@ -54,75 +48,51 @@ public class AWSConfig {
     public let ttlFieldName: String
     
     // MARK: - Timeouts and Retries
-<<<<<<< HEAD
-    let requestTimeoutInterval: TimeInterval
-    let resourceTimeoutInterval: TimeInterval
-    let maxRetryCount: Int
-    let initialRetryDelay: TimeInterval
-    let maxRetryDelay: TimeInterval
+    public let requestTimeoutInterval: TimeInterval
+    public let resourceTimeoutInterval: TimeInterval
+    public let maxRetryCount: Int
+    public let initialRetryDelay: TimeInterval
+    public let maxRetryDelay: TimeInterval
     
     // MARK: - TTL Configuration
-    let defaultTTL: TimeInterval
-=======
-    // Alternative: Use Double (TimeInterval is just a typealias for Double)
-        public let requestTimeoutInterval: Double
-        public let resourceTimeoutInterval: Double
-        public let maxRetryCount: Int
-        public let initialRetryDelay: Double
-        public let maxRetryDelay: Double
-    
-    // MARK: - TTL Configuration
-    public let defaultTTL: Double
->>>>>>> origin/Ibrahim
-    
-    // MARK: - API Gateway ARNs
-    public let getTagApiGatewayArn: String
-    public let uploadImageApiGatewayArn: String
+    public let defaultTTL: TimeInterval
     
     private init() throws {
-        // Load configuration from environment variables or use defaults
-        self.s3BucketName = try Self.getRequiredValue("S3_BUCKET_NAME", default: "signal-image-uploads")
-        self.s3Region = try Self.getRequiredValue("S3_REGION", default: "us-east-1")
-        self.s3ImagesPath = try Self.getRequiredValue("S3_IMAGES_PATH", default: "images")
-        self.s3BaseURL = try Self.getRequiredValue("S3_BASE_URL", default: "https://signal-image-uploads.s3.amazonaws.com")
+        // Load configuration from environment or defaults
+        self.s3BucketName   = try Self.getRequiredValue("S3_BUCKET_NAME", default: "signal-image-uploads")
+        self.s3Region       = try Self.getRequiredValue("S3_REGION", default: "us-east-1")
+        self.s3ImagesPath   = try Self.getRequiredValue("S3_IMAGES_PATH", default: "images")
+        self.s3BaseURL      = try Self.getRequiredValue("S3_BASE_URL", default: "https://signal-image-uploads.s3.amazonaws.com")
         
         self.dynamoDbTableName = try Self.getRequiredValue("DYNAMODB_TABLE_NAME", default: "signal-image-signatures")
-        self.dynamoDbRegion = try Self.getRequiredValue("DYNAMODB_REGION", default: "us-east-1")
-        self.dynamoDbEndpoint = try Self.getRequiredValue("DYNAMODB_ENDPOINT", default: "https://dynamodb.us-east-1.amazonaws.com")
+        self.dynamoDbRegion    = try Self.getRequiredValue("DYNAMODB_REGION", default: "us-east-1")
+        self.dynamoDbEndpoint  = try Self.getRequiredValue("DYNAMODB_ENDPOINT", default: "https://dynamodb.us-east-1.amazonaws.com")
         
-        self.apiGatewayEndpoint = try Self.getRequiredValue("API_GATEWAY_ENDPOINT", default: "https://api.signal.org")
-        self.getTagApiGatewayEndpoint = "\(self.apiGatewayEndpoint)/get-tag"
+        self.apiGatewayEndpoint          = try Self.getRequiredValue("API_GATEWAY_ENDPOINT", default: "https://api.signal.org")
+        self.getTagApiGatewayEndpoint    = "\(self.apiGatewayEndpoint)/get-tag"
         self.uploadImageApiGatewayEndpoint = "\(self.apiGatewayEndpoint)/upload-image"
         
         self.identityPoolId = try Self.getRequiredValue("COGNITO_IDENTITY_POOL_ID")
-        self.cognitoRegion = try Self.getRequiredValue("COGNITO_REGION", default: "us-east-1")
+        self.cognitoRegion  = try Self.getRequiredValue("COGNITO_REGION", default: "us-east-1")
         
-        self.getTagApiKey = try Self.getRequiredValue("GET_TAG_API_KEY")
+        self.getTagApiKey    = try Self.getRequiredValue("GET_TAG_API_KEY")
         self.uploadImageApiKey = try Self.getRequiredValue("UPLOAD_IMAGE_API_KEY")
         
-        self.hashFieldName = "imageHash"
+        self.hashFieldName    = "imageHash"
         self.timestampFieldName = "timestamp"
-        self.ttlFieldName = "ttl"
+        self.ttlFieldName      = "ttl"
         
-<<<<<<< HEAD
-        self.requestTimeoutInterval = Double(try Self.getRequiredValue("REQUEST_TIMEOUT", default: "30")) ?? 30
-        self.resourceTimeoutInterval = Double(try Self.getRequiredValue("RESOURCE_TIMEOUT", default: "300")) ?? 300
-        self.maxRetryCount = Int(try Self.getRequiredValue("MAX_RETRY_COUNT", default: "3")) ?? 3
-        self.initialRetryDelay = Double(try Self.getRequiredValue("INITIAL_RETRY_DELAY", default: "1")) ?? 1
-        self.maxRetryDelay = Double(try Self.getRequiredValue("MAX_RETRY_DELAY", default: "10")) ?? 10
-        self.defaultTTL = (Double(try Self.getRequiredValue("DEFAULT_TTL_DAYS", default: "30")) ?? 30) * 24 * 60 * 60
-=======
-        // Fix: Use explicit Foundation.TimeInterval and proper casting
-        self.requestTimeoutInterval = Foundation.TimeInterval(try Self.getRequiredValue("REQUEST_TIMEOUT", default: "30")) ?? 30
-        self.resourceTimeoutInterval = Foundation.TimeInterval(try Self.getRequiredValue("RESOURCE_TIMEOUT", default: "300")) ?? 300
-        self.maxRetryCount = Int(try Self.getRequiredValue("MAX_RETRY_COUNT", default: "3")) ?? 3
-        self.initialRetryDelay = Foundation.TimeInterval(try Self.getRequiredValue("INITIAL_RETRY_DELAY", default: "1")) ?? 1
-        self.maxRetryDelay = Foundation.TimeInterval(try Self.getRequiredValue("MAX_RETRY_DELAY", default: "10")) ?? 10
+        // Parse numeric settings
+        self.requestTimeoutInterval  = TimeInterval(Double(try Self.getRequiredValue("REQUEST_TIMEOUT", default: "30")) ?? 30)
+        self.resourceTimeoutInterval = TimeInterval(Double(try Self.getRequiredValue("RESOURCE_TIMEOUT", default: "300")) ?? 300)
+        self.maxRetryCount           = Int(try Self.getRequiredValue("MAX_RETRY_COUNT", default: "3")) ?? 3
+        self.initialRetryDelay       = TimeInterval(Double(try Self.getRequiredValue("INITIAL_RETRY_DELAY", default: "1")) ?? 1)
+        self.maxRetryDelay           = TimeInterval(Double(try Self.getRequiredValue("MAX_RETRY_DELAY", default: "10")) ?? 10)
         
-        self.defaultTTL = Foundation.TimeInterval(try Self.getRequiredValue("DEFAULT_TTL_DAYS", default: "30")) ?? 30 * 24 * 60 * 60
->>>>>>> origin/Ibrahim
+        let ttlDays = Double(try Self.getRequiredValue("DEFAULT_TTL_DAYS", default: "30")) ?? 30
+        self.defaultTTL = ttlDays * 24 * 60 * 60
         
-        self.getTagApiGatewayArn = try Self.getRequiredValue("GET_TAG_API_GATEWAY_ARN")
+        self.getTagApiGatewayArn    = try Self.getRequiredValue("GET_TAG_API_GATEWAY_ARN")
         self.uploadImageApiGatewayArn = try Self.getRequiredValue("UPLOAD_IMAGE_API_GATEWAY_ARN")
         
         try validateConfiguration()
@@ -132,97 +102,80 @@ public class AWSConfig {
         if let value = ProcessInfo.processInfo.environment[key] {
             return value
         }
-        if let defaultValue = defaultValue {
-            return defaultValue
+        if let fallback = defaultValue {
+            return fallback
         }
         throw AWSConfigError.missingRequiredValue("Missing required configuration value: \(key)")
     }
     
     private func validateConfiguration() throws {
-        // Validate URLs
+        // URL validations
         guard URL(string: s3BaseURL) != nil else {
             throw AWSConfigError.invalidValue("Invalid S3 base URL: \(s3BaseURL)")
         }
-        
         guard URL(string: dynamoDbEndpoint) != nil else {
             throw AWSConfigError.invalidValue("Invalid DynamoDB endpoint: \(dynamoDbEndpoint)")
         }
-        
         guard URL(string: apiGatewayEndpoint) != nil else {
             throw AWSConfigError.invalidValue("Invalid API Gateway endpoint: \(apiGatewayEndpoint)")
         }
         
-        // Validate regions
-        let validRegions = ["us-east-1", "us-east-2", "us-west-1", "us-west-2", "eu-west-1", "eu-central-1", "ap-southeast-1", "ap-southeast-2"]
-        guard validRegions.contains(s3Region) else {
-            throw AWSConfigError.invalidValue("Invalid S3 region: \(s3Region)")
-        }
+        // Region whitelist
+        let validRegions = [
+            "us-east-1", "us-east-2", "us-west-1", "us-west-2",
+            "eu-west-1", "eu-central-1", "ap-southeast-1", "ap-southeast-2"
+        ]
+        guard validRegions.contains(s3Region)        else { throw AWSConfigError.invalidValue("Invalid S3 region: \(s3Region)") }
+        guard validRegions.contains(dynamoDbRegion)  else { throw AWSConfigError.invalidValue("Invalid DynamoDB region: \(dynamoDbRegion)") }
+        guard validRegions.contains(cognitoRegion)   else { throw AWSConfigError.invalidValue("Invalid Cognito region: \(cognitoRegion)") }
         
-        guard validRegions.contains(dynamoDbRegion) else {
-            throw AWSConfigError.invalidValue("Invalid DynamoDB region: \(dynamoDbRegion)")
-        }
-        
-        guard validRegions.contains(cognitoRegion) else {
-            throw AWSConfigError.invalidValue("Invalid Cognito region: \(cognitoRegion)")
-        }
-        
-        // Validate timeouts and retries
+        // Timeouts & retries sanity
         guard requestTimeoutInterval > 0 else {
-            throw AWSConfigError.invalidValue("Request timeout must be greater than 0")
+            throw AWSConfigError.invalidValue("Request timeout must be > 0")
         }
-        
         guard resourceTimeoutInterval > requestTimeoutInterval else {
-            throw AWSConfigError.invalidValue("Resource timeout must be greater than request timeout")
+            throw AWSConfigError.invalidValue("Resource timeout must be > request timeout")
         }
-        
         guard maxRetryCount > 0 else {
-            throw AWSConfigError.invalidValue("Max retry count must be greater than 0")
+            throw AWSConfigError.invalidValue("Max retry count must be > 0")
         }
-        
         guard initialRetryDelay > 0 else {
-            throw AWSConfigError.invalidValue("Initial retry delay must be greater than 0")
+            throw AWSConfigError.invalidValue("Initial retry delay must be > 0")
         }
-        
         guard maxRetryDelay > initialRetryDelay else {
-            throw AWSConfigError.invalidValue("Max retry delay must be greater than initial retry delay")
+            throw AWSConfigError.invalidValue("Max retry delay must be > initial retry delay")
         }
-        
-        // Validate TTL
         guard defaultTTL > 0 else {
-            throw AWSConfigError.invalidValue("Default TTL must be greater than 0")
+            throw AWSConfigError.invalidValue("Default TTL must be > 0")
         }
     }
     
-    func configureAWS() throws {
-        // Configure AWS Cognito
-        let cognitoConfig = AWSCognitoCredentialsProvider(
+    public func configureAWS() throws {
+        let cognitoProvider = AWSCognitoCredentialsProvider(
             regionType: .USEast1,
             identityPoolId: identityPoolId
         )
-        
         let configuration = AWSServiceConfiguration(
             region: .USEast1,
-            credentialsProvider: cognitoConfig
+            credentialsProvider: cognitoProvider
         )
-        
         AWSServiceManager.default().defaultServiceConfiguration = configuration
     }
-<<<<<<< HEAD
     
     @MainActor
     public static func validateAWSCredentials() async -> Bool {
-        guard let credentialsProvider = AWSServiceManager.default().defaultServiceConfiguration?.credentialsProvider as? AWSCognitoCredentialsProvider else {
+        guard let provider = AWSServiceManager.default()
+                .defaultServiceConfiguration?
+                .credentialsProvider as? AWSCognitoCredentialsProvider else {
             return false
         }
         do {
             let identityId = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<String?, Error>) in
-                credentialsProvider.getIdentityId().continueWith { task in
+                provider.getIdentityId().continueWith { task in
                     if let error = task.error {
                         continuation.resume(throwing: error)
-                    } else if let result = task.result {
-                        continuation.resume(returning: result as String)  // Cast NSString to String
                     } else {
-                        continuation.resume(returning: nil)
+                        continuation.resume(returning: task.result as String?)
                     }
                     return nil
                 }
@@ -235,10 +188,7 @@ public class AWSConfig {
     
     @MainActor
     public static func ensureDynamoDbTableExists(createIfNotExists: Bool) async -> Bool {
-        // TODO: Implement actual check/creation logic
+        // TODO: implement real table check/creation
         return true
     }
-} 
-=======
 }
->>>>>>> origin/Ibrahim
