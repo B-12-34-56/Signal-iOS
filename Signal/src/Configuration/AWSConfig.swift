@@ -1,8 +1,3 @@
-//
-// Copyright 2021 Signal Messenger, LLC
-// SPDX-License-Identifier: AGPL-3.0-only
-//
-
 import Foundation
 import AWSCore
 
@@ -13,7 +8,15 @@ public enum AWSConfigError: Error {
 }
 
 public class AWSConfig {
-    public static let shared = AWSConfig()
+    // Fix: Use lazy initialization with error handling
+    public static let shared: AWSConfig = {
+        do {
+            return try AWSConfig()
+        } catch {
+            // Log the error and provide a fallback or crash intentionally
+            fatalError("Failed to initialize AWSConfig: \(error)")
+        }
+    }()
     
     // MARK: - S3 Configuration
     public let s3BucketName: String
@@ -45,14 +48,15 @@ public class AWSConfig {
     public let ttlFieldName: String
     
     // MARK: - Timeouts and Retries
-    public let requestTimeoutInterval: TimeInterval
-    public let resourceTimeoutInterval: TimeInterval
-    public let maxRetryCount: Int
-    public let initialRetryDelay: TimeInterval
-    public let maxRetryDelay: TimeInterval
+    // Alternative: Use Double (TimeInterval is just a typealias for Double)
+        public let requestTimeoutInterval: Double
+        public let resourceTimeoutInterval: Double
+        public let maxRetryCount: Int
+        public let initialRetryDelay: Double
+        public let maxRetryDelay: Double
     
     // MARK: - TTL Configuration
-    public let defaultTTL: TimeInterval
+    public let defaultTTL: Double
     
     // MARK: - API Gateway ARNs
     public let getTagApiGatewayArn: String
@@ -83,13 +87,14 @@ public class AWSConfig {
         self.timestampFieldName = "timestamp"
         self.ttlFieldName = "ttl"
         
-        self.requestTimeoutInterval = TimeInterval(try Self.getRequiredValue("REQUEST_TIMEOUT", default: "30")) ?? 30
-        self.resourceTimeoutInterval = TimeInterval(try Self.getRequiredValue("RESOURCE_TIMEOUT", default: "300")) ?? 300
+        // Fix: Use explicit Foundation.TimeInterval and proper casting
+        self.requestTimeoutInterval = Foundation.TimeInterval(try Self.getRequiredValue("REQUEST_TIMEOUT", default: "30")) ?? 30
+        self.resourceTimeoutInterval = Foundation.TimeInterval(try Self.getRequiredValue("RESOURCE_TIMEOUT", default: "300")) ?? 300
         self.maxRetryCount = Int(try Self.getRequiredValue("MAX_RETRY_COUNT", default: "3")) ?? 3
-        self.initialRetryDelay = TimeInterval(try Self.getRequiredValue("INITIAL_RETRY_DELAY", default: "1")) ?? 1
-        self.maxRetryDelay = TimeInterval(try Self.getRequiredValue("MAX_RETRY_DELAY", default: "10")) ?? 10
+        self.initialRetryDelay = Foundation.TimeInterval(try Self.getRequiredValue("INITIAL_RETRY_DELAY", default: "1")) ?? 1
+        self.maxRetryDelay = Foundation.TimeInterval(try Self.getRequiredValue("MAX_RETRY_DELAY", default: "10")) ?? 10
         
-        self.defaultTTL = TimeInterval(try Self.getRequiredValue("DEFAULT_TTL_DAYS", default: "30")) ?? 30 * 24 * 60 * 60
+        self.defaultTTL = Foundation.TimeInterval(try Self.getRequiredValue("DEFAULT_TTL_DAYS", default: "30")) ?? 30 * 24 * 60 * 60
         
         self.getTagApiGatewayArn = try Self.getRequiredValue("GET_TAG_API_GATEWAY_ARN")
         self.uploadImageApiGatewayArn = try Self.getRequiredValue("UPLOAD_IMAGE_API_GATEWAY_ARN")
@@ -176,4 +181,4 @@ public class AWSConfig {
         
         AWSServiceManager.default().defaultServiceConfiguration = configuration
     }
-} 
+}

@@ -305,7 +305,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let attachmentValidationRunner = AttachmentValidationBackfillRunner(
             db: databaseStorage,
             store: attachmentBackfillStore,
-            migrator: { DependenciesBridge.shared.attachmentValidationBackfillMigrator }
+            migrator: { return DependenciesBridge.shared.incrementalMessageTSAttachmentMigrator }
         )
         attachmentValidationRunner.registerBGProcessingTask(appReadiness: appReadiness)
 
