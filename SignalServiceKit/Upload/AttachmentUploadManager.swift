@@ -253,7 +253,6 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
             dataSource: dataSource,
             dataUTI: inferredUti
         )
-        try await attachment.checkContentFilter()
         
         let temporaryFile = fileSystem.temporaryFileUrl()
         guard let sourceURL = dataSource.dataUrl else {
@@ -383,7 +382,6 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
             dataSource: dataSource,
             dataUTI: inferredUti
         )
-        try await signalAttachment.checkContentFilter()
         
         let encryptedByteCount = db.read { tx in
             return attachmentStore.fetch(id: attachmentId, tx: tx)?.streamInfo?.encryptedByteCount

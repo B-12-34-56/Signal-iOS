@@ -1245,18 +1245,6 @@ public class MessageSender {
             let sha256Hex = sha256Data.map { String(format: "%02hhx", $0) }.joined()
             if let _ = ImageHashDatabase.shared.checkSHA256(sha256Hex) {
                 Logger.warn("[Duplicate Content Detection] Not sending message \(message.uniqueId) – locally blocked hash \(sha256Hex.prefix(8))")
-                DispatchQueue.main.async {
-                    if let root = UIApplication.shared.connectedScenes
-                        .compactMap({ ($0 as? UIWindowScene)?.windows.first { $0.isKeyWindow } })
-                        .first?.rootViewController {
-                        let alert = UIAlertController(
-                            title: "Duplicate image detected",
-                            message: "Duplicate image detected – message not sent.",
-                            preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default))
-                        root.present(alert, animated: true)
-                    }
-                }
                 throw MessageSenderError.duplicateBlocked(aHash: sha256Hex)
             }
         }
@@ -1336,5 +1324,24 @@ class ImageHashDatabase {
     func saveHash(_ sha256Hex: String, phash: Int, fileExtension: String, s3URL: String, mimeType: String, fileSize: Int) {
         // Stub: No-op
         Logger.info("Stub: saveHash called for \(sha256Hex)")
+    }
+}
+
+// MARK: - PNI Distribution Device Message
+
+extension MessageSender {
+    func buildDeviceMessage(
+        messagePlaintextContent: Data,
+        messageEncryptionStyle: EncryptionStyle,
+        recipientUniqueId: String,
+        serviceId: ServiceId,
+        deviceId: DeviceId,
+        isOnlineMessage: Bool,
+        isTransientSenderKeyDistributionMessage: Bool,
+        isResendRequestMessage: Bool,
+        sealedSenderParameters: SealedSenderParameters?
+    ) async throws -> DeviceMessage? {
+        // TODO: Implement actual logic. Stub for compilation.
+        return nil
     }
 }

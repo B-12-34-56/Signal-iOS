@@ -1360,7 +1360,9 @@ public class AppSetup {
             usernameValidationManager: usernameValidationManager,
             wallpaperImageStore: wallpaperImageStore,
             wallpaperStore: wallpaperStore,
-            attachmentUploadManager: attachmentUploadManager
+            attachmentUploadManager: attachmentUploadManager,
+            attachmentValidationBackfillMigrator: attachmentValidationBackfillMigrator,
+            attachmentCloner: SignalAttachmentClonerImpl()
         )
         DependenciesBridge.setShared(dependenciesBridge)
 

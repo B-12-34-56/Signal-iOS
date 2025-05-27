@@ -27,7 +27,6 @@
 	</array>
 	<key>BuildDetails</key>
 	<dict/>
->>>>>>> origin/Ibrahim
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -43,10 +42,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-<<<<<<< HEAD
 	<string>1</string>
-=======
-	<string>0</string>
 	<key>DuplicateThreshold</key>
 	<integer>3</integer>
 	<key>ITSAppUsesNonExemptEncryption</key>
@@ -116,6 +112,12 @@
 	<string>$(SIGNAL_MERCHANTID)</string>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
+	<key>S3BucketName</key>
+	<string>dxtnhmfqv8</string>
+	<key>S3Region</key>
+	<string>us-east-1</string>
+	<key>S3Subfolder</key>
+	<string>uploads/</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
@@ -147,6 +149,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
->>>>>>> origin/Ibrahim
 </dict>
 </plist>

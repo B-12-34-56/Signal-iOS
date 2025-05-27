@@ -13,13 +13,19 @@ public enum AWSConfigError: Error {
 }
 
 public class AWSConfig {
-    public static let shared = AWSConfig()
+    public static let shared: AWSConfig = {
+        do {
+            return try AWSConfig()
+        } catch {
+            fatalError("Failed to initialize AWSConfig: \(error)")
+        }
+    }()
     
     // MARK: - S3 Configuration
-    public let s3BucketName: String
-    public let s3Region: String
-    public let s3ImagesPath: String
-    public let s3BaseURL: String
+    let s3BucketName: String
+    let s3Region: String
+    let s3ImagesPath: String
+    let s3BaseURL: String
     
     // MARK: - DynamoDB Configuration
     public let dynamoDbTableName: String
@@ -45,14 +51,14 @@ public class AWSConfig {
     public let ttlFieldName: String
     
     // MARK: - Timeouts and Retries
-    public let requestTimeoutInterval: TimeInterval
-    public let resourceTimeoutInterval: TimeInterval
-    public let maxRetryCount: Int
-    public let initialRetryDelay: TimeInterval
-    public let maxRetryDelay: TimeInterval
+    let requestTimeoutInterval: TimeInterval
+    let resourceTimeoutInterval: TimeInterval
+    let maxRetryCount: Int
+    let initialRetryDelay: TimeInterval
+    let maxRetryDelay: TimeInterval
     
     // MARK: - TTL Configuration
-    public let defaultTTL: TimeInterval
+    let defaultTTL: TimeInterval
     
     // MARK: - API Gateway ARNs
     public let getTagApiGatewayArn: String
@@ -83,13 +89,12 @@ public class AWSConfig {
         self.timestampFieldName = "timestamp"
         self.ttlFieldName = "ttl"
         
-        self.requestTimeoutInterval = TimeInterval(try Self.getRequiredValue("REQUEST_TIMEOUT", default: "30")) ?? 30
-        self.resourceTimeoutInterval = TimeInterval(try Self.getRequiredValue("RESOURCE_TIMEOUT", default: "300")) ?? 300
+        self.requestTimeoutInterval = Double(try Self.getRequiredValue("REQUEST_TIMEOUT", default: "30")) ?? 30
+        self.resourceTimeoutInterval = Double(try Self.getRequiredValue("RESOURCE_TIMEOUT", default: "300")) ?? 300
         self.maxRetryCount = Int(try Self.getRequiredValue("MAX_RETRY_COUNT", default: "3")) ?? 3
-        self.initialRetryDelay = TimeInterval(try Self.getRequiredValue("INITIAL_RETRY_DELAY", default: "1")) ?? 1
-        self.maxRetryDelay = TimeInterval(try Self.getRequiredValue("MAX_RETRY_DELAY", default: "10")) ?? 10
-        
-        self.defaultTTL = TimeInterval(try Self.getRequiredValue("DEFAULT_TTL_DAYS", default: "30")) ?? 30 * 24 * 60 * 60
+        self.initialRetryDelay = Double(try Self.getRequiredValue("INITIAL_RETRY_DELAY", default: "1")) ?? 1
+        self.maxRetryDelay = Double(try Self.getRequiredValue("MAX_RETRY_DELAY", default: "10")) ?? 10
+        self.defaultTTL = (Double(try Self.getRequiredValue("DEFAULT_TTL_DAYS", default: "30")) ?? 30) * 24 * 60 * 60
         
         self.getTagApiGatewayArn = try Self.getRequiredValue("GET_TAG_API_GATEWAY_ARN")
         self.uploadImageApiGatewayArn = try Self.getRequiredValue("UPLOAD_IMAGE_API_GATEWAY_ARN")
@@ -175,5 +180,35 @@ public class AWSConfig {
         )
         
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+    }
+    
+    @MainActor
+    public static func validateAWSCredentials() async -> Bool {
+        guard let credentialsProvider = AWSServiceManager.default().defaultServiceConfiguration?.credentialsProvider as? AWSCognitoCredentialsProvider else {
+            return false
+        }
+        do {
+            let identityId = try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<String?, Error>) in
+                credentialsProvider.getIdentityId().continueWith { task in
+                    if let error = task.error {
+                        continuation.resume(throwing: error)
+                    } else if let result = task.result {
+                        continuation.resume(returning: result as String)  // Cast NSString to String
+                    } else {
+                        continuation.resume(returning: nil)
+                    }
+                    return nil
+                }
+            }
+            return identityId != nil
+        } catch {
+            return false
+        }
+    }
+    
+    @MainActor
+    public static func ensureDynamoDbTableExists(createIfNotExists: Bool) async -> Bool {
+        // TODO: Implement actual check/creation logic
+        return true
     }
 } 

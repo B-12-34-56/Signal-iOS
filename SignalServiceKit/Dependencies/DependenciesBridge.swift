@@ -155,6 +155,8 @@ public class DependenciesBridge {
     public let wallpaperImageStore: WallpaperImageStore
     public let wallpaperStore: WallpaperStore
     public let attachmentUploadManager: AttachmentUploadManager?
+    public let attachmentValidationBackfillMigrator: AttachmentValidationBackfillMigrator
+    public let attachmentCloner: SignalAttachmentCloner
 
     init(
         accountAttributesUpdater: AccountAttributesUpdater,
@@ -273,7 +275,9 @@ public class DependenciesBridge {
         usernameValidationManager: UsernameValidationManager,
         wallpaperImageStore: WallpaperImageStore,
         wallpaperStore: WallpaperStore,
-        attachmentUploadManager: AttachmentUploadManager? = nil
+        attachmentUploadManager: AttachmentUploadManager? = nil,
+        attachmentValidationBackfillMigrator: AttachmentValidationBackfillMigrator,
+        attachmentCloner: SignalAttachmentCloner
     ) {
         self.accountAttributesUpdater = accountAttributesUpdater
         self.adHocCallRecordManager = adHocCallRecordManager
@@ -392,5 +396,7 @@ public class DependenciesBridge {
         self.wallpaperImageStore = wallpaperImageStore
         self.wallpaperStore = wallpaperStore
         self.attachmentUploadManager = attachmentUploadManager
+        self.attachmentValidationBackfillMigrator = attachmentValidationBackfillMigrator
+        self.attachmentCloner = attachmentCloner
     }
 }

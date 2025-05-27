@@ -12,6 +12,7 @@ import WebRTC
 import AWSCore
 import AWSS3
 import AWSDynamoDB
+import AWSCognitoIdentityProvider
 
 enum LaunchPreflightError {
     case unknownDatabaseVersion
@@ -685,7 +686,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 
                 // 1. Setup AWS Credentials
-                AWSConfig.setupAWSCredentials()
+                try? AWSConfig.shared.configureAWS()
                 
                 // 2. Validate Credentials
                 let credentialsValid = await AWSConfig.validateAWSCredentials()
@@ -694,10 +695,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 
                 // 3. Ensure DynamoDB Table Exists
-                let tableReady = await AWSConfig.ensureDynamoDbTableExists(createIfNotExists: true)
-                if tableReady {
-                    Logger.info("[AWS Init] ✅ DynamoDB table '\(AWSConfig.dynamoDbTableName)' confirmed.")
-                }
+                // let tableReady = await AWSConfig.ensureDynamoDbTableExists(createIfNotExists: true)
+                // if tableReady {
+                //     Logger.info("[AWS Init] ✅ DynamoDB table '\(AWSConfig.dynamoDbTableName)' confirmed.")
+                // }
                 
                 // 4. IMPORTANT: Add the missing column
                 try? await storage.grdbStorage.pool.write { db in

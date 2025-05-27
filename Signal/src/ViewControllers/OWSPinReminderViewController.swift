@@ -89,7 +89,7 @@ public class PinReminderViewController: OWSViewController {
 
         view.addSubview(containerView)
         containerView.autoPinWidthToSuperview()
-        containerView.autoPin(toTopLayoutGuideOf: self, withInset: 0, relation: .greaterThanOrEqual)
+        containerView.autoPin(toTopLayoutGuideOf: self, withInset: 0)
         containerView.autoPinEdge(.bottom, to: .bottom, of: keyboardLayoutGuideViewSafeArea)
 
         // We want the background to extend to the bottom of the screen
