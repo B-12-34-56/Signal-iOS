@@ -7,6 +7,8 @@ PODS:
   - AWSCore (2.40.2)
   - AWSDynamoDB (2.40.2):
     - AWSCore (= 2.40.2)
+  - AWSLambda (2.40.2):
+    - AWSCore (= 2.40.2)
   - AWSS3 (2.40.2):
     - AWSCore (= 2.40.2)
   - blurhash (0.0.1)
@@ -32,7 +34,7 @@ PODS:
     - libwebp/demux
   - libwebp/webp (1.3.2)
   - Logging (1.4.0)
-  - lottie-ios (4.5.1)
+  - lottie-ios (4.5.2)
   - Mantle (2.1.0):
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
@@ -61,6 +63,7 @@ DEPENDENCIES:
   - AWSCognitoIdentityProvider
   - AWSCore
   - AWSDynamoDB
+  - AWSLambda
   - AWSS3
   - blurhash (from `./ThirdParty/blurhash.podspec`)
   - BonMot
@@ -90,6 +93,7 @@ SPEC REPOS:
     - AWSCognitoIdentityProviderASF
     - AWSCore
     - AWSDynamoDB
+    - AWSLambda
     - AWSS3
     - BonMot
     - CocoaImageHashing
@@ -163,6 +167,7 @@ SPEC CHECKSUMS:
   AWSCognitoIdentityProviderASF: 47cbe5d3035e8fee617956d33c85c4203808fa54
   AWSCore: 3d4b9508d6bc57d83d4efd44044e726dfd6c0cd1
   AWSDynamoDB: 82fff81abf57cda754c08680f7f5cf6a9e7a650d
+  AWSLambda: ffe0ce496fbccce6c54867a952aca0ee27ecabb4
   AWSS3: 20c6f122e962cdf6ddaf60f52422bb94da584026
   blurhash: f588a9d659f4c742a325bbbbd438d1ef3c34af19
   BonMot: 1534503509ef48d3c4d0fbec2d0ea35f2887b4ea
@@ -174,7 +179,7 @@ SPEC CHECKSUMS:
   LibSignalClient: 49734ef585f49a2166f2cd58b5a115051e01bce3
   libwebp: ef31cb50301c37eecb4440d126c2d53cc17991e8
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
-  lottie-ios: 248b380fa1b97d18e792c37d90da7ab2aa0d6562
+  lottie-ios: 96784afc26ea031d3e2b6cae342a4b8915072489
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   MobileCoin: cd7f49d6eaa2d362e4c9f8324cae0cc3bc3c53b5
   PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
@@ -184,6 +189,6 @@ SPEC CHECKSUMS:
   SwiftProtobuf: 4dbaffec76a39a8dc5da23b40af1a5dc01a4c02d
   YYImage: 3887e29d0418f57e031ae6b795d9d0a77592afbd
 
-PODFILE CHECKSUM: 22ab3065e647abd0d5582a96772053979a866c94
+PODFILE CHECKSUM: 270120d79447ab64b24336a9c0ace1ffc2cf4c0d
 
 COCOAPODS: 1.16.2

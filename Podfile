@@ -67,6 +67,7 @@ target 'Signal' do
   pod 'AWSDynamoDB'
   pod 'AWSCognitoIdentityProvider'
   pod 'AWSS3'
+  pod 'AWSLambda'
 
   target 'SignalTests' do
     inherit! :search_paths
@@ -80,6 +81,7 @@ target 'SignalServiceKit' do
   pod 'AWSDynamoDB'
   pod 'AWSCognitoIdentityProvider'
   pod 'AWSS3'
+  pod 'AWSLambda'
   pod 'CocoaImageHashing'
   target 'SignalServiceKitTests' do
     inherit! :search_paths
@@ -95,6 +97,7 @@ target 'SignalUI' do
   pod 'MobileCoin/CoreHTTP', git: 'https://github.com/mobilecoinofficial/MobileCoin-Swift', tag: 'v6.0.3'
   pod 'AWSCore'
   pod 'AWSDynamoDB'
+  pod 'AWSLambda'
   pod 'AWSCognitoIdentityProvider'
   pod 'AWSS3'
 end

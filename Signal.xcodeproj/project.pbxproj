@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1790,6 +1790,12 @@
 		D221A0E8169DFFC500537ABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D221A0E7169DFFC500537ABF /* AVFoundation.framework */; };
 		D24B5BD5169F568C00681372 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24B5BD4169F568C00681372 /* AudioToolbox.framework */; };
 		D2AEACDC16C426DA00C364C0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */; };
+		D62391AE2DE7633700E96D61 /* DuplicateFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62391AD2DE7633700E96D61 /* DuplicateFilterService.swift */; };
+		D62391B02DE7633E00E96D61 /* ImageHashing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62391AF2DE7633E00E96D61 /* ImageHashing.swift */; };
+		D62391B22DE7634600E96D61 /* ContentFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62391B12DE7634600E96D61 /* ContentFilterService.swift */; };
+		D62391B42DE7634C00E96D61 /* Attachment+Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62391B32DE7634C00E96D61 /* Attachment+Hash.swift */; };
+		D62391BB2DE768FE00E96D61 /* ImageHashDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62391B92DE768FE00E96D61 /* ImageHashDatabase.swift */; };
+		D62391BC2DE768FE00E96D61 /* ImageHashDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62391B92DE768FE00E96D61 /* ImageHashDatabase.swift */; };
 		D650A5272DE4D29A00E884B5 /* AttachmentDownloadHook.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650A51E2DE4D29A00E884B5 /* AttachmentDownloadHook.swift */; };
 		D650A5282DE4D29A00E884B5 /* DuplicateSignatureNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650A5222DE4D29A00E884B5 /* DuplicateSignatureNotifier.swift */; };
 		D650A5292DE4D29A00E884B5 /* DuplicateDetectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650A5212DE4D29A00E884B5 /* DuplicateDetectionStore.swift */; };
@@ -1798,6 +1804,9 @@
 		D650A52C2DE4D29A00E884B5 /* GlobalSignatureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650A5232DE4D29A00E884B5 /* GlobalSignatureService.swift */; };
 		D650A52D2DE4D29A00E884B5 /* DuplicateDetectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650A5202DE4D29A00E884B5 /* DuplicateDetectionManager.swift */; };
 		D650A5322DE4FF7500E884B5 /* AWSConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D650A5312DE4FF7500E884B5 /* AWSConfig.swift */; };
+		D6AF42D42DE76E710000E76A /* Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6AF42D32DE76E710000E76A /* Logging.framework */; };
+		D6AF42DB2DE7718E0000E76A /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6AF42DA2DE7718D0000E76A /* Logging */; };
+		D6AF42DD2DE772180000E76A /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D6AF42DC2DE772180000E76A /* Logging */; };
 		D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */ = {isa = PBXBuildFile; productRef = D6D8F0082DACA6D900CFDC7C /* AWSDynamoDB */; };
 		D90AA3322CC9616B00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA2222CC9616A00021CB0 /* chat_item_standard_message_special_attachments_12.txtproto */; };
 		D90AA3332CC9616B00021CB0 /* account_data_03.binproto in Resources */ = {isa = PBXBuildFile; fileRef = D90AA0772CC9616A00021CB0 /* account_data_03.binproto */; };
@@ -5691,6 +5700,11 @@
 		D221A0E7169DFFC500537ABF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = ../../../../../../System/Library/Frameworks/AVFoundation.framework; sourceTree = "<group>"; };
 		D24B5BD4169F568C00681372 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = ../../../../../../System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<group>"; };
 		D2AEACDB16C426DA00C364C0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D62391AD2DE7633700E96D61 /* DuplicateFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateFilterService.swift; sourceTree = "<group>"; };
+		D62391AF2DE7633E00E96D61 /* ImageHashing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHashing.swift; sourceTree = "<group>"; };
+		D62391B12DE7634600E96D61 /* ContentFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentFilterService.swift; sourceTree = "<group>"; };
+		D62391B32DE7634C00E96D61 /* Attachment+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attachment+Hash.swift"; sourceTree = "<group>"; };
+		D62391B92DE768FE00E96D61 /* ImageHashDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHashDatabase.swift; sourceTree = "<group>"; };
 		D650A51E2DE4D29A00E884B5 /* AttachmentDownloadHook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentDownloadHook.swift; sourceTree = "<group>"; };
 		D650A51F2DE4D29A00E884B5 /* AttachmentDownloadStore+DuplicateBlocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttachmentDownloadStore+DuplicateBlocking.swift"; sourceTree = "<group>"; };
 		D650A5202DE4D29A00E884B5 /* DuplicateDetectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuplicateDetectionManager.swift; sourceTree = "<group>"; };
@@ -5699,6 +5713,8 @@
 		D650A5232DE4D29A00E884B5 /* GlobalSignatureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSignatureService.swift; sourceTree = "<group>"; };
 		D650A5242DE4D29A00E884B5 /* HashUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashUtils.swift; sourceTree = "<group>"; };
 		D650A5312DE4FF7500E884B5 /* AWSConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSConfig.swift; sourceTree = "<group>"; };
+		D6AF42D32DE76E710000E76A /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6AF42D62DE76E810000E76A /* Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D90AA0712CC9616A00021CB0 /* account_data_00.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = account_data_00.binproto; sourceTree = "<group>"; };
 		D90AA0722CC9616A00021CB0 /* account_data_00.txtproto */ = {isa = PBXFileReference; lastKnownFileType = text; path = account_data_00.txtproto; sourceTree = "<group>"; };
 		D90AA0732CC9616A00021CB0 /* account_data_01.binproto */ = {isa = PBXFileReference; lastKnownFileType = file; path = account_data_01.binproto; sourceTree = "<group>"; };
@@ -7610,17 +7626,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D6D8EFFE2DAC891A00CFDC7C /* New Folder */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = "New Folder";
-			sourceTree = "<group>";
-		};
+		D6D8EFFE2DAC891A00CFDC7C /* New Folder */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "New Folder"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -7672,6 +7678,7 @@
 				347C37FF2526005800F3D941 /* CloudKit.framework in Frameworks */,
 				45BD60821DE9547E00A8F436 /* Contacts.framework in Frameworks */,
 				B6B226971BE4B7D200860F4D /* ContactsUI.framework in Frameworks */,
+				D6AF42D42DE76E710000E76A /* Logging.framework in Frameworks */,
 				FCB11D8C1A129A76002F93FB /* CoreMedia.framework in Frameworks */,
 				760D93AB27A0E28600F351AC /* CoreServices.framework in Frameworks */,
 				D2179CFC16BB0B3A0006F3AB /* CoreTelephony.framework in Frameworks */,
@@ -7683,6 +7690,7 @@
 				455A16DE1F1FEA0000F86704 /* MetalKit.framework in Frameworks */,
 				4520D8D51D417D8E00123472 /* Photos.framework in Frameworks */,
 				B6FE7EB71ADD62FA00A6D22F /* PushKit.framework in Frameworks */,
+				D6AF42DB2DE7718E0000E76A /* Logging in Frameworks */,
 				A11CD70D17FA230600A2D1B1 /* QuartzCore.framework in Frameworks */,
 				A163E8AB16F3F6AA0094D68B /* Security.framework in Frameworks */,
 				F9C5C8AA289451B900548EEE /* SignalServiceKit.framework in Frameworks */,
@@ -7719,6 +7727,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6AF42DD2DE772180000E76A /* Logging in Frameworks */,
 				D6D8F0092DACA6D900CFDC7C /* AWSDynamoDB in Frameworks */,
 				2C88084736098E8A158ADDC9 /* Pods_SignalServiceKit.framework in Frameworks */,
 			);
@@ -10366,6 +10375,10 @@
 		7255A4C32B98D5A800E95368 /* Attachments */ = {
 			isa = PBXGroup;
 			children = (
+				D62391B32DE7634C00E96D61 /* Attachment+Hash.swift */,
+				D62391B12DE7634600E96D61 /* ContentFilterService.swift */,
+				D62391AF2DE7633E00E96D61 /* ImageHashing.swift */,
+				D62391AD2DE7633700E96D61 /* DuplicateFilterService.swift */,
 				3A21D4592DE248AB00737FF9 /* ContentFilterTypes.swift */,
 				664428952C12305D0092D0E2 /* SignalAttachment+Sending.swift */,
 				66AF4D7228D1377E008A156E /* SignalAttachment+VideoSegmenting.swift */,
@@ -11198,6 +11211,7 @@
 		D221A07E169C9E5E00537ABF = {
 			isa = PBXGroup;
 			children = (
+				D62391BA2DE768FE00E96D61 /* AWSUpload */,
 				D221A093169C9E5E00537ABF /* Signal */,
 				342FFE8927245850000AC89F /* SignalNSE */,
 				453518691FC635DD00210559 /* SignalShareExtension */,
@@ -11207,6 +11221,7 @@
 				D221A08C169C9E5E00537ABF /* Frameworks */,
 				D221A08A169C9E5E00537ABF /* Products */,
 				07B6BFA4D17E1353B0696C14 /* Pods */,
+				D62391AC2DE74F2C00E96D61 /* Recovered References */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -11231,6 +11246,8 @@
 		D221A08C169C9E5E00537ABF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D6AF42D62DE76E810000E76A /* Logging.framework */,
+				D6AF42D32DE76E710000E76A /* Logging.framework */,
 				A1C32D4D17A0652C000A904E /* AddressBook.framework */,
 				A1C32D4F17A06537000A904E /* AddressBookUI.framework */,
 				B60EDE031A05A01700D73516 /* AudioToolbox.framework */,
@@ -11326,6 +11343,29 @@
 				4C6F527B20FFE8400097DEEE /* SignalUBSan.supp */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D62391AC2DE74F2C00E96D61 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D650A51E2DE4D29A00E884B5 /* AttachmentDownloadHook.swift */,
+				D650A5222DE4D29A00E884B5 /* DuplicateSignatureNotifier.swift */,
+				D650A5212DE4D29A00E884B5 /* DuplicateDetectionStore.swift */,
+				D650A51F2DE4D29A00E884B5 /* AttachmentDownloadStore+DuplicateBlocking.swift */,
+				D650A5242DE4D29A00E884B5 /* HashUtils.swift */,
+				D650A5232DE4D29A00E884B5 /* GlobalSignatureService.swift */,
+				D650A5202DE4D29A00E884B5 /* DuplicateDetectionManager.swift */,
+				D650A5312DE4FF7500E884B5 /* AWSConfig.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		D62391BA2DE768FE00E96D61 /* AWSUpload */ = {
+			isa = PBXGroup;
+			children = (
+				D62391B92DE768FE00E96D61 /* ImageHashDatabase.swift */,
+			);
+			path = AWSUpload;
 			sourceTree = "<group>";
 		};
 		D90AA3252CC9616A00021CB0 /* test-cases */ = {
@@ -14882,6 +14922,7 @@
 			mainGroup = D221A07E169C9E5E00537ABF;
 			packageReferences = (
 				D6D8F0072DAC950300CFDC7C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
+				D6AF42D22DE76E4C0000E76A /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = D221A08A169C9E5E00537ABF /* Products */;
 			projectDirPath = "";
@@ -16106,6 +16147,7 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSLambda/AWSLambda.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/BonMot/BonMot.framework",
 				"${BUILT_PRODUCTS_DIR}/LibMobileCoin/LibMobileCoin.framework",
@@ -16134,6 +16176,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSLambda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BonMot.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LibMobileCoin.framework",
@@ -16194,6 +16237,7 @@
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSDynamoDB/AWSDynamoDB.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSLambda/AWSLambda.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaImageHashing/CocoaImageHashing.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
@@ -16216,6 +16260,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSDynamoDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSLambda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaImageHashing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
@@ -16583,6 +16628,7 @@
 				34D99CE4217509C2000AFB39 /* AppEnvironment.swift in Sources */,
 				052D178A2C7E60340023D56F /* AppIcon.swift in Sources */,
 				50EF8DCA2A1885C000A00935 /* AppIconBadgeUpdater.swift in Sources */,
+				D62391BC2DE768FE00E96D61 /* ImageHashDatabase.swift in Sources */,
 				052D178C2C7E60750023D56F /* AppIconLearnMoreTableViewController.swift in Sources */,
 				B909C1592AAA5BAA00FED2AF /* AppIconSettingsTableViewController.swift in Sources */,
 				F941B17028412D5F00498CCD /* ApplePayButton.swift in Sources */,
@@ -17522,6 +17568,7 @@
 				D9C5442B2B8578F30036F274 /* CallRecordMissedCallManager.swift in Sources */,
 				D93108042B30F7E3006A034E /* CallRecordQuerier.swift in Sources */,
 				D95A79A82AB125D80013DB00 /* CallRecordStore.swift in Sources */,
+				D62391AE2DE7633700E96D61 /* DuplicateFilterService.swift in Sources */,
 				D91AC9302B5F31BB00814975 /* CallRecordStoreNotification.swift in Sources */,
 				D9A81C6B2BAA54FC00C07D2B /* CallRecordSyncMessageConversationIdAdapter.swift in Sources */,
 				500AF3AB2C58347C00CB9F4F /* CancellableContinuation.swift in Sources */,
@@ -17895,6 +17942,7 @@
 				721BC7EC2BC8253600648981 /* MimeTypeUtil.swift in Sources */,
 				501052642BDAEEDC0097DDC5 /* MobileCoinExternal.pb.swift in Sources */,
 				F9C5CD7B289453B300548EEE /* MobileCoinHelper.swift in Sources */,
+				D62391BB2DE768FE00E96D61 /* ImageHashDatabase.swift in Sources */,
 				72345D202B9A2035000237B3 /* MobileCoinHelperMinimal.swift in Sources */,
 				664657352AC370670099DE1C /* MockAccountAttributesUpdater.swift in Sources */,
 				F90E4AAC29F0798C00F54191 /* MockAppExpiry.swift in Sources */,
@@ -17912,6 +17960,7 @@
 				F9C5CE66289453B400548EEE /* MockKeychainStorage.swift in Sources */,
 				6600BB1D2BA3ABDD0005A035 /* MockLinkPreviewManager.swift in Sources */,
 				D990CAC92B4CCB97000A99A2 /* MockLocalUsernameManager.swift in Sources */,
+				D62391B02DE7633E00E96D61 /* ImageHashing.swift in Sources */,
 				B9327B3E2BBCC2EB00CCDBBA /* MockNicknameManager.swift in Sources */,
 				D91AC93C2B62F7C200814975 /* MockOutgoingCallEventSyncMessageManager.swift in Sources */,
 				664657372AC371B90099DE1C /* MockPhoneNumberDiscoverabilityManager.swift in Sources */,
@@ -18003,6 +18052,7 @@
 				F9C5CBFC289453B300548EEE /* OWSDisappearingConfigurationUpdateInfoMessage+SDS.swift in Sources */,
 				F9C5CC02289453B300548EEE /* OWSDisappearingConfigurationUpdateInfoMessage.m in Sources */,
 				D95787832C6D2FBA0051AC74 /* OWSDisappearingConfigurationUpdateInfoMessage.swift in Sources */,
+				D62391B22DE7634600E96D61 /* ContentFilterService.swift in Sources */,
 				F9C5CCC4289453B300548EEE /* OWSDisappearingMessagesConfiguration+SDS.swift in Sources */,
 				F9C5CCD7289453B300548EEE /* OWSDisappearingMessagesConfiguration.m in Sources */,
 				F9C5CCDA289453B300548EEE /* OWSDisappearingMessagesConfiguration.swift in Sources */,
@@ -18412,6 +18462,7 @@
 				F9C5CD90289453B300548EEE /* TimeElapsedChallenge.swift in Sources */,
 				50F86FC42AFEFEC20045F58B /* TimeGatedBatch.swift in Sources */,
 				7203F5352D53B83500639949 /* TimeInterval+SSK.swift in Sources */,
+				D62391B42DE7634C00E96D61 /* Attachment+Hash.swift in Sources */,
 				66485EB72CD1331D00B8613F /* TransactionCompletion.swift in Sources */,
 				C14EC1A22BA891D200A4D064 /* TransformingInputStream.swift in Sources */,
 				C1CF83D42B9A207800CDC9C4 /* TransformingOutputStream.swift in Sources */,
@@ -21539,6 +21590,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D6AF42D22DE76E4C0000E76A /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.3;
+			};
+		};
 		D6D8F0072DAC950300CFDC7C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
@@ -21550,6 +21609,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D6AF42DA2DE7718D0000E76A /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6AF42D22DE76E4C0000E76A /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+		D6AF42DC2DE772180000E76A /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6AF42D22DE76E4C0000E76A /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
 		D6D8F0082DACA6D900CFDC7C /* AWSDynamoDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D6D8F0072DAC950300CFDC7C /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
