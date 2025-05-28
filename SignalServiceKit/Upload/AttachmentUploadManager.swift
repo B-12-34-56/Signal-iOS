@@ -7,6 +7,7 @@ import Foundation
 public import LibSignalClient
 import UIKit
 import UniformTypeIdentifiers
+import CryptoKit
 
 public protocol AttachmentUploadManager {
     /// Upload a transient backup file that isn't an attachment (not saved to the database or sent).
@@ -363,6 +364,59 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
             return attachment
         }
         
+        // ADD DUPLICATE CHECK HERE
+        if let stream = attachment.asStream() {
+            // Check if it's an image based on mime type
+            let isImage = stream.mimeType?.hasPrefix("image/") ?? false
+            
+            if isImage {
+                // For duplicate detection, we need to decrypt the image data
+                // to compute perceptual hash, but use encrypted data for SHA256
+                let encryptedData = try Data(contentsOf: stream.fileURL)
+                
+                // We need to decrypt to create UIImage for perceptual hashing
+                // First, get the decrypted data
+                var decryptedData: Data?
+                if let stream = attachment.asStream() {
+                    // Create a temporary file for decryption
+                    let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+                    defer {
+                        try? FileManager.default.removeItem(at: tempURL)
+                    }
+                    
+                    // Decrypt the attachment
+                    let metadata = EncryptionMetadata(
+                        key: attachment.encryptionKey,
+                        digest: stream.info.digestSHA256Ciphertext,
+                        length: Int(clamping: stream.info.encryptedByteCount),
+                        plaintextLength: Int(clamping: stream.info.unencryptedByteCount)
+                    )
+                    
+                    try attachmentEncrypter.decryptAttachment(
+                        at: stream.fileURL,
+                        metadata: metadata,
+                        output: tempURL
+                    )
+                    
+                    decryptedData = try Data(contentsOf: tempURL)
+                }
+                
+                // Check for duplicates using the existing service
+                if let imageData = decryptedData, let image = UIImage(data: imageData) {
+                    let isDuplicate = try await DuplicateFilterService.shared.checkDuplicate(image: image)
+                    
+                    if isDuplicate {
+                        // Also store the hash on the attachment for reference
+                        let hashes = ImageHashing.shared.computeHashes(for: image)
+                        attachment.aHashString = hashes?.0 // Store SHA256 hash
+                        
+                        logger.warn("Blocking duplicate image upload for attachment: \(attachmentId)")
+                        throw MessageSenderError.duplicateBlocked(aHash: hashes?.0 ?? "unknown")
+                    }
+                }
+            }
+        }
+
         // 2. Convert the AttachmentStream to a DataSource with the new API name
         let dataSource = try await db.read { tx -> DataSource in
             guard let stream = attachment.asStream() else {

@@ -17,14 +17,8 @@ public class ImageUploadViewModel: NSObject {
     
     // MARK: - Image Upload
     
-    func uploadImage(_ image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
-        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
-            let error = NSError(domain: "ImageUpload", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to JPEG"])
-            handleError(error)
-            completion(.failure(error))
-            return
-        }
-        
+    // Updated method signature to accept original data
+    func uploadImage(_ image: UIImage, originalData: Data, completion: @escaping (Result<URL, Error>) -> Void) {
         // Show progress notification
         NotificationCenter.default.post(
             name: .imageUploadProgress,
@@ -32,8 +26,8 @@ public class ImageUploadViewModel: NSObject {
             userInfo: ["progress": 0.0]
         )
         
-        // Process and upload image
-        contentFilterService.scanAndUpload(imageData: imageData, fileName: "image.jpg") { [weak self] result in
+        // Pass ORIGINAL data for scanning (this will hash it correctly)
+        contentFilterService.scanAndUpload(imageData: originalData, fileName: "image.jpg") { [weak self] result in
             switch result {
             case .allowed(let tags, let s3URL):
                 // Update progress
@@ -92,6 +86,20 @@ public class ImageUploadViewModel: NSObject {
                 completion(.failure(error ?? NSError(domain: "ImageUpload", code: -3)))
             }
         }
+    }
+    
+    // Keep the old method for backward compatibility but make it use PNG data
+    func uploadImage(_ image: UIImage, completion: @escaping (Result<URL, Error>) -> Void) {
+        // Get PNG data for consistent hashing
+        guard let originalData = image.pngData() else {
+            let error = NSError(domain: "ImageUpload", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to get image data"])
+            handleError(error)
+            completion(.failure(error))
+            return
+        }
+        
+        // Call the new method
+        uploadImage(image, originalData: originalData, completion: completion)
     }
     
     private func handleError(_ error: Error?) {
@@ -158,4 +166,4 @@ extension Notification.Name {
     static let imageUploadBlocked = Notification.Name("imageUploadBlocked")
     static let imageUploadError = Notification.Name("imageUploadError")
     static let imageUploadDuplicate = Notification.Name("imageUploadDuplicate")
-} 
+}

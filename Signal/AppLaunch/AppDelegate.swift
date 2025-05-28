@@ -162,6 +162,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         // This should be the first thing we do.
         let mainAppContext = MainAppContext()
         SetCurrentAppContext(mainAppContext)
+        // Configure AWS early on app startup
+        try? AWSConfig.shared.configureAWS()
 
         let debugLogger = DebugLogger.shared
         debugLogger.enableTTYLoggingIfNeeded()
