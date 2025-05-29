@@ -268,6 +268,16 @@ public class ProfileFetcherJob {
     }
 
     private func makeRequest(_ request: TSRequest) async throws -> any HTTPResponse {
+        guard let url = request.url else {
+            Logger.error("Request has nil URL - serviceId: \(serviceId)")
+            throw ProfileRequestError.notAuthorized // or create a new error type
+        }
+        
+        guard url.scheme != nil, url.host != nil else {
+            Logger.error("Request has invalid URL: \(url) - serviceId: \(serviceId)")
+            throw ProfileRequestError.notAuthorized
+        }
+        
         // TODO: WebSockets: Inline this method once it doesn't need to branch.
         let connectionType = try request.auth.connectionType
         let shouldUseWebSocket: Bool = (

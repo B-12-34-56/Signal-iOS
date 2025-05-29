@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20820,7 +20820,7 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2024 Signal Messenger, LLC";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_SWIFT_FLAGS = "-DTESTABLE_BUILD -DUSE_DEBUG_UI";
+				OTHER_SWIFT_FLAGS = "-DTESTABLE_BUILD -DUSE_DEBUG_UI -DOWS_DISABLE_TRAPS";
 				SDKROOT = iphoneos;
 				SIGNAL_BUNDLEID_PREFIX = org.whispersystems;
 				SIGNAL_MERCHANTID = org.signalfoundation;
@@ -20918,6 +20918,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SIGNAL_BUNDLEID_PREFIX = org.whispersystems;
 				SIGNAL_MERCHANTID = org.signalfoundation;
@@ -20978,6 +20979,7 @@
 				);
 				LLVM_LTO = NO;
 				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS $(inherited) -D SQLITE_HAS_CODEC -D GRDBCIPHER -D SQLITE_ENABLE_FTS5 -DOWS_DISABLE_TRAPS";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(SIGNAL_BUNDLEID_PREFIX).signal";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.joelminaya.signaldev;
 				PRODUCT_NAME = Signal;

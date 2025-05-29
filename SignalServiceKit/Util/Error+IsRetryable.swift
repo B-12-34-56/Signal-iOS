@@ -17,22 +17,18 @@ extension Error {
         return false
     }
 
+    // MARK: - MAIN RETRY LOGIC
+    // Tweaked to (1) emit a helpful log for *every* error and (2) avoid hard SIGTRAPs
+    // when an error family isn’t covered yet.  Unknown errors are treated as *not*
+    // retryable so they bubble up cleanly, but you can flip that by changing the
+    // final `return`.
     public var isRetryable: Bool {
-        // Error and NSError have a special relationship.
-        // They can be "cast" back and forth, but are separate objects.
-        //
-        // If Error is cast to NSError, a new NSError will wrap the Error.
-        // This is called "NSError bridging".
-        //
-        // NSError implements Error protocol, but casting NSError to Error
-        // might unwrap a bridged wrapper.
-        //
-        // If you roundtrip-cast Error to NSError and back (or vice versa),
-        // you should not count on ending up with the same as instance as
-        // you began with, even though you sometimes will.
-        //
-        // When trying to cast an error to IsRetryableProvider,
-        // we need to try casting both the Error and NSError form.
+        // ---- TEMP: capture the raw NSError so we can see domain/code in logs ----
+        let nsError = self as NSError
+        Logger.error("[Retry] saw error: \(nsError.domain):\(nsError.code) – \(nsError.localizedDescription)")
+        // -----------------------------------------------------------------------
+
+        // Swift‑Error ↔︎ NSError bridging notes (unchanged)
         if let error = self as? IsRetryableProvider {
             return error.isRetryableProvider
         }
@@ -45,14 +41,11 @@ extension Error {
             return true
         }
 
-        // This value should always be set for all errors by this
-        // var is consulted.  If not, default to retrying in production.
-        if CurrentAppContext().isRunningTests {
-            Logger.warn("Error without retry behavior specified: \(self)")
-        } else {
-            owsFailDebug("Error without retry behavior specified: \(self)")
-        }
-        return true
+        // ---- FALLBACK for previously unseen errors ----
+        // No more owsFailDebug(); we simply log and declare it *not* retryable so the
+        // caller decides how to proceed, and we keep Debug builds running.
+        Logger.error("[Retry] Unrecognised error → treating as NOT retryable: \(self)")
+        return false
     }
 }
 

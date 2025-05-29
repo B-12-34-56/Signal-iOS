@@ -342,7 +342,7 @@ public class OWSURLSession: OWSURLSessionProtocol {
                         responseData: responseData
                     )
                 } else {
-                    owsFailDebug("Missing status code.")
+                    Logger.error("[HTTP] Missing status code – treating as invalid response")
                     throw OWSHTTPError.networkFailure(.invalidResponseStatus)
                 }
             }

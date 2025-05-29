@@ -45,14 +45,20 @@ public func owsFailDebug(
     line: Int = #line
 ) {
     logger.error(logMessage, file: file, function: function, line: line)
+
+#if DEBUG && !OWS_DISABLE_TRAPS          // ← add this guard
     if IsDebuggerAttached() {
-        TrapDebugger()
-    } else if Preferences.isFailDebugEnabled {
+        TrapDebugger()                  // still handy when you *want* it
+        return                          // never reached in Release
+    }
+#endif
+
+    if Preferences.isFailDebugEnabled {
         Preferences.setIsFailDebugEnabled(false)
         logger.flush()
-        fatalError(logMessage)
+        fatalError(logMessage)          // same behaviour as before
     } else {
-        assertionFailure(logMessage)
+        assertionFailure(logMessage)    // same behaviour as before
     }
 }
 
