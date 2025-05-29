@@ -151,6 +151,17 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private lazy var appReadiness = AppReadinessImpl()
 
+    private func initializeAWS() {
+        do {
+            try AWSConfig.shared.configureAWS()
+            Logger.info("AWS services configured successfully")
+        } catch {
+            Logger.error("Failed to configure AWS: \(error)")
+            // Don't fail app launch, just log the error
+            // The duplicate check will fall back to allowing sends
+        }
+    }
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
@@ -162,8 +173,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         // This should be the first thing we do.
         let mainAppContext = MainAppContext()
         SetCurrentAppContext(mainAppContext)
-        // Configure AWS early on app startup
-        try? AWSConfig.shared.configureAWS()
+        initializeAWS()
 
         let debugLogger = DebugLogger.shared
         debugLogger.enableTTYLoggingIfNeeded()
@@ -691,9 +701,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 try? AWSConfig.shared.configureAWS()
                 
                 // 2. Validate Credentials
-                let credentialsValid = await AWSConfig.validateAWSCredentials()
+                let credentialsValid = await AWSConfig.shared.validateAWSCredentials()
                 if credentialsValid {
                     Logger.info("[AWS Init] ✅ AWS credentials validated successfully.")
+                } else {
+                    Logger.error("[AWS Init] ❌ AWS credentials validation failed.")
                 }
                 
                 // 3. Ensure DynamoDB Table Exists
@@ -732,7 +744,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                 // 6. Wire UI delegate so the user sees something when we block
                 DuplicateSignatureStore.shared.delegate = DuplicateSignatureNotifier.shared
                 
-                Logger.info("[AWS Init] ✅ Successfully initialized AWS and installed attachment validation hook.")
+                Logger.info("[AWS Init] ✅ Successfully initialized AWS.")
             }
         }
         Task.detached(priority: .background) {

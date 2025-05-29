@@ -48,14 +48,14 @@ public class AWSConfig {
     public let ttlFieldName: String
     
     // MARK: - Timeouts and Retries
-    public let requestTimeoutInterval: TimeInterval
-    public let resourceTimeoutInterval: TimeInterval
+    public let requestTimeoutInterval: Double
+    public let resourceTimeoutInterval: Double
     public let maxRetryCount: Int
-    public let initialRetryDelay: TimeInterval
-    public let maxRetryDelay: TimeInterval
+    public let initialRetryDelay: Double
+    public let maxRetryDelay: Double
     
     // MARK: - TTL Configuration
-    public let defaultTTL: TimeInterval
+    public let defaultTTL: Double
     
     private init() throws {
         // Load configuration from environment or defaults

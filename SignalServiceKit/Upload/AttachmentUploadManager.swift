@@ -367,7 +367,7 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
         // ADD DUPLICATE CHECK HERE
         if let stream = attachment.asStream() {
             // Check if it's an image based on mime type
-            let isImage = stream.mimeType?.hasPrefix("image/") ?? false
+            let isImage = stream.mimeType.hasPrefix("image/") 
             
             if isImage {
                 // For duplicate detection, we need to decrypt the image data
@@ -403,15 +403,18 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
                 
                 // Check for duplicates using the existing service
                 if let imageData = decryptedData, let image = UIImage(data: imageData) {
-                    let isDuplicate = try await DuplicateFilterService.shared.checkDuplicate(image: image)
-                    
+                    // ── Compute hashes once ───────────────────────────────
+                    let (sha256Hex, pHashHex) = try await ImageHashing.hashes(for: image)           // static helper, not .shared
+                    let pHashInt = UInt64(pHashHex, radix: 16) ?? 0
+
+                    // ── Ask the Lambda-backed service if it's a duplicate ─
+                    let isDuplicate = try await DuplicateFilterService.shared
+                        .checkDuplicateAsync((sha256: sha256Hex, pHash: pHashInt))            // async variant needs no completion
+
                     if isDuplicate {
-                        // Also store the hash on the attachment for reference
-                        let hashes = ImageHashing.shared.computeHashes(for: image)
-                        attachment.aHashString = hashes?.0 // Store SHA256 hash
-                        
+                        attachment.aHashString = sha256Hex   // no optional-chaining; real value
                         logger.warn("Blocking duplicate image upload for attachment: \(attachmentId)")
-                        throw MessageSenderError.duplicateBlocked(aHash: hashes?.0 ?? "unknown")
+                        throw MessageSenderError.duplicateBlocked(aHash: sha256Hex)
                     }
                 }
             }

@@ -32,10 +32,6 @@ public struct ImageHashing {
     /// - Returns: 64-bit integer where each bit encodes a coefficient's sign.
     /// - Throws: `ImageHashingError.invalidImageData` if the image can't be decoded.
     public static func perceptualHash(of image: UIImage) throws -> UInt64 {
-        guard let cgImage = image.cgImage ?? UIImage(data: image.pngData() ?? .init())?.cgImage else {
-            throw ImageHashingError.invalidImageData
-        }
-
         // 1. Resize to 32×32 grayscale (8-bit) using vImage for speed.
         let dimension = 32
         var format = vImage_CGImageFormat(bitsPerComponent: 8,
@@ -46,7 +42,7 @@ public struct ImageHashing {
                                          decode: nil,
                                          renderingIntent: .defaultIntent)
 
-        var sourceBuffer = try vImage_Buffer(cgImage: cgImage)
+        var sourceBuffer = try vImage_Buffer(cgImage: image.cgImage!)
         defer { sourceBuffer.free() }
 
         // Destination buffer - 32×32 single-channel.
@@ -60,18 +56,7 @@ public struct ImageHashing {
                                       rowBytes: destRowBytes)
         defer { destBuffer.free() }
 
-        // Use vImageScale_Planar8 instead of vImageScale_ARGB8888ToPlanar8
-        // First convert to grayscale if needed
-        var grayBuffer = try vImage_Buffer(width: Int(sourceBuffer.width),
-                                           height: Int(sourceBuffer.height),
-                                           bitsPerPixel: 8)
-        defer { grayBuffer.free() }
-        
-        // Convert ARGB to grayscale
-        vImageConvert_ARGB8888toPlanar8(&sourceBuffer, &grayBuffer, &grayBuffer, &grayBuffer, &grayBuffer, vImage_Flags(kvImageNoFlags))
-        
-        // Scale the grayscale image
-        vImageScale_Planar8(&grayBuffer, &destBuffer, nil, vImage_Flags(kvImageHighQualityResampling))
+        vImageScale_ARGB8888ToPlanar8(&sourceBuffer, &destBuffer, 0, vImage_Flags(kvImageHighQualityResampling))
 
         // 2. Convert UInt8 → Float and center around zero.
         var floatPixels = [Float](repeating: 0, count: dimension * dimension)
@@ -101,15 +86,9 @@ public struct ImageHashing {
                 values.append(dctTemp[idx])
             }
         }
-        
-        // Compute median using vDSP
-        let sortedValues = values.sorted()
-        let median: Float
-        if sortedValues.count % 2 == 0 {
-            median = (sortedValues[sortedValues.count / 2 - 1] + sortedValues[sortedValues.count / 2]) / 2
-        } else {
-            median = sortedValues[sortedValues.count / 2]
-        }
+        // Compute median.
+        var median: Float = 0
+        vDSP_medianv(values, 1, &median, vDSP_Length(values.count))
 
         // Set bit if coefficient > median.
         for (i, coeff) in values.enumerated() {
@@ -168,4 +147,4 @@ public struct ImageHashing {
     public static func areSimilar(_ lhs: UInt64, _ rhs: UInt64, threshold: Int = 5) -> Bool {
         hammingDistance(lhs, rhs) <= threshold
     }
-}
+} 
