@@ -355,14 +355,14 @@ public class ShareViewController: UIViewController, ShareViewDelegate, SAEFailed
             }
         }
         // Configure AWS for share extension
-        DispatchQueue.global().async {
-            do {
-                try AWSConfig.shared.configureAWS()
-                Logger.info("Share extension: AWS configured successfully")
-            } catch {
-                Logger.error("Share extension: Failed to configure AWS: \(error)")
-            }
-        }
+                DispatchQueue.global().async {
+                    do {
+                        try AWSConfig.shared?.configureAWS()
+                        Logger.info("Share extension: AWS configured successfully")
+                    } catch {
+                        Logger.error("Share extension: Failed to configure AWS: \(error)")
+                    }
+                }
     }
 
     override open func viewWillAppear(_ animated: Bool) {

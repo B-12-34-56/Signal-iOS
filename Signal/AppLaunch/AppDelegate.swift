@@ -152,15 +152,15 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private lazy var appReadiness = AppReadinessImpl()
 
     private func initializeAWS() {
-        do {
-            try AWSConfig.shared.configureAWS()
-            Logger.info("AWS services configured successfully")
-        } catch {
-            Logger.error("Failed to configure AWS: \(error)")
-            // Don't fail app launch, just log the error
-            // The duplicate check will fall back to allowing sends
-        }
-    }
+           do {
+               try AWSConfig.shared?.configureAWS()
+               Logger.info("AWS services configured successfully")
+           } catch {
+               Logger.error("Failed to configure AWS: \(error)")
+               // Don't fail app launch, just log the error
+               // The duplicate check will fall back to allowing sends
+           }
+       }
 
     func application(
         _ application: UIApplication,
@@ -314,14 +314,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         )
         attachmentMigrationRunner.registerBGProcessingTask(appReadiness: appReadiness)
 
-        let attachmentBackfillStore = AttachmentValidationBackfillStore()
-        let attachmentValidationRunner = AttachmentValidationBackfillRunner(
-            db: databaseStorage,
-            store: attachmentBackfillStore,
-            migrator: { return DependenciesBridge.shared.incrementalMessageTSAttachmentMigrator }
-        )
-        attachmentValidationRunner.registerBGProcessingTask(appReadiness: appReadiness)
-
         let databaseMigratorRunner = LazyDatabaseMigratorRunner(
             databaseStorage: databaseStorage,
             remoteConfigManager: { SSKEnvironment.shared.remoteConfigManagerRef },
@@ -333,7 +325,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             if SSKEnvironment.shared.remoteConfigManagerRef.currentConfig().shouldRunTSAttachmentMigrationInBGProcessingTask {
                 attachmentMigrationRunner.scheduleBGProcessingTaskIfNeeded()
             }
-            attachmentValidationRunner.scheduleBGProcessingTaskIfNeeded()
         }
 
         appReadiness.runNowOrWhenAppDidBecomeReadyAsync {
@@ -687,7 +678,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         appReadiness.runNowOrWhenAppDidBecomeReadyAsync {
             DependenciesBridge.shared.orphanedAttachmentCleaner.beginObserving()
         }
-        // Add this to your AppDelegate.swift in the AWS initialization section
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {
             Task {
                 Logger.info("[AWS Init] Starting AWS initialization and validation...")
@@ -697,16 +687,19 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                     return
                 }
                 
-                // 1. Setup AWS Credentials
-                try? AWSConfig.shared.configureAWS()
-                
-                // 2. Validate Credentials
-                let credentialsValid = await AWSConfig.shared.validateAWSCredentials()
-                if credentialsValid {
-                    Logger.info("[AWS Init] ✅ AWS credentials validated successfully.")
-                } else {
-                    Logger.error("[AWS Init] ❌ AWS credentials validation failed.")
+                func initializeAWS() {  // Remove 'private'
+                    do {
+                        try AWSConfig.shared?.configureAWS()
+                        Logger.info("AWS services configured successfully")
+                    } catch {
+                        Logger.error("Failed to configure AWS: \(error)")
+                        // Don't fail app launch, just log the error
+                        // The duplicate check will fall back to allowing sends
+                    }
                 }
+                
+                // Don't forget to actually call the function
+                initializeAWS()
                 
                 // 3. Ensure DynamoDB Table Exists
                 // let tableReady = await AWSConfig.ensureDynamoDbTableExists(createIfNotExists: true)
@@ -748,7 +741,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         Task.detached(priority: .background) {
-          AttachmentDownloadRetryRunner.shared.beginObserving()
+            AttachmentDownloadRetryRunner.shared.beginObserving()
         }
 
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync {

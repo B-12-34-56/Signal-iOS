@@ -1,5 +1,6 @@
 import Foundation
 import AWSCore
+import os.log
 
 public enum AWSConfigError: Error {
     case missingRequiredValue(String)
@@ -8,11 +9,14 @@ public enum AWSConfigError: Error {
 }
 
 public class AWSConfig {
-    public static let shared: AWSConfig = {
+    private static let logger = os.Logger(subsystem: "org.signal.app", category: "AWSConfig")
+    public static let shared: AWSConfig? = {
         do {
             return try AWSConfig()
         } catch {
-            fatalError("Failed to initialize AWSConfig: \(error)")
+            // In development/testing, AWS might not be configured
+            logger.error("Failed to initialize AWSConfig: \(error)")
+            return nil
         }
     }()
     
@@ -58,6 +62,9 @@ public class AWSConfig {
     public let defaultTTL: Double
     
     private init() throws {
+        // For development, provide test/dummy values for required fields
+        let isDevelopment = ProcessInfo.processInfo.environment["SIGNAL_ENV"] != "production"
+        
         // Load configuration from environment or defaults
         self.s3BucketName   = try Self.getRequiredValue("S3_BUCKET_NAME", default: "signal-image-uploads")
         self.s3Region       = try Self.getRequiredValue("S3_REGION", default: "us-east-1")
@@ -72,11 +79,20 @@ public class AWSConfig {
         self.getTagApiGatewayEndpoint    = "\(self.apiGatewayEndpoint)/get-tag"
         self.uploadImageApiGatewayEndpoint = "\(self.apiGatewayEndpoint)/upload-image"
         
-        self.identityPoolId = try Self.getRequiredValue("COGNITO_IDENTITY_POOL_ID")
+        // For required values without defaults, provide development defaults
+        self.identityPoolId = try Self.getRequiredValue("COGNITO_IDENTITY_POOL_ID",
+                                                        default: isDevelopment ? "us-east-1:dummy-pool-id" : nil)
         self.cognitoRegion  = try Self.getRequiredValue("COGNITO_REGION", default: "us-east-1")
         
-        self.getTagApiKey    = try Self.getRequiredValue("GET_TAG_API_KEY")
-        self.uploadImageApiKey = try Self.getRequiredValue("UPLOAD_IMAGE_API_KEY")
+        self.getTagApiKey    = try Self.getRequiredValue("GET_TAG_API_KEY",
+                                                         default: isDevelopment ? "dummy-get-tag-key" : nil)
+        self.uploadImageApiKey = try Self.getRequiredValue("UPLOAD_IMAGE_API_KEY",
+                                                           default: isDevelopment ? "dummy-upload-key" : nil)
+        
+        self.getTagApiGatewayArn    = try Self.getRequiredValue("GET_TAG_API_GATEWAY_ARN",
+                                                                default: isDevelopment ? "arn:aws:dummy" : nil)
+        self.uploadImageApiGatewayArn = try Self.getRequiredValue("UPLOAD_IMAGE_API_GATEWAY_ARN",
+                                                                  default: isDevelopment ? "arn:aws:dummy" : nil)
         
         self.hashFieldName    = "imageHash"
         self.timestampFieldName = "timestamp"
@@ -92,10 +108,10 @@ public class AWSConfig {
         let ttlDays = Double(try Self.getRequiredValue("DEFAULT_TTL_DAYS", default: "30")) ?? 30
         self.defaultTTL = ttlDays * 24 * 60 * 60
         
-        self.getTagApiGatewayArn    = try Self.getRequiredValue("GET_TAG_API_GATEWAY_ARN")
-        self.uploadImageApiGatewayArn = try Self.getRequiredValue("UPLOAD_IMAGE_API_GATEWAY_ARN")
-        
-        try validateConfiguration()
+        // Skip validation in development mode
+        if !isDevelopment {
+            try validateConfiguration()
+        }
     }
     
     private static func getRequiredValue(_ key: String, default defaultValue: String? = nil) throws -> String {
