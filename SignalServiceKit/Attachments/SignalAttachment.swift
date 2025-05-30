@@ -18,6 +18,7 @@ public enum SignalAttachmentError: Error {
     case couldNotRemoveMetadata
     case invalidFileFormat
     case couldNotResizeImage
+    case contentFiltered(reason: String, tags: [String])
 }
 
 // MARK: -
@@ -67,6 +68,8 @@ extension SignalAttachmentError: LocalizedError, UserErrorDescriptionProvider {
             return OWSLocalizedString("ATTACHMENT_ERROR_COULD_NOT_REMOVE_METADATA", comment: "Attachment error message for image attachments in which metadata could not be removed")
         case .couldNotResizeImage:
             return OWSLocalizedString("ATTACHMENT_ERROR_COULD_NOT_RESIZE_IMAGE", comment: "Attachment error message for image attachments which could not be resized")
+        case .contentFiltered(let reason, _):
+            return reason
         }
     }
 }
@@ -1086,7 +1089,7 @@ public class SignalAttachment: NSObject {
         }
 
         guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
-            throw SignalAttachmentError.missingData
+            throw SignalAttachmentError.invalidFileFormat
         }
 
         guard let type = CGImageSourceGetType(source) else {

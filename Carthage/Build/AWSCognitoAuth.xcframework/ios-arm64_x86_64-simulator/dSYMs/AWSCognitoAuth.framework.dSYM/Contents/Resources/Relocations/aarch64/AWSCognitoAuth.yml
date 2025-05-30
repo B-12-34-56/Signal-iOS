@@ -1,0 +1,376 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/AWSiOSSDKv2-capgpbigoldtbkesuorrjkbjhjfr/Build/Intermediates.noindex/ArchiveIntermediates/AWSCognitoAuth/InstallationBuildProductsLocation/Library/Frameworks/AWSCognitoAuth.framework/AWSCognitoAuth'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x60E0C, size: 0x8, addend: 0x0, symName: _AWSCognitoAuthVersionString, symObjAddr: 0x0, symBinAddr: 0x12D10, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x60E41, size: 0x8, addend: 0x0, symName: _AWSCognitoAuthVersionNumber, symObjAddr: 0x38, symBinAddr: 0x12D48, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x60E7E, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore defaultService]', symObjAddr: 0x0, symBinAddr: 0x3438, symSize: 0x88 }
+  - { offsetInCU: 0x41, offset: 0x60E98, size: 0x8, addend: 0x0, symName: _AWSCognitoAuthUICKeyChainStoreErrorDomain, symObjAddr: 0x4C88, symBinAddr: 0x182B8, symSize: 0x0 }
+  - { offsetInCU: 0x61, offset: 0x60EB8, size: 0x8, addend: 0x0, symName: __defaultService, symObjAddr: 0x475B8, symBinAddr: 0x1E8D0, symSize: 0x0 }
+  - { offsetInCU: 0x385, offset: 0x611DC, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore defaultService]', symObjAddr: 0x0, symBinAddr: 0x3438, symSize: 0x88 }
+  - { offsetInCU: 0x3B8, offset: 0x6120F, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setDefaultService:]', symObjAddr: 0x88, symBinAddr: 0x34C0, symSize: 0x10 }
+  - { offsetInCU: 0x3F7, offset: 0x6124E, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore keyChainStore]', symObjAddr: 0x98, symBinAddr: 0x34D0, symSize: 0x20 }
+  - { offsetInCU: 0x42E, offset: 0x61285, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore keyChainStoreWithService:]', symObjAddr: 0xB8, symBinAddr: 0x34F0, symSize: 0x4C }
+  - { offsetInCU: 0x475, offset: 0x612CC, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore keyChainStoreWithService:accessGroup:]', symObjAddr: 0x104, symBinAddr: 0x353C, symSize: 0x6C }
+  - { offsetInCU: 0x4CC, offset: 0x61323, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore keyChainStoreWithServer:protocolType:]', symObjAddr: 0x170, symBinAddr: 0x35A8, symSize: 0x5C }
+  - { offsetInCU: 0x523, offset: 0x6137A, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore keyChainStoreWithServer:protocolType:authenticationType:]', symObjAddr: 0x1CC, symBinAddr: 0x3604, symSize: 0x60 }
+  - { offsetInCU: 0x58A, offset: 0x613E1, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore init]', symObjAddr: 0x22C, symBinAddr: 0x3664, symSize: 0x50 }
+  - { offsetInCU: 0x5C1, offset: 0x61418, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore initWithService:]', symObjAddr: 0x27C, symBinAddr: 0x36B4, symSize: 0x8 }
+  - { offsetInCU: 0x604, offset: 0x6145B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore initWithService:accessGroup:]', symObjAddr: 0x284, symBinAddr: 0x36BC, symSize: 0xDC }
+  - { offsetInCU: 0x65B, offset: 0x614B2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore initWithServer:protocolType:]', symObjAddr: 0x360, symBinAddr: 0x3798, symSize: 0x8 }
+  - { offsetInCU: 0x6AC, offset: 0x61503, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore initWithServer:protocolType:authenticationType:]', symObjAddr: 0x368, symBinAddr: 0x37A0, symSize: 0x9C }
+  - { offsetInCU: 0x713, offset: 0x6156A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore commonInit]', symObjAddr: 0x404, symBinAddr: 0x383C, symSize: 0xC }
+  - { offsetInCU: 0x744, offset: 0x6159B, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore stringForKey:]', symObjAddr: 0x410, symBinAddr: 0x3848, symSize: 0x10 }
+  - { offsetInCU: 0x787, offset: 0x615DE, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore stringForKey:error:]', symObjAddr: 0x420, symBinAddr: 0x3858, symSize: 0x10 }
+  - { offsetInCU: 0x7DA, offset: 0x61631, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore stringForKey:service:]', symObjAddr: 0x430, symBinAddr: 0x3868, symSize: 0xC }
+  - { offsetInCU: 0x82B, offset: 0x61682, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore stringForKey:service:error:]', symObjAddr: 0x43C, symBinAddr: 0x3874, symSize: 0xC }
+  - { offsetInCU: 0x88C, offset: 0x616E3, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore stringForKey:service:accessGroup:]', symObjAddr: 0x448, symBinAddr: 0x3880, symSize: 0x8 }
+  - { offsetInCU: 0x8EB, offset: 0x61742, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore stringForKey:service:accessGroup:error:]', symObjAddr: 0x450, symBinAddr: 0x3888, symSize: 0x164 }
+  - { offsetInCU: 0x991, offset: 0x617E8, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:]', symObjAddr: 0x5B4, symBinAddr: 0x39EC, symSize: 0x14 }
+  - { offsetInCU: 0x9E2, offset: 0x61839, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:error:]', symObjAddr: 0x5C8, symBinAddr: 0x3A00, symSize: 0x14 }
+  - { offsetInCU: 0xA43, offset: 0x6189A, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:genericAttribute:]', symObjAddr: 0x5DC, symBinAddr: 0x3A14, symSize: 0x14 }
+  - { offsetInCU: 0xAA4, offset: 0x618FB, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:genericAttribute:error:]', symObjAddr: 0x5F0, symBinAddr: 0x3A28, symSize: 0x14 }
+  - { offsetInCU: 0xB15, offset: 0x6196C, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:service:]', symObjAddr: 0x604, symBinAddr: 0x3A3C, symSize: 0x10 }
+  - { offsetInCU: 0xB74, offset: 0x619CB, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:service:error:]', symObjAddr: 0x614, symBinAddr: 0x3A4C, symSize: 0x10 }
+  - { offsetInCU: 0xBE3, offset: 0x61A3A, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:service:genericAttribute:]', symObjAddr: 0x624, symBinAddr: 0x3A5C, symSize: 0x10 }
+  - { offsetInCU: 0xC52, offset: 0x61AA9, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:service:genericAttribute:error:]', symObjAddr: 0x634, symBinAddr: 0x3A6C, symSize: 0x10 }
+  - { offsetInCU: 0xCD1, offset: 0x61B28, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:service:accessGroup:]', symObjAddr: 0x644, symBinAddr: 0x3A7C, symSize: 0xC }
+  - { offsetInCU: 0xD3E, offset: 0x61B95, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:service:accessGroup:error:]', symObjAddr: 0x650, symBinAddr: 0x3A88, symSize: 0xC }
+  - { offsetInCU: 0xDBB, offset: 0x61C12, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:service:accessGroup:genericAttribute:]', symObjAddr: 0x65C, symBinAddr: 0x3A94, symSize: 0x8 }
+  - { offsetInCU: 0xE36, offset: 0x61C8D, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setString:forKey:service:accessGroup:genericAttribute:error:]', symObjAddr: 0x664, symBinAddr: 0x3A9C, symSize: 0x194 }
+  - { offsetInCU: 0xEED, offset: 0x61D44, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore dataForKey:]', symObjAddr: 0x7F8, symBinAddr: 0x3C30, symSize: 0x10 }
+  - { offsetInCU: 0xF30, offset: 0x61D87, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore dataForKey:error:]', symObjAddr: 0x808, symBinAddr: 0x3C40, symSize: 0x10 }
+  - { offsetInCU: 0xF83, offset: 0x61DDA, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore dataForKey:service:]', symObjAddr: 0x818, symBinAddr: 0x3C50, symSize: 0xC }
+  - { offsetInCU: 0xFD4, offset: 0x61E2B, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore dataForKey:service:error:]', symObjAddr: 0x824, symBinAddr: 0x3C5C, symSize: 0xC }
+  - { offsetInCU: 0x1039, offset: 0x61E90, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore dataForKey:service:accessGroup:]', symObjAddr: 0x830, symBinAddr: 0x3C68, symSize: 0x8 }
+  - { offsetInCU: 0x109C, offset: 0x61EF3, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore dataForKey:service:accessGroup:error:]', symObjAddr: 0x838, symBinAddr: 0x3C70, symSize: 0x164 }
+  - { offsetInCU: 0x1149, offset: 0x61FA0, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:]', symObjAddr: 0x99C, symBinAddr: 0x3DD4, symSize: 0x14 }
+  - { offsetInCU: 0x119D, offset: 0x61FF4, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:error:]', symObjAddr: 0x9B0, symBinAddr: 0x3DE8, symSize: 0x14 }
+  - { offsetInCU: 0x1202, offset: 0x62059, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:genericAttribute:]', symObjAddr: 0x9C4, symBinAddr: 0x3DFC, symSize: 0x14 }
+  - { offsetInCU: 0x1267, offset: 0x620BE, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:genericAttribute:error:]', symObjAddr: 0x9D8, symBinAddr: 0x3E10, symSize: 0x14 }
+  - { offsetInCU: 0x12DD, offset: 0x62134, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:service:]', symObjAddr: 0x9EC, symBinAddr: 0x3E24, symSize: 0x10 }
+  - { offsetInCU: 0x1340, offset: 0x62197, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:service:error:]', symObjAddr: 0x9FC, symBinAddr: 0x3E34, symSize: 0x10 }
+  - { offsetInCU: 0x13B4, offset: 0x6220B, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:service:genericAttribute:]', symObjAddr: 0xA0C, symBinAddr: 0x3E44, symSize: 0x10 }
+  - { offsetInCU: 0x1428, offset: 0x6227F, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:service:genericAttribute:error:]', symObjAddr: 0xA1C, symBinAddr: 0x3E54, symSize: 0x10 }
+  - { offsetInCU: 0x14AD, offset: 0x62304, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:service:accessGroup:]', symObjAddr: 0xA2C, symBinAddr: 0x3E64, symSize: 0xC }
+  - { offsetInCU: 0x151F, offset: 0x62376, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:service:accessGroup:error:]', symObjAddr: 0xA38, symBinAddr: 0x3E70, symSize: 0xC }
+  - { offsetInCU: 0x15A2, offset: 0x623F9, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:service:accessGroup:genericAttribute:]', symObjAddr: 0xA44, symBinAddr: 0x3E7C, symSize: 0x8 }
+  - { offsetInCU: 0x1623, offset: 0x6247A, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore setData:forKey:service:accessGroup:genericAttribute:error:]', symObjAddr: 0xA4C, symBinAddr: 0x3E84, symSize: 0x198 }
+  - { offsetInCU: 0x16F2, offset: 0x62549, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore contains:]', symObjAddr: 0xBE4, symBinAddr: 0x401C, symSize: 0x78 }
+  - { offsetInCU: 0x178A, offset: 0x625E1, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore stringForKey:]', symObjAddr: 0xC5C, symBinAddr: 0x4094, symSize: 0x8 }
+  - { offsetInCU: 0x17CF, offset: 0x62626, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore stringForKey:error:]', symObjAddr: 0xC64, symBinAddr: 0x409C, symSize: 0x114 }
+  - { offsetInCU: 0x186B, offset: 0x626C2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setString:forKey:]', symObjAddr: 0xD78, symBinAddr: 0x41B0, symSize: 0x14 }
+  - { offsetInCU: 0x18BF, offset: 0x62716, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setString:forKey:error:]', symObjAddr: 0xD8C, symBinAddr: 0x41C4, symSize: 0x14 }
+  - { offsetInCU: 0x1924, offset: 0x6277B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setString:forKey:genericAttribute:]', symObjAddr: 0xDA0, symBinAddr: 0x41D8, symSize: 0x10 }
+  - { offsetInCU: 0x1987, offset: 0x627DE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setString:forKey:genericAttribute:error:]', symObjAddr: 0xDB0, symBinAddr: 0x41E8, symSize: 0x10 }
+  - { offsetInCU: 0x19FB, offset: 0x62852, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setString:forKey:label:comment:]', symObjAddr: 0xDC0, symBinAddr: 0x41F8, symSize: 0x14 }
+  - { offsetInCU: 0x1A71, offset: 0x628C8, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setString:forKey:label:comment:error:]', symObjAddr: 0xDD4, symBinAddr: 0x420C, symSize: 0x14 }
+  - { offsetInCU: 0x1AF8, offset: 0x6294F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setString:forKey:genericAttribute:label:comment:error:]', symObjAddr: 0xDE8, symBinAddr: 0x4220, symSize: 0x198 }
+  - { offsetInCU: 0x1BB8, offset: 0x62A0F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore dataForKey:]', symObjAddr: 0xF80, symBinAddr: 0x43B8, symSize: 0x8 }
+  - { offsetInCU: 0x1BFD, offset: 0x62A54, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore dataForKey:error:]', symObjAddr: 0xF88, symBinAddr: 0x43C0, symSize: 0x1F4 }
+  - { offsetInCU: 0x1CFE, offset: 0x62B55, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setData:forKey:]', symObjAddr: 0x117C, symBinAddr: 0x45B4, symSize: 0x14 }
+  - { offsetInCU: 0x1D52, offset: 0x62BA9, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setData:forKey:error:]', symObjAddr: 0x1190, symBinAddr: 0x45C8, symSize: 0x14 }
+  - { offsetInCU: 0x1DB7, offset: 0x62C0E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setData:forKey:genericAttribute:]', symObjAddr: 0x11A4, symBinAddr: 0x45DC, symSize: 0x10 }
+  - { offsetInCU: 0x1E1A, offset: 0x62C71, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setData:forKey:genericAttribute:error:]', symObjAddr: 0x11B4, symBinAddr: 0x45EC, symSize: 0x10 }
+  - { offsetInCU: 0x1E8E, offset: 0x62CE5, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setData:forKey:label:comment:]', symObjAddr: 0x11C4, symBinAddr: 0x45FC, symSize: 0x14 }
+  - { offsetInCU: 0x1F04, offset: 0x62D5B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setData:forKey:label:comment:error:]', symObjAddr: 0x11D8, symBinAddr: 0x4610, symSize: 0x14 }
+  - { offsetInCU: 0x1F8B, offset: 0x62DE2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setData:forKey:genericAttribute:label:comment:error:]', symObjAddr: 0x11EC, symBinAddr: 0x4624, symSize: 0x670 }
+  - { offsetInCU: 0x2177, offset: 0x62FCE, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeItemForKey:]', symObjAddr: 0x185C, symBinAddr: 0x4C94, symSize: 0x10 }
+  - { offsetInCU: 0x21BC, offset: 0x63013, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeItemForKey:error:]', symObjAddr: 0x186C, symBinAddr: 0x4CA4, symSize: 0x10 }
+  - { offsetInCU: 0x2212, offset: 0x63069, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeItemForKey:service:]', symObjAddr: 0x187C, symBinAddr: 0x4CB4, symSize: 0xC }
+  - { offsetInCU: 0x2266, offset: 0x630BD, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeItemForKey:service:error:]', symObjAddr: 0x1888, symBinAddr: 0x4CC0, symSize: 0xC }
+  - { offsetInCU: 0x22CB, offset: 0x63122, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeItemForKey:service:accessGroup:]', symObjAddr: 0x1894, symBinAddr: 0x4CCC, symSize: 0x8 }
+  - { offsetInCU: 0x232E, offset: 0x63185, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeItemForKey:service:accessGroup:error:]', symObjAddr: 0x189C, symBinAddr: 0x4CD4, symSize: 0x168 }
+  - { offsetInCU: 0x23DB, offset: 0x63232, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeAllItems]', symObjAddr: 0x1A04, symBinAddr: 0x4E3C, symSize: 0x10 }
+  - { offsetInCU: 0x2411, offset: 0x63268, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeAllItemsWithError:]', symObjAddr: 0x1A14, symBinAddr: 0x4E4C, symSize: 0x10 }
+  - { offsetInCU: 0x2458, offset: 0x632AF, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeAllItemsForService:]', symObjAddr: 0x1A24, symBinAddr: 0x4E5C, symSize: 0xC }
+  - { offsetInCU: 0x249D, offset: 0x632F4, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeAllItemsForService:error:]', symObjAddr: 0x1A30, symBinAddr: 0x4E68, symSize: 0xC }
+  - { offsetInCU: 0x24F3, offset: 0x6334A, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeAllItemsForService:accessGroup:]', symObjAddr: 0x1A3C, symBinAddr: 0x4E74, symSize: 0x8 }
+  - { offsetInCU: 0x2547, offset: 0x6339E, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore removeAllItemsForService:accessGroup:error:]', symObjAddr: 0x1A44, symBinAddr: 0x4E7C, symSize: 0x4C }
+  - { offsetInCU: 0x25BF, offset: 0x63416, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore removeItemForKey:]', symObjAddr: 0x1A90, symBinAddr: 0x4EC8, symSize: 0x8 }
+  - { offsetInCU: 0x2604, offset: 0x6345B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore removeItemForKey:error:]', symObjAddr: 0x1A98, symBinAddr: 0x4ED0, symSize: 0xD4 }
+  - { offsetInCU: 0x26C1, offset: 0x63518, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore removeAllItems]', symObjAddr: 0x1B6C, symBinAddr: 0x4FA4, symSize: 0x8 }
+  - { offsetInCU: 0x26F7, offset: 0x6354E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore removeAllItemsWithError:]', symObjAddr: 0x1B74, symBinAddr: 0x4FAC, symSize: 0xA4 }
+  - { offsetInCU: 0x2790, offset: 0x635E7, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore objectForKeyedSubscript:]', symObjAddr: 0x1C18, symBinAddr: 0x5050, symSize: 0x4 }
+  - { offsetInCU: 0x27D5, offset: 0x6362C, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setObject:forKeyedSubscript:]', symObjAddr: 0x1C1C, symBinAddr: 0x5054, symSize: 0x10 }
+  - { offsetInCU: 0x2827, offset: 0x6367E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore allKeys]', symObjAddr: 0x1C2C, symBinAddr: 0x5064, symSize: 0x1A4 }
+  - { offsetInCU: 0x28A1, offset: 0x636F8, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore allKeysWithItemClass:]', symObjAddr: 0x1DD0, symBinAddr: 0x5208, symSize: 0x368 }
+  - { offsetInCU: 0x29AC, offset: 0x63803, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore allItemsWithItemClass:]', symObjAddr: 0x2138, symBinAddr: 0x5570, symSize: 0x148 }
+  - { offsetInCU: 0x2A66, offset: 0x638BD, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore allItems]', symObjAddr: 0x2280, symBinAddr: 0x56B8, symSize: 0x74 }
+  - { offsetInCU: 0x2A9E, offset: 0x638F5, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore items]', symObjAddr: 0x22F4, symBinAddr: 0x572C, symSize: 0xD4 }
+  - { offsetInCU: 0x2B17, offset: 0x6396E, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore prettify:items:]', symObjAddr: 0x23C8, symBinAddr: 0x5800, symSize: 0x4A8 }
+  - { offsetInCU: 0x2C8D, offset: 0x63AE4, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore migrateToCurrentAccessibility]', symObjAddr: 0x2870, symBinAddr: 0x5CA8, symSize: 0x1F0 }
+  - { offsetInCU: 0x2D57, offset: 0x63BAE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setSynchronizable:]', symObjAddr: 0x2A60, symBinAddr: 0x5E98, symSize: 0x3C }
+  - { offsetInCU: 0x2D98, offset: 0x63BEF, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setAccessibility:authenticationPolicy:]', symObjAddr: 0x2A9C, symBinAddr: 0x5ED4, symSize: 0x3C }
+  - { offsetInCU: 0x2DEE, offset: 0x63C45, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore sharedPasswordWithCompletion:]', symObjAddr: 0x2AD8, symBinAddr: 0x5F10, symSize: 0x174 }
+  - { offsetInCU: 0x2E70, offset: 0x63CC7, size: 0x8, addend: 0x0, symName: '___63-[AWSCognitoAuthUICKeyChainStore sharedPasswordWithCompletion:]_block_invoke', symObjAddr: 0x2C4C, symBinAddr: 0x6084, symSize: 0xE4 }
+  - { offsetInCU: 0x2F39, offset: 0x63D90, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32b, symObjAddr: 0x2D30, symBinAddr: 0x6168, symSize: 0x10 }
+  - { offsetInCU: 0x2F62, offset: 0x63DB9, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0x2D40, symBinAddr: 0x6178, symSize: 0x8 }
+  - { offsetInCU: 0x2F81, offset: 0x63DD8, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore sharedPasswordForAccount:completion:]', symObjAddr: 0x2D48, symBinAddr: 0x6180, symSize: 0x188 }
+  - { offsetInCU: 0x3014, offset: 0x63E6B, size: 0x8, addend: 0x0, symName: '___70-[AWSCognitoAuthUICKeyChainStore sharedPasswordForAccount:completion:]_block_invoke', symObjAddr: 0x2ED0, symBinAddr: 0x6308, symSize: 0xB0 }
+  - { offsetInCU: 0x30CC, offset: 0x63F23, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setSharedPassword:forAccount:completion:]', symObjAddr: 0x2F80, symBinAddr: 0x63B8, symSize: 0x1A0 }
+  - { offsetInCU: 0x320A, offset: 0x64061, size: 0x8, addend: 0x0, symName: '___74-[AWSCognitoAuthUICKeyChainStore setSharedPassword:forAccount:completion:]_block_invoke', symObjAddr: 0x3120, symBinAddr: 0x6558, symSize: 0x14 }
+  - { offsetInCU: 0x3263, offset: 0x640BA, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore removeSharedPasswordForAccount:completion:]', symObjAddr: 0x3134, symBinAddr: 0x656C, symSize: 0x10 }
+  - { offsetInCU: 0x32B7, offset: 0x6410E, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore requestSharedWebCredentialWithCompletion:]', symObjAddr: 0x3144, symBinAddr: 0x657C, symSize: 0x10 }
+  - { offsetInCU: 0x32FA, offset: 0x64151, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore requestSharedWebCredentialForDomain:account:completion:]', symObjAddr: 0x3154, symBinAddr: 0x658C, symSize: 0x90 }
+  - { offsetInCU: 0x33CF, offset: 0x64226, size: 0x8, addend: 0x0, symName: '___89+[AWSCognitoAuthUICKeyChainStore requestSharedWebCredentialForDomain:account:completion:]_block_invoke', symObjAddr: 0x31E4, symBinAddr: 0x661C, symSize: 0x2D4 }
+  - { offsetInCU: 0x34E6, offset: 0x6433D, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore generatePassword]', symObjAddr: 0x34B8, symBinAddr: 0x68F0, symSize: 0x14 }
+  - { offsetInCU: 0x3534, offset: 0x6438B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore synchronize]', symObjAddr: 0x34CC, symBinAddr: 0x6904, symSize: 0x4 }
+  - { offsetInCU: 0x3564, offset: 0x643BB, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore synchronizeWithError:]', symObjAddr: 0x34D0, symBinAddr: 0x6908, symSize: 0x8 }
+  - { offsetInCU: 0x35A5, offset: 0x643FC, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore description]', symObjAddr: 0x34D8, symBinAddr: 0x6910, symSize: 0x178 }
+  - { offsetInCU: 0x361F, offset: 0x64476, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore debugDescription]', symObjAddr: 0x3650, symBinAddr: 0x6A88, symSize: 0x64 }
+  - { offsetInCU: 0x3657, offset: 0x644AE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore query]', symObjAddr: 0x36B4, symBinAddr: 0x6AEC, symSize: 0x204 }
+  - { offsetInCU: 0x36E2, offset: 0x64539, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore attributesWithKey:value:error:]', symObjAddr: 0x38B8, symBinAddr: 0x6CF0, symSize: 0x32C }
+  - { offsetInCU: 0x3830, offset: 0x64687, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore itemClassObject]', symObjAddr: 0x3BE4, symBinAddr: 0x701C, symSize: 0x38 }
+  - { offsetInCU: 0x3868, offset: 0x646BF, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore protocolTypeObject]', symObjAddr: 0x3C1C, symBinAddr: 0x7054, symSize: 0x190 }
+  - { offsetInCU: 0x38A0, offset: 0x646F7, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore authenticationTypeObject]', symObjAddr: 0x3DAC, symBinAddr: 0x71E4, symSize: 0x94 }
+  - { offsetInCU: 0x38D8, offset: 0x6472F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore accessibilityObject]', symObjAddr: 0x3E40, symBinAddr: 0x7278, symSize: 0x88 }
+  - { offsetInCU: 0x3910, offset: 0x64767, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore argumentError:]', symObjAddr: 0x3EC8, symBinAddr: 0x7300, symSize: 0x134 }
+  - { offsetInCU: 0x3966, offset: 0x647BD, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore conversionError:]', symObjAddr: 0x3FFC, symBinAddr: 0x7434, symSize: 0x138 }
+  - { offsetInCU: 0x39BC, offset: 0x64813, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore securityError:]', symObjAddr: 0x4134, symBinAddr: 0x756C, symSize: 0x128 }
+  - { offsetInCU: 0x3A23, offset: 0x6487A, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuthUICKeyChainStore unexpectedError:]', symObjAddr: 0x425C, symBinAddr: 0x7694, symSize: 0x138 }
+  - { offsetInCU: 0x3A79, offset: 0x648D0, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore itemClass]', symObjAddr: 0x4394, symBinAddr: 0x77CC, symSize: 0x8 }
+  - { offsetInCU: 0x3AB0, offset: 0x64907, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore service]', symObjAddr: 0x439C, symBinAddr: 0x77D4, symSize: 0x8 }
+  - { offsetInCU: 0x3AE7, offset: 0x6493E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore accessGroup]', symObjAddr: 0x43A4, symBinAddr: 0x77DC, symSize: 0x8 }
+  - { offsetInCU: 0x3B1E, offset: 0x64975, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore server]', symObjAddr: 0x43AC, symBinAddr: 0x77E4, symSize: 0x8 }
+  - { offsetInCU: 0x3B55, offset: 0x649AC, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore protocolType]', symObjAddr: 0x43B4, symBinAddr: 0x77EC, symSize: 0x8 }
+  - { offsetInCU: 0x3B8C, offset: 0x649E3, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore authenticationType]', symObjAddr: 0x43BC, symBinAddr: 0x77F4, symSize: 0x8 }
+  - { offsetInCU: 0x3BC3, offset: 0x64A1A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore accessibility]', symObjAddr: 0x43C4, symBinAddr: 0x77FC, symSize: 0x8 }
+  - { offsetInCU: 0x3BFA, offset: 0x64A51, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setAccessibility:]', symObjAddr: 0x43CC, symBinAddr: 0x7804, symSize: 0x8 }
+  - { offsetInCU: 0x3C37, offset: 0x64A8E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore authenticationPolicy]', symObjAddr: 0x43D4, symBinAddr: 0x780C, symSize: 0x8 }
+  - { offsetInCU: 0x3C6E, offset: 0x64AC5, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore synchronizable]', symObjAddr: 0x43DC, symBinAddr: 0x7814, symSize: 0x8 }
+  - { offsetInCU: 0x3CA5, offset: 0x64AFC, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore authenticationPrompt]', symObjAddr: 0x43E4, symBinAddr: 0x781C, symSize: 0x8 }
+  - { offsetInCU: 0x3CDC, offset: 0x64B33, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore setAuthenticationPrompt:]', symObjAddr: 0x43EC, symBinAddr: 0x7824, symSize: 0xC }
+  - { offsetInCU: 0x3D1D, offset: 0x64B74, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUICKeyChainStore .cxx_destruct]', symObjAddr: 0x43F8, symBinAddr: 0x7830, symSize: 0x48 }
+  - { offsetInCU: 0x27, offset: 0x64F65, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth defaultCognitoAuth]', symObjAddr: 0x0, symBinAddr: 0x7878, symSize: 0x40 }
+  - { offsetInCU: 0x4B, offset: 0x64F89, size: 0x8, addend: 0x0, symName: _AWSCognitoAuthErrorDomain, symObjAddr: 0x8908, symBinAddr: 0x18350, symSize: 0x0 }
+  - { offsetInCU: 0x61, offset: 0x64F9F, size: 0x8, addend: 0x0, symName: _AWSCognitoAuthSDKVersion, symObjAddr: 0x8910, symBinAddr: 0x18358, symSize: 0x0 }
+  - { offsetInCU: 0x77, offset: 0x64FB5, size: 0x8, addend: 0x0, symName: __instanceDictionary, symObjAddr: 0x82608, symBinAddr: 0x1E8D8, symSize: 0x0 }
+  - { offsetInCU: 0x92, offset: 0x64FD0, size: 0x8, addend: 0x0, symName: __dispatchQueue, symObjAddr: 0x82610, symBinAddr: 0x1E8E0, symSize: 0x0 }
+  - { offsetInCU: 0xA8, offset: 0x64FE6, size: 0x8, addend: 0x0, symName: _AWSCognitoAuthUserAccessToken, symObjAddr: 0x8918, symBinAddr: 0x18360, symSize: 0x0 }
+  - { offsetInCU: 0xBC, offset: 0x64FFA, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth defaultCognitoAuth]', symObjAddr: 0x0, symBinAddr: 0x7878, symSize: 0x40 }
+  - { offsetInCU: 0xE6, offset: 0x65024, size: 0x8, addend: 0x0, symName: _defaultCognitoAuth._defaultAuth, symObjAddr: 0x82618, symBinAddr: 0x1E8E8, symSize: 0x0 }
+  - { offsetInCU: 0xFC, offset: 0x6503A, size: 0x8, addend: 0x0, symName: _defaultCognitoAuth.onceToken, symObjAddr: 0x82620, symBinAddr: 0x1E8F0, symSize: 0x0 }
+  - { offsetInCU: 0xA58, offset: 0x65996, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth registerCognitoAuthWithAuthConfiguration:forKey:]', symObjAddr: 0x514, symBinAddr: 0x7D8C, symSize: 0xA4 }
+  - { offsetInCU: 0xA7E, offset: 0x659BC, size: 0x8, addend: 0x0, symName: '_registerCognitoAuthWithAuthConfiguration:forKey:.onceToken', symObjAddr: 0x82628, symBinAddr: 0x1E8F8, symSize: 0x0 }
+  - { offsetInCU: 0xAFA, offset: 0x65A38, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getDateFormatter]', symObjAddr: 0x39B4, symBinAddr: 0xB22C, symSize: 0x40 }
+  - { offsetInCU: 0xB26, offset: 0x65A64, size: 0x8, addend: 0x0, symName: _getDateFormatter._dateFormatter, symObjAddr: 0x82630, symBinAddr: 0x1E900, symSize: 0x0 }
+  - { offsetInCU: 0xB3D, offset: 0x65A7B, size: 0x8, addend: 0x0, symName: _getDateFormatter.onceToken, symObjAddr: 0x82638, symBinAddr: 0x1E908, symSize: 0x0 }
+  - { offsetInCU: 0xB7D, offset: 0x65ABB, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth userAgent]', symObjAddr: 0x5F30, symBinAddr: 0xD7A0, symSize: 0x40 }
+  - { offsetInCU: 0xBA9, offset: 0x65AE7, size: 0x8, addend: 0x0, symName: _userAgent._userAgent, symObjAddr: 0x82640, symBinAddr: 0x1E910, symSize: 0x0 }
+  - { offsetInCU: 0xBC0, offset: 0x65AFE, size: 0x8, addend: 0x0, symName: _userAgent.onceToken, symObjAddr: 0x82648, symBinAddr: 0x1E918, symSize: 0x0 }
+  - { offsetInCU: 0xD2F, offset: 0x65C6D, size: 0x8, addend: 0x0, symName: '___36+[AWSCognitoAuth defaultCognitoAuth]_block_invoke', symObjAddr: 0x40, symBinAddr: 0x78B8, symSize: 0x4D4 }
+  - { offsetInCU: 0xE38, offset: 0x65D76, size: 0x8, addend: 0x0, symName: '___66+[AWSCognitoAuth registerCognitoAuthWithAuthConfiguration:forKey:]_block_invoke', symObjAddr: 0x5B8, symBinAddr: 0x7E30, symSize: 0x50 }
+  - { offsetInCU: 0xE8F, offset: 0x65DCD, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth CognitoAuthForKey:]', symObjAddr: 0x608, symBinAddr: 0x7E80, symSize: 0x4 }
+  - { offsetInCU: 0xED2, offset: 0x65E10, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth removeCognitoAuthForKey:]', symObjAddr: 0x60C, symBinAddr: 0x7E84, symSize: 0x4 }
+  - { offsetInCU: 0xF11, offset: 0x65E4F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth init]', symObjAddr: 0x610, symBinAddr: 0x7E88, symSize: 0x3C }
+  - { offsetInCU: 0xF44, offset: 0x65E82, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth initWithConfiguration:]', symObjAddr: 0x64C, symBinAddr: 0x7EC4, symSize: 0x188 }
+  - { offsetInCU: 0xF8B, offset: 0x65EC9, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth refreshTokenFromKeyChain:]', symObjAddr: 0x7D4, symBinAddr: 0x804C, symSize: 0x78 }
+  - { offsetInCU: 0xFF2, offset: 0x65F30, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth isSignedIn]', symObjAddr: 0x84C, symBinAddr: 0x80C4, symSize: 0x80 }
+  - { offsetInCU: 0x1049, offset: 0x65F87, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchSignInWithViewController:completion:]', symObjAddr: 0x8CC, symBinAddr: 0x8144, symSize: 0x10 }
+  - { offsetInCU: 0x109A, offset: 0x65FD8, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchSignInWithWebUI:completion:]', symObjAddr: 0x8DC, symBinAddr: 0x8154, symSize: 0xC }
+  - { offsetInCU: 0x10E9, offset: 0x66027, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchUsing:uiViewController:completion:]', symObjAddr: 0x8E8, symBinAddr: 0x8160, symSize: 0x1B8 }
+  - { offsetInCU: 0x1171, offset: 0x660AF, size: 0x8, addend: 0x0, symName: ___Block_byref_object_copy_, symObjAddr: 0xAA0, symBinAddr: 0x8318, symSize: 0xC }
+  - { offsetInCU: 0x119A, offset: 0x660D8, size: 0x8, addend: 0x0, symName: ___Block_byref_object_dispose_, symObjAddr: 0xAAC, symBinAddr: 0x8324, symSize: 0x8 }
+  - { offsetInCU: 0x11B9, offset: 0x660F7, size: 0x8, addend: 0x0, symName: '___58-[AWSCognitoAuth launchUsing:uiViewController:completion:]_block_invoke', symObjAddr: 0xAB4, symBinAddr: 0x832C, symSize: 0x98 }
+  - { offsetInCU: 0x1238, offset: 0x66176, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s48s56b64r, symObjAddr: 0xB4C, symBinAddr: 0x83C4, symSize: 0x54 }
+  - { offsetInCU: 0x1261, offset: 0x6619F, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s48s56s64r, symObjAddr: 0xBA0, symBinAddr: 0x8418, symSize: 0x44 }
+  - { offsetInCU: 0x1280, offset: 0x661BE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getSession:]', symObjAddr: 0xBE4, symBinAddr: 0x845C, symSize: 0x48 }
+  - { offsetInCU: 0x12C3, offset: 0x66201, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getSession:completion:]', symObjAddr: 0xC2C, symBinAddr: 0x84A4, symSize: 0x68 }
+  - { offsetInCU: 0x1319, offset: 0x66257, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getSessionWithWebUI:completion:]', symObjAddr: 0xC94, symBinAddr: 0x850C, symSize: 0x54 }
+  - { offsetInCU: 0x136F, offset: 0x662AD, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth enqueueGetSession:completion:]', symObjAddr: 0xCE8, symBinAddr: 0x8560, symSize: 0x180 }
+  - { offsetInCU: 0x13EC, offset: 0x6632A, size: 0x8, addend: 0x0, symName: '___47-[AWSCognitoAuth enqueueGetSession:completion:]_block_invoke', symObjAddr: 0xE68, symBinAddr: 0x86E0, symSize: 0x94 }
+  - { offsetInCU: 0x1461, offset: 0x6639F, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s48b56r, symObjAddr: 0xEFC, symBinAddr: 0x8774, symSize: 0x4C }
+  - { offsetInCU: 0x148A, offset: 0x663C8, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s48s56r, symObjAddr: 0xF48, symBinAddr: 0x87C0, symSize: 0x3C }
+  - { offsetInCU: 0x14A9, offset: 0x663E7, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth cleanupSignIn]', symObjAddr: 0xF84, symBinAddr: 0x87FC, symSize: 0x5C }
+  - { offsetInCU: 0x14DD, offset: 0x6641B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth prepareForSignIn:completion:]', symObjAddr: 0xFE0, symBinAddr: 0x8858, symSize: 0x128 }
+  - { offsetInCU: 0x1533, offset: 0x66471, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchSignInVC:]', symObjAddr: 0x1108, symBinAddr: 0x8980, symSize: 0x53C }
+  - { offsetInCU: 0x15DC, offset: 0x6651A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchLegacySession:withPresentingViewController:]', symObjAddr: 0x1644, symBinAddr: 0x8EBC, symSize: 0x78 }
+  - { offsetInCU: 0x1632, offset: 0x66570, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchSFWebAuthenticationSession:]', symObjAddr: 0x16BC, symBinAddr: 0x8F34, symSize: 0x198 }
+  - { offsetInCU: 0x1699, offset: 0x665D7, size: 0x8, addend: 0x0, symName: '___51-[AWSCognitoAuth launchSFWebAuthenticationSession:]_block_invoke', symObjAddr: 0x1854, symBinAddr: 0x90CC, symSize: 0x6C }
+  - { offsetInCU: 0x1719, offset: 0x66657, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32w, symObjAddr: 0x18C0, symBinAddr: 0x9138, symSize: 0xC }
+  - { offsetInCU: 0x1742, offset: 0x66680, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32w, symObjAddr: 0x18CC, symBinAddr: 0x9144, symSize: 0x8 }
+  - { offsetInCU: 0x1761, offset: 0x6669F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchASWebAuthenticationSession:]', symObjAddr: 0x18D4, symBinAddr: 0x914C, symSize: 0x258 }
+  - { offsetInCU: 0x17EA, offset: 0x66728, size: 0x8, addend: 0x0, symName: '___51-[AWSCognitoAuth launchASWebAuthenticationSession:]_block_invoke', symObjAddr: 0x1B2C, symBinAddr: 0x93A4, symSize: 0x6C }
+  - { offsetInCU: 0x186A, offset: 0x667A8, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth presentationAnchorForWebAuthenticationSession:]', symObjAddr: 0x1B98, symBinAddr: 0x9410, symSize: 0x4 }
+  - { offsetInCU: 0x18AD, offset: 0x667EB, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth handleSignInCallbackWithURL:error:]', symObjAddr: 0x1B9C, symBinAddr: 0x9414, symSize: 0x10 }
+  - { offsetInCU: 0x18FF, offset: 0x6683D, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth showSFSafariViewControllerForURL:withPresentingViewController:]', symObjAddr: 0x1BAC, symBinAddr: 0x9424, symSize: 0x160 }
+  - { offsetInCU: 0x1987, offset: 0x668C5, size: 0x8, addend: 0x0, symName: '___80-[AWSCognitoAuth showSFSafariViewControllerForURL:withPresentingViewController:]_block_invoke', symObjAddr: 0x1D0C, symBinAddr: 0x9584, symSize: 0x160 }
+  - { offsetInCU: 0x19F2, offset: 0x66930, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s, symObjAddr: 0x1E6C, symBinAddr: 0x96E4, symSize: 0x28 }
+  - { offsetInCU: 0x1A1B, offset: 0x66959, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s, symObjAddr: 0x1E94, symBinAddr: 0x970C, symSize: 0x28 }
+  - { offsetInCU: 0x1A3A, offset: 0x66978, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setPopoverSource:source:]', symObjAddr: 0x1EBC, symBinAddr: 0x9734, symSize: 0x174 }
+  - { offsetInCU: 0x1A90, offset: 0x669CE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getSessionInternal:completion:]', symObjAddr: 0x2030, symBinAddr: 0x98A8, symSize: 0x628 }
+  - { offsetInCU: 0x1C2B, offset: 0x66B69, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth dismissSafariViewControllerAndCompleteGetSession:error:]', symObjAddr: 0x2658, symBinAddr: 0x9ED0, symSize: 0xF8 }
+  - { offsetInCU: 0x1C81, offset: 0x66BBF, size: 0x8, addend: 0x0, symName: '___73-[AWSCognitoAuth dismissSafariViewControllerAndCompleteGetSession:error:]_block_invoke', symObjAddr: 0x2750, symBinAddr: 0x9FC8, symSize: 0x10 }
+  - { offsetInCU: 0x1CE5, offset: 0x66C23, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s48s, symObjAddr: 0x2760, symBinAddr: 0x9FD8, symSize: 0x30 }
+  - { offsetInCU: 0x1D0E, offset: 0x66C4C, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s48s, symObjAddr: 0x2790, symBinAddr: 0xA008, symSize: 0x30 }
+  - { offsetInCU: 0x1D2D, offset: 0x66C6B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth cleanUpAndCallGetSessionBlock:error:]', symObjAddr: 0x27C0, symBinAddr: 0xA038, symSize: 0x88 }
+  - { offsetInCU: 0x1DA0, offset: 0x66CDE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth dismissSafariViewControllerAndCompleteSignOut:]', symObjAddr: 0x2848, symBinAddr: 0xA0C0, symSize: 0xC0 }
+  - { offsetInCU: 0x1DE5, offset: 0x66D23, size: 0x8, addend: 0x0, symName: '___64-[AWSCognitoAuth dismissSafariViewControllerAndCompleteSignOut:]_block_invoke', symObjAddr: 0x2908, symBinAddr: 0xA180, symSize: 0xC }
+  - { offsetInCU: 0x1E38, offset: 0x66D76, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth cleanUpAndCallSignOutBlock:]', symObjAddr: 0x2914, symBinAddr: 0xA18C, symSize: 0x70 }
+  - { offsetInCU: 0x1E9A, offset: 0x66DD8, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOut:]', symObjAddr: 0x2984, symBinAddr: 0xA1FC, symSize: 0xD8 }
+  - { offsetInCU: 0x1EEB, offset: 0x66E29, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOut:completion:]', symObjAddr: 0x2A5C, symBinAddr: 0xA2D4, symSize: 0x68 }
+  - { offsetInCU: 0x1F41, offset: 0x66E7F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOutWithWebUI:completion:]', symObjAddr: 0x2AC4, symBinAddr: 0xA33C, symSize: 0x54 }
+  - { offsetInCU: 0x1F97, offset: 0x66ED5, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth enqueueSignOut:completion:]', symObjAddr: 0x2B18, symBinAddr: 0xA390, symSize: 0x17C }
+  - { offsetInCU: 0x2014, offset: 0x66F52, size: 0x8, addend: 0x0, symName: '___44-[AWSCognitoAuth enqueueSignOut:completion:]_block_invoke', symObjAddr: 0x2C94, symBinAddr: 0xA50C, symSize: 0x84 }
+  - { offsetInCU: 0x2095, offset: 0x66FD3, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getQueryStringSuffixForParameters:]', symObjAddr: 0x2D18, symBinAddr: 0xA590, symSize: 0x1DC }
+  - { offsetInCU: 0x2132, offset: 0x67070, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOutInternal:completion:]', symObjAddr: 0x2EF4, symBinAddr: 0xA76C, symSize: 0x18C }
+  - { offsetInCU: 0x21AA, offset: 0x670E8, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchASWebAuthenticationSessionForSignOut:]', symObjAddr: 0x3080, symBinAddr: 0xA8F8, symSize: 0x208 }
+  - { offsetInCU: 0x2233, offset: 0x67171, size: 0x8, addend: 0x0, symName: '___61-[AWSCognitoAuth launchASWebAuthenticationSessionForSignOut:]_block_invoke', symObjAddr: 0x3288, symBinAddr: 0xAB00, symSize: 0x9C }
+  - { offsetInCU: 0x22B3, offset: 0x671F1, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchLegacySessionForSignOut:withPresentingViewController:]', symObjAddr: 0x3324, symBinAddr: 0xAB9C, symSize: 0x78 }
+  - { offsetInCU: 0x2309, offset: 0x67247, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth launchSFAuthenticationSessionForSignOut:]', symObjAddr: 0x339C, symBinAddr: 0xAC14, symSize: 0x198 }
+  - { offsetInCU: 0x2370, offset: 0x672AE, size: 0x8, addend: 0x0, symName: '___58-[AWSCognitoAuth launchSFAuthenticationSessionForSignOut:]_block_invoke', symObjAddr: 0x3534, symBinAddr: 0xADAC, symSize: 0x9C }
+  - { offsetInCU: 0x23F0, offset: 0x6732E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOutSFSafariVC:url:]', symObjAddr: 0x35D0, symBinAddr: 0xAE48, symSize: 0x160 }
+  - { offsetInCU: 0x2465, offset: 0x673A3, size: 0x8, addend: 0x0, symName: '___40-[AWSCognitoAuth signOutSFSafariVC:url:]_block_invoke', symObjAddr: 0x3730, symBinAddr: 0xAFA8, symSize: 0x88 }
+  - { offsetInCU: 0x24B8, offset: 0x673F6, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOutLocally]', symObjAddr: 0x37B8, symBinAddr: 0xB030, symSize: 0x1D8 }
+  - { offsetInCU: 0x253D, offset: 0x6747B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOutLocallyAndClearLastKnownUser]', symObjAddr: 0x3990, symBinAddr: 0xB208, symSize: 0x24 }
+  - { offsetInCU: 0x2571, offset: 0x674AF, size: 0x8, addend: 0x0, symName: '___34-[AWSCognitoAuth getDateFormatter]_block_invoke', symObjAddr: 0x39F4, symBinAddr: 0xB26C, symSize: 0xAC }
+  - { offsetInCU: 0x259A, offset: 0x674D8, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth dateFromString:]', symObjAddr: 0x3AA0, symBinAddr: 0xB318, symSize: 0x6C }
+  - { offsetInCU: 0x25E3, offset: 0x67521, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth stringValue:]', symObjAddr: 0x3B0C, symBinAddr: 0xB384, symSize: 0x6C }
+  - { offsetInCU: 0x262C, offset: 0x6756A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth safariViewControllerDidFinish:]', symObjAddr: 0x3B78, symBinAddr: 0xB3F0, symSize: 0x90 }
+  - { offsetInCU: 0x267E, offset: 0x675BC, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth presentationControllerDidDismiss:]', symObjAddr: 0x3C08, symBinAddr: 0xB480, symSize: 0x90 }
+  - { offsetInCU: 0x26D0, offset: 0x6760E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setInternalSignOutErrorAndCancelSignOutOperations:]', symObjAddr: 0x3C98, symBinAddr: 0xB510, symSize: 0x3C }
+  - { offsetInCU: 0x2715, offset: 0x67653, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setInternalGetSessionErrorAndCancelSignInOperations:]', symObjAddr: 0x3CD4, symBinAddr: 0xB54C, symSize: 0x3C }
+  - { offsetInCU: 0x275A, offset: 0x67698, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth safariViewController:didCompleteInitialLoad:]', symObjAddr: 0x3D10, symBinAddr: 0xB588, symSize: 0xE0 }
+  - { offsetInCU: 0x27D0, offset: 0x6770E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth generateRandom:]', symObjAddr: 0x3DF0, symBinAddr: 0xB668, symSize: 0xB8 }
+  - { offsetInCU: 0x2865, offset: 0x677A3, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth calculateSHA256Hash:]', symObjAddr: 0x3EA8, symBinAddr: 0xB720, symSize: 0x12C }
+  - { offsetInCU: 0x28FB, offset: 0x67839, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth urlSafeBase64:]', symObjAddr: 0x3FD4, symBinAddr: 0xB84C, symSize: 0x98 }
+  - { offsetInCU: 0x2940, offset: 0x6787E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth urlEncode:]', symObjAddr: 0x406C, symBinAddr: 0xB8E4, symSize: 0x74 }
+  - { offsetInCU: 0x2985, offset: 0x678C3, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth application:openURL:options:]', symObjAddr: 0x40E0, symBinAddr: 0xB958, symSize: 0xC }
+  - { offsetInCU: 0x29E6, offset: 0x67924, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth processURL:forRedirection:]', symObjAddr: 0x40EC, symBinAddr: 0xB964, symSize: 0x82C }
+  - { offsetInCU: 0x2BAC, offset: 0x67AEA, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth addHeaders:]', symObjAddr: 0x4918, symBinAddr: 0xC190, symSize: 0x1C4 }
+  - { offsetInCU: 0x2C11, offset: 0x67B4F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth dismissSafariVC:]', symObjAddr: 0x4ADC, symBinAddr: 0xC354, symSize: 0x84 }
+  - { offsetInCU: 0x2C64, offset: 0x67BA2, size: 0x8, addend: 0x0, symName: '___34-[AWSCognitoAuth dismissSafariVC:]_block_invoke', symObjAddr: 0x4B60, symBinAddr: 0xC3D8, symSize: 0xC8 }
+  - { offsetInCU: 0x2CC3, offset: 0x67C01, size: 0x8, addend: 0x0, symName: '___34-[AWSCognitoAuth dismissSafariVC:]_block_invoke_2', symObjAddr: 0x4C28, symBinAddr: 0xC4A0, symSize: 0x30 }
+  - { offsetInCU: 0x2D22, offset: 0x67C60, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40b, symObjAddr: 0x4C58, symBinAddr: 0xC4D0, symSize: 0x34 }
+  - { offsetInCU: 0x2D4B, offset: 0x67C89, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth connection:didReceiveResponse:]', symObjAddr: 0x4C8C, symBinAddr: 0xC504, symSize: 0x40 }
+  - { offsetInCU: 0x2D99, offset: 0x67CD7, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth connection:didReceiveData:]', symObjAddr: 0x4CCC, symBinAddr: 0xC544, symSize: 0x50 }
+  - { offsetInCU: 0x2DEB, offset: 0x67D29, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth connectionDidFinishLoading:]', symObjAddr: 0x4D1C, symBinAddr: 0xC594, symSize: 0x3A0 }
+  - { offsetInCU: 0x2EAB, offset: 0x67DE9, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth connection:didFailWithError:]', symObjAddr: 0x50BC, symBinAddr: 0xC934, symSize: 0x70 }
+  - { offsetInCU: 0x2EFD, offset: 0x67E3B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth currentUsername]', symObjAddr: 0x512C, symBinAddr: 0xC9A4, symSize: 0x74 }
+  - { offsetInCU: 0x2F35, offset: 0x67E73, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth currentUserKey]', symObjAddr: 0x51A0, symBinAddr: 0xCA18, symSize: 0xC }
+  - { offsetInCU: 0x2F6B, offset: 0x67EA9, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setCurrentUser:]', symObjAddr: 0x51AC, symBinAddr: 0xCA24, symSize: 0x7C }
+  - { offsetInCU: 0x2FB0, offset: 0x67EEE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth clearLastKnownUser]', symObjAddr: 0x5228, symBinAddr: 0xCAA0, symSize: 0x80 }
+  - { offsetInCU: 0x2FF5, offset: 0x67F33, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth clearAll]', symObjAddr: 0x52A8, symBinAddr: 0xCB20, symSize: 0x184 }
+  - { offsetInCU: 0x306B, offset: 0x67FA9, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth keyChainNamespaceClientId:]', symObjAddr: 0x542C, symBinAddr: 0xCCA4, symSize: 0xA0 }
+  - { offsetInCU: 0x30B4, offset: 0x67FF2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth keyChainKey:key:]', symObjAddr: 0x54CC, symBinAddr: 0xCD44, symSize: 0x30 }
+  - { offsetInCU: 0x310A, offset: 0x68048, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth updateUsernameAndPersistTokens:]', symObjAddr: 0x54FC, symBinAddr: 0xCD74, symSize: 0x3D8 }
+  - { offsetInCU: 0x31E2, offset: 0x68120, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth asfDeviceId]', symObjAddr: 0x58D4, symBinAddr: 0xD14C, symSize: 0x12C }
+  - { offsetInCU: 0x323C, offset: 0x6817A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getError:code:]', symObjAddr: 0x5A00, symBinAddr: 0xD278, symSize: 0xC0 }
+  - { offsetInCU: 0x32A3, offset: 0x681E1, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth normalizeScopes]', symObjAddr: 0x5AC0, symBinAddr: 0xD338, symSize: 0xAC }
+  - { offsetInCU: 0x32DB, offset: 0x68219, size: 0x8, addend: 0x0, symName: '___33-[AWSCognitoAuth normalizeScopes]_block_invoke', symObjAddr: 0x5B6C, symBinAddr: 0xD3E4, symSize: 0x8 }
+  - { offsetInCU: 0x3355, offset: 0x68293, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth objectForKey:]', symObjAddr: 0x5B74, symBinAddr: 0xD3EC, symSize: 0xD8 }
+  - { offsetInCU: 0x33D1, offset: 0x6830F, size: 0x8, addend: 0x0, symName: ___Block_byref_object_copy_.197, symObjAddr: 0x5C4C, symBinAddr: 0xD4C4, symSize: 0x10 }
+  - { offsetInCU: 0x33F6, offset: 0x68334, size: 0x8, addend: 0x0, symName: ___Block_byref_object_dispose_.198, symObjAddr: 0x5C5C, symBinAddr: 0xD4D4, symSize: 0x8 }
+  - { offsetInCU: 0x3415, offset: 0x68353, size: 0x8, addend: 0x0, symName: '___31+[AWSCognitoAuth objectForKey:]_block_invoke', symObjAddr: 0x5C64, symBinAddr: 0xD4DC, symSize: 0x48 }
+  - { offsetInCU: 0x3464, offset: 0x683A2, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40r, symObjAddr: 0x5CAC, symBinAddr: 0xD524, symSize: 0x34 }
+  - { offsetInCU: 0x348D, offset: 0x683CB, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40r, symObjAddr: 0x5CE0, symBinAddr: 0xD558, symSize: 0x2C }
+  - { offsetInCU: 0x34AC, offset: 0x683EA, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth removeObjectForKey:]', symObjAddr: 0x5D0C, symBinAddr: 0xD584, symSize: 0x80 }
+  - { offsetInCU: 0x34FB, offset: 0x68439, size: 0x8, addend: 0x0, symName: '___37+[AWSCognitoAuth removeObjectForKey:]_block_invoke', symObjAddr: 0x5D8C, symBinAddr: 0xD604, symSize: 0x14 }
+  - { offsetInCU: 0x3539, offset: 0x68477, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s, symObjAddr: 0x5DA0, symBinAddr: 0xD618, symSize: 0x8 }
+  - { offsetInCU: 0x3560, offset: 0x6849E, size: 0x8, addend: 0x0, symName: '+[AWSCognitoAuth setObject:forKey:]', symObjAddr: 0x5DB0, symBinAddr: 0xD620, symSize: 0xB4 }
+  - { offsetInCU: 0x35C0, offset: 0x684FE, size: 0x8, addend: 0x0, symName: '___35+[AWSCognitoAuth setObject:forKey:]_block_invoke', symObjAddr: 0x5E64, symBinAddr: 0xD6D4, symSize: 0x14 }
+  - { offsetInCU: 0x360F, offset: 0x6854D, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth fetchBaseUserAgent]', symObjAddr: 0x5E78, symBinAddr: 0xD6E8, symSize: 0xB8 }
+  - { offsetInCU: 0x3647, offset: 0x68585, size: 0x8, addend: 0x0, symName: '___27+[AWSCognitoAuth userAgent]_block_invoke', symObjAddr: 0x5F70, symBinAddr: 0xD7E0, symSize: 0x158 }
+  - { offsetInCU: 0x36B2, offset: 0x685F0, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth delegate]', symObjAddr: 0x60C8, symBinAddr: 0xD938, symSize: 0x18 }
+  - { offsetInCU: 0x36E9, offset: 0x68627, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setDelegate:]', symObjAddr: 0x60E0, symBinAddr: 0xD950, symSize: 0xC }
+  - { offsetInCU: 0x372A, offset: 0x68668, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth authConfiguration]', symObjAddr: 0x60EC, symBinAddr: 0xD95C, symSize: 0x8 }
+  - { offsetInCU: 0x3761, offset: 0x6869F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth asAuthSession]', symObjAddr: 0x60F4, symBinAddr: 0xD964, symSize: 0x8 }
+  - { offsetInCU: 0x3798, offset: 0x686D6, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setAsAuthSession:]', symObjAddr: 0x60FC, symBinAddr: 0xD96C, symSize: 0xC }
+  - { offsetInCU: 0x37D9, offset: 0x68717, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth presentationAnchor]', symObjAddr: 0x6108, symBinAddr: 0xD978, symSize: 0x18 }
+  - { offsetInCU: 0x3810, offset: 0x6874E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setPresentationAnchor:]', symObjAddr: 0x6120, symBinAddr: 0xD990, symSize: 0xC }
+  - { offsetInCU: 0x3851, offset: 0x6878F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth sfAuthSession]', symObjAddr: 0x612C, symBinAddr: 0xD99C, symSize: 0x8 }
+  - { offsetInCU: 0x3888, offset: 0x687C6, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setSfAuthSession:]', symObjAddr: 0x6134, symBinAddr: 0xD9A4, symSize: 0xC }
+  - { offsetInCU: 0x38C9, offset: 0x68807, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getSessionBlock]', symObjAddr: 0x6140, symBinAddr: 0xD9B0, symSize: 0xC }
+  - { offsetInCU: 0x3900, offset: 0x6883E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setGetSessionBlock:]', symObjAddr: 0x614C, symBinAddr: 0xD9BC, symSize: 0x8 }
+  - { offsetInCU: 0x393F, offset: 0x6887D, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOutBlock]', symObjAddr: 0x6154, symBinAddr: 0xD9C4, symSize: 0xC }
+  - { offsetInCU: 0x3976, offset: 0x688B4, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setSignOutBlock:]', symObjAddr: 0x6160, symBinAddr: 0xD9D0, symSize: 0x8 }
+  - { offsetInCU: 0x39B5, offset: 0x688F3, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getSessionError]', symObjAddr: 0x6168, symBinAddr: 0xD9D8, symSize: 0xC }
+  - { offsetInCU: 0x39EC, offset: 0x6892A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setGetSessionError:]', symObjAddr: 0x6174, symBinAddr: 0xD9E4, symSize: 0x8 }
+  - { offsetInCU: 0x3A2B, offset: 0x68969, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOutError]', symObjAddr: 0x617C, symBinAddr: 0xD9EC, symSize: 0xC }
+  - { offsetInCU: 0x3A62, offset: 0x689A0, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setSignOutError:]', symObjAddr: 0x6188, symBinAddr: 0xD9F8, symSize: 0x8 }
+  - { offsetInCU: 0x3AA1, offset: 0x689DF, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth svc]', symObjAddr: 0x6190, symBinAddr: 0xDA00, symSize: 0xC }
+  - { offsetInCU: 0x3AD8, offset: 0x68A16, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setSvc:]', symObjAddr: 0x619C, symBinAddr: 0xDA0C, symSize: 0x8 }
+  - { offsetInCU: 0x3B17, offset: 0x68A55, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth pvc]', symObjAddr: 0x61A4, symBinAddr: 0xDA14, symSize: 0xC }
+  - { offsetInCU: 0x3B4E, offset: 0x68A8C, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setPvc:]', symObjAddr: 0x61B0, symBinAddr: 0xDA20, symSize: 0x8 }
+  - { offsetInCU: 0x3B8D, offset: 0x68ACB, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth state]', symObjAddr: 0x61B8, symBinAddr: 0xDA28, symSize: 0xC }
+  - { offsetInCU: 0x3BC4, offset: 0x68B02, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setState:]', symObjAddr: 0x61C4, symBinAddr: 0xDA34, symSize: 0x8 }
+  - { offsetInCU: 0x3C03, offset: 0x68B41, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth proofKey]', symObjAddr: 0x61CC, symBinAddr: 0xDA3C, symSize: 0xC }
+  - { offsetInCU: 0x3C3A, offset: 0x68B78, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setProofKey:]', symObjAddr: 0x61D8, symBinAddr: 0xDA48, symSize: 0x8 }
+  - { offsetInCU: 0x3C79, offset: 0x68BB7, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth proofKeyHash]', symObjAddr: 0x61E0, symBinAddr: 0xDA50, symSize: 0xC }
+  - { offsetInCU: 0x3CB0, offset: 0x68BEE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setProofKeyHash:]', symObjAddr: 0x61EC, symBinAddr: 0xDA5C, symSize: 0x8 }
+  - { offsetInCU: 0x3CEF, offset: 0x68C2D, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth responseData]', symObjAddr: 0x61F4, symBinAddr: 0xDA64, symSize: 0xC }
+  - { offsetInCU: 0x3D26, offset: 0x68C64, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setResponseData:]', symObjAddr: 0x6200, symBinAddr: 0xDA70, symSize: 0x8 }
+  - { offsetInCU: 0x3D65, offset: 0x68CA3, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth getSessionQueue]', symObjAddr: 0x6208, symBinAddr: 0xDA78, symSize: 0x8 }
+  - { offsetInCU: 0x3D9C, offset: 0x68CDA, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setGetSessionQueue:]', symObjAddr: 0x6210, symBinAddr: 0xDA80, symSize: 0xC }
+  - { offsetInCU: 0x3DDD, offset: 0x68D1B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth signOutQueue]', symObjAddr: 0x621C, symBinAddr: 0xDA8C, symSize: 0x8 }
+  - { offsetInCU: 0x3E14, offset: 0x68D52, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setSignOutQueue:]', symObjAddr: 0x6224, symBinAddr: 0xDA94, symSize: 0xC }
+  - { offsetInCU: 0x3E55, offset: 0x68D93, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth useSFAuthenticationSession]', symObjAddr: 0x6230, symBinAddr: 0xDAA0, symSize: 0x8 }
+  - { offsetInCU: 0x3E8C, offset: 0x68DCA, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setUseSFAuthenticationSession:]', symObjAddr: 0x6238, symBinAddr: 0xDAA8, symSize: 0x8 }
+  - { offsetInCU: 0x3EC7, offset: 0x68E05, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth sfAuthenticationSessionAvailable]', symObjAddr: 0x6240, symBinAddr: 0xDAB0, symSize: 0x8 }
+  - { offsetInCU: 0x3EFE, offset: 0x68E3C, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setSfAuthenticationSessionAvailable:]', symObjAddr: 0x6248, symBinAddr: 0xDAB8, symSize: 0x8 }
+  - { offsetInCU: 0x3F39, offset: 0x68E77, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth isHandlingRedirection]', symObjAddr: 0x6250, symBinAddr: 0xDAC0, symSize: 0x8 }
+  - { offsetInCU: 0x3F70, offset: 0x68EAE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setIsHandlingRedirection:]', symObjAddr: 0x6258, symBinAddr: 0xDAC8, symSize: 0x8 }
+  - { offsetInCU: 0x3FAB, offset: 0x68EE9, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth isAuthProviderExternal]', symObjAddr: 0x6260, symBinAddr: 0xDAD0, symSize: 0x8 }
+  - { offsetInCU: 0x3FE2, offset: 0x68F20, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setIsAuthProviderExternal:]', symObjAddr: 0x6268, symBinAddr: 0xDAD8, symSize: 0x8 }
+  - { offsetInCU: 0x401D, offset: 0x68F5B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth isProcessingSignOut]', symObjAddr: 0x6270, symBinAddr: 0xDAE0, symSize: 0x8 }
+  - { offsetInCU: 0x4054, offset: 0x68F92, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setIsProcessingSignOut:]', symObjAddr: 0x6278, symBinAddr: 0xDAE8, symSize: 0x8 }
+  - { offsetInCU: 0x408F, offset: 0x68FCD, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth isProcessingSignIn]', symObjAddr: 0x6280, symBinAddr: 0xDAF0, symSize: 0x8 }
+  - { offsetInCU: 0x40C6, offset: 0x69004, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setIsProcessingSignIn:]', symObjAddr: 0x6288, symBinAddr: 0xDAF8, symSize: 0x8 }
+  - { offsetInCU: 0x4101, offset: 0x6903F, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth keychain]', symObjAddr: 0x6290, symBinAddr: 0xDB00, symSize: 0x8 }
+  - { offsetInCU: 0x4138, offset: 0x69076, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth setKeychain:]', symObjAddr: 0x6298, symBinAddr: 0xDB08, symSize: 0xC }
+  - { offsetInCU: 0x4179, offset: 0x690B7, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuth .cxx_destruct]', symObjAddr: 0x62A4, symBinAddr: 0xDB14, symSize: 0xE8 }
+  - { offsetInCU: 0x41AC, offset: 0x690EA, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession initWithIdToken:accessToken:refreshToken:expiresIn:]', symObjAddr: 0x638C, symBinAddr: 0xDBFC, symSize: 0xC0 }
+  - { offsetInCU: 0x4228, offset: 0x69166, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession initWithIdToken:accessToken:refreshToken:expirationTime:]', symObjAddr: 0x644C, symBinAddr: 0xDCBC, symSize: 0x148 }
+  - { offsetInCU: 0x42A4, offset: 0x691E2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession username]', symObjAddr: 0x6594, symBinAddr: 0xDE04, symSize: 0xD8 }
+  - { offsetInCU: 0x42DC, offset: 0x6921A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession idToken]', symObjAddr: 0x666C, symBinAddr: 0xDEDC, symSize: 0x8 }
+  - { offsetInCU: 0x4314, offset: 0x69252, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession setIdToken:]', symObjAddr: 0x6674, symBinAddr: 0xDEE4, symSize: 0xC }
+  - { offsetInCU: 0x4355, offset: 0x69293, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession accessToken]', symObjAddr: 0x6680, symBinAddr: 0xDEF0, symSize: 0x8 }
+  - { offsetInCU: 0x438D, offset: 0x692CB, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession setAccessToken:]', symObjAddr: 0x6688, symBinAddr: 0xDEF8, symSize: 0xC }
+  - { offsetInCU: 0x43CE, offset: 0x6930C, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession refreshToken]', symObjAddr: 0x6694, symBinAddr: 0xDF04, symSize: 0x8 }
+  - { offsetInCU: 0x4406, offset: 0x69344, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession setRefreshToken:]', symObjAddr: 0x669C, symBinAddr: 0xDF0C, symSize: 0xC }
+  - { offsetInCU: 0x4447, offset: 0x69385, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession expirationTime]', symObjAddr: 0x66A8, symBinAddr: 0xDF18, symSize: 0x8 }
+  - { offsetInCU: 0x447F, offset: 0x693BD, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession setExpirationTime:]', symObjAddr: 0x66B0, symBinAddr: 0xDF20, symSize: 0xC }
+  - { offsetInCU: 0x44C0, offset: 0x693FE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSession .cxx_destruct]', symObjAddr: 0x66BC, symBinAddr: 0xDF2C, symSize: 0x48 }
+  - { offsetInCU: 0x44F4, offset: 0x69432, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSessionToken initWithToken:]', symObjAddr: 0x6704, symBinAddr: 0xDF74, symSize: 0x98 }
+  - { offsetInCU: 0x453D, offset: 0x6947B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSessionToken claims]', symObjAddr: 0x679C, symBinAddr: 0xE00C, symSize: 0x1EC }
+  - { offsetInCU: 0x45E2, offset: 0x69520, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSessionToken tokenString]', symObjAddr: 0x6988, symBinAddr: 0xE1F8, symSize: 0x8 }
+  - { offsetInCU: 0x461A, offset: 0x69558, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSessionToken setTokenString:]', symObjAddr: 0x6990, symBinAddr: 0xE200, symSize: 0xC }
+  - { offsetInCU: 0x465B, offset: 0x69599, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthUserSessionToken .cxx_destruct]', symObjAddr: 0x699C, symBinAddr: 0xE20C, symSize: 0xC }
+  - { offsetInCU: 0x468F, offset: 0x695CD, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:]', symObjAddr: 0x69A8, symBinAddr: 0xE218, symSize: 0x24 }
+  - { offsetInCU: 0x472D, offset: 0x6966B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:]', symObjAddr: 0x69CC, symBinAddr: 0xE23C, symSize: 0x30 }
+  - { offsetInCU: 0x47FB, offset: 0x69739, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:enableSFAuthSessionIfAvailable:]', symObjAddr: 0x69FC, symBinAddr: 0xE26C, symSize: 0x288 }
+  - { offsetInCU: 0x48D9, offset: 0x69817, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration initWithAppClientIdInternal:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:enableSFAuthSessionIfAvailable:signInUri:signOutUri:tokensUri:signInUriQueryParameters:signOutUriQueryParameters:tokenUriQueryParameters:isProviderExternal:]', symObjAddr: 0x6C84, symBinAddr: 0xE4F4, symSize: 0x54 }
+  - { offsetInCU: 0x4A25, offset: 0x69963, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration initWithAppClientIdInternal:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:enableSFAuthSessionIfAvailable:signInUri:signOutUri:tokensUri:signInUriQueryParameters:signOutUriQueryParameters:tokenUriQueryParameters:isProviderExternal:cognitoUserPoolServiceConfig:signInPrivateSession:]', symObjAddr: 0x6CD8, symBinAddr: 0xE548, symSize: 0x430 }
+  - { offsetInCU: 0x4B94, offset: 0x69AD2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration copyWithZone:]', symObjAddr: 0x7108, symBinAddr: 0xE978, symSize: 0x2AC }
+  - { offsetInCU: 0x4BEE, offset: 0x69B2C, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration isASFEnabled]', symObjAddr: 0x73B4, symBinAddr: 0xEC24, symSize: 0x34 }
+  - { offsetInCU: 0x4C26, offset: 0x69B64, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration appClientId]', symObjAddr: 0x73E8, symBinAddr: 0xEC58, symSize: 0x8 }
+  - { offsetInCU: 0x4C5D, offset: 0x69B9B, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration appClientSecret]', symObjAddr: 0x73F0, symBinAddr: 0xEC60, symSize: 0x8 }
+  - { offsetInCU: 0x4C94, offset: 0x69BD2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration scopes]', symObjAddr: 0x73F8, symBinAddr: 0xEC68, symSize: 0x8 }
+  - { offsetInCU: 0x4CCB, offset: 0x69C09, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration signInRedirectUri]', symObjAddr: 0x7400, symBinAddr: 0xEC70, symSize: 0x8 }
+  - { offsetInCU: 0x4D02, offset: 0x69C40, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration signOutRedirectUri]', symObjAddr: 0x7408, symBinAddr: 0xEC78, symSize: 0x8 }
+  - { offsetInCU: 0x4D39, offset: 0x69C77, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration webDomain]', symObjAddr: 0x7410, symBinAddr: 0xEC80, symSize: 0x8 }
+  - { offsetInCU: 0x4D70, offset: 0x69CAE, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration identityProvider]', symObjAddr: 0x7418, symBinAddr: 0xEC88, symSize: 0x8 }
+  - { offsetInCU: 0x4DA7, offset: 0x69CE5, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration idpIdentifier]', symObjAddr: 0x7420, symBinAddr: 0xEC90, symSize: 0x8 }
+  - { offsetInCU: 0x4DDE, offset: 0x69D1C, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration userPoolId]', symObjAddr: 0x7428, symBinAddr: 0xEC98, symSize: 0x8 }
+  - { offsetInCU: 0x4E15, offset: 0x69D53, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration isSFAuthenticationSessionEnabled]', symObjAddr: 0x7430, symBinAddr: 0xECA0, symSize: 0x8 }
+  - { offsetInCU: 0x4E4C, offset: 0x69D8A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration signInUri]', symObjAddr: 0x7438, symBinAddr: 0xECA8, symSize: 0x8 }
+  - { offsetInCU: 0x4E83, offset: 0x69DC1, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setSignInUri:]', symObjAddr: 0x7440, symBinAddr: 0xECB0, symSize: 0xC }
+  - { offsetInCU: 0x4EC4, offset: 0x69E02, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration tokensUri]', symObjAddr: 0x744C, symBinAddr: 0xECBC, symSize: 0x8 }
+  - { offsetInCU: 0x4EFB, offset: 0x69E39, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setTokensUri:]', symObjAddr: 0x7454, symBinAddr: 0xECC4, symSize: 0xC }
+  - { offsetInCU: 0x4F3C, offset: 0x69E7A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration signOutUri]', symObjAddr: 0x7460, symBinAddr: 0xECD0, symSize: 0x8 }
+  - { offsetInCU: 0x4F73, offset: 0x69EB1, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setSignOutUri:]', symObjAddr: 0x7468, symBinAddr: 0xECD8, symSize: 0xC }
+  - { offsetInCU: 0x4FB4, offset: 0x69EF2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration signInUriQueryParameters]', symObjAddr: 0x7474, symBinAddr: 0xECE4, symSize: 0x8 }
+  - { offsetInCU: 0x4FEB, offset: 0x69F29, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setSignInUriQueryParameters:]', symObjAddr: 0x747C, symBinAddr: 0xECEC, symSize: 0xC }
+  - { offsetInCU: 0x502C, offset: 0x69F6A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration tokensUriQueryParameters]', symObjAddr: 0x7488, symBinAddr: 0xECF8, symSize: 0x8 }
+  - { offsetInCU: 0x5063, offset: 0x69FA1, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setTokensUriQueryParameters:]', symObjAddr: 0x7490, symBinAddr: 0xED00, symSize: 0xC }
+  - { offsetInCU: 0x50A4, offset: 0x69FE2, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration signOutUriQueryParameters]', symObjAddr: 0x749C, symBinAddr: 0xED0C, symSize: 0x8 }
+  - { offsetInCU: 0x50DB, offset: 0x6A019, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setSignOutUriQueryParameters:]', symObjAddr: 0x74A4, symBinAddr: 0xED14, symSize: 0xC }
+  - { offsetInCU: 0x511C, offset: 0x6A05A, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration isAuthProviderExternal]', symObjAddr: 0x74B0, symBinAddr: 0xED20, symSize: 0x8 }
+  - { offsetInCU: 0x5153, offset: 0x6A091, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setIsAuthProviderExternal:]', symObjAddr: 0x74B8, symBinAddr: 0xED28, symSize: 0x8 }
+  - { offsetInCU: 0x518E, offset: 0x6A0CC, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration isSignInPrivateSession]', symObjAddr: 0x74C0, symBinAddr: 0xED30, symSize: 0x8 }
+  - { offsetInCU: 0x51C5, offset: 0x6A103, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setIsSignInPrivateSession:]', symObjAddr: 0x74C8, symBinAddr: 0xED38, symSize: 0x8 }
+  - { offsetInCU: 0x5200, offset: 0x6A13E, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration userPoolConfig]', symObjAddr: 0x74D0, symBinAddr: 0xED40, symSize: 0x8 }
+  - { offsetInCU: 0x5237, offset: 0x6A175, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration setUserPoolConfig:]', symObjAddr: 0x74D8, symBinAddr: 0xED48, symSize: 0xC }
+  - { offsetInCU: 0x5278, offset: 0x6A1B6, size: 0x8, addend: 0x0, symName: '-[AWSCognitoAuthConfiguration .cxx_destruct]', symObjAddr: 0x74E4, symBinAddr: 0xED54, symSize: 0xD8 }
+...

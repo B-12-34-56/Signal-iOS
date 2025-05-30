@@ -1,0 +1,74 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/AWSAuthSDK-eprzhjvfcfnfzobkslttqdvxwumk/Build/Intermediates.noindex/ArchiveIntermediates/AWSFacebookSignIn/InstallationBuildProductsLocation/Library/Frameworks/AWSFacebookSignIn.framework/AWSFacebookSignIn'
+relocations:
+  - { offsetInCU: 0x34, offset: 0x636CD, size: 0x8, addend: 0x0, symName: _AWSFacebookSignInVersionString, symObjAddr: 0x0, symBinAddr: 0x6760, symSize: 0x0 }
+  - { offsetInCU: 0x69, offset: 0x63702, size: 0x8, addend: 0x0, symName: _AWSFacebookSignInVersionNumber, symObjAddr: 0x38, symBinAddr: 0x6798, symSize: 0x0 }
+  - { offsetInCU: 0x27, offset: 0x6373F, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton initWithCoder:]', symObjAddr: 0x0, symBinAddr: 0x3BA0, symSize: 0x4C }
+  - { offsetInCU: 0x150, offset: 0x63868, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton initWithCoder:]', symObjAddr: 0x0, symBinAddr: 0x3BA0, symSize: 0x4C }
+  - { offsetInCU: 0x1AB, offset: 0x638C3, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton initWithFrame:]', symObjAddr: 0x4C, symBinAddr: 0x3BEC, symSize: 0x5D }
+  - { offsetInCU: 0x205, offset: 0x6391D, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton commonInit]', symObjAddr: 0xA9, symBinAddr: 0x3C49, symSize: 0x86 }
+  - { offsetInCU: 0x2B4, offset: 0x639CC, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton dealloc]', symObjAddr: 0x12F, symBinAddr: 0x3CCF, symSize: 0x5A }
+  - { offsetInCU: 0x329, offset: 0x63A41, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton observeValueForKeyPath:ofObject:change:context:]', symObjAddr: 0x189, symBinAddr: 0x3D29, symSize: 0x108 }
+  - { offsetInCU: 0x459, offset: 0x63B71, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton initFacebookButton]', symObjAddr: 0x291, symBinAddr: 0x3E31, symSize: 0x1E2 }
+  - { offsetInCU: 0x5A9, offset: 0x63CC1, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton initLogo]', symObjAddr: 0x473, symBinAddr: 0x4013, symSize: 0xCB }
+  - { offsetInCU: 0x6BB, offset: 0x63DD3, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton initStackView]', symObjAddr: 0x53E, symBinAddr: 0x40DE, symSize: 0x28D }
+  - { offsetInCU: 0x91F, offset: 0x64037, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton initLabel]', symObjAddr: 0x7CB, symBinAddr: 0x436B, symSize: 0x2B7 }
+  - { offsetInCU: 0xBAB, offset: 0x642C3, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setUpButtonEffects]', symObjAddr: 0xA82, symBinAddr: 0x4622, symSize: 0x3EA }
+  - { offsetInCU: 0xF0F, offset: 0x64627, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setupSmallFacebookButton]', symObjAddr: 0xE6C, symBinAddr: 0x4A0C, symSize: 0x7E }
+  - { offsetInCU: 0xFA1, offset: 0x646B9, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setupLargeFacebookButton]', symObjAddr: 0xEEA, symBinAddr: 0x4A8A, symSize: 0xD9 }
+  - { offsetInCU: 0x108E, offset: 0x647A6, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton getImageFromBundle:]', symObjAddr: 0xFC3, symBinAddr: 0x4B63, symSize: 0x160 }
+  - { offsetInCU: 0x1204, offset: 0x6491C, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setSignInProvider:]', symObjAddr: 0x1123, symBinAddr: 0x4CC3, symSize: 0x12 }
+  - { offsetInCU: 0x1260, offset: 0x64978, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton logInWithProvider:]', symObjAddr: 0x1135, symBinAddr: 0x4CD5, symSize: 0xD0 }
+  - { offsetInCU: 0x1322, offset: 0x64A3A, size: 0x8, addend: 0x0, symName: '___45-[AWSFacebookSignInButton logInWithProvider:]_block_invoke', symObjAddr: 0x1205, symBinAddr: 0x4DA5, symSize: 0xAF }
+  - { offsetInCU: 0x1434, offset: 0x64B4C, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s, symObjAddr: 0x12B4, symBinAddr: 0x4E54, symSize: 0xF }
+  - { offsetInCU: 0x1467, offset: 0x64B7F, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0x12C3, symBinAddr: 0x4E63, symSize: 0xF }
+  - { offsetInCU: 0x1492, offset: 0x64BAA, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton traitCollectionDidChange:]', symObjAddr: 0x12D2, symBinAddr: 0x4E72, symSize: 0xDF }
+  - { offsetInCU: 0x1551, offset: 0x64C69, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton delegate]', symObjAddr: 0x13B1, symBinAddr: 0x4F51, symSize: 0x19 }
+  - { offsetInCU: 0x1588, offset: 0x64CA0, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setDelegate:]', symObjAddr: 0x13CA, symBinAddr: 0x4F6A, symSize: 0x14 }
+  - { offsetInCU: 0x15C7, offset: 0x64CDF, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton buttonStyle]', symObjAddr: 0x13DE, symBinAddr: 0x4F7E, symSize: 0x11 }
+  - { offsetInCU: 0x15FC, offset: 0x64D14, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setButtonStyle:]', symObjAddr: 0x13EF, symBinAddr: 0x4F8F, symSize: 0x11 }
+  - { offsetInCU: 0x1639, offset: 0x64D51, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton textLabel]', symObjAddr: 0x1400, symBinAddr: 0x4FA0, symSize: 0x11 }
+  - { offsetInCU: 0x166E, offset: 0x64D86, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setTextLabel:]', symObjAddr: 0x1411, symBinAddr: 0x4FB1, symSize: 0x14 }
+  - { offsetInCU: 0x16AD, offset: 0x64DC5, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton signInProvider]', symObjAddr: 0x1425, symBinAddr: 0x4FC5, symSize: 0x11 }
+  - { offsetInCU: 0x16E2, offset: 0x64DFA, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton facebookButton]', symObjAddr: 0x1436, symBinAddr: 0x4FD6, symSize: 0x11 }
+  - { offsetInCU: 0x1717, offset: 0x64E2F, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setFacebookButton:]', symObjAddr: 0x1447, symBinAddr: 0x4FE7, symSize: 0x14 }
+  - { offsetInCU: 0x1756, offset: 0x64E6E, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton facebookStackView]', symObjAddr: 0x145B, symBinAddr: 0x4FFB, symSize: 0x11 }
+  - { offsetInCU: 0x178B, offset: 0x64EA3, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setFacebookStackView:]', symObjAddr: 0x146C, symBinAddr: 0x500C, symSize: 0x14 }
+  - { offsetInCU: 0x17CA, offset: 0x64EE2, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton facebookLogoImageView]', symObjAddr: 0x1480, symBinAddr: 0x5020, symSize: 0x11 }
+  - { offsetInCU: 0x17FF, offset: 0x64F17, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton setFacebookLogoImageView:]', symObjAddr: 0x1491, symBinAddr: 0x5031, symSize: 0x14 }
+  - { offsetInCU: 0x183E, offset: 0x64F56, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInButton .cxx_destruct]', symObjAddr: 0x14A5, symBinAddr: 0x5045, symSize: 0x7B }
+  - { offsetInCU: 0x27, offset: 0x650B6, size: 0x8, addend: 0x0, symName: '+[AWSFacebookSignInProvider sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x50C0, symSize: 0x30 }
+  - { offsetInCU: 0x3A, offset: 0x650C9, size: 0x8, addend: 0x0, symName: '+[AWSFacebookSignInProvider sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x50C0, symSize: 0x30 }
+  - { offsetInCU: 0x64, offset: 0x650F3, size: 0x8, addend: 0x0, symName: _sharedInstance._sharedInstance, symObjAddr: 0x91A0, symBinAddr: 0x9AE0, symSize: 0x0 }
+  - { offsetInCU: 0x7A, offset: 0x65109, size: 0x8, addend: 0x0, symName: _sharedInstance.onceToken, symObjAddr: 0x91A8, symBinAddr: 0x9AE8, symSize: 0x0 }
+  - { offsetInCU: 0x2B6, offset: 0x65345, size: 0x8, addend: 0x0, symName: '___43+[AWSFacebookSignInProvider sharedInstance]_block_invoke', symObjAddr: 0x30, symBinAddr: 0x50F0, symSize: 0xA0 }
+  - { offsetInCU: 0x335, offset: 0x653C4, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider init]', symObjAddr: 0xD0, symBinAddr: 0x5190, symSize: 0x76 }
+  - { offsetInCU: 0x3AC, offset: 0x6543B, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider createFBSDKLoginManager]', symObjAddr: 0x146, symBinAddr: 0x5206, symSize: 0x5B }
+  - { offsetInCU: 0x43D, offset: 0x654CC, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider setPermissions:]', symObjAddr: 0x1A1, symBinAddr: 0x5261, symSize: 0x12 }
+  - { offsetInCU: 0x499, offset: 0x65528, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider setViewControllerForFacebookSignIn:]', symObjAddr: 0x1B3, symBinAddr: 0x5273, symSize: 0x12 }
+  - { offsetInCU: 0x4F5, offset: 0x65584, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider identityProviderName]', symObjAddr: 0x1C5, symBinAddr: 0x5285, symSize: 0x14 }
+  - { offsetInCU: 0x528, offset: 0x655B7, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider token]', symObjAddr: 0x1D9, symBinAddr: 0x5299, symSize: 0x23C }
+  - { offsetInCU: 0x72C, offset: 0x657BB, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider isLoggedIn]', symObjAddr: 0x415, symBinAddr: 0x54D5, symSize: 0x4B }
+  - { offsetInCU: 0x795, offset: 0x65824, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider reloadSession]', symObjAddr: 0x460, symBinAddr: 0x5520, symSize: 0x99 }
+  - { offsetInCU: 0x819, offset: 0x658A8, size: 0x8, addend: 0x0, symName: '___42-[AWSFacebookSignInProvider reloadSession]_block_invoke', symObjAddr: 0x4F9, symBinAddr: 0x55B9, symSize: 0x138 }
+  - { offsetInCU: 0x98D, offset: 0x65A1C, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider completeLogin]', symObjAddr: 0x64F, symBinAddr: 0x56F1, symSize: 0x44 }
+  - { offsetInCU: 0x9E8, offset: 0x65A77, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider login:]', symObjAddr: 0x693, symBinAddr: 0x5735, symSize: 0x15E }
+  - { offsetInCU: 0xB48, offset: 0x65BD7, size: 0x8, addend: 0x0, symName: '___35-[AWSFacebookSignInProvider login:]_block_invoke', symObjAddr: 0x7F1, symBinAddr: 0x5893, symSize: 0x167 }
+  - { offsetInCU: 0xD03, offset: 0x65D92, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider logout]', symObjAddr: 0x958, symBinAddr: 0x59FA, symSize: 0x4C }
+  - { offsetInCU: 0xD6C, offset: 0x65DFB, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider interceptApplication:didFinishLaunchingWithOptions:]', symObjAddr: 0x9A4, symBinAddr: 0x5A46, symSize: 0x161 }
+  - { offsetInCU: 0xEE7, offset: 0x65F76, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider interceptApplication:openURL:sourceApplication:annotation:]', symObjAddr: 0xB05, symBinAddr: 0x5BA7, symSize: 0xCA }
+  - { offsetInCU: 0x1066, offset: 0x660F5, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider isConfigurationKeyPresent]', symObjAddr: 0xBCF, symBinAddr: 0x5C71, symSize: 0x16E }
+  - { offsetInCU: 0x1193, offset: 0x66222, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider getPermissionsFromConfig]', symObjAddr: 0xD3D, symBinAddr: 0x5DDF, symSize: 0x1A9 }
+  - { offsetInCU: 0x12F4, offset: 0x66383, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider facebookLogin]', symObjAddr: 0xEE6, symBinAddr: 0x5F88, symSize: 0xA }
+  - { offsetInCU: 0x1329, offset: 0x663B8, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider setFacebookLogin:]', symObjAddr: 0xEF0, symBinAddr: 0x5F92, symSize: 0x11 }
+  - { offsetInCU: 0x1368, offset: 0x663F7, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider requestedPermissions]', symObjAddr: 0xF01, symBinAddr: 0x5FA3, symSize: 0xA }
+  - { offsetInCU: 0x139D, offset: 0x6642C, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider setRequestedPermissions:]', symObjAddr: 0xF0B, symBinAddr: 0x5FAD, symSize: 0x11 }
+  - { offsetInCU: 0x13DC, offset: 0x6646B, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider signInViewController]', symObjAddr: 0xF1C, symBinAddr: 0x5FBE, symSize: 0xA }
+  - { offsetInCU: 0x1411, offset: 0x664A0, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider setSignInViewController:]', symObjAddr: 0xF26, symBinAddr: 0x5FC8, symSize: 0x11 }
+  - { offsetInCU: 0x1450, offset: 0x664DF, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider completionHandler]', symObjAddr: 0xF37, symBinAddr: 0x5FD9, symSize: 0x14 }
+  - { offsetInCU: 0x1487, offset: 0x66516, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider setCompletionHandler:]', symObjAddr: 0xF4B, symBinAddr: 0x5FED, symSize: 0xF }
+  - { offsetInCU: 0x14C6, offset: 0x66555, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider taskCompletionSource]', symObjAddr: 0xF5A, symBinAddr: 0x5FFC, symSize: 0xA }
+  - { offsetInCU: 0x14FB, offset: 0x6658A, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider setTaskCompletionSource:]', symObjAddr: 0xF64, symBinAddr: 0x6006, symSize: 0x11 }
+  - { offsetInCU: 0x153A, offset: 0x665C9, size: 0x8, addend: 0x0, symName: '-[AWSFacebookSignInProvider .cxx_destruct]', symObjAddr: 0xF75, symBinAddr: 0x6017, symSize: 0x49 }
+...

@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>SignalSAE</string>
+	<string>Signal Share</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,88 +17,19 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>7.54</string>
+	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>0</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>amazonaws.com</key>
-			<dict>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-				<false/>
-			</dict>
-			<key>signal.org</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-		</dict>
-	</dict>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
 	<key>NSExtension</key>
 	<dict>
-		<key>NSExtensionAttributes</key>
-		<dict>
-			<key>IntentsSupported</key>
-			<array>
-				<string>INSendMessageIntent</string>
-			</array>
-			<key>NSExtensionActivationRule</key>
-			<string>
-                SUBQUERY (
-                    extensionItems,
-                    $extensionItem,
-                    SUBQUERY (
-                        $extensionItem.attachments,
-                        $attachment,
-                        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.data"
-                        OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.url"
-                        OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.apple.pkpass"
-                    ).@count &gt;= 1
-                ).@count == 1
-                OR (
-                    SUBQUERY (
-                        extensionItems,
-                        $extensionItem,
-                        SUBQUERY (
-                            $extensionItem.attachments,
-                            $attachment,
-                            ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.data"
-                            OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.url"
-                            OR ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.apple.pkpass"
-                        ).@count &gt;= 1
-                    ).@count == 2
-                    AND SUBQUERY (
-                        extensionItems,
-                        $extensionItem,
-                        SUBQUERY (
-                            $extensionItem.attachments,
-                            $attachment,
-                            ANY $attachment.registeredTypeIdentifiers UTI-EQUALS "public.url"
-                        ).@count &gt;= 1
-                    ).@count == 1
-                )
-            </string>
-		</dict>
-		<key>NSExtensionMainStoryboard</key>
-		<string>MainInterface</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>$(PRODUCT_MODULE_NAME).ShareViewController</string>
 	</dict>
-	<key>OWSBundleIDPrefix</key>
-	<string>$(SIGNAL_BUNDLEID_PREFIX)</string>
-	<key>OWSMerchantID</key>
-	<string>$(SIGNAL_MERCHANTID)</string>
-	<key>UIStatusBarStyle</key>
-	<string>UIStatusBarStyleLightContent</string>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<key>NSPrincipalClass</key>
+	<string></string>
 </dict>
 </plist>

@@ -2,6 +2,9 @@ platform :ios, '15.0'
 
 use_frameworks!
 
+# Top-level swift-log so all dependencies share the same 1.6.3 build
+pod 'Logging', :podspec => './Logging.podspec'
+
 ###
 # OWS Pods
 ###
@@ -50,339 +53,396 @@ pod 'libwebp', podspec: './ThirdParty/libwebp.podspec.json'
 pod 'Reachability', :inhibit_warnings => true
 
 def ui_pods
-  pod 'BonMot', inhibit_warnings: true
-  pod 'PureLayout', :inhibit_warnings => true
-  pod 'lottie-ios', :inhibit_warnings => true
+pod 'BonMot', :inhibit_warnings => true
+pod 'PureLayout', :inhibit_warnings => true
+pod 'lottie-ios', :inhibit_warnings => true
 
-  pod 'LibMobileCoin/CoreHTTP', git: 'https://github.com/signalapp/libmobilecoin-ios-artifacts', tag: 'signal/6.0.2', submodules: true
-  pod 'MobileCoin/CoreHTTP', git: 'https://github.com/mobilecoinofficial/MobileCoin-Swift', tag: 'v6.0.3'
+pod 'LibMobileCoin/CoreHTTP', git: 'https://github.com/signalapp/libmobilecoin-ios-artifacts', tag: 'signal/6.0.2', submodules: true
+pod 'MobileCoin/CoreHTTP', git: 'https://github.com/mobilecoinofficial/MobileCoin-Swift', tag: 'v6.0.3'
 end
+
+# Abstract target to share pods between Signal and SignalShareExtension
+abstract_target 'SignalApp' do
+project 'Signal.xcodeproj', 'Debug' => :debug, 'Release' => :release
+
+# Common pods for both Signal and SignalShareExtension
+ui_pods
+
 
 target 'Signal' do
-  project 'Signal.xcodeproj', 'Debug' => :debug, 'Release' => :release
+# Pods only available inside the main Signal app
+pod 'AWSCore'
+pod 'AWSDynamoDB'
+pod 'AWSCognitoIdentityProvider'
+pod 'AWSS3'
+pod 'AWSLambda'
 
-  # Pods only available inside the main Signal app
-  ui_pods
-
-  target 'SignalTests' do
-    inherit! :search_paths
-  end
+target 'SignalTests' do
+inherit! :search_paths
 end
-
-# These extensions inherit all of the common pods
+end
 
 target 'SignalShareExtension' do
-  ui_pods
-end
-
-target 'SignalUI' do
-  ui_pods
-
-  target 'SignalUITests' do
-    inherit! :search_paths
-  end
-end
-
-target 'SignalServiceKit' do
-  pod 'CocoaLumberjack'
-
-  target 'SignalServiceKitTests' do
-    inherit! :search_paths
-  end
+pod 'AWSCore'
+pod 'AWSDynamoDB'
+pod 'AWSCognitoIdentityProvider'
+pod 'AWSS3'
+pod 'AWSLambda'
+# SignalShareExtension specific configuration if needed
 end
 
 target 'SignalNSE' do
+project 'Signal.xcodeproj', 'Debug' => :debug, 'Release' => :release
+
+pod 'AWSCore'
+pod 'AWSDynamoDB'
+pod 'AWSCognitoIdentityProvider'
+pod 'AWSS3'
+pod 'AWSLambda'
+pod 'Mantle', git: 'https://github.com/signalapp/Mantle', branch: 'signal-master'
+pod 'CocoaLumberjack'
+pod 'libPhoneNumber-iOS', git: 'https://github.com/signalapp/libPhoneNumber-iOS', branch: 'signal-master'
+end
+end
+
+target 'SignalServiceKit' do
+project 'Signal.xcodeproj', 'Debug' => :debug, 'Release' => :release
+
+pod 'Mantle', git: 'https://github.com/signalapp/Mantle', branch: 'signal-master'
+pod 'CocoaLumberjack'
+pod 'AWSCore'
+pod 'AWSDynamoDB'
+pod 'AWSCognitoIdentityProvider'
+pod 'AWSS3'
+pod 'AWSLambda'
+pod 'AWSAuthCore'
+pod 'CocoaImageHashing'
+
+target 'SignalServiceKitTests' do
+inherit! :search_paths
+end
+end
+
+target 'SignalUI' do
+project 'Signal.xcodeproj', 'Debug' => :debug, 'Release' => :release
+
+
+pod 'lottie-ios', :inhibit_warnings => true
+pod 'PureLayout', :inhibit_warnings => true
+pod 'BonMot', inhibit_warnings: true
+pod 'LibMobileCoin/CoreHTTP', git: 'https://github.com/signalapp/libmobilecoin-ios-artifacts', tag: 'signal/6.0.2', submodules: true
+pod 'MobileCoin/CoreHTTP', git: 'https://github.com/mobilecoinofficial/MobileCoin-Swift', tag: 'v6.0.3'
+pod 'AWSCore'
+pod 'AWSDynamoDB'
+pod 'AWSLambda'
+pod 'AWSCognitoIdentityProvider'
+pod 'AWSS3'
 end
 
 post_install do |installer|
-  enable_strip(installer)
-  enable_extension_support_for_purelayout(installer)
-  configure_warning_flags(installer)
-  configure_testable_build(installer)
-  promote_minimum_supported_version(installer)
-  disable_bitcode(installer)
-  disable_armv7(installer)
-  strip_valid_archs(installer)
-  update_frameworks_script(installer)
-  disable_non_development_pod_warnings(installer)
-#  fix_ringrtc_project_symlink(installer)
-  fetch_ringrtc
-  copy_acknowledgements
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |config|
+config.build_settings['EXCLUDED_ARCHS[sdk=macosx*]'] = 'arm64 x86_64'
+end
+end
+enable_strip(installer)
+enable_extension_support_for_purelayout(installer)
+configure_warning_flags(installer)
+configure_testable_build(installer)
+promote_minimum_supported_version(installer)
+disable_bitcode(installer)
+disable_armv7(installer)
+strip_valid_archs(installer)
+update_frameworks_script(installer)
+disable_non_development_pod_warnings(installer)
+# fix_ringrtc_project_symlink(installer)
+fetch_ringrtc
+copy_acknowledgements
 end
 
 # Works around CocoaPods behavior designed for static libraries.
 # See https://github.com/CocoaPods/CocoaPods/issues/10277
 def enable_strip(installer)
-  installer.pods_project.build_configurations.each do |build_configuration|
-    build_configuration.build_settings['STRIP_INSTALLED_PRODUCT'] = 'YES'
-  end
+installer.pods_project.build_configurations.each do |build_configuration|
+build_configuration.build_settings['STRIP_INSTALLED_PRODUCT'] = 'YES'
+end
 end
 
 # PureLayout by default makes use of UIApplication, and must be configured to be built for an extension.
 def enable_extension_support_for_purelayout(installer)
-  installer.pods_project.targets.each do |target|
-    if target.name.end_with? "PureLayout"
-      target.build_configurations.each do |build_configuration|
-         build_configuration.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= '$(inherited)'
-         build_configuration.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << ' PURELAYOUT_APP_EXTENSIONS=1'
-      end
-    end
-  end
+installer.pods_project.targets.each do |target|
+if target.name.end_with? "PureLayout"
+target.build_configurations.each do |build_configuration|
+build_configuration.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= '$(inherited)'
+build_configuration.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << ' PURELAYOUT_APP_EXTENSIONS=1'
+end
+end
+end
 end
 
 # We want some warning to be treated as errors.
 #
 # NOTE: We have to manually keep this list in sync with what's in our
 # Signal.xcodeproj config in Xcode go to:
-#   Signal Project > Build Settings > Other Warning Flags
+# Signal Project > Build Settings > Other Warning Flags
 def configure_warning_flags(installer)
-  installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |build_configuration|
-          build_configuration.build_settings['WARNING_CFLAGS'] = ['$(inherited)',
-                                                                  '-Werror=incompatible-pointer-types',
-                                                                  '-Werror=protocol',
-                                                                  '-Werror=incomplete-implementation',
-                                                                  '-Werror=objc-literal-conversion',
-                                                                  '-Werror=objc-property-synthesis',
-                                                                  '-Werror=objc-protocol-property-synthesis']
-      end
-  end
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |build_configuration|
+build_configuration.build_settings['WARNING_CFLAGS'] = ['$(inherited)',
+'-Werror=incompatible-pointer-types',
+'-Werror=protocol',
+'-Werror=incomplete-implementation',
+'-Werror=objc-literal-conversion',
+'-Werror=objc-property-synthesis',
+'-Werror=objc-protocol-property-synthesis']
+end
+end
 end
 
 def configure_testable_build(installer)
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |build_configuration|
-      next unless ["Testable Release", "Debug", "Profiling"].include?(build_configuration.name)
-      build_configuration.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
-      build_configuration.build_settings['ENABLE_TESTABILITY'] = 'YES'
-    end
-  end
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |build_configuration|
+next unless ["Testable Release", "Debug", "Profiling"].include?(build_configuration.name)
+build_configuration.build_settings['ONLY_ACTIVE_ARCH'] = 'YES'
+build_configuration.build_settings['ENABLE_TESTABILITY'] = 'YES'
+end
+end
 end
 
 # Xcode 13 dropped support for some older iOS versions. We only need them
 # to support our project's minimum version, so let's bump each Pod's min
 # version to our min to suppress these warnings.
 def promote_minimum_supported_version(installer)
-  project_min_version = current_target_definition.platform.deployment_target
+project_min_version = current_target_definition.platform.deployment_target
 
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |build_configuration|
-      target_version_string = build_configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
-      target_version = Version.create(target_version_string)
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |build_configuration|
+target_version_string = build_configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET']
+target_version = Version.create(target_version_string)
 
-      if target_version < project_min_version
-        build_configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = project_min_version.version
-      end
-    end
-  end
+if target_version < project_min_version
+build_configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = project_min_version.version
+end
+end
+end
 end
 
 
 def disable_bitcode(installer)
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['ENABLE_BITCODE'] = 'NO'
-    end
-  end
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |config|
+config.build_settings['ENABLE_BITCODE'] = 'NO'
+end
+end
 end
 
 def disable_armv7(installer)
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['EXCLUDED_ARCHS'] = 'armv7'
-    end
-  end
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |config|
+config.build_settings['EXCLUDED_ARCHS'] = 'armv7'
+end
+end
 end
 
 def strip_valid_archs(installer)
-  Dir.glob('Pods/Target Support Files/**/*.xcconfig') do |xcconfig_path|
-    xcconfig = File.read(xcconfig_path)
-    xcconfig_mod = xcconfig.gsub('VALID_ARCHS[sdk=iphoneos*] = arm64', '')
-    xcconfig_mod = xcconfig_mod.gsub('VALID_ARCHS[sdk=iphonesimulator*] = x86_64 arm64', '')
-    xcconfig_mod = xcconfig_mod.gsub('VALID_ARCHS[sdk=iphonesimulator*] = x86_64', '')
-    File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
-  end
+Dir.glob('Pods/Target Support Files/**/*.xcconfig') do |xcconfig_path|
+xcconfig = File.read(xcconfig_path)
+xcconfig_mod = xcconfig.gsub('VALID_ARCHS[sdk=iphoneos*] = arm64', '')
+xcconfig_mod = xcconfig_mod.gsub('VALID_ARCHS[sdk=iphonesimulator*] = x86_64 arm64', '')
+xcconfig_mod = xcconfig_mod.gsub('VALID_ARCHS[sdk=iphonesimulator*] = x86_64', '')
+File.open(xcconfig_path, "w") { |file| file << xcconfig_mod }
+end
 end
 
 #update_framework_scripts updates Pod-Signal-frameworks.sh to fix a bug in the .XCFramework->.framework
 #conversation process, by ensuring symlinks are properly respected in the XCFramework.
 #See https://github.com/CocoaPods/CocoaPods/issues/7587
 def update_frameworks_script(installer)
-    fw_script = File.read('Pods/Target Support Files/Pods-Signal/Pods-Signal-frameworks.sh')
-    fw_script_mod = fw_script.gsub('      lipo -remove "$arch" -output "$binary" "$binary"
-', '      realBinary="${binary}"
-      if [ -L "${realBinary}" ]; then
-        echo "Symlinked..."
-        dirname="$(dirname "${realBinary}")"
-        realBinary="${dirname}/$(readlink "${realBinary}")"
-      fi
-      lipo -remove "${arch}" -output "${realBinary}" "${realBinary}" || exit 1')
-    File.open('Pods/Target Support Files/Pods-Signal/Pods-Signal-frameworks.sh', "w") { |file| file << fw_script_mod }
+fw_script_path = 'Pods/Target Support Files/Pods-Signal/Pods-Signal-frameworks.sh'
+
+# Check if the file exists before trying to read it
+if File.exist?(fw_script_path)
+fw_script = File.read(fw_script_path)
+fw_script_mod = fw_script.gsub(' lipo -remove "$arch" -output "$binary" "$binary"
+', ' realBinary="${binary}"
+if [ -L "${realBinary}" ]; then
+echo "Symlinked..."
+dirname="$(dirname "${realBinary}")"
+realBinary="${dirname}/$(readlink "${realBinary}")"
+fi
+lipo -remove "${arch}" -output "${realBinary}" "${realBinary}" || exit 1')
+File.open(fw_script_path, "w") { |file| file << fw_script_mod }
+else
+puts "Skipping update_frameworks_script: file not found at #{fw_script_path}"
+end
 end
 
 # Disable warnings on any Pod not currently being modified
 def disable_non_development_pod_warnings(installer)
-  non_development_targets = installer.pod_targets.select do |target|
-    !installer.development_pod_targets.include?(target)
-  end
+non_development_targets = installer.pod_targets.select do |target|
+!installer.development_pod_targets.include?(target)
+end
 
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |build_configuration|
-      # Only suppress warnings for the debug configuration
-      # If we're building for release, continue to display warnings for all projects
-      next if build_configuration.name != "Debug"
+installer.pods_project.targets.each do |target|
+target.build_configurations.each do |build_configuration|
+# Only suppress warnings for the debug configuration
+# If we're building for release, continue to display warnings for all projects
+next if build_configuration.name != "Debug"
 
-      next unless non_development_targets.any? do |non_dev_target|
-        target.name.include?(non_dev_target.name)
-      end
+next unless non_development_targets.any? do |non_dev_target|
+target.name.include?(non_dev_target.name)
+end
 
-      build_configuration.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = 'YES'
-      build_configuration.build_settings['OTHER_SWIFT_FLAGS'] ||= '$(inherited)'
-      build_configuration.build_settings['OTHER_SWIFT_FLAGS'] << ' -suppress-warnings'
-    end
-  end
+build_configuration.build_settings['GCC_WARN_INHIBIT_ALL_WARNINGS'] = 'YES'
+build_configuration.build_settings['OTHER_SWIFT_FLAGS'] ||= '$(inherited)'
+build_configuration.build_settings['OTHER_SWIFT_FLAGS'] << ' -suppress-warnings'
+end
+end
 end
 
 def fix_ringrtc_project_symlink(installer)
-  ringrtc_path = installer.sandbox.pod_dir('SignalRingRTC') + '/out/release/libringrtc/ringrtc.h'
-  unless File.exist?(ringrtc_path)
-    puts "Skipping fix_ringrtc_project_symlink: file not found at #{ringrtc_path}"
-    return
-  end
+ringrtc_path = installer.sandbox.pod_dir('SignalRingRTC') + '/out/release/libringrtc/ringrtc.h'
+unless File.exist?(ringrtc_path)
+puts "Skipping fix_ringrtc_project_symlink: file not found at #{ringrtc_path}"
+return
+end
 
-  ringrtc_header_ref = installer.pods_project.reference_for_path(ringrtc_path)
-  if ringrtc_header_ref.path.start_with?('../') || ringrtc_header_ref.path.start_with?('/')
-    ringrtc_header_ref.path = 'out/release/libringrtc/ringrtc.h'
-  end
+ringrtc_header_ref = installer.pods_project.reference_for_path(ringrtc_path)
+if ringrtc_header_ref.path.start_with?('../') || ringrtc_header_ref.path.start_with?('/')
+ringrtc_header_ref.path = 'out/release/libringrtc/ringrtc.h'
+end
 end
 
 def fetch_ringrtc
-  `make fetch-ringrtc`
+`make fetch-ringrtc`
 end
 
 def copy_acknowledgements
-  targets = [
-    'Signal',
-    'SignalNSE',
-    'SignalServiceKit',
-    'SignalServiceKitTests',
-    'SignalShareExtension',
-    'SignalTests',
-    'SignalUI',
-    'SignalUITests'
-  ]
-  acknowledgements_files = targets.map do |target|
-    "Pods/Target Support Files/Pods-#{target}/Pods-#{target}-acknowledgements.plist"
-  end
-  acknowledgements_files << "Pods/LibSignalClient/acknowledgments/acknowledgments.plist"
-  acknowledgements_files << "Pods/SignalRingRTC/acknowledgments/acknowledgments.plist"
-  acknowledgements_files << "Pods/SignalRingRTC/out/release/acknowledgments-webrtc-ios.plist"
+targets = [
+'Signal',
+'SignalNSE',
+'SignalServiceKit',
+'SignalServiceKitTests',
+'SignalShareExtension',
+'SignalTests',
+'SignalUI',
+'SignalUITests'
+]
+acknowledgements_files = targets.map do |target|
+"Pods/Target Support Files/Pods-#{target}/Pods-#{target}-acknowledgements.plist"
+end
+acknowledgements_files << "Pods/LibSignalClient/acknowledgments/acknowledgments.plist"
+acknowledgements_files << "Pods/SignalRingRTC/acknowledgments/acknowledgments.plist"
+acknowledgements_files << "Pods/SignalRingRTC/out/release/acknowledgments-webrtc-ios.plist"
 
-  def get_specifier_groups(acknowledgements_files)
-    acknowledgements_files.map do |file|
-      extract_cmd = ['plutil', '-extract', 'PreferenceSpecifiers', 'json', '-o', '-', file]
+def get_specifier_groups(acknowledgements_files)
+acknowledgements_files.filter_map do |file|
+next unless File.exist?(file)
+extract_cmd = ['plutil', '-extract', 'PreferenceSpecifiers', 'json', '-o', '-', file]
+io = IO.popen(extract_cmd, unsetenv_others: true)
+output = io.read
+io.close
+status = $?
+next unless status.exitstatus == 0
+begin
+JSON.parse(output)
+rescue JSON::ParserError
+nil
+end
+end
+end
 
-      io = IO.popen(extract_cmd, unsetenv_others: true, exception: true)
-      result = JSON.parse(io.read)
-      io.close
-      status = $?
-      raise status unless status.exitstatus == 0
+def get_acknowledgements_specifiers(group)
+group[1...-1]
+end
 
-      result
-    end
-  end
+def write_output_file(specifiers)
+output_file = 'Signal/Settings.bundle/Acknowledgements.plist'
+output_json = JSON.dump(specifiers)
+system('plutil', '-create', 'xml1', output_file, exception: true)
+system('plutil', '-insert', 'PreferenceSpecifiers', '-json', output_json, '-append', output_file, exception: true)
+end
 
-  def get_acknowledgements_specifiers(group)
-    group[1...-1]
-  end
+def add_in_repo_third_party_code_licenses(specifiers)
+# specifiers << {
+# "Type" => "PSGroupSpecifier",
+# "Title" => "",
+# "FooterText" => "",
+# "License" => "",
+# }
+specifiers << {
+"Type" => "PSGroupSpecifier",
+"Title" => "UIImage-Resize",
+"FooterText" => <<~'LICENSE',
+Without any further information, all the sources provided here are under the MIT License
+quoted below.
 
-  def write_output_file(specifiers)
-    output_file = 'Signal/Settings.bundle/Acknowledgements.plist'
-    output_json = JSON.dump(specifiers)
-    system('plutil', '-create', 'xml1', output_file, exception: true)
-    system('plutil', '-insert', 'PreferenceSpecifiers', '-json', output_json, '-append', output_file, exception: true)
-  end
-
-  def add_in_repo_third_party_code_licenses(specifiers)
-#    specifiers << {
-#      "Type" => "PSGroupSpecifier",
-#      "Title" => "",
-#      "FooterText" => "",
-#      "License" => "",
-#    }
-     specifiers << {
-       "Type" => "PSGroupSpecifier",
-       "Title" => "UIImage-Resize",
-       "FooterText" => <<~'LICENSE',
-         Without any further information, all the sources provided here are under the MIT License
-         quoted below.
-
-         Anyway, please contact me by email (olivier.halligon+ae@gmail.com) if you plan to use my work and the provided classes
-         in your own software. Thanks.
+Anyway, please contact me by email (olivier.halligon+ae@gmail.com) if you plan to use my work and the provided classes
+in your own software. Thanks.
 
 
-         /***********************************************************************************
-          *
-          * Copyright (c) 2010 Olivier Halligon
-          *
-          * Permission is hereby granted, free of charge, to any person obtaining a copy
-          * of this software and associated documentation files (the "Software"), to deal
-          * in the Software without restriction, including without limitation the rights
-          * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-          * copies of the Software, and to permit persons to whom the Software is
-          * furnished to do so, subject to the following conditions:
-          *
-          * The above copyright notice and this permission notice shall be included in
-          * all copies or substantial portions of the Software.
-          *
-          * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-          * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-          * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-          * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-          * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-          * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-          * THE SOFTWARE.
-          *
-          ***********************************************************************************
-          *
-          * Any comment or suggestion welcome. Referencing this project in your AboutBox is appreciated.
-          * Please tell me if you use this class so we can cross-reference our projects.
-          *
-          ***********************************************************************************/
-       LICENSE
-       "License" => "MIT",
-     }
-  end
+/***********************************************************************************
+*
+* Copyright (c) 2010 Olivier Halligon
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+* THE SOFTWARE.
+*
+***********************************************************************************
+*
+* Any comment or suggestion welcome. Referencing this project in your AboutBox is appreciated.
+* Please tell me if you use this class so we can cross-reference our projects.
+*
+***********************************************************************************/
+LICENSE
+"License" => "MIT",
+}
+end
 
-  specifier_groups = get_specifier_groups(acknowledgements_files)
+specifier_groups = get_specifier_groups(acknowledgements_files)
 
-  header_specifier = specifier_groups.first.first
-  footer_specifier = specifier_groups.first.last
-  all_acknowledgements_specifiers = specifier_groups.flat_map {|g| get_acknowledgements_specifiers(g)}
+header_specifier = specifier_groups.first.first
+footer_specifier = specifier_groups.first.last
+all_acknowledgements_specifiers = specifier_groups.flat_map {|g| get_acknowledgements_specifiers(g)}
 
-  add_in_repo_third_party_code_licenses(all_acknowledgements_specifiers)
+add_in_repo_third_party_code_licenses(all_acknowledgements_specifiers)
 
-  libraries_by_license = Hash.new { |h, k| h[k] = [] }
-  all_acknowledgements_specifiers.each do |v|
-    v["Title"].split(", ").each do |title|
-      libraries_by_license[[v["FooterText"], v["License"]]] << title
-    end
-  end
+libraries_by_license = Hash.new { |h, k| h[k] = [] }
+all_acknowledgements_specifiers.each do |v|
+v["Title"].split(", ").each do |title|
+libraries_by_license[[v["FooterText"], v["License"]]] << title
+end
+end
 
-  grouped_acknowledgements_specifiers = []
-  libraries_by_license.each do |key, value|
-    titles = value.uniq.sort_by { |s| s.downcase }.join(", ")
-    acknowledgement = {
-      "Type" => "PSGroupSpecifier",
-      "Title" => titles,
-      "FooterText" => key[0],
-    }
-    acknowledgement["License"] = key[1] if key[1]
-    grouped_acknowledgements_specifiers << acknowledgement
-  end
+grouped_acknowledgements_specifiers = []
+libraries_by_license.each do |key, value|
+titles = value.uniq.sort_by { |s| s.downcase }.join(", ")
+acknowledgement = {
+"Type" => "PSGroupSpecifier",
+"Title" => titles,
+"FooterText" => key[0],
+}
+acknowledgement["License"] = key[1] if key[1]
+grouped_acknowledgements_specifiers << acknowledgement
+end
 
-  cleaned_acknowledgements_specifiers = grouped_acknowledgements_specifiers.sort_by {|s| s["Title"].downcase}
-  final_specifiers = [header_specifier] + cleaned_acknowledgements_specifiers + [footer_specifier]
+cleaned_acknowledgements_specifiers = grouped_acknowledgements_specifiers.sort_by {|s| s["Title"].downcase}
+final_specifiers = [header_specifier] + cleaned_acknowledgements_specifiers + [footer_specifier]
 
-  write_output_file(final_specifiers)
+write_output_file(final_specifiers)
 end

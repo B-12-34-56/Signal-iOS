@@ -303,6 +303,34 @@ public extension UIView {
             constraint.isActive = false
         }
     }
+
+    @discardableResult
+    func autoPin(toTopLayoutGuideOf viewController: UIViewController, withInset inset: CGFloat = 0) -> NSLayoutConstraint {
+        if #available(iOS 11.0, *) {
+            let constraint = self.topAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.topAnchor, constant: inset)
+            constraint.isActive = true
+            return constraint
+        } else {
+            // For iOS < 11, use the topLayoutGuide's bottomAnchor
+            let constraint = self.topAnchor.constraint(equalTo: viewController.topLayoutGuide.bottomAnchor, constant: inset)
+            constraint.isActive = true
+            return constraint
+        }
+    }
+
+    @discardableResult
+    func autoPin(toBottomLayoutGuideOf viewController: UIViewController, withInset inset: CGFloat = 0) -> NSLayoutConstraint {
+        if #available(iOS 11.0, *) {
+            let constraint = self.bottomAnchor.constraint(equalTo: viewController.view.safeAreaLayoutGuide.bottomAnchor, constant: -inset)
+            constraint.isActive = true
+            return constraint
+        } else {
+            // For iOS < 11, use the bottomLayoutGuide's topAnchor
+            let constraint = self.bottomAnchor.constraint(equalTo: viewController.bottomLayoutGuide.topAnchor, constant: -inset)
+            constraint.isActive = true
+            return constraint
+        }
+    }
 }
 
 extension NSLayoutConstraint.Relation {

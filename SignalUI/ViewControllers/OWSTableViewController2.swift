@@ -4,6 +4,7 @@
 //
 
 import SignalServiceKit
+import SignalUI
 
 // This class offers a convenient way to build table views
 // when performance is not critical, e.g. when the table

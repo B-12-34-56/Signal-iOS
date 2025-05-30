@@ -16,14 +16,21 @@ public class MockSSKEnvironment {
         SetCurrentAppContext(testAppContext)
         let appReadiness = AppReadinessImpl()
 
-        _ = await AppSetup().start(
-            appContext: testAppContext,
-            appReadiness: appReadiness,
-            databaseStorage: try! SDSDatabaseStorage(
+        let databaseStorage: SDSDatabaseStorage
+        do {
+            databaseStorage = try SDSDatabaseStorage(
                 appReadiness: appReadiness,
                 databaseFileUrl: SDSDatabaseStorage.grdbDatabaseFileUrl,
                 keychainStorage: MockKeychainStorage()
-            ),
+            )
+        } catch {
+            fatalError("Failed to initialize SDSDatabaseStorage: \(error)")
+        }
+
+        _ = await AppSetup().start(
+            appContext: testAppContext,
+            appReadiness: appReadiness,
+            databaseStorage: databaseStorage,
             paymentsEvents: PaymentsEventsNoop(),
             mobileCoinHelper: MobileCoinHelperMock(),
             callMessageHandler: NoopCallMessageHandler(),
@@ -62,7 +69,12 @@ public class MockSSKEnvironment {
         waitForMainQueue()
 
         // Wait for all pending readers/writers to finish.
-        SSKEnvironment.shared.databaseStorageRef.grdbStorage.pool.barrierWriteWithoutTransaction { _ in }
+        do {
+            try SSKEnvironment.shared.databaseStorageRef.grdbStorage.pool.barrierWriteWithoutTransaction { _ in }
+        } catch {
+            // TODO: Handle error from barrierWriteWithoutTransaction appropriately
+            print("Error in barrierWriteWithoutTransaction: \(error)")
+        }
 
         // Wait for the main queue *again* in case more work was scheduled.
         waitForMainQueue()

@@ -54,7 +54,7 @@ public class StoryDirectReplySheet: OWSViewController, StoryReplySheet {
 
         view.addSubview(inputToolbar)
         inputToolbar.autoPinWidthToSuperview()
-        inputToolbar.autoPin(toTopLayoutGuideOf: self, withInset: 0, relation: .greaterThanOrEqual)
+        inputToolbar.autoPin(toTopLayoutGuideOf: self, withInset: 0)
         inputToolbar.autoPinEdge(.bottom, to: .bottom, of: keyboardLayoutGuideViewSafeArea)
     }
 

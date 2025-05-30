@@ -66,11 +66,15 @@ internal enum ValidationBackfill: Int, CaseIterable {
     /// Other filters (that don't use the content type or mime type); less common but still supported.
     /// Only supports single column filters.
     struct Filter {
-        /// What column to filter on.
+        enum Operator {
+            case equal
+            case greaterThan
+            case lessThan
+            case greaterThanOrEqual
+            case lessThanOrEqual
+        }
         let column: Attachment.Record.CodingKeys
-        /// ==, >, <, <=, >=, etc.
-        let `operator`: (_ lhs: SQLSpecificExpressible, _ rhs: SQLExpressible?) -> SQLExpression
-        /// The value to compare the column to
+        let op: Operator
         let value: SQLExpressible
     }
 
@@ -84,7 +88,7 @@ internal enum ValidationBackfill: Int, CaseIterable {
             return [
                 .init(
                     column: .cachedAudioDurationSeconds,
-                    operator: ==,
+                    op: .equal,
                     value: 0
                 )
             ]
@@ -336,7 +340,22 @@ public class AttachmentValidationBackfillMigratorImpl: AttachmentValidationBackf
             }
 
             for columnFilter in backfill.columnFilters {
-                backfillPredicates.append(columnFilter.operator(Column(columnFilter.column), columnFilter.value))
+                let column = Column(columnFilter.column)
+                let value = columnFilter.value
+                let predicate: SQLSpecificExpressible
+                switch columnFilter.op {
+                case .equal:
+                    predicate = column == value
+                case .greaterThan:
+                    predicate = column > value
+                case .lessThan:
+                    predicate = column < value
+                case .greaterThanOrEqual:
+                    predicate = column >= value
+                case .lessThanOrEqual:
+                    predicate = column <= value
+                }
+                backfillPredicates.append(predicate)
             }
 
             // AND all predicates for this backfill.

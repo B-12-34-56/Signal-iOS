@@ -5,6 +5,19 @@
 
 import Foundation
 public import LibSignalClient
+import UIKit
+import UniformTypeIdentifiers
+import CryptoKit
+
+public struct DuplicateAttachmentUploadError: Error, LocalizedError {
+    public let aHash: String
+    public var errorDescription: String? {
+        return "Duplicate attachment upload blocked. Hash: \(aHash)"
+    }
+    public init(aHash: String) {
+        self.aHash = aHash
+    }
+}
 
 public protocol AttachmentUploadManager {
     /// Upload a transient backup file that isn't an attachment (not saved to the database or sent).
@@ -240,7 +253,18 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
         progress: OWSProgressSink?
     ) async throws -> Upload.Result<Upload.LocalUploadMetadata> {
         let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[transient]")
-
+        
+        // Create a temporary SignalAttachment to check content filter
+        let inferredUti = dataSource.sourceFilename
+            .flatMap { UTType(filenameExtension: ($0 as NSString).pathExtension) }?
+            .identifier
+            ?? UTType.data.identifier
+            
+        let attachment = SignalAttachment.attachment(
+            dataSource: dataSource,
+            dataUTI: inferredUti
+        )
+        
         let temporaryFile = fileSystem.temporaryFileUrl()
         guard let sourceURL = dataSource.dataUrl else {
             throw OWSAssertionError("Failed to access data source file")
@@ -340,8 +364,92 @@ public actor AttachmentUploadManagerImpl: AttachmentUploadManager {
         attachmentId: Attachment.IDType,
         progress: OWSProgressSink?
     ) async throws {
-        let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[\(attachmentId)]")
+        let logger = PrefixedLogger(prefix: "[Upload]", suffix: "[transit]")
+        
+        // 1. Fetch attachment inside a DB transaction so we can pass `tx:`
+        let attachment = try await db.read { tx -> Attachment in
+            guard let attachment = self.attachmentStore.fetch(id: attachmentId, tx: tx) else {
+                throw OWSAssertionError("Missing attachment")
+            }
+            return attachment
+        }
+        
+        // ADD DUPLICATE CHECK HERE
+        if let stream = attachment.asStream() {
+            // Check if it's an image based on mime type
+            let isImage = stream.mimeType.hasPrefix("image/") 
+            
+            if isImage {
+                // For duplicate detection, we need to decrypt the image data
+                // to compute perceptual hash, but use encrypted data for SHA256
+                let encryptedData = try Data(contentsOf: stream.fileURL)
+                
+                // We need to decrypt to create UIImage for perceptual hashing
+                // First, get the decrypted data
+                var decryptedData: Data?
+                if let stream = attachment.asStream() {
+                    // Create a temporary file for decryption
+                    let tempURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+                    defer {
+                        try? FileManager.default.removeItem(at: tempURL)
+                    }
+                    
+                    // Decrypt the attachment
+                    let metadata = EncryptionMetadata(
+                        key: attachment.encryptionKey,
+                        digest: stream.info.digestSHA256Ciphertext,
+                        length: Int(clamping: stream.info.encryptedByteCount),
+                        plaintextLength: Int(clamping: stream.info.unencryptedByteCount)
+                    )
+                    
+                    try attachmentEncrypter.decryptAttachment(
+                        at: stream.fileURL,
+                        metadata: metadata,
+                        output: tempURL
+                    )
+                    
+                    decryptedData = try Data(contentsOf: tempURL)
+                }
+                
+                // Check for duplicates using the existing service
+                if let imageData = decryptedData, let image = UIImage(data: imageData) {
+                    // ── Compute hashes once ───────────────────────────────
+                    let (sha256Hex, pHashHex) = try await ImageHashing.hashes(for: image)           // static helper, not .shared
+                    let pHashInt = UInt64(pHashHex, radix: 16) ?? 0
 
+                    // ── Ask the Lambda-backed service if it's a duplicate ─
+                    let isDuplicate = try await DuplicateFilterService.shared
+                        .checkDuplicateAsync((sha256: sha256Hex, pHash: pHashInt))            // async variant needs no completion
+
+                    if isDuplicate {
+                        attachment.aHashString = sha256Hex   // no optional-chaining; real value
+                        logger.warn("Blocking duplicate image upload for attachment: \(attachmentId)")
+                        throw DuplicateAttachmentUploadError(aHash: sha256Hex)
+                    }
+                }
+            }
+        }
+
+        // 2. Convert the AttachmentStream to a DataSource with the new API name
+        let dataSource = try await db.read { tx -> DataSource in
+            guard let stream = attachment.asStream() else {
+                throw OWSAssertionError("Attachment is not a stream")
+            }
+            // Create a DataSource from the file URL
+            return try DataSourcePath(fileUrl: stream.fileURL, shouldDeleteOnDeallocation: false)
+        }
+
+        // 3. Derive the UTI; `Attachment.dataUTI` was removed in the refactor
+        let inferredUti = attachment.mediaName?
+            .split(separator: ".").last
+            .flatMap { UTType(filenameExtension: String($0)) }?
+            .identifier ?? UTType.data.identifier
+
+        let signalAttachment = SignalAttachment.attachment(
+            dataSource: dataSource,
+            dataUTI: inferredUti
+        )
+        
         let encryptedByteCount = db.read { tx in
             return attachmentStore.fetch(id: attachmentId, tx: tx)?.streamInfo?.encryptedByteCount
         } ?? 0

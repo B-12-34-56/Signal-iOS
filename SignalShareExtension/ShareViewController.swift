@@ -9,6 +9,8 @@ public import PureLayout
 import SignalServiceKit
 public import SignalUI
 import UniformTypeIdentifiers
+import AWSCore
+import AWSLambda
 
 public class ShareViewController: UIViewController, ShareViewDelegate, SAEFailedViewDelegate {
 
@@ -351,6 +353,15 @@ public class ShareViewController: UIViewController, ShareViewDelegate, SAEFailed
                 self?.activate()
             }
         }
+        // Configure AWS for share extension
+                DispatchQueue.global().async {
+                    do {
+                        try AWSConfig.shared?.configureAWS()
+                        Logger.info("Share extension: AWS configured successfully")
+                    } catch {
+                        Logger.error("Share extension: Failed to configure AWS: \(error)")
+                    }
+                }
     }
 
     override open func viewWillAppear(_ animated: Bool) {
@@ -527,9 +538,23 @@ public class ShareViewController: UIViewController, ShareViewDelegate, SAEFailed
                 Logger.info("Setting picker attachments: \(attachments)")
                 self.conversationPicker.attachments = attachments
 
-                if let selectedThread = selectedThread {
-                    let approvalVC = try self.conversationPicker.buildApprovalViewController(for: selectedThread)
-                    self.showPrimaryViewController(approvalVC)
+                self.checkAttachmentsForDuplicates(attachments) { [weak self] shouldProceed in
+                    guard shouldProceed else {
+                        // Duplicates found, alert shown, don't proceed
+                        return
+                    }
+
+                    // Continue with the existing flow
+                    if let selectedThread = selectedThread {
+                        do {
+                            let approvalVC = try self?.conversationPicker.buildApprovalViewController(for: selectedThread)
+                            if let approvalVC = approvalVC {
+                                self?.showPrimaryViewController(approvalVC)
+                            }
+                        } catch {
+                            // Handle error
+                        }
+                    }
                 }
 
             } catch ShareViewControllerError.tooManyAttachments {
@@ -912,6 +937,99 @@ public class ShareViewController: UIViewController, ShareViewDelegate, SAEFailed
         } else {
             return false
         }
+    }
+
+    /// MARK: - Duplicate Attachment Check
+    private func checkAttachmentsForDuplicates(_ attachments: [SignalAttachment], completion: @escaping (Bool) -> Void) {
+        // Filter for image attachments using modern UTType API
+        let imageAttachments = attachments.filter { attachment in
+            let dataUTI = attachment.dataUTI
+            guard let utType = UTType(dataUTI) else { return false }
+            return utType.conforms(to: .image)
+        }
+
+        guard !imageAttachments.isEmpty else {
+            // No images to check, proceed
+            completion(true)
+            return
+        }
+
+        // Check each image for duplicates using ContentFilterService
+        Task {
+            for attachment in imageAttachments {
+                // Fix: Remove try? since data is a non-throwing property
+                let imageData = attachment.data
+                
+                // Use ContentFilterService for consistency
+                let result = await ContentFilterService.shared.scanAndUpload(
+                    imageData: imageData,
+                    fileName: attachment.sourceFilename ?? "image.jpg"
+                )
+                
+                switch result {
+                case .allowed(_, _):
+                    // Image is allowed, continue checking others
+                    continue
+                
+                case .blocked(let reason, _):
+                    if reason == "Duplicate image detected" {
+                        // Show alert and block
+                        await MainActor.run {
+                            self.showDuplicateBlockedAlert()
+                        }
+                        completion(false)
+                        return
+                    } else {
+                        // Other blocking reason
+                        await MainActor.run {
+                            self.showContentBlockedAlert(reason: reason)
+                        }
+                        completion(false)
+                        return
+                    }
+                
+                case .error(let error):
+                    Logger.error("Share extension content filter error: \(String(describing: error))")
+                    // On error, allow send (offline fallback)
+                    completion(true)
+                    return
+                }
+            }
+
+            // All checks passed
+            completion(true)
+        }
+    }
+
+    private func showDuplicateBlockedAlert() {
+        let alert = UIAlertController(
+            title: "Duplicate Image",
+            message: "This image has been sent too many times and cannot be shared again.",
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+            self?.shareViewWasCancelled()
+        })
+
+        present(alert, animated: true)
+    }
+
+    private func showContentBlockedAlert(reason: String) {
+        let alert = UIAlertController(
+            title: OWSLocalizedString(
+                "CONTENT_BLOCKED_ALERT_TITLE",
+                comment: "Title for blocked content alert"
+            ),
+            message: reason,
+            preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: CommonStrings.okButton, style: .default) { [weak self] _ in
+            self?.shareViewWasCancelled()
+        })
+
+        present(alert, animated: true)
     }
 }
 

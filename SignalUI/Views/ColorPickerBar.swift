@@ -4,6 +4,7 @@
 //
 
 import SignalServiceKit
+import SignalUI
 
 public protocol ColorPickerBarViewDelegate: AnyObject {
     func colorPickerBarView(_ pickerView: ColorPickerBarView, didSelectColor color: ColorPickerBarColor)

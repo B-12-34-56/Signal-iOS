@@ -10,19 +10,21 @@ public import GRDB
 public final class InMemoryDB: DB {
 
     private let schedulers: Schedulers
+    let databaseQueue: DatabaseQueue
 
-    public init(schedulers: Schedulers = DispatchQueueSchedulers()) {
+    public init(schedulers: Schedulers = DispatchQueueSchedulers()) throws {
         self.schedulers = schedulers
+        let result = try DatabaseQueue()
+        let schemaUrl = Bundle(for: GRDBSchemaMigrator.self).url(forResource: "schema", withExtension: "sql")!
+        do {
+            try result.write { try $0.execute(sql: try String(contentsOf: schemaUrl)) }
+        } catch {
+            fatalError("Failed to initialize in-memory DB schema: \(error)")
+        }
+        self.databaseQueue = result
     }
 
     // MARK: - State
-
-    let databaseQueue: DatabaseQueue = {
-        let result = DatabaseQueue()
-        let schemaUrl = Bundle(for: GRDBSchemaMigrator.self).url(forResource: "schema", withExtension: "sql")!
-        try! result.write { try $0.execute(sql: try String(contentsOf: schemaUrl)) }
-        return result
-    }()
 
     // MARK: - Protocol
 
