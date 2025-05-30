@@ -459,11 +459,12 @@ public class AttachmentDownloadManagerImpl: AttachmentDownloadManager {
         }
 
         func didSucceed(
-            record: DownloadTaskRecord,
-            tx: DBWriteTransaction
-        ) throws {
-            Logger.info("Succeeded download of attachment \(record.record.attachmentId)")
-        }
+               record: DownloadTaskRecord,
+               tx: DBWriteTransaction
+           ) throws {
+               print("Succeeded download of attachment \(record.record.attachmentId)")
+               
+           }
 
         func didCancel(
             record: DownloadTaskRecord,

@@ -128,6 +128,22 @@ public class AttachmentDownloadStoreImpl: AttachmentDownloadStore {
             .updateAll(tx.database, Column(.minRetryTimestamp).set(to: nil))
     }
 
+    func updateRetryAttempt(
+        id: Int64,
+        newTimestamp: Int64,
+        newAttemptCount: Int,
+        db: Database
+    ) throws {
+        try db.execute(
+            sql: """
+                UPDATE AttachmentDownloadQueue
+                   SET minRetryTimestamp = ?, retryAttempts = ?
+                 WHERE id = ?
+                """,
+            arguments: [newTimestamp, newAttemptCount, id]
+        )
+    }
+
     // MARK: - Private
 
     /// If the current priority is lower than the provided priority, updates with the new priority and makes retryable.
