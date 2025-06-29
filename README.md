@@ -22,6 +22,13 @@ Instructions for how to configure your development environment and build Signal 
 
 Have something you want to say about Signal Foundation projects or want to be part of the conversation? Get involved in the [community forum](https://community.signalusers.org).
 
+## How to run application
+
+Type the following step by step in your terminal: 
+1. cd Signal-iOS
+2. pod install
+3. open Signal.xcworkspace
+
 ## Cryptography Notice
 
 This distribution includes cryptographic software. The country in which you currently reside may have restrictions on the import, possession, use, and/or re-export to another country, of encryption software.
