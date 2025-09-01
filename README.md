@@ -11,6 +11,13 @@ Also available on [Android](https://github.com/signalapp/signal-android) and [De
 For troubleshooting and questions, please visit our [support center](https://support.signal.org/) or [unofficial community forum](https://community.signalusers.org/).
 
 
+## How to run application
+
+Type the following step by step in your terminal: 
+1. cd Signal-iOS
+2. pod install
+3. open Signal.xcworkspace
+
 ## Cryptography Notice
 
 This distribution includes cryptographic software. The country in which you currently reside may have restrictions on the import, possession, use, and/or re-export to another country, of encryption software.
